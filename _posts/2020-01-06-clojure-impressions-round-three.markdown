@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Clojure Impressions Round Three"
+categories: [blog, aws]
+tags: [aws]
 date:	2020-01-06
 ---
 

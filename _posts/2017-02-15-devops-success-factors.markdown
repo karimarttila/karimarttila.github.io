@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"DevOps Success Factors"
+categories: [blog, aws]
+tags: [aws]
 date:	2017-02-15
 ---
 

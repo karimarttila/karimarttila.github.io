@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Comparing Simple GCP Infrastructure Demo to AWS and Azure"
+categories: [blog, aws]
+tags: [aws]
 date:	2019-07-05
 ---
 

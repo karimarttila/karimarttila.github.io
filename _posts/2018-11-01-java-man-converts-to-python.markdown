@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Java Man Converts to Python"
+categories: [blog, aws]
+tags: [aws]
 date:	2018-11-01
 ---
 

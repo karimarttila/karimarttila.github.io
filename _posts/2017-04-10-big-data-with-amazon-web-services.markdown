@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Big Data with Amazon Web Services"
+categories: [blog, aws]
+tags: [aws]
 date:	2017-04-10
 ---
 

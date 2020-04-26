@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Cloud Infrastructure Golden Rules"
+categories: [blog, aws]
+tags: [aws]
 date:	2020-04-10
 ---
 

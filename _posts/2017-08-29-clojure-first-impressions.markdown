@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Clojure First Impressions"
+categories: [blog, aws]
+tags: [aws]
 date:	2017-08-29
 ---
 

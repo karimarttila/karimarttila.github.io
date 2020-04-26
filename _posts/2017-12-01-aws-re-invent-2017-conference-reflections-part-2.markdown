@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"AWS re:Invent 2017 Conference Reflections Part 2"
+categories: [blog, aws]
+tags: [aws]
 date:	2017-12-01
 ---
 

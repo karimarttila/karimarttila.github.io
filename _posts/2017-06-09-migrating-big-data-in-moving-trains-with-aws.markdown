@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Migrating Big Data in Moving Trains with AWS"
+categories: [blog, aws]
+tags: [aws]
 date:	2017-06-09
 ---
 

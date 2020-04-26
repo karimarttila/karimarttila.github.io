@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Studying Machine Learning — First Impressions"
+categories: [blog, aws]
+tags: [aws]
 date:	2018-01-01
 ---
 

@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Clojure Impressions Round Two"
+categories: [blog, aws]
+tags: [aws]
 date:	2017-09-14
 ---
 

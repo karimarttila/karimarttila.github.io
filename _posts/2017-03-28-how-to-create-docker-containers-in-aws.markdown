@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"How to Create Docker Containers in AWS?"
+categories: [blog, aws]
+tags: [aws]
 date:	2017-03-28
 ---
 

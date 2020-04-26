@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Exploring Kubernetes with Minikube"
+categories: [blog, aws]
+tags: [aws]
 date:	2018-09-11
 ---
 

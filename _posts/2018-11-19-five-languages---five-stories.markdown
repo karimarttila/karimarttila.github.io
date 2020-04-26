@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Five Languages — Five Stories"
+categories: [blog, aws]
+tags: [aws]
 date:	2018-11-19
 ---
 

@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"How to do Application Logging in AWS?"
+categories: [blog, aws]
+tags: [aws]
 date:	2017-05-17
 ---
 

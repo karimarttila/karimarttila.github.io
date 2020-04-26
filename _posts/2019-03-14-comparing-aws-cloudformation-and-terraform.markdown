@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Comparing AWS CloudFormation and Terraform"
+categories: [blog, aws]
+tags: [aws]
 date:	2019-03-14
 ---
 

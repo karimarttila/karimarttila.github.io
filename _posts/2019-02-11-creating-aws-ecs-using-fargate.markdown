@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Creating AWS ECS Using Fargate"
+categories: [blog, aws]
+tags: [aws]
 date:	2019-02-11
 ---
 

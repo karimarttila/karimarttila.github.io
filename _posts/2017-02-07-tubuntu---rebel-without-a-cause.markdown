@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Tubuntu — Rebel Without a Cause"
+categories: [blog, aws]
+tags: [aws]
 date:	2017-02-07
 ---
 

@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Using Clojure to Implement a Web Service Server"
+categories: [blog, aws]
+tags: [aws]
 date:	2018-03-25
 ---
 

@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Java Man Returns Home Confused"
+categories: [blog, aws]
+tags: [aws]
 date:	2018-10-29
 ---
 

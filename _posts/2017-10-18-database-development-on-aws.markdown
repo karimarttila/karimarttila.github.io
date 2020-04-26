@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Database Development On AWS"
+categories: [blog, aws]
+tags: [aws]
 date:	2017-10-18
 ---
 

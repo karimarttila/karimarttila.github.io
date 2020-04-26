@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Writing Machine Learning Solutions — First Impressions"
+categories: [blog, aws]
+tags: [aws]
 date:	2018-01-25
 ---
 

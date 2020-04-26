@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Creating AWS Elastic Container Service for Kubernetes (EKS) the Right Way"
+categories: [blog, aws]
+tags: [aws]
 date:	2019-01-18
 ---
 

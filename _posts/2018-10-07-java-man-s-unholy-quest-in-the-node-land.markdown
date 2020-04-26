@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Java Man’s Unholy Quest in the Node Land"
+categories: [blog, aws]
+tags: [aws]
 date:	2018-10-07
 ---
 

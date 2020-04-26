@@ -1,6 +1,8 @@
 ---
 layout: post
 title:  "Welcome to Jekyll!"
+categories: [blog, aws]
+tags: [aws]
 date:   2020-04-23 22:34:30 +0300
 categories: jekyll update
 ---

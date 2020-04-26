@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"AWS Redshift and Creating Test Data Infrastructure"
+categories: [blog, aws]
+tags: [aws]
 date:	2017-08-24
 ---
 

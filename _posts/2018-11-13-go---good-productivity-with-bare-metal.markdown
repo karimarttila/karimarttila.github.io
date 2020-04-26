@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Go — Good Productivity with Bare Metal"
+categories: [blog, aws]
+tags: [aws]
 date:	2018-11-13
 ---
 

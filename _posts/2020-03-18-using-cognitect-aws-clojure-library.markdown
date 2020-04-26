@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Using Cognitect AWS Clojure Library"
+categories: [blog, aws]
+tags: [aws]
 date:	2020-03-18
 ---
 

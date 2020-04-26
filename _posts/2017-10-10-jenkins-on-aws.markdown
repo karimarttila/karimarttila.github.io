@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Jenkins on AWS"
+categories: [blog, aws]
+tags: [aws]
 date:	2017-10-10
 ---
 

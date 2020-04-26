@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Become a Full Stack Developer with Clojure and ClojureScript!"
+categories: [blog, aws]
+tags: [aws]
 date:	2018-04-22
 ---
 

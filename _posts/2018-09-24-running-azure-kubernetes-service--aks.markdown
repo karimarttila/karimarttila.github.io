@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Running Azure Kubernetes Service (AKS)"
+categories: [blog, aws]
+tags: [aws]
 date:	2018-09-24
 ---
 

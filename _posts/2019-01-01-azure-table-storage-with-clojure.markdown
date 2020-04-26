@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Azure Table Storage with Clojure"
+categories: [blog, aws]
+tags: [aws]
 date:	2019-01-01
 ---
 

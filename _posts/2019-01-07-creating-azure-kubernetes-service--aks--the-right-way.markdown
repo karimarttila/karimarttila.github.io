@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Creating Azure Kubernetes Service (AKS) the Right Way"
+categories: [blog, aws]
+tags: [aws]
 date:	2019-01-07
 ---
 

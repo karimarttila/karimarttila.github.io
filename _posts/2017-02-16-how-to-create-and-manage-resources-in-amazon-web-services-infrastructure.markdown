@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"How to Create and Manage Resources in Amazon Web Services Infrastructure?"
+categories: [blog, aws]
+tags: [aws]
 date:	2017-02-16
 ---
 

@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Deploying Kubernetes Configuration to AWS EKS"
+categories: [blog, aws]
+tags: [aws]
 date:	2019-01-21
 ---
 

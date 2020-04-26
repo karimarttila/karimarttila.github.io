@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Setting Up AWS DevOps Tools"
+categories: [blog, aws]
+tags: [aws]
 date:	2019-04-12
 ---
 

@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"Inner Motivation Always Beats Outer Motivation"
+categories: [blog, aws]
+tags: [aws]
 date:	2017-02-22
 ---
 

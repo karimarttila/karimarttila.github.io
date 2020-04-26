@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"How to Create Infrastructure as Code for AWS and Azure"
+categories: [blog, aws]
+tags: [aws]
 date:	2019-02-28
 ---
 

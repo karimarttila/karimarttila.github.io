@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"AWS DynamoDB with Clojure"
+categories: [blog, aws]
+tags: [aws]
 date:	2018-12-12
 ---
 

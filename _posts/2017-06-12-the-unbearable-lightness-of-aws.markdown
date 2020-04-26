@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"The Unbearable Lightness of AWS"
+categories: [blog, aws]
+tags: [aws]
 date:	2017-06-12
 ---
 

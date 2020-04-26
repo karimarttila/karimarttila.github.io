@@ -1,6 +1,8 @@
 ---
 layout:	post
 title:	"AWS Batch and Docker Containers"
+categories: [blog, aws]
+tags: [aws]
 date:	2017-11-09
 ---
 
