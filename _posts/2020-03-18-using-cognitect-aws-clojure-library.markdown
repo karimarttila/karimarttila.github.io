@@ -6,7 +6,7 @@ tags: [aws]
 date:	2020-03-18
 ---
 
-  ### Introduction
+### Introduction
 
 ![](/img/1*FVubctL-68kaKHP9VmyCnA.png)A Clojure REPL session using IntelliJ IDEA / Cursive.I joined [Metosin](https://www.metosin.fi/en/), a Finnish Clojure shop, at the beginning of this year. For refreshing my Clojure skills I decided to re-implement my old Clojure Simple-Server exercise using Metosin libraries before I joined the company. In the original version of the Simple-Server that I implemented some three years ago, I had used [defprotocol](https://clojuredocs.org/clojure.core/defprotocol) mechanism to provide a single-node version (using CSV files to simulate database) and an AWS version using DynamoDB as a data store. In that [previous Simple-Server version](https://github.com/karimarttila/clojure/tree/master/clj-ring-cljs-reagent-demo/simple-server) I had used [amazonica AWS Clojure library](https://github.com/mcohen01/amazonica). In this new version of the Simple-Server exercise, I decided to try [Cognitect AWS Clojure library](https://github.com/cognitect-labs/aws-api). In this blog post, I shortly list some experiences using the Cognitect AWS library with Clojure. If you are interested in Clojure development, in general, you might be interested to read also my previous related blog article “[Clojure Impressions Round Three](https://medium.com/@kari.marttila/clojure-impressions-round-three-aa98814717f3)”.
 

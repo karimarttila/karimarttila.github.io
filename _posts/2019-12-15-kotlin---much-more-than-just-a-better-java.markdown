@@ -6,7 +6,7 @@ tags: [aws]
 date:	2019-12-15
 ---
 
-  ### Introduction
+### Introduction
 
 This [Kotlin](https://kotlinlang.org/) version of my exercise server “Simple Server” is now the sixth language that I have used to implement the same server as an exercise (previous implementations: Clojure, Javascript, Java, Python and Go, see: my Medium blog post regarding these exercises: [Five Languages — Five Stories](https://medium.com/@kari.marttila/five-languages-five-stories-1afd7b0b583f)). I’m planning to implement the Simple Server also using Typescript — maybe after that implementation I update that blog post to “Seven Languages — Seven Stories :-).
 

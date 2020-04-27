@@ -6,7 +6,7 @@ tags: [aws]
 date:	2019-04-12
 ---
 
-  ### Introduction
+### Introduction
 
 ![](/img/1*0oCftRVnxpjoHA-kFabeOA.png)AWS DevOps Demonstration TopologyIn my new unit working as a Cloud Mentor I was thinking myself that sooner or later some AWS project asks me to help them to set up AWS DevOps tools for the project. So, I created a short AWS DevOps demonstration as a learning project and also to be used as a template and example for setting up these tools in a new AWS project. The diagram above depicts the components I used in the project and which I also describe in more detail in this blog post.
 

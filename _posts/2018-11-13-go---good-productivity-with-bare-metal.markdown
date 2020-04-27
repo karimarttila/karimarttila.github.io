@@ -6,7 +6,7 @@ tags: [aws]
 date:	2018-11-13
 ---
 
-  ### Introduction
+### Introduction
 
 This is the fifth blog article (and at least for now the last one) in my series to implement the same web server in five different languages. The previous articles are:
 

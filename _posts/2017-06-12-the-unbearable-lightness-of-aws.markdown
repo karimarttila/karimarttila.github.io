@@ -6,7 +6,7 @@ tags: [aws]
 date:	2017-06-12
 ---
 
-  ### Introduction
+### Introduction
 
 I’ve been using AWS for some time now, done one [successful project](https://medium.com/tieto-developers/devops-success-factors-53beafe63942) with production deployments with AWS and currently doing a big data project with AWS. And I just love AWS. Why? Let’s list here some reasons why architect feels his life is full of unbearable lightness of AWS.
 

@@ -6,7 +6,7 @@ tags: [aws]
 date:	2019-07-13
 ---
 
-  ### Introduction
+### Introduction
 
 Last week I wrote a simple GCP demonstration using Terraform and wrote a blog post to compare GCP, AWS and Azure when using Terraform: “[Comparing Simple GCP Infrastructure Demo to AWS and Azure](https://medium.com/@kari.marttila/comparing-simple-gcp-infrastructure-demo-to-aws-and-azure-abbbe8496d31)”. This week I wrote the same GCP demonstration again but this time using [GCP Deployment Manager](https://cloud.google.com/deployment-manager/). In this new blog post I compare GCP Deployment manager and [Terraform](https://www.terraform.io/) when implementing cloud systems on the [Google Cloud Platform](https://cloud.google.com/). Both demonstrations can be found in Tieto / Public Cloud team’s [Github account](https://github.com/tieto-pc):
 

@@ -6,7 +6,7 @@ tags: [aws]
 date:	2018-11-01
 ---
 
-  ### Prologue
+### Prologue
 
 Three evenings versus three weeks.
 

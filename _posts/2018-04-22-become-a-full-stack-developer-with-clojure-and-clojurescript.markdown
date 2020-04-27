@@ -6,7 +6,7 @@ tags: [aws]
 date:	2018-04-22
 ---
 
-  ### Introduction
+### Introduction
 
 I’m an old backend developer. I have implemented various backends using C, C++, Java, Python and now recently Clojure. I have implemented some frontends too, of course. Mostly with some Java backend templating technologies like JSP, Struts and JSF. A couple of years ago I wanted to learn how to implement a [Single Page Application](https://en.wikipedia.org/wiki/Single-page_application) (SPA) and I implemented one production system with Javascript and Angular. There was quite a bit of learning since besides Javascript and Angular you had to learn also the browser programming pecularities and various Javascript tools like Grunt etc. And I must say I never learned to like Javascript as a programming language.
 

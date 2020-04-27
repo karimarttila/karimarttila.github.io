@@ -6,7 +6,7 @@ tags: [aws]
 date:	2017-06-09
 ---
 
-  ### Introduction
+### Introduction
 
 Let’s say you have created a system in an AWS account in an ad hoc manner (e.g. experimenting and choosing services and gluing them together by hand in AWS Console). Everything seems to be working just fine but one day you realize that you have hundreds of smaller and bigger AWS resources, triggers, groups and flags in your system and maintaining the system becomes a nightmare. Time to do automation! So, you choose some [Infrastructure as Code](https://en.wikipedia.org/wiki/Infrastructure_as_Code) automation tool (e.g. [Terraform](https://www.terraform.io/) or [CloudFormation](https://aws.amazon.com/cloudformation/)) and you create infrastructure code and generate a new infrastructure using your automation tool. Do testing in the new environment and if everything looks good, time to do migration.
 

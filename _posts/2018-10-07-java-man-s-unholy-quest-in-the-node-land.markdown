@@ -6,7 +6,7 @@ tags: [aws]
 date:	2018-10-07
 ---
 
-  ### Introduction
+### Introduction
 
 So, I am the oldest developer in my unit. I’ve been in the software industry more than 20 years. I have seen technologies come and go. New languages emerged. In recent years I recognized a clear tendency: younger developers tend to favor [Javascript](https://developer.mozilla.org/bm/docs/Web/JavaScript)/[Node](https://nodejs.org/en/) and older guys like me Java in the corporation backend world. I don’t mind learning new languages, I have learned quite a few during my 20 years IT journey. About three weeks ago I got a brilliant idea: let’s learn Javascript/Node and re-implement the [Simple Server](https://github.com/karimarttila/clojure/tree/master/clj-ring-cljs-reagent-demo/simple-server) I implemented last spring using [Clojure](https://clojure.org/)! I get to learn a new language and backend runtime and ecosystem and also have a great chance to compare the two languages and their ecosystems ([Javascript](https://developer.mozilla.org/bm/docs/Web/JavaScript) vs. [Clojure](https://clojure.org/)) and runtimes ([Node](https://nodejs.org/en/) vs. JVM).
 

@@ -6,7 +6,7 @@ tags: [aws]
 date:	2020-02-03
 ---
 
-  ### Introduction
+### Introduction
 
 In my new cloud project our DevOps team decided to create the similar AWS infra POC setup using two infrastructure as code tools: Terraform and Pulumi. The infra was pretty simple: VPC + some subnets + routing + security groups, EKS + node group, and RDS. It was an interesting exercise to implement the exact same infrastructure using two different infrastructure tools.
 

@@ -6,7 +6,7 @@ tags: [aws]
 date:	2018-11-19
 ---
 
-  ### Introduction
+### Introduction
 
 Last spring I wanted to see how easy it would be to implement a small web server using Clojure and to provide a simple frontend for the backend implementation using ClojureScript. This autumn I got a nice idea: why not implement the same server using 4 other languages, 2 of which I already knew quite well (Java and Python) and 2 of which I wanted to learn (Javascript/Node and Go) so that I could compare these 5 languages how they do the job to implement the exactly same thing. So, my exercise is now over and all the five stories are available in my Medium blog:
 

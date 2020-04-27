@@ -6,7 +6,7 @@ tags: [aws]
 date:	2018-03-25
 ---
 
-  ### Introduction
+### Introduction
 
 I was asked to create a proof-of-concept for storing and analyzing clickstream events. The events would be stored in a data lake using AWS S3 and AWS Glue, and for testing the data lake I needed a clickstream generator that simulates customers browsing product groups and products in a hypothetical web store. The picture below shows the AWS infrastructure of the POC.
 

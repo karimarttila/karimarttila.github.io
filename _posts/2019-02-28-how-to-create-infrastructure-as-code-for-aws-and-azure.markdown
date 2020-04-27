@@ -6,7 +6,7 @@ tags: [aws]
 date:	2019-02-28
 ---
 
-  ### Introduction
+### Introduction
 
 In this blog article I compare various ways and tools to create infrastructure as code for AWS and Azure. I try to give some instructions for new cloud learners regarding how to create cloud infra and typical pitfalls to avoid.
 

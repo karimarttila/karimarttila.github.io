@@ -6,7 +6,7 @@ tags: [aws]
 date:	2017-11-29
 ---
 
-  ### Introduction
+### Introduction
 
 ![](/img/1*qgLyw77tff09NqB45RueZQ.jpeg)The session halls are rather big.I describe in this blog post some reflections regarding the [AWS re:Invent 2017 conference](https://reinvent.awsevents.com/) I am attending with my colleague Timo Tapanainen this year in Las Vegas. Hopefully you will get some ideas how to make your first visit to the next AWS re:Invent conference a memorable one.
 

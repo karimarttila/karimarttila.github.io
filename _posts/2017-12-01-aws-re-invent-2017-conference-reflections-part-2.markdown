@@ -6,7 +6,7 @@ tags: [aws]
 date:	2017-12-01
 ---
 
-  ### Introduction
+### Introduction
 
 In the [part 1](https://medium.com/@kari.marttila/aws-re-invent-2017-conference-reflections-part-1-55099cb12821) of my reflections regarding the AWS re:Invent conference reflections I described the overall preparations and general practicalities related to the conference. In this part 2 I describe some reflections regarding the Squad and Expo activities.
 
