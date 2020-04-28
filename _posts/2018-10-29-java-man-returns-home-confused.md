@@ -18,7 +18,7 @@ You can find the project in [**Github**](https://github.com/karimarttila/java/tr
 
 Once again I tried to replicate the file/namespace/class names so that it is easy to compare the implementations (e.g. [server.js](https://github.com/karimarttila/javascript/blob/master/webstore-demo/simple-server/src/webserver/server.js) — [server.clj](https://github.com/karimarttila/clojure/blob/master/clj-ring-cljs-reagent-demo/simple-server/src/simpleserver/webserver/server.clj) — [Server.java](https://github.com/karimarttila/java/blob/master/webstore-demo/simple-server/src/main/java/simpleserver/webserver/Server.java) ).
 
-![](/img/1*8s1LOROPqqZwK_S0Rw5Omw.png)IntelliJ IDEA hacking session running server unit tests
+![](/img/2018-10-29-java-man-returns-home-confused_img_1.png)IntelliJ IDEA hacking session running server unit tests
 
 ### Spring Boot 2.0 and Spring 5.0
 
@@ -199,7 +199,7 @@ $ find src -name "*.clj" | xargs wc -l
  243 src/simpleserver/webserver/server.clj  
  612 totalAnd the results in table format:
 
-![](/img/1*CFqCwZbgl4d9IxuF1YXQdg.png)So, it’s pretty clear that dynamic languages are easier to work with.
+![](/img/2018-10-29-java-man-returns-home-confused_img_2.png)So, it’s pretty clear that dynamic languages are easier to work with.
 
 ### Conclusions
 

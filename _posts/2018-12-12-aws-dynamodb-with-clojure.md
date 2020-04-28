@@ -6,7 +6,7 @@ tags: [aws]
 date:	2018-12-12
 ---
 
-  ![](/img/1*6VgVFREkrKtjFNyIpTA09w.png)Running Clojure unit tests in IntelliJ IDEA / Cursive
+  ![](/img/2018-12-12-aws-dynamodb-with-clojure_img_1.png)Running Clojure unit tests in IntelliJ IDEA / Cursive
 
 ### Introduction
 

@@ -17,7 +17,7 @@ Last spring I wanted to see how easy it would be to implement a small web server
 * **Go**: “[Go — Good Productivity with Bare Metal](https://medium.com/@kari.marttila/go-good-productivity-with-bare-metal-4fa70e0177fb)”
 So, in this blog article I’m going **to compare these five languages regarding my experiences** while implementing the same server over and over again. I’m also going to **score the languages** regarding various aspects using either the same scale (1–5, **1=best,** **5=worst**), or some other metrics I feel more suitable for the situation. The reader must understand that these scores and everything I have written here are based on a very personal taste and done tongue in cheek. So, let’s start!
 
-![](/img/1*5ZofRqU-yJafiXN2brVoeQ.png)Five languages with their IDEs in a family portrait in my Ubuntu18
+![](/img/2018-11-19-five-languages-five-stories_img_1.png)Five languages with their IDEs in a family portrait in my Ubuntu18
 
 ### Language Characteristics
 
@@ -97,7 +97,7 @@ Headers used in the table:
 | Clojure | 6 | 612 | 4 | 337 | 10 | 949 | 1.1 | 1 |  
 | Python | 8 | 530 | 5 | 317 | 13 | 847 | 1.0 | 1 |**Let’s visualize the data to make it more readable.
 
-![](/img/1*PJLYpebyVo9K7dtBqLFWZg.png)Lines of code.![](/img/1*UctmxepEfkzsdwziB-rAzA.png)Source code files.So, Python is the winner in both *Marttila Lines of Code Index* and *Marttila Productivity Index*. Clojure doesn’t lose that much, productivity being the same, but MLCI being just 10% higher. Javascript loses in productivity quite a bit taking some 3x more implementation time and MLCI is some 30% higher. Interestingly Go breaks the rule of correlation between MLCI and MPI — Go’s MLCI is 90% higher but MPI is only 2x. And Java, poor old Java performs worst of all: MLCI is 140% higher and MPI is 4x. You can see a clear trend — dynamically typed languages tend to have less lines of code than statically typed languages. Source code file count — Java with class this and class that in dedicated files is rather horrific.
+![](/img/1*PJLYpebyVo9K7dtBqLFWZg.png)Lines of code.![](/img/2018-11-19-five-languages-five-stories_img_2.png)Source code files.So, Python is the winner in both *Marttila Lines of Code Index* and *Marttila Productivity Index*. Clojure doesn’t lose that much, productivity being the same, but MLCI being just 10% higher. Javascript loses in productivity quite a bit taking some 3x more implementation time and MLCI is some 30% higher. Interestingly Go breaks the rule of correlation between MLCI and MPI — Go’s MLCI is 90% higher but MPI is only 2x. And Java, poor old Java performs worst of all: MLCI is 140% higher and MPI is 4x. You can see a clear trend — dynamically typed languages tend to have less lines of code than statically typed languages. Source code file count — Java with class this and class that in dedicated files is rather horrific.
 
 ### Performance
 

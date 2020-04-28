@@ -6,7 +6,7 @@ tags: [aws]
 date:	2019-01-01
 ---
 
-  ![](/img/1*aQwc43xILvoetPp8SzHz_g.png)### Introduction
+  ![](/img/2019-01-01-azure-table-storage-with-clojure_img_1.png)### Introduction
 
 In my previous project “[AWS DynamoDB with Clojure](https://medium.com/@kari.marttila/aws-dynamodb-with-clojure-b4402bf8e8e)” I implemented all database handling using AWS DynamoDB for my Simple Server which I have used recently for my personal study projects. My original idea was to use this AWS Simple Server version to create AWS EKS and Fargate Kubernetes deployments for the Simple Server to refresh my AWS and Terraform skills. But then I decided to make some changes to my plans. I did my first Azure certification ([Architecting Microsoft Azure Solutions](https://www.youracclaim.com/badges/62494509-bf1c-4cd0-ad5a-0b82d1dacfac/public_url)) on December and heard from my boss that I’m going to be working in an Azure project in the beginning of year 2019. For this reason I thought that it might be a better idea to refresh my Azure skills instead and gather some experience how to create Azure infra using Terraform (I have used only ARM in the Azure side).
 
@@ -130,7 +130,7 @@ While working with the new Azure version I did some refactorings. I realized tha
 
 This was an astonishing moment to realize: If you need to experiment with a new Java API it is actually easier to experiment with the Java API using Clojure REPL than using Java! Clojure REPL example (screenshot from my IntelliJ/Cursive REPL):
 
-![](/img/1*3pN27eYSdrFgZd-OiRpYmA.png)So, I have loaded the simpleserver.userdb.users-table-storage namespace in my Clojure REPL and switched my REPL to use that namespace (easier to call methods without namespace prefix…).
+![](/img/2019-01-01-azure-table-storage-with-clojure_img_2.png)So, I have loaded the simpleserver.userdb.users-table-storage namespace in my Clojure REPL and switched my REPL to use that namespace (easier to call methods without namespace prefix…).
 
 In the first “(into [] (let…” function call I experiment what happens when I ape the functionality I found in the Java API sample in Clojure => I get a list of users classes. Ok. In the next function call I ask the first of these items and then call the getPartitionKey Java method of that Java class => I get the email which was stored as PartitionKey in Azure Table Storage field. Pretty nice to be able to dynamically experiment with a library that was written in a static language.
 

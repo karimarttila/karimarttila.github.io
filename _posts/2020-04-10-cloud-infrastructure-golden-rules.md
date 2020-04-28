@@ -6,7 +6,7 @@ tags: [aws]
 date:	2020-04-10
 ---
 
-  ![](/img/1*JGAOyy5y18wX6gDGtLbvjg.png)A screenshot of one of my personal cloud projects
+  ![](/img/2020-04-10-cloud-infrastructure-golden-rules_img_1.png)A screenshot of one of my personal cloud projects
 
 ### Introduction
 
@@ -58,7 +58,7 @@ If I audit some cloud infrastructure I could be using e.g. these simple scores f
 
 **4 points**. All aspects of the 3 points category are implemented. The solution needs to be fully automatic but also elegant and maintainable — all cloud resources need to have a consistent name and tag scheme, cloud resources need to be defined in reusable modules etc. And additionally, your IaC also creates all monitoring, alarms, and dashboard fully automatically when you create a new cloud environment. Wow! You can simulate production in every aspect. Great! But there is one more step if you want to be perfect.
 
-![](/img/1*skgAyAZCHZfcv3rR_OcDOQ.png)Default tags that make it easy to look for resources by tags in AWS.**5 points**. This is the highest level of cloud infrastructure perfection. In this category, you have a simple IaC solution that you are able to create with one IaC command and destroy with one IaC command, fully automatically and without any errors. Your infrastructure also creates all monitoring, alarms, notifications, and dashboard for your infrastructure. But additionally, your IaC mechanism after creating the cloud infra also fully automatically creates all databases, test databases with application users and rights, installs all applications to cloud infrastructure compute entities (whether they are virtual machines or containers) and runs all e2e tests using those applications and databases hitting all API layers, monitoring results in your buckets, databases, and queues. And with one command your CI machine can automatically create your infrastructure every night, install latest versions of applications, run performance tests, destroy the infrastructure and warn you by email when you come to the office in the morning if the previous day something was added to the applications or infrastructure which resulted in performance to degrade.
+![](/img/2020-04-10-cloud-infrastructure-golden-rules_img_2.png)Default tags that make it easy to look for resources by tags in AWS.**5 points**. This is the highest level of cloud infrastructure perfection. In this category, you have a simple IaC solution that you are able to create with one IaC command and destroy with one IaC command, fully automatically and without any errors. Your infrastructure also creates all monitoring, alarms, notifications, and dashboard for your infrastructure. But additionally, your IaC mechanism after creating the cloud infra also fully automatically creates all databases, test databases with application users and rights, installs all applications to cloud infrastructure compute entities (whether they are virtual machines or containers) and runs all e2e tests using those applications and databases hitting all API layers, monitoring results in your buckets, databases, and queues. And with one command your CI machine can automatically create your infrastructure every night, install latest versions of applications, run performance tests, destroy the infrastructure and warn you by email when you come to the office in the morning if the previous day something was added to the applications or infrastructure which resulted in performance to degrade.
 
 ### You Are Allowed To Use the Portal, But…
 

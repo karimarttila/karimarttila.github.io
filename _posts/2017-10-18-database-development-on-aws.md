@@ -6,7 +6,7 @@ tags: [aws]
 date:	2017-10-18
 ---
 
-  ![](/img/1*sHGkiUNYlYDeunAjHgIzoQ.jpeg)[Designed by Freepik](http://www.freepik.com/free-vector/big-data-cloud-vector-illustration_1322558.htm)### Introduction
+  ![](/img/2017-10-18-database-development-on-aws_img_1.jpeg)[Designed by Freepik](http://www.freepik.com/free-vector/big-data-cloud-vector-illustration_1322558.htm)### Introduction
 
 Most of enterprise type backend development falls typically into two categories. Either you create some sort of web applications with REST interfaces or you create some backend processing systems. In both cases you typically work with databases. So, for a seasoned backend developer working with databases should be rather fluent. This does not mean just being fluent with SQL, but also how to make database development itself fast.
 

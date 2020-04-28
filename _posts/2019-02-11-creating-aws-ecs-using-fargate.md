@@ -6,7 +6,7 @@ tags: [aws]
 date:	2019-02-11
 ---
 
-  ![](/img/1*pOsuen_1637bXRccNx8XLQ.png)Main AWS Services Used in the Demonstration
+  ![](/img/2019-02-11-creating-aws-ecs-using-fargate_img_1.png)Main AWS Services Used in the Demonstration
 
 ### Introduction
 

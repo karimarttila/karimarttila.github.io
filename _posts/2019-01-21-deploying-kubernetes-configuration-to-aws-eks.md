@@ -6,7 +6,7 @@ tags: [aws]
 date:	2019-01-21
 ---
 
-  ![](/img/1*hqoNC2ZKA28XK24B5Ovqgg.png)The Simple Server DynamoDB AWS EKS Kubernetes Deployment Listing
+  ![](/img/2019-01-21-deploying-kubernetes-configuration-to-aws-eks_img_1.png)The Simple Server DynamoDB AWS EKS Kubernetes Deployment Listing
 
 ### Introduction
 

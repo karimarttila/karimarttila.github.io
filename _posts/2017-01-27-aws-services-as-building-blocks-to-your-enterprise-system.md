@@ -6,11 +6,11 @@ tags: [aws]
 date:	2017-01-27
 ---
 
-  We are going to share some experiences regarding how to build enterprise-level applications using the AWS platform. In this blog post we are talking about how to use AWS services as building blocks…   ![](/img/1*ELXzcWgOn4-j_T1MoK6Xug.jpeg)The real Amazon ecosystem. [© Big Blue Marble](https://www.flickr.com/photos/bbmexplorer/)We are going to share some experiences regarding how to build enterprise-level applications using the AWS platform. In this blog post we are talking about how to use AWS services as building blocks to implement your enterprise system.
+  We are going to share some experiences regarding how to build enterprise-level applications using the AWS platform. In this blog post we are talking about how to use AWS services as building blocks…   ![](/img/2017-01-27-aws-services-as-building-blocks-to-your-enterprise-system_img_1.jpeg)The real Amazon ecosystem. [© Big Blue Marble](https://www.flickr.com/photos/bbmexplorer/)We are going to share some experiences regarding how to build enterprise-level applications using the AWS platform. In this blog post we are talking about how to use AWS services as building blocks to implement your enterprise system.
 
 The diagram below depicts some of the typical AWS services that you are going to use when implementing your enterprise system in AWS infrastructure. We are going to introduce these services in this article.
 
-![](/img/1*9rDWIng7e_4vnwDuaIckfA.jpeg)A concept diagram of AWS services used in an enterprise system
+![](/img/2017-01-27-aws-services-as-building-blocks-to-your-enterprise-system_img_2.jpeg)A concept diagram of AWS services used in an enterprise system
 
 ### 1. Virtual Private Cloud
 

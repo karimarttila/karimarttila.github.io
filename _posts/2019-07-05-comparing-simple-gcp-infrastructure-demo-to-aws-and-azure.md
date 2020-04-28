@@ -6,7 +6,7 @@ tags: [aws]
 date:	2019-07-05
 ---
 
-  ![](/img/1*qgjnVKddF551a8wSFHDY8A.png)AWS, GCP and Azure Intro Demos in a Family Portrait
+  ![](/img/2019-07-05-comparing-simple-gcp-infrastructure-demo-to-aws-and-azure_img_1.png)AWS, GCP and Azure Intro Demos in a Family Portrait
 
 ### Introduction
 
@@ -24,7 +24,7 @@ The overall Terraform solution structure is already explained in the previous bl
 * Environment parameters are hosted in the envs folder.
 * Environment definition is hosted in the modules/env-def folder.
 * The modules folder hosts the actual resource modules (in this GCP solution: project, vpc and vm).
-![](/img/1*K3lJEZ3xMJqb4p75Aw8oXg.png)### Virtual Network / Virtual Private Cloud
+![](/img/2019-07-05-comparing-simple-gcp-infrastructure-demo-to-aws-and-azure_img_2.png)### Virtual Network / Virtual Private Cloud
 
 The virtual networks (“virtual private cloud” in AWS and GCP) in all solutions are pretty similar. All solutions define the virtual networks themselves (vpc and vnet). Then the modules define a subnet and a security group for the subnet (AWS/Azure) or a firewall rule for the VPC (GCP). Defining these entities using Terraform is incredibly similar in all solutions. The AWS side requires some additional infrastructure boilerplate: an internet gateway and a route table. In the GCP solution you don’t have to assign an address space for the [VPC](https://cloud.google.com/vpc/) itself since VPC is a global resource in GCP — you assign an address space just for the subnet.
 
@@ -44,7 +44,7 @@ The actual virtual machine definitions are also pretty similar. In the AWS side 
 
 Now that we have three identical IaC solutions in three cloud platforms let’s see how many lines of code each solution comprises:
 
-![](/img/1*Yik3_0j4hsqGdS2PFSk-cA.png)So, the number of files is pretty much the same. But there are some differences regarding the lines of code (LoC). I have provided an efficiency (Eff.) factor which is calculated dividing the LoC of each cloud with the lowest LoC (GCP: 345). This factor states that you need 40% more infrastructure code in the similar AWS solution and 10% more infrastructure code in the similar Azure solution as in the GCP solution. Word of caution — this is just one very small infrastructure demonstration and the lines of code comparison is done just for curiosity — I wouldn’t draw any general conclusions based on this comparison.
+![](/img/2019-07-05-comparing-simple-gcp-infrastructure-demo-to-aws-and-azure_img_3.png)So, the number of files is pretty much the same. But there are some differences regarding the lines of code (LoC). I have provided an efficiency (Eff.) factor which is calculated dividing the LoC of each cloud with the lowest LoC (GCP: 345). This factor states that you need 40% more infrastructure code in the similar AWS solution and 10% more infrastructure code in the similar Azure solution as in the GCP solution. Word of caution — this is just one very small infrastructure demonstration and the lines of code comparison is done just for curiosity — I wouldn’t draw any general conclusions based on this comparison.
 
 ### The Longer Story
 

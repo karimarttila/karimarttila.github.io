@@ -14,7 +14,7 @@ You can find the project in [**Github**](https://github.com/karimarttila/javascr
 
 I tried to replicate the Clojure namespace structure to the equivalent Node structures so that it is easy to compare various parts of the application in these two implementations (e.g. [server.js](https://github.com/karimarttila/javascript/blob/master/webstore-demo/simple-server/src/webserver/server.js) — [server.clj](https://github.com/karimarttila/clojure/blob/master/clj-ring-cljs-reagent-demo/simple-server/src/simpleserver/webserver/server.clj))
 
-![](/img/1*_TXR6f8yD0dQ8BnpflepTg.png)Visual Studio Code hacking session running server unit tests
+![](/img/2018-10-07-java-man-s-unholy-quest-in-the-node-land_img_1.png)Visual Studio Code hacking session running server unit tests
 
 ### Visual Studio Code
 

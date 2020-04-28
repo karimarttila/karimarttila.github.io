@@ -23,7 +23,7 @@ You can find the project in [**Github**](https://github.com/karimarttila/python/
 
 Once again I tried to replicate the file/namespace/class names so that it is easy to compare the implementations (e.g. [server.py](https://github.com/karimarttila/python/blob/master/webstore-demo/simple-server/simpleserver/webserver/server.py "server.py") — [server.js](https://github.com/karimarttila/javascript/blob/master/webstore-demo/simple-server/src/webserver/server.js) — [server.clj](https://github.com/karimarttila/clojure/blob/master/clj-ring-cljs-reagent-demo/simple-server/src/simpleserver/webserver/server.clj) — [Server.java](https://github.com/karimarttila/java/blob/master/webstore-demo/simple-server/src/main/java/simpleserver/webserver/Server.java)).
 
-![](/img/1*BMM8oMHPNuEALXmS7eTTGQ.png)PyCharm hacking session running server unit tests
+![](/img/2018-11-01-java-man-converts-to-python_img_1.png)PyCharm hacking session running server unit tests
 
 ### Tools
 
@@ -93,7 +93,7 @@ tests/webserver/test\_server.py ...... [ 92%]
 tests/webserver/test\_session.py . [100%]======================================= 14 passed in 0.11 seconds   
 real 0m0.416s**The results are:**
 
-![](/img/1*m_dVq0hzLT6YSEtUD3pdAQ.png)It’s pretty obvious that Clojure and Java lose the contest because of the loading of JVM. But I was surprised that Python runs the tests that fast.
+![](/img/2018-11-01-java-man-converts-to-python_img_2.png)It’s pretty obvious that Clojure and Java lose the contest because of the loading of JVM. But I was surprised that Python runs the tests that fast.
 
 ### Python REPL
 
@@ -177,7 +177,7 @@ Python (and especially PyCharm) **REPL** is definitely the best REPL I have used
 
 Using **PyCharm debugger** is also so easy and fast. If you have even minor issues in your code you tend to add a breakpoint and hit the debugger. This is actually pretty interesting since in the Lisp world you hardly ever use the debugger — you tend to have a live REPL to your system while you add new functionalities. You can’t have a live REPL to your Python system in the same sense but PyCharm debugger is a pretty good second option. And when you compare Python debugger to Java debugger — Python is lightning fast to start. Creating Run configurations for your unit tests in PyCharm is also very easy and straightforward. PyCharm debugger is also a great tool to check what’s inside various entities (e.g. I just earlier used the debugger to check where the http status code is inside the Flask response entity and what its name is) — if you are lazy to search that information in the library API documentation. See an example below.
 
-![](/img/1*qRHV_mzEQL5XcRcuyJn4HQ.png)Adding breakpoint and hitting debugger in PyCharm.In general I think Python must be the most productive language I have ever used. Clojure might win the case in productivity after a couple of years of serious Clojure hacking but Python is unbeatable in the scripting category — you may have months of gaps between your Python hacking sessions but the language is always easy to put into real work regardless how long it was you programmed Python the last time.
+![](/img/2018-11-01-java-man-converts-to-python_img_3.png)Adding breakpoint and hitting debugger in PyCharm.In general I think Python must be the most productive language I have ever used. Clojure might win the case in productivity after a couple of years of serious Clojure hacking but Python is unbeatable in the scripting category — you may have months of gaps between your Python hacking sessions but the language is always easy to put into real work regardless how long it was you programmed Python the last time.
 
 If you compare Python to Java — Python wins hands down. Java is verbose — Python is concise. Java has long development cycle (edit, compile, build, load to JVM, run) — Python has short development cycle (edit, run). Java has difficult syntax — Python has very easy syntax.
 
@@ -189,7 +189,7 @@ There is nothing inherently bad in Python. I would be cautious to use Python in 
 
 The final contest! Lines of Code! Let’s once again compare the lines of code between different implementations of the Simple Server (production code, i.e. not including unit tests):
 
-![](/img/1*9yOlao0csEwwAfqfprT-hQ.png)If you drop the empty package files (‘\_\_init\_\_.py’) there are only 8 source code files in the production source tree and altogether only 582 lines of code. So, it seems that Python is the winner of this part of the contest. What could be a better language than one with a small amount of code and even that small amount of code being very simple, concise and easy to read.
+![](/img/2018-11-01-java-man-converts-to-python_img_4.png)If you drop the empty package files (‘\_\_init\_\_.py’) there are only 8 source code files in the production source tree and altogether only 582 lines of code. So, it seems that Python is the winner of this part of the contest. What could be a better language than one with a small amount of code and even that small amount of code being very simple, concise and easy to read.
 
 ### Performance
 

@@ -8,7 +8,7 @@ date:	2017-03-28
 
   We continue our AWS related blog series that we started in our first article “[Use AWS Services as Building Blocks to Implement Your Enterprise System](https://medium.com/tieto-developers/use-aws-services-as-building-blocks-to-implement-your-enterprise-system-598676a0ee49)”. In this new article we talk about our experiences regarding how to create Docker containers in AWS.
 
-![](/img/1*mHiAEAdGF-DbaoCjQvqupw.jpeg)Example ECS Terraform configuration
+![](/img/2017-03-28-how-to-create-docker-containers-in-aws_img_1.jpeg)Example ECS Terraform configuration
 
 ### Introduction
 

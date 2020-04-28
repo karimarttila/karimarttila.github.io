@@ -16,7 +16,7 @@ In my new cloud project our DevOps team decided to create the similar AWS infra 
 
 Example using Terraform:
 
-![](/img/1*Gybjy7HhmQJ4mhw9xW7AeA.png)Terraform hcl example
+![](/img/2020-02-03-terraform-vs-pulumi-experiences_img_1.png)Terraform hcl example
 
 ### Pulumi
 
@@ -24,7 +24,7 @@ Example using Terraform:
 
 Example using Pulumi:
 
-![](/img/1*EkCCBesPL18yUuquBleNJA.png)Pulumi Python example
+![](/img/2020-02-03-terraform-vs-pulumi-experiences_img_2.png)Pulumi Python example
 
 ### Comparison
 

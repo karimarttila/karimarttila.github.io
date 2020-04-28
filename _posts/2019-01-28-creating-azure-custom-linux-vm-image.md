@@ -6,7 +6,7 @@ tags: [aws]
 date:	2019-01-28
 ---
 
-  ![](/img/1*fcZCcoIA3zMmZ0ERAas8bw.png)The Packer configuration file (left) and the cloud-init file (right)### Introduction
+  ![](/img/2019-01-28-creating-azure-custom-linux-vm-image_img_1.png)The Packer configuration file (left) and the cloud-init file (right)### Introduction
 
 I previously did an exercise in which I deployed my [Clojure Simple Server](https://github.com/karimarttila/clojure/tree/master/clj-ring-cljs-reagent-demo/simple-server) to Azure managed Kubernetes Service — AKS, you can read about that story in my previous blog posts: “[Creating Azure Kubernetes Service (AKS) the Right Way](https://medium.com/@kari.marttila/creating-azure-kubernetes-service-aks-the-right-way-9b18c665a6fa)” and “[Deploying Kubernetes Configuration to Azure AKS](https://medium.com/@kari.marttila/deploying-kubernetes-configuration-to-azure-aks-8d32c3c6de5f)”.
 

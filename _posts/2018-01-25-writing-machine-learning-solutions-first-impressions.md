@@ -6,7 +6,7 @@ tags: [aws]
 date:	2018-01-25
 ---
 
-  ![](/img/1*Z0ZaewH64QrsZW3eeN5Ysg.png)Linear regression model created using TensorFlow
+  ![](/img/2018-01-25-writing-machine-learning-solutions-first-impressions_img_1.png)Linear regression model created using TensorFlow
 
 ### Introduction
 

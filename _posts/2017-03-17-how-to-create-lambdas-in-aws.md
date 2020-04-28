@@ -8,7 +8,7 @@ date:	2017-03-17
 
   We continue our AWS related blog series that we started in our first article “[Use AWS Services as Building Blocks to Implement Your Enterprise System](https://medium.com/tieto-developers/use-aws-services-as-building-blocks-to-implement-your-enterprise-system-598676a0ee49#)”. In this new article we talk about our experiences regarding how to create Lambdas in AWS.
 
-![](/img/1*klfgoXd3AqjEj-c6-cTPug.jpeg)Concept AWS Architecture using AWS Lambdas
+![](/img/2017-03-17-how-to-create-lambdas-in-aws_img_1.jpeg)Concept AWS Architecture using AWS Lambdas
 
 ### Introduction
 
@@ -35,7 +35,7 @@ As always with AWS Services — your imagination is the limit for what purposes 
 * **Kinesis**. Connect Lambda to Kinesis streams. Kinesis streams can stream terabytes of data. You publish your kinesis stream to your partners who are streaming data to the stream. You associate a Lambda function to read the Kinesis stream — Lambda gets triggered for all new events in the stream. The Terraform code in the picture below depicts this kind of Terraform configuration.
 * **Store to database**. You can use Lambdas to read stream and store the data to some AWS data store like DynamoDB.
 * **REST API**. You can combine API Gateway with Lambda to provide REST API for your clients.
-![](/img/1*yHL78RdzL0_vO7JnO-nF6Q.png)Example Terraform configuration to create Lambda and connect it to Kinesis stream.The example Terraform code shows how to create generic AWS Lambda module and inject all environment related parameters to it — you can use it to create N number of similar Lambda instances to all of your AWS environments (dev, qa, perf, prod…). The latter part of the code shows how to connect the Lambda to be triggered by new Kinesis events.
+![](/img/2017-03-17-how-to-create-lambdas-in-aws_img_2.png)Example Terraform configuration to create Lambda and connect it to Kinesis stream.The example Terraform code shows how to create generic AWS Lambda module and inject all environment related parameters to it — you can use it to create N number of similar Lambda instances to all of your AWS environments (dev, qa, perf, prod…). The latter part of the code shows how to connect the Lambda to be triggered by new Kinesis events.
 
 ### **How to Implement AWS Lambdas?**
 

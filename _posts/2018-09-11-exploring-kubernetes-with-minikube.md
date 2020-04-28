@@ -6,7 +6,7 @@ tags: [aws]
 date:	2018-09-11
 ---
 
-  ![](/img/1*7iL8kxciTg2L0ATbH38o7A.png)[Kubernetes](https://kubernetes.io/)
+  ![](/img/2018-09-11-exploring-kubernetes-with-minikube_img_1.png)[Kubernetes](https://kubernetes.io/)
 
 ### Introduction
 
@@ -60,7 +60,7 @@ You can get a Dashboard view to your Kubernetes cluster:
 
 minikube dashboardYou should see output: “Opening kubernetes dashboard in default browser… Created new window in existing browser session.” And in your browser you should see something like this:
 
-![](/img/1*hHUh2nw1JgBjhoNnBqW1ig.png)Minikube Dashboard.The dashboard gives a nice GUI to explore your Kubernetes deployments and various components that were created during deployments (pods, services…).
+![](/img/2018-09-11-exploring-kubernetes-with-minikube_img_2.png)Minikube Dashboard.The dashboard gives a nice GUI to explore your Kubernetes deployments and various components that were created during deployments (pods, services…).
 
 minikube ssh“minikube ssh” command gives you ssh terminal to the Minikube VM. Try to logon and explore the Linux machine. “ps aux” and you should see quite a few kube and docker related processes.
 

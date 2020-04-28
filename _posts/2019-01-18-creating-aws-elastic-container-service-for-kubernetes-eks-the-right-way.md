@@ -6,7 +6,7 @@ tags: [aws]
 date:	2019-01-18
 ---
 
-  ![](/img/1*wtMcxrken3xIMngNA5s_FQ.png)IntelliJ IDEA with Terraform Plugin
+  ![](/img/2019-01-18-creating-aws-elastic-container-service-for-kubernetes-eks-the-right-way_img_1.png)IntelliJ IDEA with Terraform Plugin
 
 ### Introduction
 

@@ -6,7 +6,7 @@ tags: [aws]
 date:	2017-01-30
 ---
 
-  ![](/img/1*PPIp7twJJUknfohZqtL8pQ.png)[© Python Software Foundation](https://www.python.org/community/logos/)I have used Python for all kinds of short tasks for almost 20 years. Python is a great object-oriented dynamic scripting language which also scales for more complex tasks. I actually never bothered to master shell scripts since using Python as a shell wrapper has been so easy. If you realize that your script needs more functionality it is also a lot easier to use a full-fledged programming language than a shell script to implement more complex application logic.
+  ![](/img/2017-01-30-python-rocks_img_1.png)[© Python Software Foundation](https://www.python.org/community/logos/)I have used Python for all kinds of short tasks for almost 20 years. Python is a great object-oriented dynamic scripting language which also scales for more complex tasks. I actually never bothered to master shell scripts since using Python as a shell wrapper has been so easy. If you realize that your script needs more functionality it is also a lot easier to use a full-fledged programming language than a shell script to implement more complex application logic.
 
 **For What Kind of Tasks Python is Good for?**
 
@@ -21,7 +21,7 @@ I have used Python for many years for various tasks. Examples are:
 * **AWS CLI Integration**. In my latest project I have used Python as an [AWS CLI](https://aws.amazon.com/cli/) wrapper. It’s easy to use AWS CLI either using [Python SDK for AWS](https://aws.amazon.com/sdk-for-python/) directly or for shorter tasks just call AWS CLI using Python OS integration modules and read the returned JSON for further processing (and Python provides excellent JSON library for parsing JSON).
 And a short example for quick AWS CLI hacking using OS call:
 
-![](/img/1*oNGIMWtR0ga11XXrMXe-XQ.png)Python Example to Call AWS CLI.**Why Do I Love Python?**
+![](/img/2017-01-30-python-rocks_img_2.png)Python Example to Call AWS CLI.**Why Do I Love Python?**
 
 The reason why I most love Python is that it is so easy. The syntax is really easy and the creator of the language, Guido van Rossum, wanted to make a language that is also easy to read (see more about the Python design decisions [here](http://python-history.blogspot.fi/2009/01/pythons-design-philosophy.html)). The easiness of the language makes it easy to be productive with the language even if you have been using other programming languages in your project for months and you suddenly need something quick to manipulate e.g. some strings or you realize that it would be nice to have a tool to restart certain AWS EC2 auto-scaling groups based on some criteria.
 
