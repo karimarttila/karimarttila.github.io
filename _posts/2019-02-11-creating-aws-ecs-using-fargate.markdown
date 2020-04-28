@@ -6,7 +6,9 @@ tags: [aws]
 date:	2019-02-11
 ---
 
-  ![](/img/1*pOsuen_1637bXRccNx8XLQ.png)Main AWS Services Used in the Demonstration.### Introduction
+  ![](/img/1*pOsuen_1637bXRccNx8XLQ.png)Main AWS Services Used in the Demonstration
+
+### Introduction
 
 I previously created infrastructure for running Docker containers in the AWS Kubernetes managed service ([EKS](https://aws.amazon.com/eks/) — see the blog article: “[Creating AWS Elastic Container Service for Kubernetes (EKS) the Right Way](https://medium.com/@kari.marttila/creating-aws-elastic-container-service-for-kubernetes-eks-the-right-way-9fd7ef4a66f1)”). Now I wanted to see if creating a Docker runtime using AWS [ECS](https://aws.amazon.com/ecs/) — Elastic Container Service is going to be as simple. It turned out not to be quite that simple and let’s see why.
 

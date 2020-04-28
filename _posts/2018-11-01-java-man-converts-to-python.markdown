@@ -23,7 +23,9 @@ You can find the project in [**Github**](https://github.com/karimarttila/python/
 
 Once again I tried to replicate the file/namespace/class names so that it is easy to compare the implementations (e.g. [server.py](https://github.com/karimarttila/python/blob/master/webstore-demo/simple-server/simpleserver/webserver/server.py "server.py") — [server.js](https://github.com/karimarttila/javascript/blob/master/webstore-demo/simple-server/src/webserver/server.js) — [server.clj](https://github.com/karimarttila/clojure/blob/master/clj-ring-cljs-reagent-demo/simple-server/src/simpleserver/webserver/server.clj) — [Server.java](https://github.com/karimarttila/java/blob/master/webstore-demo/simple-server/src/main/java/simpleserver/webserver/Server.java)).
 
-![](/img/1*BMM8oMHPNuEALXmS7eTTGQ.png)PyCharm hacking session running server unit tests.### Tools
+![](/img/1*BMM8oMHPNuEALXmS7eTTGQ.png)PyCharm hacking session running server unit tests
+
+### Tools
 
 I used [Python](https://www.python.org/ "https://www.python.org/") 3.6.6 on Ubuntu18 when implementing this Simple Server. I used Python virtual environment to keep my Ubuntu installation clean:
 

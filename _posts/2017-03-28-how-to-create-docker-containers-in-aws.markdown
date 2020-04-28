@@ -8,7 +8,9 @@ date:	2017-03-28
 
   We continue our AWS related blog series that we started in our first article “[Use AWS Services as Building Blocks to Implement Your Enterprise System](https://medium.com/tieto-developers/use-aws-services-as-building-blocks-to-implement-your-enterprise-system-598676a0ee49)”. In this new article we talk about our experiences regarding how to create Docker containers in AWS.
 
-![](/img/1*mHiAEAdGF-DbaoCjQvqupw.jpeg)Example ECS Terraform configuration.### Introduction
+![](/img/1*mHiAEAdGF-DbaoCjQvqupw.jpeg)Example ECS Terraform configuration
+
+### Introduction
 
 In our previous blog posts “[How to Create EC2 Images in AWS?](https://medium.com/tieto-developers/how-to-create-ec2-images-in-aws-a27b1afc97c6#) ” and “[How to Create Lambdas in AWS?](https://medium.com/tieto-developers/how-to-create-lambdas-in-aws-8f04ac833b2e#)” we already explained that there are several ways to create services to AWS infrastructure: EC2 instances (servers), Docker containers and Lambdas (serverless functionality).
 

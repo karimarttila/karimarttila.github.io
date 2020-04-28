@@ -6,7 +6,9 @@ tags: [aws]
 date:	2018-01-25
 ---
 
-  ![](/img/1*Z0ZaewH64QrsZW3eeN5Ysg.png)Linear regression model created using TensorFlow.### Introduction
+  ![](/img/1*Z0ZaewH64QrsZW3eeN5Ysg.png)Linear regression model created using TensorFlow
+
+### Introduction
 
 As I described in my previous blog article [Studying Machine Learning — First Impressions](https://medium.com/@kari.marttila/studying-machine-learning-first-impressions-a8008d68b847) I decided to dedicate this winter’s studies in Machine learning. I have been doing the excellent Machine learning [Coursera](https://www.coursera.org/) course and working with the exercises using [Octave](https://www.gnu.org/software/octave/). This was basically the first step (theory) in my Machine learning study path.
 

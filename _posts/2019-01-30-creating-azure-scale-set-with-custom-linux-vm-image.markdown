@@ -6,7 +6,9 @@ tags: [aws]
 date:	2019-01-30
 ---
 
-  ![](/img/1*okpVZTrEtozx6ON0RQ9PoQ.png)The first version of the Simple Server Azure scale set infrastructure.### Introduction
+  ![](/img/1*okpVZTrEtozx6ON0RQ9PoQ.png)The first version of the Simple Server Azure scale set infrastructure
+
+### Introduction
 
 This is the second part of the Azure Custom Linux VM Image and Scale Set related blog series that I initially thought that there will be only two parts. But then I realized that I’m going to use this exercise to study some Azure security and logging as well. So the series will be:
 
@@ -86,7 +88,9 @@ sku {
  }storage\_profile\_image\_reference {  
  **id="${data.azurerm\_image.scaleset\_image\_reference.id}"**  
  }  
-...#### The Idea
+..
+
+#### The Idea
 
 So, what’s the purpose of this? This way we can create as many environments as we want and those **environments are as exact copies** of each other as we want — and using these parameters we can make controlled variations to the environments. Let’s have an example. We have been developing a web store system — the requirement of this project is that the application binary needs to be baked into a Linux image and should be running elastically in a scale set — we are going to double the computing capacity (virtual machines) before Christmas sale. Ok, the development has been going on for a few months and the first version of the web store application and the the Azure infrastructure have been ready for some time and the system is running smoothly in production. While the web store Linux image v. 1.0 is running in production (e.g. in our terraform prod environment), the QA team is testing the next version of the web store 1.1 which is deployed in to the QA environment (e.g. in our terraform qa environment with image 1.1). At the same time our development team is implementing the web store version 1.2 (in our terraform dev environment). The team’s continuous integration (CI) server gets triggered every time someone commits application code to team’s git repository. The CI server builds the application, runs all unit and integration tests and if everything is fine this far the CI server starts to the automatic new image (v. 1.2.z) building process (see folder [packer](https://github.com/karimarttila/azure/tree/master/simple-server-vm/packer) — this could be automated quite easily). When the new image is ready the CI server deploys the image to the development environment and runs all end-to-end tests in that environment.
 

@@ -6,7 +6,9 @@ tags: [aws]
 date:	2019-03-14
 ---
 
-  ![](/img/1*ucuwNbmuw251_JzlENmIoA.png)Terraform and CloudFormation in a Family Portrait.### Introduction
+  ![](/img/1*ucuwNbmuw251_JzlENmIoA.png)Terraform and CloudFormation in a Family Portrait
+
+### Introduction
 
 I created two simple infrastructure demos using [Terraform](https://www.terraform.io/) for training new cloud learners in my new unit: one [AWS demo](https://github.com/tieto-pc/aws-intro-demo) and one [Azure demo](https://github.com/tieto-pc/azure-intro-demo) and compared the demos in my previous blog post “[Comparing Simple AWS and Azure Infrastructure Demos](https://medium.com/@kari.marttila/comparing-simple-aws-and-azure-infrastructure-demos-cf756d1ef68b)”. This time I implemented the same AWS demo using AWS native IaC tool, [CloudFormation](https://aws.amazon.com/cloudformation/): [AWS CloudFormation demo](https://github.com/tieto-pc/aws-intro-cloudformation-demo). In this blog post I compare these identical AWS simple intro demos created by two different IaC tools:
 

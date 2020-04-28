@@ -8,7 +8,9 @@ date:	2017-03-17
 
   We continue our AWS related blog series that we started in our first article “[Use AWS Services as Building Blocks to Implement Your Enterprise System](https://medium.com/tieto-developers/use-aws-services-as-building-blocks-to-implement-your-enterprise-system-598676a0ee49#)”. In this new article we talk about our experiences regarding how to create Lambdas in AWS.
 
-![](/img/1*klfgoXd3AqjEj-c6-cTPug.jpeg)Concept AWS Architecture using AWS Lambdas.### Introduction
+![](/img/1*klfgoXd3AqjEj-c6-cTPug.jpeg)Concept AWS Architecture using AWS Lambdas
+
+### Introduction
 
 In our previous blog post “[How to Create EC2 Images in AWS?](https://medium.com/tieto-developers/how-to-create-ec2-images-in-aws-a27b1afc97c6#)” we already explained that there are several ways to create services to AWS infrastructure: EC2 instances (servers), Docker containers and Lambdas.
 

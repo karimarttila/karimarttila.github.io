@@ -14,7 +14,9 @@ Last week I wrote a simple GCP demonstration using Terraform and wrote a blog po
 * DM: <https://github.com/tieto-pc/gcp-intro-dm-demo>
 There is a lot of introduction type material found regarding these tools in the net so I don’t provide any basic information about them — the reader is recommended to use Google search to find this kind of information. To keep this blog post short I just briefly provide my personal experiences and developer feelings regarding these two tools.
 
-![](/img/1*wdOLCMzgxHvpXQTAjOrQaA.png)GCP Intro Demonstration.### Terraform
+![](/img/1*wdOLCMzgxHvpXQTAjOrQaA.png)GCP Intro Demonstration
+
+### Terraform
 
 [Terraform](https://www.terraform.io/) is a widely used tool to create cloud infrastructure to public clouds — and this is Terraform’s most compelling pro: If you do multi-cloud development (as I do — AWS, GCP and Azure) it is a really powerful benefit to have one tool to create IaC for all three cloud platforms. Terraform also provides powerful declarative language ([HCL](https://github.com/hashicorp/hcl)) for creating IaC solutions. All major cloud services are supported in Terraform and usually new major services are supported pretty soon they are launched by the cloud provider.
 

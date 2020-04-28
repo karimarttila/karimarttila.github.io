@@ -6,7 +6,9 @@ tags: [aws]
 date:	2017-11-09
 ---
 
-  ![](/img/1*MmJ2qiRVyDttrdvopKoY9w.png)AWS Batch Ecosystem.### Introduction
+  ![](/img/1*MmJ2qiRVyDttrdvopKoY9w.png)AWS Batch Ecosystem
+
+### Introduction
 
 There are two very typical use cases in enterprise software: [API](https://en.wikipedia.org/wiki/Application_programming_interface) and [Batch processing](https://en.wikipedia.org/wiki/Batch_processing). For API work AWS provides a lot of useful services: you can bake your API into an [Amazon Machine Image](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) (AMI), [Docker](https://www.docker.com/) container using [EC2 Container Service](https://aws.amazon.com/ecs/) (ECS), utilize [Auto scaling](https://aws.amazon.com/autoscaling/) for elasticity, possibly use [API Gateway](https://aws.amazon.com/api-gateway/) to publish your API (not necessary even some junior developers assume that you have to publish your APIs using AWS API Gateway) etc.
 

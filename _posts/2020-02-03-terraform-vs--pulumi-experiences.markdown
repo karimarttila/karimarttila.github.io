@@ -16,13 +16,17 @@ In my new cloud project our DevOps team decided to create the similar AWS infra 
 
 Example using Terraform:
 
-![](/img/1*Gybjy7HhmQJ4mhw9xW7AeA.png)Terraform hcl example.### Pulumi
+![](/img/1*Gybjy7HhmQJ4mhw9xW7AeA.png)Terraform hcl example
+
+### Pulumi
 
 [Pulumi](https://www.pulumi.com/) can also be used with all major cloud providers. The major difference between Terraform and Pulumi is that with Pulumi you can use a real programming language (currently supports Javascript, Typescript and Python).
 
 Example using Pulumi:
 
-![](/img/1*EkCCBesPL18yUuquBleNJA.png)Pulumi Python example.### Comparison
+![](/img/1*EkCCBesPL18yUuquBleNJA.png)Pulumi Python example
+
+### Comparison
 
 #### Configuration management
 

@@ -6,7 +6,9 @@ tags: [aws]
 date:	2018-09-24
 ---
 
-  ![](/img/1*0WcioXz-JsJneDtyWItA-A.png)Azure + Kubernetes = Azure Kubernetes Service (AKS).### Introduction
+  ![](/img/1*0WcioXz-JsJneDtyWItA-A.png)Azure + Kubernetes = Azure Kubernetes Service (AKS)
+
+### Introduction
 
 This is the second part of the Kubernetes blog articles that I started in “[Exploring Kubernetes with Minikube](https://medium.com/@kari.marttila/exploring-kubernetes-with-minikube-c90c60b25e81)”. In this blog article I’ll continue my explorations in the Kube Land using Azure Kubernetes Service (AKS) as my playground.
 

@@ -6,7 +6,9 @@ tags: [aws]
 date:	2019-07-05
 ---
 
-  ![](/img/1*qgjnVKddF551a8wSFHDY8A.png)AWS, GCP and Azure Intro Demos in a Family Portrait.### Introduction
+  ![](/img/1*qgjnVKddF551a8wSFHDY8A.png)AWS, GCP and Azure Intro Demos in a Family Portrait
+
+### Introduction
 
 Working as a Cloud Mentor in my corporation one of my duties is to teach junior cloud developers to create infrastructure as code (IaC). I have created various demonstrations both in AWS and Azure using both Terraform and cloud native tools (CloudFormation and ARM). At the same time I was studying [Google Cloud Platform](https://cloud.google.com/gcp/) myself. Last month I did two GCP certifications: Associate Cloud Engineer and Professional Cloud Architect. After these studies I decided to create the same simple IaC demonstration using the Google Cloud Platform that I had earlier created for AWS and Azure platforms. I have already written a blog article in which I compared AWS and Azure Terraform implementations ([Comparing Simple AWS and Azure Infrastructure Demos](https://medium.com/@kari.marttila/comparing-simple-aws-and-azure-infrastructure-demos-cf756d1ef68b)). In this new blog post I compare the new GCP demonstration to those previous demonstrations in the AWS and Azure side. All three demonstrations can be found in Tieto / Public Cloud team’s [Github account](https://github.com/tieto-pc):
 

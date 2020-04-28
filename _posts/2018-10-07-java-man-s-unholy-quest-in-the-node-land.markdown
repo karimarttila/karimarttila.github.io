@@ -14,7 +14,9 @@ You can find the project in [**Github**](https://github.com/karimarttila/javascr
 
 I tried to replicate the Clojure namespace structure to the equivalent Node structures so that it is easy to compare various parts of the application in these two implementations (e.g. [server.js](https://github.com/karimarttila/javascript/blob/master/webstore-demo/simple-server/src/webserver/server.js) — [server.clj](https://github.com/karimarttila/clojure/blob/master/clj-ring-cljs-reagent-demo/simple-server/src/simpleserver/webserver/server.clj))
 
-![](/img/1*_TXR6f8yD0dQ8BnpflepTg.png)Visual Studio Code hacking session running server unit tests.### Visual Studio Code
+![](/img/1*_TXR6f8yD0dQ8BnpflepTg.png)Visual Studio Code hacking session running server unit tests
+
+### Visual Studio Code
 
 While learning Javascript and Node I decided to use [Visual Studio Code](https://code.visualstudio.com/) as my editor when implementing this new version of the Simple Server. Visual Studio Code was highly recommended by my unit’s Javascript developers. And I understand now why. It’s really a superb editor and IDE. And I managed to configure my Visual Studio Code so that it almost works exactly like my [PyCharm](https://www.jetbrains.com/pycharm/) (for Python hacking), my [IntelliJ IDEA](https://www.jetbrains.com/idea/) (for Java hacking) and my [Cursive](https://cursive-ide.com/) (for Clojure hacking). Visual Studio debugger is pretty nice. Breakpoints etc. work as in other IDEs. There are also a lot of various extensions you can use to tweak VS Code for your own purposes (e.g. Emacs binding).
 

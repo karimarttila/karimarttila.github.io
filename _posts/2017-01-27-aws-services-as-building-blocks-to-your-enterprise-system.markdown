@@ -10,7 +10,9 @@ date:	2017-01-27
 
 The diagram below depicts some of the typical AWS services that you are going to use when implementing your enterprise system in AWS infrastructure. We are going to introduce these services in this article.
 
-![](/img/1*9rDWIng7e_4vnwDuaIckfA.jpeg)A concept diagram of AWS services used in an enterprise system.### 1. Virtual Private Cloud
+![](/img/1*9rDWIng7e_4vnwDuaIckfA.jpeg)A concept diagram of AWS services used in an enterprise system
+
+### 1. Virtual Private Cloud
 
 The first task implementing [AWS](https://aws.amazon.com/) infrastructure is to create a [VPC](https://aws.amazon.com/vpc/). A best practice is to create at least two AWS accounts, one for production and another for any other purposes (development, test etc). This way you completely separate production environment from other activities and have e.g. different [IAM](https://aws.amazon.com/iam/) users for production environment.
 

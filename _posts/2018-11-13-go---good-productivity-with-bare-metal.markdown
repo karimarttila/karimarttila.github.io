@@ -22,7 +22,9 @@ And once again I tried to replicate the file/namespace/class names so that it is
 
 **Important note! **I’m not comparing these five languages between each other in this blog post but mostly just focus on Go. I’m planning to write another blog post in which I’ll reflect my experiences implementing the same web server in five different languages and comparing the languages — so stay tuned!
 
-![](/img/1*HJhQxqySlzFaIAuwMTlNkw.png)GoLand hacking session running server unit tests.### Learning Process
+![](/img/1*HJhQxqySlzFaIAuwMTlNkw.png)GoLand hacking session running server unit tests
+
+### Learning Process
 
 It’s really fun and interesting to learn a new programming language. When you have zero knowledge before taking the challenge learning the new language is a kind of exploration expedition to a new land with different language and customs — the only way to effectively learn it is to go there, learn the language and its idioms.
 

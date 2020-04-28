@@ -6,7 +6,9 @@ tags: [aws]
 date:	2019-01-14
 ---
 
-  ![](/img/1*Eh27n25bnBxoxcP99TvvAA.png)The Kubernetes Deployment Configuration and the Bash Script to Tweak It.### Introduction
+  ![](/img/1*Eh27n25bnBxoxcP99TvvAA.png)The Kubernetes Deployment Configuration and the Bash Script to Tweak It
+
+### Introduction
 
 This blog post describes the second part of my Azure Kubernetes Services (AKS) studies. In the first part “[Creating Azure Kubernetes Service (AKS) the Right Way](https://medium.com/@kari.marttila/creating-azure-kubernetes-service-aks-the-right-way-9b18c665a6fa)” I created a Terraform configuration for the project infra for the Azure cloud: AKS (the Kubernetes service itself), ACR (Azure Container registry) to host the Docker images and other related cloud infra I needed for the demo application.
 

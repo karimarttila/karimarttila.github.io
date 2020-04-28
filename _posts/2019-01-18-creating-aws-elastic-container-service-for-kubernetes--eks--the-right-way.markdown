@@ -6,7 +6,9 @@ tags: [aws]
 date:	2019-01-18
 ---
 
-  ![](/img/1*wtMcxrken3xIMngNA5s_FQ.png)IntelliJ IDEA with Terraform Plugin.### Introduction
+  ![](/img/1*wtMcxrken3xIMngNA5s_FQ.png)IntelliJ IDEA with Terraform Plugin
+
+### Introduction
 
 I already did a small exercise how to create a managed Kubernetes service infra in the Azure side using Terraform — see my previous blog post “[Creating Azure Kubernetes Service (AKS) the Right Way](https://medium.com/@kari.marttila/creating-azure-kubernetes-service-aks-the-right-way-9b18c665a6fa)”. Now I wanted to see how the same Kubernetes managed service can be created using [AWS Elastic Container Service for Kubernetes](https://aws.amazon.com/eks/) (EKS). I describe in this blog post about my experiences regarding that.
 

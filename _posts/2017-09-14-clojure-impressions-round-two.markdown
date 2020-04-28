@@ -6,7 +6,9 @@ tags: [aws]
 date:	2017-09-14
 ---
 
-  ![](/img/1*yFHU7yXzUaTE8KmqVtirNA.png)IntelliJ IDEA / Cursive REPL.### Introduction
+  ![](/img/1*yFHU7yXzUaTE8KmqVtirNA.png)IntelliJ IDEA / Cursive REPL
+
+### Introduction
 
 Let’s continue our Clojure related blog series (first article [here](https://medium.com/tieto-developers/clojure-first-impressions-2c6232f4b514)).
 

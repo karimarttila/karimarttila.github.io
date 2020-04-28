@@ -6,7 +6,9 @@ tags: [aws]
 date:	2020-01-06
 ---
 
-  ![](/img/1*cFhPVmQTRw56QYcya3ps5A.png)The Clojure IDEs used in this exercise: Emacs + Cider and Intellij IDEA + Cursive.### Introduction
+  ![](/img/1*cFhPVmQTRw56QYcya3ps5A.png)The Clojure IDEs used in this exercise: Emacs + Cider and Intellij IDEA + Cursive
+
+### Introduction
 
 This Clojure Simple Server is a re-implementation of my original Clojure Simple Server I did some three years ago. I created the first version of that Clojure exercise server to learn to use Clojure. I created this new Clojure Simple Server version mainly to learn new Clojure libraries and new ways to work more efficiently with the Clojure REPL. If you are interested about my Clojure learning history you can read my earlier Clojure related blog posts:
 

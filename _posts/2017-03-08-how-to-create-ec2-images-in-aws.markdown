@@ -8,7 +8,9 @@ date:	2017-03-08
 
   We continue our AWS related blog series that we started in our first article “[Use AWS Services as Building Blocks to Implement Your Enterprise System](https://medium.com/tieto-developers/use-aws-services-as-building-blocks-to-implement-your-enterprise-system-598676a0ee49#)”. In this new article we talk about our experiences regarding how to create EC2 images.
 
-![](/img/1*W0H9TpcaO5GOvXRVXs78Bw.png)Example Packer Playbook file.### Introduction
+![](/img/1*W0H9TpcaO5GOvXRVXs78Bw.png)Example Packer Playbook file
+
+### Introduction
 
 There are several ways to create application services to AWS infrastructure:
 

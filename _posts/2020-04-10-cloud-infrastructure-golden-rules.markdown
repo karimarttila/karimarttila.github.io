@@ -6,7 +6,9 @@ tags: [aws]
 date:	2020-04-10
 ---
 
-  ![](/img/1*JGAOyy5y18wX6gDGtLbvjg.png)A screenshot of one of my personal cloud projects.### Introduction
+  ![](/img/1*JGAOyy5y18wX6gDGtLbvjg.png)A screenshot of one of my personal cloud projects
+
+### Introduction
 
 I have been working in various cloud infrastructure projects using AWS, Azure, and GCP implementing infrastructure with native tools and with Terraform and Pulumi. I have seen that there are a few success factors how to make infrastructure in software development projects. I have also seen some tar pits to avoid. In this short blog post, I write about my experiences regarding how to do infrastructure as code — and how not to do it.
 

@@ -18,7 +18,9 @@ You can find the project in [**Github**](https://github.com/karimarttila/java/tr
 
 Once again I tried to replicate the file/namespace/class names so that it is easy to compare the implementations (e.g. [server.js](https://github.com/karimarttila/javascript/blob/master/webstore-demo/simple-server/src/webserver/server.js) — [server.clj](https://github.com/karimarttila/clojure/blob/master/clj-ring-cljs-reagent-demo/simple-server/src/simpleserver/webserver/server.clj) — [Server.java](https://github.com/karimarttila/java/blob/master/webstore-demo/simple-server/src/main/java/simpleserver/webserver/Server.java) ).
 
-![](/img/1*8s1LOROPqqZwK_S0Rw5Omw.png)IntelliJ IDEA hacking session running server unit tests.### Spring Boot 2.0 and Spring 5.0
+![](/img/1*8s1LOROPqqZwK_S0Rw5Omw.png)IntelliJ IDEA hacking session running server unit tests
+
+### Spring Boot 2.0 and Spring 5.0
 
 I remember back in mid 2000 when [Java EE](https://en.wikipedia.org/wiki/Java_Platform,_Enterprise_Edition) was really bloated and pretty awkward to use with all application server and EJB hassle, and [Spring Framework](https://en.wikipedia.org/wiki/Spring_Framework) came with its dependency injection and autowiring and made things easier. Well, Spring itself seems to be rather bloated nowadays and therefore we have [Spring Boot](http://spring.io/projects/spring-boot) which considerably makes building Spring applications easier.
 

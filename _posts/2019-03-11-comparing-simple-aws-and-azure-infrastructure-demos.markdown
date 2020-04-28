@@ -6,7 +6,9 @@ tags: [aws]
 date:	2019-03-11
 ---
 
-  ![](/img/1*5IbUi_uagWJNVkqSlLxH8w.png)AWS and Azure Intro Demos in a Family Portrait.### Introduction
+  ![](/img/1*5IbUi_uagWJNVkqSlLxH8w.png)AWS and Azure Intro Demos in a Family Portrait
+
+### Introduction
 
 In my new unit I was asked to create some training material how to do infrastructure coding for both AWS and Azure. I considered a while what kind of infrastructure to use as an example and finally I decided that the infrastructure should be as simple as possible (not to intimidate new cloud learners) but comprising some basic elements that you can find in every infrastructure: a virtual network, a subnet, a firewall and some computing resource. So, I created two intro demonstrations, one for both AWS and Azure sides using this specification. The demonstrations can be found in Tieto / Public Cloud team’s [Github account](https://github.com/tieto-pc):
 

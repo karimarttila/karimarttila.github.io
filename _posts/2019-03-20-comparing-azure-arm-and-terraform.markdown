@@ -6,7 +6,9 @@ tags: [aws]
 date:	2019-03-20
 ---
 
-  ![](/img/1*LBy3VwUbcp6HcrASckl4eg.png)Terraform and ARM infrastructure code in a family portrait.### Introduction
+  ![](/img/1*LBy3VwUbcp6HcrASckl4eg.png)Terraform and ARM infrastructure code in a family portrait
+
+### Introduction
 
 This is the final blog post regarding the AWS and Azure intro demonstrations that I created using native tools (AWS: CloudFormation and Azure: ARM) and Terraform. The previous articles in this series are:
 

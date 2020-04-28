@@ -63,7 +63,9 @@ The server provides simple routing of these urls:
  []  
  (log/trace "ENTER -generate-clicks")  
  (async/go (while (= [@server](http://twitter.com/server "Twitter profile for @server")-state :running)  
- ...### Clojure and Data Handling
+ ..
+
+### Clojure and Data Handling
 
 Using Clojure to implement data oriented applications is easy since Clojure is very much data oriented language itself. I don’t miss that much of the Java boilerplate (classes, setters/getters etc.) to implement simple stuff. With Clojure you don’t need any of that boilerplate but you can focus on the application data and logic itself.
 

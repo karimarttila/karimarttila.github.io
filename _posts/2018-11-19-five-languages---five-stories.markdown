@@ -17,7 +17,9 @@ Last spring I wanted to see how easy it would be to implement a small web server
 * **Go**: “[Go — Good Productivity with Bare Metal](https://medium.com/@kari.marttila/go-good-productivity-with-bare-metal-4fa70e0177fb)”
 So, in this blog article I’m going **to compare these five languages regarding my experiences** while implementing the same server over and over again. I’m also going to **score the languages** regarding various aspects using either the same scale (1–5, **1=best,** **5=worst**), or some other metrics I feel more suitable for the situation. The reader must understand that these scores and everything I have written here are based on a very personal taste and done tongue in cheek. So, let’s start!
 
-![](/img/1*5ZofRqU-yJafiXN2brVoeQ.png)Five languages with their IDEs in a family portrait in my Ubuntu18.### Language Characteristics
+![](/img/1*5ZofRqU-yJafiXN2brVoeQ.png)Five languages with their IDEs in a family portrait in my Ubuntu18
+
+### Language Characteristics
 
 The five languages are quite different from each other which is a good thing since they are now in my toolbox — I like to have different tools for different purposes. I think the main characteristics of these languages are:
 

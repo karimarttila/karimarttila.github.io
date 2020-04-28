@@ -77,7 +77,9 @@ The [simpleserver.util.azuregenclass.users](https://github.com/karimarttila/cloj
  [setHpwd [String] void]]  
  ))(defn bean-init []  
  [[] (atom {:last-name nil, :first-name nil, :hpwd nil})])  
-...#### Clojure REPL Issues with Gen-Classes
+..
+
+#### Clojure REPL Issues with Gen-Classes
 
 There was only one issue with my Clojure/Java interop journey — refreshing Clojure REPL with gen-classes. Since gen-classes are Clojure code and you need to compile them to Java classes there was some hassle using them with REPL. If I make changes to many Clojure namespaces it is sometimes easier to refresh the REPL (to load all namespaces) instead of loading the changed namespaces manually one by one:
 

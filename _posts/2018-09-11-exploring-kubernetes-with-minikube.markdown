@@ -6,7 +6,9 @@ tags: [aws]
 date:	2018-09-11
 ---
 
-  ![](/img/1*7iL8kxciTg2L0ATbH38o7A.png)[Kubernetes](https://kubernetes.io/).### Introduction
+  ![](/img/1*7iL8kxciTg2L0ATbH38o7A.png)[Kubernetes](https://kubernetes.io/)
+
+### Introduction
 
 I’m currently working in an Azure project and team members are considering to move various applications from VM to containers and run them in a Kubernetes cluster. They asked me to explore the Azure Kubernetes capabilities and document my experiences. While I was working on this assignment I thought that I could write two blog articles regarding my work: “Exploring Kubernetes with Minikube” (this article) and “[Running Azure Kubernetes Service (AKS)](https://medium.com/@kari.marttila/running-azure-kubernetes-service-aks-882faad43f2c)” (next article).
 

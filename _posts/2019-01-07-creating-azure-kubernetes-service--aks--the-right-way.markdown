@@ -6,7 +6,9 @@ tags: [aws]
 date:	2019-01-07
 ---
 
-  ![](/img/1*VhUlqkEkpr_a93X09r5Oww.png)IntelliJ IDEA with Terraform Plugin.### Introduction
+  ![](/img/1*VhUlqkEkpr_a93X09r5Oww.png)IntelliJ IDEA with Terraform Plugin
+
+### Introduction
 
 About 7 months ago I was asked to create a short Azure [AKS](https://docs.microsoft.com/en-us/azure/aks/) poc for one project using [ARM](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) with a preview version of AKS (of that time), you can read more about that in my previous blog post “[Running Azure Kubernetes Service (AKS)](https://medium.com/@kari.marttila/running-azure-kubernetes-service-aks-882faad43f2c)” . ARM was a requirement so I couldn’t use my choice of Infrastructure as Code tool [Terraform](https://www.terraform.io/).
 

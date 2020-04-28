@@ -8,7 +8,9 @@ date:	2017-05-17
 
   Let’s continue our Amazon Web Services competence building and talk about our experiences regarding how to do application logging in AWS infrastructure.
 
-![](/img/1*gGMbUlvwsr4QEIufTm7Fqg.png)Example of an AWS Logs configuration sending Log streams to three different Log groups.### Introduction
+![](/img/1*gGMbUlvwsr4QEIufTm7Fqg.png)Example of an AWS Logs configuration sending Log streams to three different Log groups
+
+### Introduction
 
 [**AWS Logs**](http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) is provided by [AWS CloudWatch](https://aws.amazon.com/cloudwatch/). AWS Logs provides two primary concepts to categorize your logs: **Log Groups** and **Log Streams**. You can have 5000 Log Groups / AWS account / region, and multiple Log Streams inside Log Groups.
 

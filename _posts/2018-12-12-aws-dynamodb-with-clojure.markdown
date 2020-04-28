@@ -6,7 +6,9 @@ tags: [aws]
 date:	2018-12-12
 ---
 
-  ![](/img/1*6VgVFREkrKtjFNyIpTA09w.png)Running Clojure unit tests in IntelliJ IDEA / Cursive.### Introduction
+  ![](/img/1*6VgVFREkrKtjFNyIpTA09w.png)Running Clojure unit tests in IntelliJ IDEA / Cursive
+
+### Introduction
 
 After my [Five Languages](https://medium.com/@kari.marttila/five-languages-five-stories-1afd7b0b583f) project I was searching something new to learn. I decided to refresh my AWS skills a bit and and compare AWS container services [EKS](https://aws.amazon.com/eks/) and [Fargate](https://aws.amazon.com/fargate/) and compare their deployment models for Docker containers. I decided to use my [Clojure Simple Server](https://github.com/karimarttila/clojure/tree/master/clj-ring-cljs-reagent-demo/simple-server) exercise as a demo application. There was one problem, though. The Simple Server was just a demo application and it simulated database by reading csv files to internal data structures — therefore making the server stateful. First I needed to change the implementation to make the server fully stateless — storing all state outside the server in a real external database. I decided to use AWS [DynamoDB](https://aws.amazon.com/dynamodb/) nosql database. In this blog post I write about my experiences to manipulate DynamoDB using Clojure and how to use local DynamoDB Docker container instance as a development database. Next I’ll be using this DynamoDB version of Simple Server to deploy the server to EKS and Fargate and write new blog posts regarding those experiences, so stay tuned.
 

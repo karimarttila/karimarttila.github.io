@@ -6,7 +6,9 @@ tags: [aws]
 date:	2019-01-21
 ---
 
-  ![](/img/1*hqoNC2ZKA28XK24B5Ovqgg.png)The Simple Server DynamoDB AWS EKS Kubernetes Deployment Listing.### Introduction
+  ![](/img/1*hqoNC2ZKA28XK24B5Ovqgg.png)The Simple Server DynamoDB AWS EKS Kubernetes Deployment Listing
+
+### Introduction
 
 This blog post describes the second part of my AWS Kubernetes Services (EKS) studies. In the first part “[Creating AWS Elastic Container Service for Kubernetes (EKS) the Right Way](https://medium.com/@kari.marttila/creating-aws-elastic-container-service-for-kubernetes-eks-the-right-way-9fd7ef4a66f1)” I created a Terraform configuration for the project infra for the AWS cloud: EKS (the Kubernetes service itself), ECR (AWS Container registry to host the Docker images) and other related cloud infra I needed for the demo application.
 
