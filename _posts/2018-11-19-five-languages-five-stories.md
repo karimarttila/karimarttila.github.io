@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Five Languages — Five Stories"
-categories: [blog, aws]
-tags: [aws]
-date:	2018-11-19
+layout: post
+title: Five Languages - Five Stories
+categories: [blog, languages]
+tags: [languages]
+date: 2018-11-19
 ---
 
 ### Introduction
@@ -17,7 +17,13 @@ Last spring I wanted to see how easy it would be to implement a small web server
 * **Go**: “[Go — Good Productivity with Bare Metal](https://medium.com/@kari.marttila/go-good-productivity-with-bare-metal-4fa70e0177fb)”
 So, in this blog article I’m going **to compare these five languages regarding my experiences** while implementing the same server over and over again. I’m also going to **score the languages** regarding various aspects using either the same scale (1–5, **1=best,** **5=worst**), or some other metrics I feel more suitable for the situation. The reader must understand that these scores and everything I have written here are based on a very personal taste and done tongue in cheek. So, let’s start!
 
-![](/img/2018-11-19-five-languages-five-stories_img_1.png)Five languages with their IDEs in a family portrait in my Ubuntu18
+Update: There is a sixth language, **Kotlin**. I'm about to update this blog post to "Six Languages - Six Stories", but before I have time to do that you can read about my Kotlin experiences in [Kotlin - Much More Than Just a Better Java]({% post_url 2019-12-15-kotlin-much-more-than-just-a-better-java %}).
+
+All right, let's get on with this post!
+
+![](/img/2018-11-19-five-languages-five-stories_img_1.png)
+
+*Five languages with their IDEs in a family portrait in my Ubuntu18.*
 
 ### Language Characteristics
 
