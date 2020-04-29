@@ -10,7 +10,11 @@ date:	2018-03-25
 
 I was asked to create a proof-of-concept for storing and analyzing clickstream events. The events would be stored in a data lake using AWS S3 and AWS Glue, and for testing the data lake I needed a clickstream generator that simulates customers browsing product groups and products in a hypothetical web store. The picture below shows the AWS infrastructure of the POC.
 
-![](/img/2018-03-25-using-clojure-to-implement-a-web-service-server_img_1.jpeg)Proof-of-concept of a S3 based Data lake for Clickstream events.So, this would be a good reason to refresh my [Clojure](https://clojure.org/) programming skills (see my earlier Clojure related blog post: [Clojure Impressions Round Two](https://medium.com/tieto-developers/clojure-impressions-round-two-f989c0945f4b)).
+![](/img/2018-03-25-using-clojure-to-implement-a-web-service-server_img_1.jpeg)
+
+*Proof-of-concept of a S3 based Data lake for Clickstream events.*
+
+So, this would be a good reason to refresh my [Clojure](https://clojure.org/) programming skills (see my earlier Clojure related blog post: [Clojure Impressions Round Two](https://medium.com/tieto-developers/clojure-impressions-round-two-f989c0945f4b)).
 
 The implementation of the Clickstream Web service server is in my github account: <https://github.com/karimarttila/clojure/tree/master/clickstream-generator> . The link shows the README.md which explains most of the technicalities, so I’m not going to explain the same stuff here. Instead, I’ll write here some experiences implementing a Web service server using Clojure, how to develop a Clojure application and how to integrate the Clojure application with AWS.
 

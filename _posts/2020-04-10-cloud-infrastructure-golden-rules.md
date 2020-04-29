@@ -1,7 +1,7 @@
 ---
-layout:	post
-title:	"Cloud Infrastructure Golden Rules"
-categories: [blog, aws]
+layout: post
+title: Cloud Infrastructure Golden Rules
+category: iac
 tags: [iac, aws, azure, gcp]
 date:	2020-04-10
 ---
