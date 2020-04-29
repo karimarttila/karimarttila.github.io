@@ -2,7 +2,7 @@
 layout: post
 title: "Database Development On AWS"
 category: [aws]
-tags: [aws, database, cloud, iac]
+tags: [aws, database, cloud, iac, postgresql, rds, mysql, docker, clojure]
 date: 2017-10-18
 ---
 

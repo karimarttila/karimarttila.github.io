@@ -74,9 +74,11 @@ If you are interested to use this example (a bit of work actually — you have t
 
 So, I assume that you have successfully created the Docker image, created the AWS infra and deployed the Kubernetes deployment configuration. The application is now running in the AWS EKS cluster. Next you need to get the url for the Kubernetes cluster load balancer. Get it using the kubectl tool:
 
+```bash
 AWS\_PROFILE=YOUR-AWS-PROFILE kubectl get all --all-namespaces  
 # => Lists the Kubernetes deployment entities (see screenshot at the beginning of this blog post).AWS\_PROFILE=YOUR-AWS-PROFILE kubectl describe svc kari-ss-dynamodb-deployment-lb -n kari-ss-dynamodb-ns  
 # => Gives the description of the Kubernetes configuration load balancer (see below).You get some listing regarding that entity and there is also the LoadBalancer url:
+```
 
 ...  
 LoadBalancer Ingress: XXXXXXXXXXXXXXXXXXXXXXX.elb.eu-west-1.amazonaws.com  
@@ -84,15 +86,21 @@ LoadBalancer Ingress: XXXXXXXXXXXXXXXXXXXXXXX.elb.eu-west-1.amazonaws.com
 
 Use this url to query the application:
 
+```bash
 curl [http://XXXXXXXXXXXXX.elb.eu-west-1.amazonaws.com:3045/info](http://a589dad411d8511e9b9e00297d7dbc78-287a8ca9a1021bed.elb.eu-west-1.amazonaws.com:3045/info)  
 # => {"info":"index.html => Info in HTML format"}NOTE: The first time you call the Kubernetes cluster load balancer it might take some 1–3 minutes before it replies. I don’t know the reason for this. But the next replies are lightning fast. Maybe AWS somehow configures the load balancer that someone is really using it.
+```
 
 Then use my poor man’s Robot framework script to test all APIs:
 
+```bash
 ./call-all-ip-port.sh [XXXXXXXXXXXXX](http://a589dad411d8511e9b9e00297d7dbc78-287a8ca9a1021bed.elb.eu-west-1.amazonaws.com:3045/info).elb.eu-west-1.amazonaws.com 3045  
 # => A lot of stuff (returns all values from all APIs it tests)...  
 # ... and finally the last reply from the last API call:  
-# {"ret":"ok","pg-id":"2","p-id":"49","product":["49","2","Once Upon a Time in the West","14.4","Leone, Sergio","1968","Italy-USA","Western"]}By the way, what a coincidence — “[Once Upon a Time in the West](https://en.wikipedia.org/wiki/Once_Upon_a_Time_in_the_West)” is the best western ever made and one of my favorite movies. :-)
+# {"ret":"ok","pg-id":"2","p-id":"49","product":["49","2","Once Upon a Time in the West","14.4","Leone, Sergio","1968","Italy-USA","Western"]}
+```
+
+By the way, what a coincidence — “[Once Upon a Time in the West](https://en.wikipedia.org/wiki/Once_Upon_a_Time_in_the_West)” is the best western ever made and one of my favorite movies. :-)
 
 ### Conclusions
 

@@ -2,7 +2,7 @@
 layout: post
 title: "How to Create and Manage Resources in Amazon Web Services Infrastructure?"
 category: [aws]
-tags: [aws, iac, cloud]
+tags: [aws, iac, cloud, terraform, cloudformation]
 date: 2017-02-16
 ---
 

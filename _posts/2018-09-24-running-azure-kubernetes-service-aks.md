@@ -2,7 +2,7 @@
 layout: post
 title: "Running Azure Kubernetes Service (AKS)"
 category: [azure]
-tags: [azure, kubernetes]
+tags: [azure, kubernetes, arm]
 date: 2018-09-24
 ---
 

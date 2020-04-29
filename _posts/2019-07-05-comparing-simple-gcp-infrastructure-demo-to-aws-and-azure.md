@@ -2,7 +2,7 @@
 layout: post
 title: "Comparing Simple GCP Infrastructure Demo to AWS and Azure"
 category: [iac]
-tags: [iac, aws, azure, gcp]
+tags: [iac, aws, azure, gcp, cloud]
 date: 2019-07-05
 ---
 

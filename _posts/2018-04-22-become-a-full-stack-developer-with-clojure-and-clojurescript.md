@@ -2,7 +2,7 @@
 layout: post
 title: "Become a Full Stack Developer with Clojure and ClojureScript!"
 category: [clojure]
-tags: [clojure, clojurescript, web, fullstack]
+tags: [clojure, clojurescript, web, fullstack, repl]
 date:	2018-04-22
 ---
 

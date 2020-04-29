@@ -2,7 +2,7 @@
 layout: post
 title: "Java Man Returns Home Confused"
 category: [languages]
-tags: [languages, java]
+tags: [languages, java, spring]
 date: 2018-10-29
 ---
 

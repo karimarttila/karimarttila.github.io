@@ -2,7 +2,7 @@
 layout: post
 title: "AWS Batch and Docker Containers"
 category: [aws]
-tags: [aws, cloud, iac, docker, container, batch]
+tags: [aws, cloud, iac, docker, container, batch, cloudformation]
 date: 2017-11-09
 ---
 

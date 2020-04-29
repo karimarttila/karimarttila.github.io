@@ -2,7 +2,7 @@
 layout: post
 title: "Terraform vs. Pulumi Experiences"
 category: [devops]
-tags: [devops, iac, terraform, pulumi]
+tags: [devops, iac, terraform, pulumi, cloud]
 date: 2020-02-03
 ---
 

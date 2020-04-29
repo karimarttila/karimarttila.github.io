@@ -2,7 +2,7 @@
 layout: post
 title: "Azure Table Storage with Clojure"
 category: [azure]
-tags: [azure, clojure]
+tags: [azure, clojure, cloud, iac]
 date: 2019-01-01
 ---
 

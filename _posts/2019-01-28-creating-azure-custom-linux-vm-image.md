@@ -2,7 +2,7 @@
 layout: post
 title: "Creating Azure Custom Linux VM Image"
 category: [azure]
-tags: [azure, vm, cloud, iac]
+tags: [azure, vm, cloud, iac, packer]
 date:	2019-01-28
 ---
 
@@ -50,11 +50,12 @@ Once you are ready with all these configuration files you can try to build a tes
 
 az vm create --resource-group YOUR-RESOURCE-GROUP --name YOUR-VIRTUAL-MACHINE-NAME --image YOUR-VM-IMAGE-NAME --custom-data ../packer/cloud-init-set-env-mode-single-node.sh --ssh-key-value [@vm\_id\_rsa](http://twitter.com/vm_id_rsa "Twitter profile for @vm_id_rsa").pub --vnet-name YOUR-VNET --subnet YOUR-SUBNET --admin-username YOUR-USER-NAME --location YOUR-LOCATIONThe script starts creating the virtual machine and finally tells that the VM is ready and tells some information regarding the VM like the public IP — use the public IP and the ssh key you used previously to logon to the server and check if the application is running:
 
+```bash
 ps aux | grep java  
 ssuser .... <some stuff> .... java -jar app.jar  
 ubuntu .... <some stuff> .... grep --color=auto java  
 sudo systemctl status rc-local  
-● rc-local.service - /etc/rc.local Compatibility  
+ rc-local.service - /etc/rc.local Compatibility  
  Loaded: loaded (/lib/systemd/system/rc-local.service; enabled-runtime; vendor preset: enabled)  
 ...  
  Active: activating (start) since Mon 2019-01-28 19:43:28 UTC; 1min 28s ago  
@@ -62,11 +63,18 @@ sudo systemctl status rc-local
 Jan 28 19:43:54 inittest5-vm rc.local[1017]: 2019-01-28 19:43:54 DE [main] DEBUG simpleserver.webs  
 Jan 28 19:43:54 inittest5-vm rc.local[1017]: 2019-01-28 19:43:54 DE [main] DEBUG simpleserver.webs  
 Jan 28 19:43:54 inittest5-vm rc.local[1017]: 2019-01-28 19:43:54 DE [main] DEBUG simpleserver.webs  
-Jan 28 19:43:55 inittest5-vm rc.local[1017]: Started server on port 3045All right! The server started automatically with the new virtual machine. Now open port 3045 in the virtual server network security group for your local workstation (I already configured port 3045 to be open in the relevant subnet using Terraform, more about that in the next blog post) and test the server once again with my poor man’s Robot framework simulator:
+Jan 28 19:43:55 inittest5-vm rc.local[1017]: Started server on port 3045
+```
 
+All right! The server started automatically with the new virtual machine. Now open port 3045 in the virtual server network security group for your local workstation (I already configured port 3045 to be open in the relevant subnet using Terraform, more about that in the next blog post) and test the server once again with my poor man’s Robot framework simulator:
+
+```bash
 ./call-all-ip-port.sh PUBLIC-IP 3045  
 ... a lot of stuff, and finally last API call and return value:  
-{"ret":"ok","pg-id":"2","p-id":"49","product":["49","2","Once Upon a Time in the West","14.4","Leone, Sergio","1968","Italy-USA","Western"]}### Conclusions
+{"ret":"ok","pg-id":"2","p-id":"49","product":["49","2","Once Upon a Time in the West","14.4","Leone, Sergio","1968","Italy-USA","Western"]}
+```
+
+### Conclusions
 
 Creating a custom VM image using Packer is pretty much the same in both AWS and Azure. Comparing building Docker container image and VM image the main thing is that building a VM image takes a really long time — you have to test all your provisioning and startup scripts in a live VM before you use them in the image building script.
 

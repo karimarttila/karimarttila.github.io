@@ -2,7 +2,7 @@
 layout: post
 title: "How to do Application Logging in AWS?"
 category: [aws]
-tags: [aws, logging, cloud, iac]
+tags: [aws, logging, cloud, iac, packer, ansible]
 date:	2017-05-17
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Comparing Simple AWS and Azure Infrastructure Demos"
 category: [iac]
-tags: [iac, aws, azure]
+tags: [iac, aws, azure, cloud, terraform]
 date:	2019-03-11
 ---
 

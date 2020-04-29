@@ -2,7 +2,7 @@
 layout: post
 title: "Creating Azure Scale Set with Custom Linux VM Image"
 category: [azure]
-tags: [azure, vm]
+tags: [azure, vm, cloud, iac, linux, terraform]
 date:	2019-01-30
 ---
 
@@ -30,6 +30,7 @@ All [Terraform](https://www.terraform.io/) code is in the [terraform](https://gi
 
 Once again I created a [dev.tf](https://github.com/karimarttila/azure/blob/master/simple-server-vm/terraform/envs/dev/dev.tf) file in which I define the development environment specific parameters of the infrastructure. Let’s see the most interesting part of this file here:
 
+```bash
 # These values are per environment.  
 locals {  
 ...  
@@ -49,29 +50,38 @@ module "env-def" {
  application\_port = "${local.application\_port}"  
  **scaleset\_capacity** = "${local.scaleset\_capacity}"  
  **scaleset\_vm\_custom\_data\_file** = "${local.scaleset\_vm\_custom\_data\_file}"  
-}I bolded the most important parameters that I’ll describe soon.
+}
+```
+
+I bolded the most important parameters that I’ll describe soon.
 
 #### High Level Infra
 
 Then we introduce the high level infra — defined in the [env-def.tf](https://github.com/karimarttila/azure/blob/master/simple-server-vm/terraform/modules/env-def/env-def.tf) file:
 
 # Main resource group for the demonstration.  
+
+```terraform
 module "main-resource-group" {  
  source = "../resource-group"  
  prefix = "${var.prefix}"  
  env = "${var.env}"  
 ...  
-}module "vnet" {  
+}
+module "vnet" {  
 ...module "table\_storage\_account" {  
 ...module "storage\_tables" {  
 ...module "scale-set" {  
 ...  
- **scaleset\_image\_name** = "${var.scaleset\_image\_name}"  
+scaleset\_image\_name** = "${var.scaleset\_image\_name}"  
  subnet\_id = "${module.vnet.private\_scaleset\_subnet\_id}"  
  vm\_ssh\_public\_key\_file = "${var.vm\_ssh\_public\_key\_file}"  
  **scaleset\_capacity** = "${var.scaleset\_capacity}"  
  **scaleset\_vm\_custom\_data\_file** = "${var.scaleset\_vm\_custom\_data\_file}"  
-}I hope you noticed that we get the **scaleset\_image\_name**, **scaleset\_capacity** and **scaleset\_vm\_custom\_data\_file** as parameters from the dev.tf — i.e. the development environment definition to this high level infrastructure definition and we then pass those values to the [scale-set.tf](https://github.com/karimarttila/azure/tree/master/simple-server-vm/terraform/modules/scale-set) module.
+}
+```
+
+I hope you noticed that we get the **scaleset\_image\_name**, **scaleset\_capacity** and **scaleset\_vm\_custom\_data\_file** as parameters from the dev.tf — i.e. the development environment definition to this high level infrastructure definition and we then pass those values to the [scale-set.tf](https://github.com/karimarttila/azure/tree/master/simple-server-vm/terraform/modules/scale-set) module.
 
 #### Scale Set
 
@@ -79,6 +89,7 @@ The Azure [Scale set](https://docs.microsoft.com/en-us/azure/virtual-machine-sca
 
 So, below we see the actual “scaleset” resource in the “scale-set” module, you can see how we are finally using those parameters with this cloud resource:
 
+```bash
 data "azurerm\_image" "scaleset\_image\_reference" {  
  name = **"${var.scaleset\_image\_name}"**  
  resource\_group\_name = "${var.rg\_name}"  
@@ -90,7 +101,7 @@ sku {
  }storage\_profile\_image\_reference {  
  **id="${data.azurerm\_image.scaleset\_image\_reference.id}"**  
  }  
-..
+```
 
 #### The Idea
 

@@ -2,7 +2,7 @@
 layout: post
 title: "The Unbearable Lightness of AWS"
 category: [aws]
-tags: [aws, cloud, iac]
+tags: [aws, cloud, iac, devops, productivity]
 date: 2017-06-12
 ---
 

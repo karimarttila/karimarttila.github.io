@@ -2,7 +2,7 @@
 layout: post
 title: "Creating Azure Kubernetes Service (AKS) the Right Way"
 category: [azure]
-tags: [azure, kubernetes]
+tags: [azure, kubernetes, arm, terraform, iac, cloud]
 date: 2019-01-07
 ---
 

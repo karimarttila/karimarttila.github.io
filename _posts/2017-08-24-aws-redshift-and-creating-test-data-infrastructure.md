@@ -34,6 +34,7 @@ My requirements were:
 * Target database: AWS Redshift.
 * Amount of test data: Possibly a lot (since we are dealing with a Big data store :-) ).
 * Automation: Pretty good — meaning that I want to be able to truncate the database tables in one command, and load new data sets with another command.
+
 #### Database
 
 First I had to figure out which database to use. There is one Redshift cluster in each environment. I knew that other developers were using the same dev Redshift cluster for their development work. Basically there were three choices:
@@ -66,5 +67,3 @@ COPY myschema.mytable FROM ‘s3://BUCKET/CHANGE\_DIRECTORY/testdata.csv’ iam\
 … and of course some [bashing](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) with [sed](https://en.wikipedia.org/wiki/Sed) to create the actual sql file from that template and then feed it to [psql](http://postgresguide.com/utilities/psql.html).
 
 And that’s it: I have an automated test data infrastructure. I can now easily create local directories for new test data sets and truncate test database and load new data sets to database with a couple of commands. Now I can start the actual development with the help of the test data infrastructure, but let’s write another blog post about that later.
-
-  

@@ -2,7 +2,7 @@
 layout: post
 title: "Deploying Kubernetes Configuration to Azure AKS"
 category: [azure]
-tags: [azure, kubernetes]
+tags: [azure, kubernetes, cloud, iac]
 date: 2019-01-14
 ---
 

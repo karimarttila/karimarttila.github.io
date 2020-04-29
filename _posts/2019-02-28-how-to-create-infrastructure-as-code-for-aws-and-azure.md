@@ -2,7 +2,7 @@
 layout: post
 title: "How to Create Infrastructure as Code for AWS and Azure"
 category: [iac]
-tags: [iac, azure, aws, terraform]
+tags: [iac, azure, aws, terraform, pulumi, cloudformation, arm, cloud]
 date: 2019-02-28
 ---
 
