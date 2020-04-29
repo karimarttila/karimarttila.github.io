@@ -1,8 +1,8 @@
 ---
-layout:	post
-title:	"How to do Application Logging in AWS?"
-categories: [blog, aws]
-tags: [aws]
+layout: post
+title: "How to do Application Logging in AWS?"
+category: [aws]
+tags: [aws, logging, cloud, iac]
 date:	2017-05-17
 ---
 

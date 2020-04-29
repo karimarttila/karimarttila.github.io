@@ -1,9 +1,9 @@
 ---
-layout:	post
+layout: post
 title:	"Creating AWS Elastic Container Service for Kubernetes (EKS) the Right Way"
-categories: [blog, aws]
-tags: [aws]
-date:	2019-01-18
+category: [aws]
+tags: [aws, eks, cloud, iac]
+date: 2019-01-18
 ---
 
 ![](/img/2019-01-18-creating-aws-elastic-container-service-for-kubernetes-eks-the-right-way_img_1.png)

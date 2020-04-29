@@ -1,8 +1,8 @@
 ---
-layout:	post
-title:	"Become a Full Stack Developer with Clojure and ClojureScript!"
-categories: [blog, aws]
-tags: [aws]
+layout: post
+title: "Become a Full Stack Developer with Clojure and ClojureScript!"
+category: [clojure]
+tags: [clojure, clojurescript, web, fullstack]
 date:	2018-04-22
 ---
 
@@ -95,6 +95,8 @@ Some libraries I found helpful in the ClojureScript frontend development:
 The Reagent code maps directly to the Clojure data structures so it is very easy to use it in the ClojureScript code. A code example using Reagent:
 
 ; An example of a React component.  
+
+```clojure
 (defn input  
  "Input field component e.g. for First name, Last name, Email address and Password."  
  [label name type my-atom]  
@@ -119,7 +121,10 @@ The Reagent code maps directly to the Clojure data structures so it is very easy
  password-atom)]]]  
  [:div [:input {:type "button" :value "Submit"  
  :on-click #(-submit-form [@email](http://twitter.com/email "Twitter profile for @email")-address-atom  
- [@password](http://twitter.com/password "Twitter profile for @password")-atom)}]]You can bind the React component to an atom in your ClojureScript code — React then takes care of the two way updates between your html entity and the internal ClojureScript atom data structure in your code.
+ [@password](http://twitter.com/password "Twitter profile for @password")-atom)}]]
+```
+
+You can bind the React component to an atom in your ClojureScript code — React then takes care of the two way updates between your html entity and the internal ClojureScript atom data structure in your code.
 
 #### #5. Browser and Developer Tools
 

@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Comparing AWS CloudFormation and Terraform"
-categories: [blog, aws]
-tags: [aws]
-date:	2019-03-14
+layout: post
+title: "Comparing AWS CloudFormation and Terraform"
+category: [aws]
+tags: [aws, cloud, iac, cloudformation, terraform]
+date: 2019-03-14
 ---
 
 ![](/img/2019-03-14-comparing-aws-cloudformation-and-terraform_img_1.png)

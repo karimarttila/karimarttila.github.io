@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"AWS Batch and Docker Containers"
-categories: [blog, aws]
-tags: [aws]
-date:	2017-11-09
+layout: post
+title: "AWS Batch and Docker Containers"
+category: [aws]
+tags: [aws, cloud, iac, docker, container, batch]
+date: 2017-11-09
 ---
 
 ![](/img/2017-11-09-aws-batch-and-docker-containers_img_1.png)

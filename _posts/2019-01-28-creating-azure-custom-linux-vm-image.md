@@ -1,8 +1,8 @@
 ---
-layout:	post
-title:	"Creating Azure Custom Linux VM Image"
-categories: [blog, aws]
-tags: [aws]
+layout: post
+title: "Creating Azure Custom Linux VM Image"
+category: [azure]
+tags: [azure, vm, cloud, iac]
 date:	2019-01-28
 ---
 

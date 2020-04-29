@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Running Azure Kubernetes Service (AKS)"
-categories: [blog, aws]
-tags: [aws]
-date:	2018-09-24
+layout: post
+title: "Running Azure Kubernetes Service (AKS)"
+category: [azure]
+tags: [azure, kubernetes]
+date: 2018-09-24
 ---
 
 ![](/img/2018-09-24-running-azure-kubernetes-service-aks_img_1.png)

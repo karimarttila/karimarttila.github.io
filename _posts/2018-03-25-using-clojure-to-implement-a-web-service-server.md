@@ -1,8 +1,8 @@
 ---
-layout:	post
-title:	"Using Clojure to Implement a Web Service Server"
-categories: [blog, aws]
-tags: [aws]
+layout: post
+title: "Using Clojure to Implement a Web Service Server"
+category: [clojure]
+tags: [clojure, web]
 date:	2018-03-25
 ---
 
@@ -59,19 +59,25 @@ curl <http://localhost:3000/start?token=><your-token-in-plaintext>The example ab
 
 The server provides simple routing of these urls:
 
+```clojure
 (co-core/defroutes app-routes  
  (co-core/GET "/info" [] (-get-info))  
  (co-core/GET "/status" [token] (-get-status token))  
  (co-core/GET "/start" [token] (-start-click-generator token))  
  (co-core/GET "/stop" [token] (-stop-click-generator token))  
  (co-route/resources "/")  
- (co-route/not-found "Not Found. Use /info for information."))I use the Clojure [async/go](https://clojuredocs.org/clojure.core.async/go) functionality to generate the clicks while the web server itself continues to listen commands in the main thread:
+ (co-route/not-found "Not Found. Use /info for information."))
+```
 
+I use the Clojure [async/go](https://clojuredocs.org/clojure.core.async/go) functionality to generate the clicks while the web server itself continues to listen commands in the main thread:
+
+```clojure
 (defn -generate-clicks  
  []  
  (log/trace "ENTER -generate-clicks")  
  (async/go (while (= [@server](http://twitter.com/server "Twitter profile for @server")-state :running)  
- ..
+```
+
 
 ### Clojure and Data Handling
 
@@ -81,6 +87,7 @@ Using Clojure to implement data oriented applications is easy since Clojure is v
 
 There is an excellent AWS API library for Clojure: [Amazonica](https://github.com/mcohen01/amazonica). There is an example in the [streamer.clj](https://github.com/karimarttila/clojure/blob/master/clickstream-generator/src/csgen/stream/streamer.clj) file how to use it:
 
+```clojure
 (defn -put-record-to-kinesis  
  "Puts a url event to kinesis stream."  
  [url]  
@@ -88,7 +95,10 @@ There is an excellent AWS API library for Clojure: [Amazonica](https://github.co
  data {:url url}]  
  (amazonica-kinesis/put-record kinesis-stream-name  
  data  
- (str (java.util.UUID/randomUUID)))))If you are interested to use Clojure with AWS you should explore Amazonica — there are API functions for all major AWS services like Kinesis, EC2, S3, Lambda, SNS, SQS… And if you don’t find a Clojure API for some specific AWS service or functionality you can always use the [Java AWS SDK](https://aws.amazon.com/sdk-for-java/) since Clojure is a JVM hosted language and seamlessly integrates with Java.
+ (str (java.util.UUID/randomUUID)))))
+```
+
+If you are interested to use Clojure with AWS you should explore Amazonica — there are API functions for all major AWS services like Kinesis, EC2, S3, Lambda, SNS, SQS… And if you don’t find a Clojure API for some specific AWS service or functionality you can always use the [Java AWS SDK](https://aws.amazon.com/sdk-for-java/) since Clojure is a JVM hosted language and seamlessly integrates with Java.
 
 ### Deployment
 

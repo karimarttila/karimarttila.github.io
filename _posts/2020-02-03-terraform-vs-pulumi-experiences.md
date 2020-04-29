@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Terraform vs. Pulumi Experiences"
-categories: [blog, aws]
-tags: [aws]
-date:	2020-02-03
+layout: post
+title: "Terraform vs. Pulumi Experiences"
+category: [devops]
+tags: [devops, iac, terraform, pulumi]
+date: 2020-02-03
 ---
 
 ### Introduction

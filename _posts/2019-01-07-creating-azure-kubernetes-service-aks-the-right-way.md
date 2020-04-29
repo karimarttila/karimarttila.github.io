@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Creating Azure Kubernetes Service (AKS) the Right Way"
-categories: [blog, aws]
-tags: [aws]
-date:	2019-01-07
+layout: post
+title: "Creating Azure Kubernetes Service (AKS) the Right Way"
+category: [azure]
+tags: [azure, kubernetes]
+date: 2019-01-07
 ---
 
 ![](/img/2019-01-07-creating-azure-kubernetes-service-aks-the-right-way_img_1.png)

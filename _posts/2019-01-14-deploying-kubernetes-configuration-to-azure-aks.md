@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Deploying Kubernetes Configuration to Azure AKS"
-categories: [blog, aws]
-tags: [aws]
-date:	2019-01-14
+layout: post
+title: "Deploying Kubernetes Configuration to Azure AKS"
+category: [azure]
+tags: [azure, kubernetes]
+date: 2019-01-14
 ---
 
 ![](/img/2019-01-14-deploying-kubernetes-configuration-to-azure-aks_img_1.png)

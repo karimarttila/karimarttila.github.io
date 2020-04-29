@@ -1,8 +1,8 @@
 ---
-layout:	post
-title:	"Comparing Simple AWS and Azure Infrastructure Demos"
-categories: [blog, aws]
-tags: [aws]
+layout: post
+title: "Comparing Simple AWS and Azure Infrastructure Demos"
+category: [iac]
+tags: [iac, aws, azure]
 date:	2019-03-11
 ---
 

@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Java Man Converts to Python"
-categories: [blog, aws]
-tags: [aws]
-date:	2018-11-01
+layout: post
+title: "Java Man Converts to Python"
+category: [languages]
+tags: [languages, python]
+date: 2018-11-01
 ---
 
 ### Prologue
@@ -31,16 +31,17 @@ Once again I tried to replicate the file/namespace/class names so that it is eas
 
 I used [Python](https://www.python.org/ "https://www.python.org/") 3.6.6 on Ubuntu18 when implementing this Simple Server. I used Python virtual environment to keep my Ubuntu installation clean:
 
-python3 --version => Check your Python version (mine was 3.6.6).  
-virtualenv --version => Check your virtual env version (mine was 16.0.0).  
-which python3 => Where is python3? (mine is in /usr/bin/python3).  
-virtualenv -p /usr/bin/python3 venv => Create the virtual env.  
-source venv/bin/activate => Activate your virtual env  
-python3 --version? => Python 3.6.6 (in this virtual envinronment).  
-pipenv install flask => Use pipenv to install packages.  
-ls -l Pipfile* => List the generated Pipfile(s).  
-deactivate => Leave the virtual environment.And so we finalized our short tour to “Python virtual environment and package management.”
-
+```bash
+python3 --version # => Check your Python version (mine was 3.6.6).  
+virtualenv --version # => Check your virtual env version (mine was 16.0.0).  
+which python3 # => Where is python3? (mine is in /usr/bin/python3).  
+virtualenv -p /usr/bin/python3 venv # => Create the virtual env.  
+source venv/bin/activate # => Activate your virtual env  
+python3 --version? # => Python 3.6.6 (in this virtual envinronment).  
+pipenv install flask # => Use pipenv to install packages.  
+ls -l Pipfile* # => List the generated Pipfile(s).  
+deactivate # => Leave the virtual environment.And so we finalized our short tour to “Python virtual environment and package management.”
+```
 For those who don’t know Python land I tell that there are two major versions of Python: 2 and 3 — and they are not compatible. The recommendation is always to use the newer version 3 if possible.
 
 For accelerating the REST implementation I decided to use [Flask](http://flask.pocoo.org/ "http://flask.pocoo.org/") (version 1.0.2) since it is widely-used Python microframework for that purpose.

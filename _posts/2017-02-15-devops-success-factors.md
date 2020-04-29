@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"DevOps Success Factors"
-categories: [blog, aws]
-tags: [aws]
-date:	2017-02-15
+layout: post
+title: "DevOps Success Factors"
+category: [devops]
+tags: [devops, aws, cloud, iac, productivity]
+date: 2017-02-15
 ---
 
 ![](/img/2017-02-15-devops-success-factors_img_1.png)

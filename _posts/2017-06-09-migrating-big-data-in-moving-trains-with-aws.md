@@ -1,8 +1,8 @@
 ---
-layout:	post
-title:	"Migrating Big Data in Moving Trains with AWS"
-categories: [blog, aws]
-tags: [aws]
+layout: post
+title: "Migrating Big Data in Moving Trains with AWS"
+category: [aws]
+tags: [aws, data, database, iac, cloud]
 date:	2017-06-09
 ---
 

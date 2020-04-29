@@ -1,8 +1,8 @@
 ---
-layout:	post
-title:	"Comparing Azure ARM and Terraform"
-categories: [blog, aws]
-tags: [aws]
+layout: post
+title: "Comparing Azure ARM and Terraform"
+category: [azure]
+tags: [azure, arm, terraform, iac]
 date:	2019-03-20
 ---
 

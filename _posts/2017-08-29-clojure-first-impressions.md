@@ -1,8 +1,8 @@
 ---
-layout:	post
-title:	"Clojure First Impressions"
-categories: [blog, aws]
-tags: [aws]
+layout: post
+title: "Clojure First Impressions"
+category: [clojure]
+tags: [languages, clojure]
 date:	2017-08-29
 ---
 

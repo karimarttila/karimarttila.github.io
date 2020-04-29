@@ -1,8 +1,8 @@
 ---
-layout:	post
-title:	"AWS Redshift and Creating Test Data Infrastructure"
-categories: [blog, aws]
-tags: [aws]
+layout: post
+title: "AWS Redshift and Creating Test Data Infrastructure"
+category: [aws]
+tags: [aws, redshift, iac, cloud, testing, data]
 date:	2017-08-24
 ---
 

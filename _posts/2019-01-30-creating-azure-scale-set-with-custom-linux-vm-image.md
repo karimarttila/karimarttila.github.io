@@ -1,8 +1,8 @@
 ---
-layout:	post
-title:	"Creating Azure Scale Set with Custom Linux VM Image"
-categories: [blog, aws]
-tags: [aws]
+layout: post
+title: "Creating Azure Scale Set with Custom Linux VM Image"
+category: [azure]
+tags: [azure, vm]
 date:	2019-01-30
 ---
 

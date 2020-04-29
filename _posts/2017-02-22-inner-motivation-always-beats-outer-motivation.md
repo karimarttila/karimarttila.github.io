@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Inner Motivation Always Beats Outer Motivation"
-categories: [blog, aws]
-tags: [aws]
-date:	2017-02-22
+layout: post
+title: "Inner Motivation Always Beats Outer Motivation"
+category: [psychology]
+tags: [psychology, motivation, productivity]
+date: 2017-02-22
 ---
 
   ![](/img/2017-02-22-inner-motivation-always-beats-outer-motivation_img_1.jpeg)Inner motivation can get you somewhere you didn’t think you are able to go. © [Kari](https://www.flickr.com/people/designsbykari/).**First the story.** I was once working in a project in which the sales had decided to put into the architecture a cryptic black box component. Nobody liked the component and it provided little value (if any) in the system. Finally the developers learnt to hate the component. They had absolutely no inner motivation to work with the component, only outer motivation; they didn’t have a choice — they had to use the component.

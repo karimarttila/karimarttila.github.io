@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Big Data with Amazon Web Services"
-categories: [blog, aws]
-tags: [aws]
-date:	2017-04-10
+layout: post
+title: "Big Data with Amazon Web Services"
+category: [aws]
+tags: [aws, bigdata, cloud, iac, data, kinesis]
+date: 2017-04-10
 ---
 
   We attended a three day AWS Big Data course last week (given by [Luis Herrera](https://www.linkedin.com/in/lherrera/) — the best IT trainer I have met in 20 years; Luis is not a professional lecturer but a hands-on consultant with a massive amount of practical knowledge about Big Data, AWS and Docker which everyone attending the course could easily see). The course was a pretty good introduction to Big Data services provided by AWS, with a lot of hands-on labs. In this blog post we give a short introduction to AWS Big Data services.

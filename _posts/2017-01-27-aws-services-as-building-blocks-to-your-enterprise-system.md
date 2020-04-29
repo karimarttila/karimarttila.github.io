@@ -1,8 +1,8 @@
 ---
 layout:	post
 title:	"AWS Services as Building Blocks to Your Enterprise System"
-categories: [blog, aws]
-tags: [aws]
+category: [aws]
+tags: [aws, iac, cloud]
 date:	2017-01-27
 ---
 

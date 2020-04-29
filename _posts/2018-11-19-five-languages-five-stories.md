@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Five Languages - Five Stories
-categories: [blog, languages]
-tags: [languages]
+title: "Five Languages - Five Stories"
+category: [languages]
+tags: [languages, clojure, java, python, go, javascript]
 date: 2018-11-19
 ---
 

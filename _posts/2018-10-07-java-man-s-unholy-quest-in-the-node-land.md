@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Java Man’s Unholy Quest in the Node Land"
-categories: [blog, aws]
-tags: [aws]
-date:	2018-10-07
+layout: post
+title: "Java Man’s Unholy Quest in the Node Land"
+category: [languages]
+tags: [languages, javascript]
+date: 2018-10-07
 ---
 
 ### Introduction
@@ -36,15 +36,20 @@ I googled which frameworks are the most popular unit testing frameworks to be us
 
 Testing is the area where Node really shines. I have never seen a web server starting so blazingly fast in API testing, and also shutting down after tests. Just look at the [server.js](https://github.com/karimarttila/javascript/blob/master/webstore-demo/simple-server/test/webserver/server.js) — before and after functions and try to run ‘npm test’ — damn, it’s fast.
 
+```bash
 2018-10-01 20:06:36.555 DEBUG Before tests start the webserver...  
 2018-10-01 20:06:36.569 DEBUG ENTER server.getInfo  
 2018-10-01 20:06:36.571 DEBUG EXIT server.getInfo  
  ✓ respond with json  
-2018-10-01 20:06:36.576 DEBUG After tests shutdown the webserver...There were three libraries that were helpful when implementing the unit tests: The [assert](https://nodejs.org/api/assert.html) library which provided the overall unit testing framework, the [underscore](https://underscorejs.org/) library for checking object equality, and the [supertest](https://github.com/visionmedia/supertest) library which provided tools for checking http return values, returned response body etc.
+2018-10-01 20:06:36.576 DEBUG After tests shutdown the webserver
+```
+
+There were three libraries that were helpful when implementing the unit tests: The [assert](https://nodejs.org/api/assert.html) library which provided the overall unit testing framework, the [underscore](https://underscorejs.org/) library for checking object equality, and the [supertest](https://github.com/visionmedia/supertest) library which provided tools for checking http return values, returned response body etc.
 
 The testing framework output is also pretty clear to read, e.g.:
 
-SS\_LOG\_LEVEL=error npm test  
+```bash
+SS_LOG_LEVEL=error npm test  
   
  DomainDB module  
  Should be two product groups in domain db  
@@ -54,7 +59,11 @@ SS\_LOG\_LEVEL=error npm test
  ✓ getProducts for pg 1 returns list with 35 items  
  ✓ getProducts for pg 2 returns list with 400 items  
  Should find product for pgId=2 and pId=49 in domain db  
- ✓ getProduct for pgId 2 and pId 49 returns list with 8 itemsNode is fast, that was my first observation. A short comparison running unit tests in Node vs. Clojure/Lein/JVM in command line:
+ ✓ getProduct for pgId 2 and pId 49 returns list with 8 items
+```
+
+Node is fast, that was my first observation. A short comparison running unit tests in Node vs. Clojure/Lein/JVM in command line:
+
 
 * Node npm/Mocha (time npm test): 0m0.634s
 * Clojure Leiningen (time lein test): 0m2.605s

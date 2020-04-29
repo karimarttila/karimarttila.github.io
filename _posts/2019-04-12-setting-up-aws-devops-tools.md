@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Setting Up AWS DevOps Tools"
-categories: [blog, aws]
-tags: [aws]
-date:	2019-04-12
+layout: post
+title: "Setting Up AWS DevOps Tools"
+category: [devops]
+tags: [devops, aws, cloud, iac, terraform]
+date: 2019-04-12
 ---
 
 ### Introduction

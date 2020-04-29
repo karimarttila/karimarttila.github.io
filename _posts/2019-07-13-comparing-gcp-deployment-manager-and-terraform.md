@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Comparing GCP Deployment Manager and Terraform"
-categories: [blog, aws]
-tags: [aws]
-date:	2019-07-13
+layout: post
+title: "Comparing GCP Deployment Manager and Terraform"
+category: [gcp]
+tags: [gcp, iac, cloud, terraform, dm]
+date: 2019-07-13
 ---
 
 ### Introduction

@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Exploring Kubernetes with Minikube"
-categories: [blog, aws]
-tags: [aws]
-date:	2018-09-11
+layout: post
+title: "Exploring Kubernetes with Minikube"
+category: [kubernetes]
+tags: [kubernetes, devops]
+date: 2018-09-11
 ---
 
 ![](/img/2018-09-11-exploring-kubernetes-with-minikube_img_1.png)
@@ -49,10 +49,13 @@ Try to deploy the hello-minikube application given in the [Minikube documentatio
 
 All right! You have a working (single-node) Kubernetes cluster up and running in your local workstation. Now is the time to learn the Kubernetes basic concepts: pods, services, deployments etc. An excellent way to learn these concepts is to do the [Kubernetes Tutorials](https://kubernetes.io/docs/tutorials/) using your Kubernetes cluster running in Minikube. So, you’ll learn commands like:
 
+```bash
 kubectl config current-context  
 kubectl get pods  
 kubectl get services  
-...“kubectl config current-context” command shows the current context, should print now: “minikube” (in the next article I tell how to switch between Minikube and Azure AKS contexts…).
+```
+
+... ```kubectl config current-context``` command shows the current context, should print now: “minikube” (in the next article I tell how to switch between Minikube and Azure AKS contexts…).
 
 So, I’m not going to teach you Kubernetes concepts here but I encourage you to learn that stuff doing the tutorials and reading some Kubernetes introduction document.
 
@@ -80,6 +83,7 @@ eval $(minikube docker-env)Then try the familiar “docker images” command: it
 
 I created one Kubernetes deployment file and used the same file to deploy my application to Minikube and Azure AKS:
 
+```yml
 apiVersion: apps/v1  
 kind: Deployment  
 metadata:  
@@ -125,7 +129,10 @@ spec:
  ports:  
  - port: 8080  
  selector:  
- app: dl-helloworld-demoThe “REPLACE\_TAG” and “REPLACE\_IP” will be processed by my bash/sed script that finally calls the processed deployment file:
+ app: dl-helloworld-demo
+```
+
+The “REPLACE\_TAG” and “REPLACE\_IP” will be processed by my bash/sed script that finally calls the processed deployment file:
 
 kubectl create -f deployment.ymlThe Kubernetes deployment process is pretty beautiful — the same deployment yml can be used to deploy your Kubernetes setup to practically any Kubernetes cluster. BTW. The Minikube part doesn’t need the static ip given in “REPLACE\_IP” above — the Azure AKS deployment had a couple of extra steps, one being to create a static ip to be used in the deployment but let’s talk more about it in the next article.
 

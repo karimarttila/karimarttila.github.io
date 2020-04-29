@@ -1,8 +1,8 @@
 ---
-layout:	post
-title:	"How to Create Lambdas in AWS?"
-categories: [blog, aws]
-tags: [aws]
+layout: post
+title: "How to Create Lambdas in AWS?"
+category: [aws]
+tags: [aws, lambda, cloud, iac]
 date:	2017-03-17
 ---
 

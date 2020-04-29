@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"How to Create and Manage Resources in Amazon Web Services Infrastructure?"
-categories: [blog, aws]
-tags: [aws]
-date:	2017-02-16
+layout: post
+title: "How to Create and Manage Resources in Amazon Web Services Infrastructure?"
+category: [aws]
+tags: [aws, iac, cloud]
+date: 2017-02-16
 ---
 
 ![](/img/2017-02-16-how-to-create-and-manage-resources-in-amazon-web-services-infrastructure_img_1.png)

@@ -1,8 +1,8 @@
 ---
 layout:	post
 title:	"Python Rocks!"
-categories: [blog, aws]
-tags: [aws]
+category: [languages]
+tags: [languages, python]
 date:	2017-01-30
 ---
 

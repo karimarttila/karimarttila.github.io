@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"The Unbearable Lightness of AWS"
-categories: [blog, aws]
-tags: [aws]
-date:	2017-06-12
+layout: post
+title: "The Unbearable Lightness of AWS"
+category: [aws]
+tags: [aws, cloud, iac]
+date: 2017-06-12
 ---
 
 ### Introduction

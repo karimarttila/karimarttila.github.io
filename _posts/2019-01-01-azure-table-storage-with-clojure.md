@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Azure Table Storage with Clojure"
-categories: [blog, aws]
-tags: [aws]
-date:	2019-01-01
+layout: post
+title: "Azure Table Storage with Clojure"
+category: [azure]
+tags: [azure, clojure]
+date: 2019-01-01
 ---
 
 ![](/img/2019-01-01-azure-table-storage-with-clojure_img_1.png)

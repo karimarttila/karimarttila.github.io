@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Clojure Impressions Round Three"
-categories: [blog, aws]
-tags: [aws]
-date:	2020-01-06
+layout: post
+title: "Clojure Impressions Round Three"
+category: [clojure]
+tags: [clojure, languages]
+date: 2020-01-06
 ---
 
 ![](/img/2020-01-06-clojure-impressions-round-three_img_1.png)

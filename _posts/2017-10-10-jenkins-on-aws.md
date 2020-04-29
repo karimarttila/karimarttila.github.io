@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Jenkins on AWS"
-categories: [blog, aws]
-tags: [aws]
-date:	2017-10-10
+layout: post
+title: "Jenkins on AWS"
+category: [devops]
+tags: [devops, ci, aws, jenkins]
+date: 2017-10-10
 ---
 
 ![](/img/2017-10-10-jenkins-on-aws_img_1.png)

@@ -1,8 +1,8 @@
 ---
-layout:	post
-title:	"Studying Machine Learning — First Impressions"
-categories: [blog, aws]
-tags: [aws]
+layout: post
+title: "Studying Machine Learning — First Impressions"
+category: [ml]
+tags: [ml, ai]
 date:	2018-01-01
 ---
 
@@ -20,7 +20,7 @@ I often have coffee discussions with my good friend and colleague regarding what
 
 ### Our Future Machine Learning Study Path
 
-Machine learning itself is a broad field to study, so where to begin? We decided to make a Machine learning study path for ourselves. The Machine learning study path has the following three categories:
+Machine learning itself is a broad field to study, so where to begin? We decided to make a Machine learning study path for ourselves. The Machine learning study path has the following three category:
 
 #### 1. Learn the Basics
 

@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Java Man Returns Home Confused"
-categories: [blog, aws]
-tags: [aws]
-date:	2018-10-29
+layout: post
+title: "Java Man Returns Home Confused"
+category: [languages]
+tags: [languages, java]
+date: 2018-10-29
 ---
 
 ### Prologue
@@ -42,6 +42,7 @@ IntelliJ IDEA also implements a nice Java REPL integration and it is actually a 
 
 An example to experiment JSON Web Token creation and parsing in IDEA REPL:
 
+```java
 import io.jsonwebtoken.Jwts;  
 import io.jsonwebtoken.SignatureAlgorithm;  
 import io.jsonwebtoken.security.Keys;  
@@ -56,7 +57,10 @@ import io.jsonwebtoken.security.Keys
 import java.security.Key  
 field Key key = javax.crypto.spec.SecretKeySpec@5883e04  
 field String jws = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKYW1wcGEifQ.PjF1ilMY\_iq96wTE8ptDRH\_zGaIrTU-mYmjy3SZmnos"  
-field String name = "Jamppa"Pretty nice? And how long did we have to wait for the Java REPL? Just some 20 years? But remember: This is just a code snippet REPL like Python or Node REPL, not a real REPL like a Lisp REPL, e.g. a Clojure REPL (see e.g. [Programming at the REPL: Introduction](https://clojure.org/guides/repl/introduction)). With a real Lisp REPL you can interact with the real program as it is and explore the program in a way no code snippet REPL or debugger can do. It’s pretty impossible to explain it, you just have to learn Lisp (e.g. Clojure) and try it out.
+field String name = "Jamppa"
+```
+
+Pretty nice? And how long did we have to wait for the Java REPL? Just some 20 years? But remember: This is just a code snippet REPL like Python or Node REPL, not a real REPL like a Lisp REPL, e.g. a Clojure REPL (see e.g. [Programming at the REPL: Introduction](https://clojure.org/guides/repl/introduction)). With a real Lisp REPL you can interact with the real program as it is and explore the program in a way no code snippet REPL or debugger can do. It’s pretty impossible to explain it, you just have to learn Lisp (e.g. Clojure) and try it out.
 
 ### JUnit5
 
@@ -64,15 +68,20 @@ Latest Spring Boot that I used when writing this blog article was version 2.0.5 
 
 Using JUnit5 it is pretty nice to test e.g. exceptions:
 
+```java
 // Trying to add the same email again.  
  Executable codeToTest = () -> {  
  User failedUser = users.addUser("jamppa.jamppanen@foo.com", "Jamppa", "Jamppanen", "JampanSalasana");  
  };  
  SSException ex = assertThrows(SSException.class, codeToTest);  
- assertEquals("Email already exists: jamppa.jamppanen@foo.com", ex.getMessage());The automated unit tests take considerably more time in Java and Clojure than in Javascript/Node (because OS loads JVM, and JVM loads application and test classes and only then JVM lets testing framework to start the actual testing…):
+ assertEquals("Email already exists: jamppa.jamppanen@foo.com", ex.getMessage());
+```
+
+The automated unit tests take considerably more time in Java and Clojure than in Javascript/Node (because OS loads JVM, and JVM loads application and test classes and only then JVM lets testing framework to start the actual testing…):
 
 **Java:**
 
+```bash
 $ time ./gradlew --rerun-tasks test  
 Test result: SUCCESS  
 Test summary: 15 tests, 15 succeeded, 0 failed, 0 skipped  
@@ -82,7 +91,10 @@ real 0m5.757s**Javascript/Node:**
 
 time ./run-tests-with-trace.sh  
  28 passing (94ms)  
-real 0m0.775sJavascript: 0.8 secs — Java: 5.8 secs. Doesn’t look good for Java.
+real 0m0.775sJavascript: 0.8 secs — Java: 5.8 secs. 
+```
+
+Doesn’t look good for Java.
 
 ### Java Verbosity
 
@@ -92,6 +104,7 @@ Here we test API /product-groups which returns a simple JSON map. See how comple
 
 **Java:**
 
+```java
 @Test  
  void getProductGroupsTest() throws Exception {  
  logger.debug(SSConsts.LOG\_ENTER);  
@@ -112,8 +125,12 @@ Here we test API /product-groups which returns a simple JSON map. See how comple
  .andExpect(MockMvcResultMatchers.content().string(expectedResultJson))  
  .andReturn();  
  logger.trace("Content: " + mvcResult.getResponse().getContentAsString());  
- }**The same in Clojure:**
+ }
+```
 
+**The same in Clojure:**
+
+```clojure
 (deftest get-product-groups-test  
  (log/trace "ENTER get-product-groups-test")  
  (testing "GET: /product-groups"  
@@ -131,8 +148,12 @@ Here we test API /product-groups which returns a simple JSON map. See how comple
  ]  
  (is (not (nil? json-web-token)))  
  (is (= status 200))  
- (is (= body right-body)))))**… and Javascript:**
+ (is (= body right-body)))))
+```
 
+**... and Javascript:**
+
+```javascript
 describe('GET /product-groups', function () {  
  let jwt;  
  it('Get Json web token', async () => {  
@@ -156,12 +177,16 @@ describe('GET /product-groups', function () {
  'product-groups': { 1: 'Books', 2: 'Movies' }  
  }, done);  
  });  
- });As you can see from the example in Clojure and Javascript we can treat data as data, in Java not so much. In Java if you want to create Java-ish code you have to implement class this and class that for your data. In Clojure you can just use Clojure native data structures in code, and in Javascript JSON data structures, which makes much more sense and makes the code more readable as well. (Now some Java wise guy might want to comment to this blog that “you could have populated the JSON as string, something like “{ 1: ‘Books’, 2: ‘Movies’ }” — yes, you can do that but you miss my point: in Javascript and Clojure you can represent the data inside the program using native data structures, not Java classes or Strings).
+ });
+```
+
+As you can see from the example in Clojure and Javascript we can treat data as data, in Java not so much. In Java if you want to create Java-ish code you have to implement class this and class that for your data. In Clojure you can just use Clojure native data structures in code, and in Javascript JSON data structures, which makes much more sense and makes the code more readable as well. (Now some Java wise guy might want to comment to this blog that “you could have populated the JSON as string, something like “{ 1: ‘Books’, 2: ‘Movies’ }” — yes, you can do that but you miss my point: in Javascript and Clojure you can represent the data inside the program using native data structures, not Java classes or Strings).
 
 Let’s also compare the lines of code between these three languages:
 
 **Java:**
 
+```bash
 $ find src/main/ -name "*.java" | xargs wc -l  
  108 src/main/java/simpleserver/userdb/UsersImpl.java  
  50 src/main/java/simpleserver/userdb/Users.java  
@@ -180,8 +205,12 @@ $ find src/main/ -name "*.java" | xargs wc -l
  289 src/main/java/simpleserver/webserver/Server.java  
  23 src/main/java/simpleserver/webserver/response/Response.java  
 ... and some 14 more classes ...  
- 1612 total**Javascript:**
+ 1612 total
+```
 
+**Javascript:**
+
+```bash
 $ find src -name "*.js" | xargs wc -l  
  126 src/userdb/users.js  
  108 src/domaindb/domain.js  
@@ -190,8 +219,12 @@ $ find src -name "*.js" | xargs wc -l
  29 src/util/logger.js  
  79 src/webserver/session.js  
  289 src/webserver/server.js  
- 674 total**Clojure:**
+ 674 total
+```
 
+**Clojure:**
+
+```bash
 $ find src -name "*.clj" | xargs wc -l  
  65 src/simpleserver/userdb/users.clj  
  36 src/simpleserver/core.clj  
@@ -199,7 +232,10 @@ $ find src -name "*.clj" | xargs wc -l
  99 src/simpleserver/util/prop.clj  
  89 src/simpleserver/webserver/session.clj  
  243 src/simpleserver/webserver/server.clj  
- 612 totalAnd the results in table format:
+ 612 total
+```
+
+And the results in table format:
 
 ![](/img/2018-10-29-java-man-returns-home-confused_img_2.png)
 

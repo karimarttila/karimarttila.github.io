@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Database Development On AWS"
-categories: [blog, aws]
-tags: [aws]
-date:	2017-10-18
+layout: post
+title: "Database Development On AWS"
+category: [aws]
+tags: [aws, database, cloud, iac]
+date: 2017-10-18
 ---
 
   ![](/img/2017-10-18-database-development-on-aws_img_1.jpeg)[Designed by Freepik](http://www.freepik.com/free-vector/big-data-cloud-vector-illustration_1322558.htm)### Introduction

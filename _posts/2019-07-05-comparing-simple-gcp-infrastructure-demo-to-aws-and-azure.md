@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Comparing Simple GCP Infrastructure Demo to AWS and Azure"
-categories: [blog, aws]
-tags: [aws]
-date:	2019-07-05
+layout: post
+title: "Comparing Simple GCP Infrastructure Demo to AWS and Azure"
+category: [iac]
+tags: [iac, aws, azure, gcp]
+date: 2019-07-05
 ---
 
 ![](/img/2019-07-05-comparing-simple-gcp-infrastructure-demo-to-aws-and-azure_img_1.png)

@@ -1,8 +1,8 @@
 ---
-layout:	post
-title:	"Deploying Kubernetes Configuration to AWS EKS"
-categories: [blog, aws]
-tags: [aws]
+layout: post
+title: "Deploying Kubernetes Configuration to AWS EKS"
+category: [aws]
+tags: [aws, eks, kubernetes, cloud, iac]
 date:	2019-01-21
 ---
 

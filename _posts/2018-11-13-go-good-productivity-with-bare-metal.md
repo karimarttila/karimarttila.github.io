@@ -1,8 +1,8 @@
 ---
-layout:	post
-title:	"Go — Good Productivity with Bare Metal"
-categories: [blog, aws]
-tags: [aws]
+layout: post
+title: "Go -  Good Productivity with Bare Metal"
+category: [languages]
+tags: [languages, golang]
 date:	2018-11-13
 ---
 
@@ -34,11 +34,15 @@ I had practically zero knowledge of Go when I started this project. I watched on
 
 For my own learning purposes I commented quite a few of these lines so that I can use this Go code of Simple Server for my future reference implementation of Go. Example:
 
+```go
 // NOTE: In Go public variables and functions start with capital letter.  
 var MyLogger = initLogger()  
 …  
-// NOTE: Use underscore ‘\_’ when you don’t need to reference certain return values.  
-pc, \_, \_, \_ := runtime.Caller(1)### Go
+// NOTE: Use underscore ‘_’ when you don’t need to reference certain return values.  
+pc, _, _, _ := runtime.Caller(1)
+```
+
+### Go
 
 I was using [Go](https://golang.org) version 1.11 on Ubuntu18 when implementing this Simple Server.
 
@@ -68,6 +72,7 @@ Staticcheck open source version is free. If you find the tool useful you should 
 
 Go is an unusual language in that sense that it provides excellent standard library and therefore you seldom need to import extra dependencies. There are some external http routing libraries in Go, e.g. [Gorilla](https://github.com/gorilla/mux) but why to introduce external dependencies to your project if you can manage with the standard library? So, for http / REST handling I just used the Go standard library [net/http](https://golang.org/pkg/net/http). It was pretty straightforward to use net/http, see example below.
 
+```go
 func getProductGroups(writer http.ResponseWriter, request *http.Request) {  
  util.LogEnter()  
  writeHeaders(writer)  
@@ -90,7 +95,10 @@ func getProductGroups(writer http.ResponseWriter, request *http.Request) {
  writeError(writer, errorResponse)  
  }  
  util.LogExit()  
-}### Error Handling
+}
+```
+
+### Error Handling
 
 I kind of like Go’s error handling. I have done production software with C some 20 years ago and you always had to be pretty careful with returned error codes. In C++ you could define exceptions and throwing and catching them which kind of simplified error handling but also with a certain price. Java adopted the exception strategy but divided exceptions to [runtime exceptions](https://docs.oracle.com/javase/10/docs/api/index.html?java/lang/RuntimeException.html) which you didn’t have to explicitly handle and [checked exceptions](https://docs.oracle.com/javase/10/docs/api/index.html?java/lang/Exception.html) which you had to explicitly handle — many consider this as a failed experiment since e.g. [Spring](https://spring.io/) exclusively uses just runtime exceptions. Go has a different strategy. There are no exceptions in the language (well, there is one exception — [panic](https://blog.golang.org/defer-panic-and-recover)) but in functions you can return many return values. An idiomatic way is to return the actual return value and an error — if there are no errors then the error value is nil (or e.g. you can use your own error response and set a flag), if there were errors the error value provides indication of the error. This is kind of nice but once again comes with a price — makes the error handling more explicit but creates more manual work for the programmer to handle errors.
 
@@ -106,6 +114,7 @@ Go is pretty amazing in that sense that you have also [the Go testing framework]
 
 Go tests are pretty easy to create. You don’t have asserts but instead you just write standard application logic to test whether your package works as expected. Example:
 
+```go
 func TestGetProductGroups(t *testing.T) {  
  util.LogEnter()  
  port := util.MyConfig[“port”]  
@@ -113,7 +122,7 @@ func TestGetProductGroups(t *testing.T) {
  if err != nil {  
  t.Errorf(“Failed to get test token: %s”, err.Error())  
  }  
-...  
+//...  
  response := recorder.Body.String()  
  if len(response) == 0 {  
  t.Error(“Response was nil or empty”)  
@@ -135,7 +144,10 @@ func TestGetProductGroups(t *testing.T) {
  t.Errorf(“Product group 1 should have been ‘Books’”)  
  }  
  util.LogEnter()  
-}You can run all the tests with command: “go test github.com/karimarttila/go/simpleserver/app/…”
+}
+```
+
+You can run all the tests with command: ```go test github.com/karimarttila/go/simpleserver/app/...```
 
 ### Map, Reduce and Filter
 

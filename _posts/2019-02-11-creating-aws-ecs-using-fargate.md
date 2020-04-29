@@ -1,8 +1,8 @@
 ---
-layout:	post
-title:	"Creating AWS ECS Using Fargate"
-categories: [blog, aws]
-tags: [aws]
+layout: post
+title: "Creating AWS ECS Using Fargate"
+category: [aws]
+tags: [aws, ecs, fargate, cloud, iac, terraform]
 date:	2019-02-11
 ---
 

@@ -1,9 +1,9 @@
 ---
-layout:	post
-title:	"Clojure Impressions Round Two"
-categories: [blog, aws]
-tags: [aws]
-date:	2017-09-14
+layout: post
+title: "Clojure Impressions Round Two"
+category: [clojure]
+tags: [clojure, languages]
+date: 2017-09-14
 ---
 
 ![](/img/2017-09-14-clojure-impressions-round-two_img_1.png)
