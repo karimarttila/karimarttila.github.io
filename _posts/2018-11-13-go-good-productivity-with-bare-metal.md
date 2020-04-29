@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Go -  Good Productivity with Bare Metal"
+title: "Go - Good Productivity with Bare Metal"
 category: [languages]
 tags: [languages, golang]
 date:	2018-11-13

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Kotlin — Much More Than Just a Better Java"
+title: "Kotlin - Much More Than Just a Better Java"
 category: [languages]
 tags: [languages, kotlin]
 date: 2019-12-15

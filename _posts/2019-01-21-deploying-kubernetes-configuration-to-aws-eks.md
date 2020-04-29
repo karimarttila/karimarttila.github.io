@@ -106,4 +106,3 @@ By the way, what a coincidence — “[Once Upon a Time in the West](https://en.
 
 The AWS EKS infra is a bit more difficult than creating managed Kubernetes cluster in the Azure side but Kubernetes deployment to both Azure AKS and AWS EKS is pretty much the same (just some minor tagging / annotation differences (see [simple-server-deployment-template.yml](https://github.com/karimarttila/kubernetes/blob/master/simple-server/simple-server-deployment-template.yml)).
 
-  
