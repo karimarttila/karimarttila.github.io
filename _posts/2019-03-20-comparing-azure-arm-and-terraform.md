@@ -6,7 +6,9 @@ tags: [aws]
 date:	2019-03-20
 ---
 
-  ![](/img/2019-03-20-comparing-azure-arm-and-terraform_img_1.png)Terraform and ARM infrastructure code in a family portrait
+![](/img/2019-03-20-comparing-azure-arm-and-terraform_img_1.png)
+
+*Terraform and ARM infrastructure code in a family portrait.*
 
 ### Introduction
 
@@ -108,7 +110,9 @@ Points: Terraform: 1, ARM: 1.
 
 Here are the results of my opinionated and skewed comparison. I use a factor (“Fa”: 1–2) to provide some emphasis how important this feature is for me as an infrastructure developer (a SysOps guy might choose different factors and different original points). So, the fields are: Fa = Factor (1–2), OP = Original points, FP = Factored Points. I see one major problem with this comparison and that is the fact that I haven’t used that much ARM — a seasoned ARM user most probably has found a standard way or at least some workaround for those issues I complained in this blog post. Maybe I update this blog post after some ARM project when I have gathered more ARM experience.
 
-![](/img/2019-03-20-comparing-azure-arm-and-terraform_img_2.png)So, both tools seem to be pretty good. I must emphasize that my personal points here for ARM are pretty skewed for the fact that I don’t have that much experience using ARM than using Terraform — so the reader should evaluate both tools and then make his/her own opinion.
+![](/img/2019-03-20-comparing-azure-arm-and-terraform_img_2.png)
+
+So, both tools seem to be pretty good. I must emphasize that my personal points here for ARM are pretty skewed for the fact that I don’t have that much experience using ARM than using Terraform — so the reader should evaluate both tools and then make his/her own opinion.
 
 Which tool to choose then? First ask your customer, of course. If your customer is using or requesting to use a specific IaC tool, then use that. Otherwise if you are a new cloud practitioner: learn both. At least in that way that you are fluent with one tool and know the basics of the other tool. If you do multi-cloud: learn Terraform.
 

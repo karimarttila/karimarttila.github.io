@@ -6,7 +6,11 @@ tags: [aws]
 date:	2017-08-29
 ---
 
-  ![](/img/2017-08-29-clojure-first-impressions_img_1.png)Clojure### Introduction
+![](/img/2017-08-29-clojure-first-impressions_img_1.png)
+
+*Clojure code.*
+
+### Introduction
 
 Studying is my favorite hobby. Last winter I spent most of my evenings studying [Clojure](https://clojure.org/), the cool [Lisp](https://en.wikipedia.org/wiki/Lisp_%28programming_language%29) like language hosted on [JVM](https://en.wikipedia.org/wiki/Java_virtual_machine). But the story started a long time ago at the Helsinki University of Technology where I started my Software Engineering studies in 1991. The professors of the university had decided to use [Scheme](https://en.wikipedia.org/wiki/Scheme_%28programming_language%29), a Lisp dialect, as an introduction language to programming — a cunning idea which put practically all freshmen at the same starting line regardless their previous programming background with C, Basic or something else. So, we read [Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/sicp/full-text/book/book.html) and wrote Scheme.
 

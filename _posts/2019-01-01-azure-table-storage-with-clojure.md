@@ -6,7 +6,11 @@ tags: [aws]
 date:	2019-01-01
 ---
 
-  ![](/img/2019-01-01-azure-table-storage-with-clojure_img_1.png)### Introduction
+![](/img/2019-01-01-azure-table-storage-with-clojure_img_1.png)
+
+*Using Clojure with Azure.*
+
+### Introduction
 
 In my previous project “[AWS DynamoDB with Clojure](https://medium.com/@kari.marttila/aws-dynamodb-with-clojure-b4402bf8e8e)” I implemented all database handling using AWS DynamoDB for my Simple Server which I have used recently for my personal study projects. My original idea was to use this AWS Simple Server version to create AWS EKS and Fargate Kubernetes deployments for the Simple Server to refresh my AWS and Terraform skills. But then I decided to make some changes to my plans. I did my first Azure certification ([Architecting Microsoft Azure Solutions](https://www.youracclaim.com/badges/62494509-bf1c-4cd0-ad5a-0b82d1dacfac/public_url)) on December and heard from my boss that I’m going to be working in an Azure project in the beginning of year 2019. For this reason I thought that it might be a better idea to refresh my Azure skills instead and gather some experience how to create Azure infra using Terraform (I have used only ARM in the Azure side).
 
@@ -38,8 +42,9 @@ My first task at this point was to find an appropriate Azure Table Storage API. 
 
 Clojure / Java interop was mostly very smooth. I basically just read in the Java API sample how the sample used the API and aped the usage in Clojure. Example. The API sample shows how to insert an entity to the Azure Table Storage:
 
+```clojure
 tableClient = TableClientProvider.getTableClientReference();  
-...  
+;...  
 CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");  
 customer1.setEmail("[walter@contoso.com](mailto:walter@contoso.com)");  
 customer1.setHomePhoneNumber("425-555-0101");  
@@ -56,10 +61,14 @@ table1.execute(TableOperation.insert(customer1));In my Clojure code I create a n
  table-insert (TableOperation/insert new-user)  
  ; In real production code we should check the result value, of course.  
  result (. users-table execute table-insert)]  
- {:email email, :ret :ok}))))If you can read Clojure you realize that the API calls are exactly the same.
+ {:email email, :ret :ok}))))
+```
+
+If you can read Clojure you realize that the API calls are exactly the same.
 
 The [simpleserver.util.azuregenclass.users](https://github.com/karimarttila/clojure/blob/master/clj-ring-cljs-reagent-demo/simple-server/src/simpleserver/util/azuregenclass/users.clj) class is a so-called Clojure [gen-class](https://clojuredocs.org/clojure.core/gen-class) — a Java class defined in Clojure. You typically create these when you need to use some Java API from Clojure and the API needs some specific extended class (extended from some API base class) — the exact reason I needed to create the users gen-class:
 
+```clojure
 (ns simpleserver.util.azuregenclass.users  
  (:import (com.microsoft.azure.storage.table TableServiceEntity))  
  (:gen-class  
@@ -77,7 +86,8 @@ The [simpleserver.util.azuregenclass.users](https://github.com/karimarttila/cloj
  [setHpwd [String] void]]  
  ))(defn bean-init []  
  [[] (atom {:last-name nil, :first-name nil, :hpwd nil})])  
-..
+;...
+```
 
 #### Clojure REPL Issues with Gen-Classes
 
@@ -91,7 +101,8 @@ While working with the new Azure version I did some refactorings. I realized tha
 
 **get-token in Azure version:**
 
-(defn** **get-raw-session  
+```clojure
+(defn get-raw-session
  [token]  
  (let [my-env (environ/env** ***:my-env*)  
  table-filter (TableQuery/generateFilterCondition** **"PartitionKey"** **TableQuery$QueryComparisons/EQUAL token)  
@@ -102,7 +113,7 @@ While working with the new Azure version I did some refactorings. I realized tha
  (first** **raw-sessions)  
  )  
  )  
-(defn **get-token**  
+(defn get-token
  [token]  
  (log/debug (str "ENTER get-token: " token))  
  (let [raw-session (get-raw-session token)]  
@@ -121,16 +132,27 @@ While working with the new Azure version I did some refactorings. I realized tha
  :comparison-operator "EQ"}})  
  items (ret :items)  
  found-token (first items)]  
- found-token))… and then in both versions I can just delegate to the common validate-token function and inject the needed functions as parameters:
+ found-token))
+```
 
+... and then in both versions I can just delegate to the common validate-token function and inject the needed functions as parameters:
+
+```clojure
 (validate-token  
  [env token]  
  (log/debug (str "ENTER validate-token, token: " token))  
- (ss-session-common/validate-token token **get-token** remove-token))### Using Clojure REPL to Experiment with a Java API
+ (ss-session-common/validate-token token get-token remove-token))
+```
+
+### Using Clojure REPL to Experiment with a Java API
 
 This was an astonishing moment to realize: If you need to experiment with a new Java API it is actually easier to experiment with the Java API using Clojure REPL than using Java! Clojure REPL example (screenshot from my IntelliJ/Cursive REPL):
 
-![](/img/2019-01-01-azure-table-storage-with-clojure_img_2.png)So, I have loaded the simpleserver.userdb.users-table-storage namespace in my Clojure REPL and switched my REPL to use that namespace (easier to call methods without namespace prefix…).
+![](/img/2019-01-01-azure-table-storage-with-clojure_img_2.png)
+
+*Clojure is a better Java than Java.*
+
+So, I have loaded the simpleserver.userdb.users-table-storage namespace in my Clojure REPL and switched my REPL to use that namespace (easier to call methods without namespace prefix…).
 
 In the first “(into [] (let…” function call I experiment what happens when I ape the functionality I found in the Java API sample in Clojure => I get a list of users classes. Ok. In the next function call I ask the first of these items and then call the getPartitionKey Java method of that Java class => I get the email which was stored as PartitionKey in Azure Table Storage field. Pretty nice to be able to dynamically experiment with a library that was written in a static language.
 

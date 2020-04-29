@@ -6,7 +6,9 @@ tags: [aws]
 date:	2017-09-14
 ---
 
-  ![](/img/2017-09-14-clojure-impressions-round-two_img_1.png)IntelliJ IDEA / Cursive REPL
+![](/img/2017-09-14-clojure-impressions-round-two_img_1.png)
+
+*IntelliJ IDEA / Cursive REPL.*
 
 ### Introduction
 

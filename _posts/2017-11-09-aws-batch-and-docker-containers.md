@@ -6,7 +6,9 @@ tags: [aws]
 date:	2017-11-09
 ---
 
-  ![](/img/2017-11-09-aws-batch-and-docker-containers_img_1.png)AWS Batch Ecosystem
+![](/img/2017-11-09-aws-batch-and-docker-containers_img_1.png)
+
+*AWS Batch Ecosystem.*
 
 ### Introduction
 
@@ -30,17 +32,23 @@ We have already covered using Dockers in AWS context in another blog post ([How 
 
 Creating a docker image is rather staightforward. You create a Dockerfile in which you tell what kind of stuff you need in your application, configure entrypoint to application etc. Let’s skip that part and show how to ask your Continuous server to build the docker image after every successful build:
 
-![](/img/2017-11-09-aws-batch-and-docker-containers_img_2.png)Docker build.Ok. Now you have your docker image. Next do some testing with the image, start container, run tests with it etc.
+![](/img/2017-11-09-aws-batch-and-docker-containers_img_2.png)
+
+Docker build.Ok. Now you have your docker image. Next do some testing with the image, start container, run tests with it etc.
 
 Next stop is to deploy the Docker image to [AWS ECR](https://aws.amazon.com/ecr/) to be used by various other AWS Services (like in AWS Batch Computing Environment we are going to see soon):
 
-![](/img/2017-11-09-aws-batch-and-docker-containers_img_3.png)Docker deploy to AWS ECS.All right! You are ready to rock and roll with your Docker image in AWS!
+![](/img/2017-11-09-aws-batch-and-docker-containers_img_3.png)
+
+Docker deploy to AWS ECS.All right! You are ready to rock and roll with your Docker image in AWS!
 
 ### The AWS Batch CloudFormation Stack
 
 When we started to use AWS Batch Terraform didn’t provide full support for AWS Batch. Therefore we created the AWS Batch environment using [AWS CloudFormation](https://aws.amazon.com/cloudformation) (nowadays there is full support by Terraform, so you can use either tool). The whole CloudFormation stack description is easily some 200 lines — you have to glue every single bit and piece together, but don’t get intimidated by it — you soon learn to see Terraform / CloudFormation code visually as AWS resources and how they are co-operating. An example of the CloudFormation file which introduces the most important players in the field:
 
-![](/img/2017-11-09-aws-batch-and-docker-containers_img_4.png)AWS CloudFormation snippet for AWS Batch.So, the main players are:
+![](/img/2017-11-09-aws-batch-and-docker-containers_img_4.png)
+
+AWS CloudFormation snippet for AWS Batch.So, the main players are:
 
 * **The Docker repository** (AWS ECR). This is the service that hosts your business logic baked as a Docker image. AWS Batch Computing environment needs to be glued to the repository so that it knows where to get the computing resources for the task.
 * **Some IAM Roles and Policies**. You need to define for all computing resources the policies so that they are able to utilize other AWS services and your AWS entities hosted by those services to do the actual job (e.g. to store the final reports to S3).

@@ -6,7 +6,9 @@ tags: [aws]
 date:	2019-01-14
 ---
 
-  ![](/img/2019-01-14-deploying-kubernetes-configuration-to-azure-aks_img_1.png)The Kubernetes Deployment Configuration and the Bash Script to Tweak It
+![](/img/2019-01-14-deploying-kubernetes-configuration-to-azure-aks_img_1.png)
+
+*The Kubernetes Deployment Configuration and the Bash Script to Tweak It.*
 
 ### Introduction
 

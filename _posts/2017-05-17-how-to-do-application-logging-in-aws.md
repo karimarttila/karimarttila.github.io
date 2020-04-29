@@ -8,7 +8,9 @@ date:	2017-05-17
 
   Let’s continue our Amazon Web Services competence building and talk about our experiences regarding how to do application logging in AWS infrastructure.
 
-![](/img/2017-05-17-how-to-do-application-logging-in-aws_img_1.png)Example of an AWS Logs configuration sending Log streams to three different Log groups
+![](/img/2017-05-17-how-to-do-application-logging-in-aws_img_1.png)
+
+*Example of an AWS Logs configuration sending Log streams to three different Log groups.*
 
 ### Introduction
 

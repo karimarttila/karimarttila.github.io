@@ -6,7 +6,11 @@ tags: [aws]
 date:	2017-10-10
 ---
 
-  ![](/img/2017-10-10-jenkins-on-aws_img_1.png)Jenkins### Introduction
+![](/img/2017-10-10-jenkins-on-aws_img_1.png)
+
+*Jenkins.*
+
+### Introduction
 
 I started a new project and there were two options for [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration): 1. Running CI as a hosted service using [Travis](https://travis-ci.org/). 2. Using my old friend [Jenkins](https://jenkins.io/). There were some pros and cons with both options:
 

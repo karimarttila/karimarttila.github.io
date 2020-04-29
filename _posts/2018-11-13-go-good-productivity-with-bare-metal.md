@@ -22,7 +22,9 @@ And once again I tried to replicate the file/namespace/class names so that it is
 
 **Important note! **I’m not comparing these five languages between each other in this blog post but mostly just focus on Go. I’m planning to write another blog post in which I’ll reflect my experiences implementing the same web server in five different languages and comparing the languages — so stay tuned!
 
-![](/img/2018-11-13-go-good-productivity-with-bare-metal_img_1.png)GoLand hacking session running server unit tests
+![](/img/2018-11-13-go-good-productivity-with-bare-metal_img_1.png)
+
+*GoLand hacking session running server unit tests.*
 
 ### Learning Process
 

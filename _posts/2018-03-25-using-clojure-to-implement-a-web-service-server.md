@@ -33,7 +33,11 @@ I have been using Tensorflow lately in [my Machine learning exercises](https://m
 * <caps><alt><9> => (In editor) Run all test cases in the file.
 The following picture shows an example how to use the IntelliJ IDEA / Cursive REPL.
 
-![](/img/2018-03-25-using-clojure-to-implement-a-web-service-server_img_2.png)IntelliJ IDEA with Cursive.So, in the editor window I have entered the hot key <shift><ctrl><N> which switches the REPL namespace to the current file, then entered <shift><ctrl><M> which loads the current namespace to REPL (I assigned keys N and M for these functions since they are often used together in that order). Then I have entered <caps><alt><O> which puts the IDE focus to REPL input window. Then I’m ready to explore and try any function in that Clojure namespace in the REPL. This is really a breeze since I can do all of this without ever leaving my fingers from the keyboard (I type using all 10 fingers and I have configured my Linux keymap for other hot keys, e.g. Caps Lock is a special key, and with Caps Lock and other keys I can move the cursor etc). This makes development really fluent since you can navigate between editor window and REPL really fast, load various namespaces to REPL and quickly try the functions in isolation in the REPL.
+![](/img/2018-03-25-using-clojure-to-implement-a-web-service-server_img_2.png)
+
+*IntelliJ IDEA with Cursive.*
+
+So, in the editor window I have entered the hot key <shift><ctrl><N> which switches the REPL namespace to the current file, then entered <shift><ctrl><M> which loads the current namespace to REPL (I assigned keys N and M for these functions since they are often used together in that order). Then I have entered <caps><alt><O> which puts the IDE focus to REPL input window. Then I’m ready to explore and try any function in that Clojure namespace in the REPL. This is really a breeze since I can do all of this without ever leaving my fingers from the keyboard (I type using all 10 fingers and I have configured my Linux keymap for other hot keys, e.g. Caps Lock is a special key, and with Caps Lock and other keys I can move the cursor etc). This makes development really fluent since you can navigate between editor window and REPL really fast, load various namespaces to REPL and quickly try the functions in isolation in the REPL.
 
 ### Clojure Testing
 

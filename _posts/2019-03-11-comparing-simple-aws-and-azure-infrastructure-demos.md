@@ -6,7 +6,9 @@ tags: [aws]
 date:	2019-03-11
 ---
 
-  ![](/img/2019-03-11-comparing-simple-aws-and-azure-infrastructure-demos_img_1.png)AWS and Azure Intro Demos in a Family Portrait
+![](/img/2019-03-11-comparing-simple-aws-and-azure-infrastructure-demos_img_1.png)
+
+*AWS and Azure Intro Demos in a Family Portrait.*
 
 ### Introduction
 

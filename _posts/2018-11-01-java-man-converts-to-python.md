@@ -23,7 +23,9 @@ You can find the project in [**Github**](https://github.com/karimarttila/python/
 
 Once again I tried to replicate the file/namespace/class names so that it is easy to compare the implementations (e.g. [server.py](https://github.com/karimarttila/python/blob/master/webstore-demo/simple-server/simpleserver/webserver/server.py "server.py") — [server.js](https://github.com/karimarttila/javascript/blob/master/webstore-demo/simple-server/src/webserver/server.js) — [server.clj](https://github.com/karimarttila/clojure/blob/master/clj-ring-cljs-reagent-demo/simple-server/src/simpleserver/webserver/server.clj) — [Server.java](https://github.com/karimarttila/java/blob/master/webstore-demo/simple-server/src/main/java/simpleserver/webserver/Server.java)).
 
-![](/img/2018-11-01-java-man-converts-to-python_img_1.png)PyCharm hacking session running server unit tests
+![](/img/2018-11-01-java-man-converts-to-python_img_1.png)
+
+*PyCharm hacking session running server unit tests.*
 
 ### Tools
 
@@ -61,6 +63,7 @@ Let’s compare the test performances between different implementations when run
 
 **Clojure**:
 
+```bash
 time ./run-tests.sh   
 19:52:18.637 [main] INFO simpleserver.util.prop - Using poperty file: resources/simpleserver.properties  
 lein test simpleserver.testutils.users-util  
@@ -91,9 +94,14 @@ tests/domaindb/test\_domain.py .... [ 28%]
 tests/userdb/test\_users.py ... [ 50%]  
 tests/webserver/test\_server.py ...... [ 92%]  
 tests/webserver/test\_session.py . [100%]======================================= 14 passed in 0.11 seconds   
-real 0m0.416s**The results are:**
+real 0m0.416s
+```
 
-![](/img/2018-11-01-java-man-converts-to-python_img_2.png)It’s pretty obvious that Clojure and Java lose the contest because of the loading of JVM. But I was surprised that Python runs the tests that fast.
+**The results are:**
+
+![](/img/2018-11-01-java-man-converts-to-python_img_2.png)
+
+It’s pretty obvious that Clojure and Java lose the contest because of the loading of JVM. But I was surprised that Python runs the tests that fast.
 
 ### Python REPL
 
@@ -101,6 +109,7 @@ Python REPL is one of the best REPLs I have used outside the Lisp world. In the 
 
 PyCharm provides a nice REPL, an example follows:
 
+```bash
 >>> runfile('/mnt/edata/aw/kari/github/python/webstore-demo/simple-server/simpleserver/domaindb/domain.py', wdir='/mnt/edata/aw/kari/github/python/webstore-demo/simple-server')  
 >>> myD = Domain()  
 2018-10-30 18:40:11,769 - \_\_main\_\_ - \_\_init\_product\_db - DEBUG - ENTER  
@@ -109,7 +118,11 @@ PyCharm provides a nice REPL, an example follows:
 2018-10-30 18:40:11,771 - \_\_main\_\_ - \_\_read\_raw\_products - DEBUG - EXIT  
 2018-10-30 18:40:11,771 - \_\_main\_\_ - \_\_init\_product\_db - DEBUG - EXIT  
 >>> myD.get\_raw\_products(1)  
-[['2001', '1', 'Kalevala', '3.95', 'Elias Lönnrot', '1835', 'Finland', 'Finnish'], ...]So, using the runfile method you are able to reload any module to PyCharm Python console and then try the methods there in isolation.
+[['2001', '1', 'Kalevala', '3.95', 'Elias Lönnrot', '1835', 'Finland', 'Finnish'], ...]
+```
+
+So, using the runfile method you are able to reload any module to PyCharm Python console and then try the methods there in isolation.
+
 
 ### Logging
 
@@ -123,6 +136,7 @@ Let’s use Javascript and Python implementations as an examples of readability 
 
 **Javascript**:
 
+```javascript
 describe('GET /product-groups', function () {  
  let jwt;  
  it('Get Json web token', async () => {  
@@ -146,8 +160,12 @@ describe('GET /product-groups', function () {
  'product-groups': { 1: 'Books', 2: 'Movies' }  
  }, done);  
  });  
- });**Python**:
+ });
+```
 
+**Python**:
+
+```python
 def test\_get\_product\_groups(client):  
  myLogger.debug(ENTER)  
  token = get\_token(client)  
@@ -168,6 +186,8 @@ def test\_get\_product\_groups(client):
  assert product\_groups['1'] == 'Books'  
  assert product\_groups['2'] == 'Movies'  
  myLogger.debug(EXIT)I would say that Python is more readable.
+```
+
 
 ### Productivity
 
@@ -177,7 +197,11 @@ Python (and especially PyCharm) **REPL** is definitely the best REPL I have used
 
 Using **PyCharm debugger** is also so easy and fast. If you have even minor issues in your code you tend to add a breakpoint and hit the debugger. This is actually pretty interesting since in the Lisp world you hardly ever use the debugger — you tend to have a live REPL to your system while you add new functionalities. You can’t have a live REPL to your Python system in the same sense but PyCharm debugger is a pretty good second option. And when you compare Python debugger to Java debugger — Python is lightning fast to start. Creating Run configurations for your unit tests in PyCharm is also very easy and straightforward. PyCharm debugger is also a great tool to check what’s inside various entities (e.g. I just earlier used the debugger to check where the http status code is inside the Flask response entity and what its name is) — if you are lazy to search that information in the library API documentation. See an example below.
 
-![](/img/2018-11-01-java-man-converts-to-python_img_3.png)Adding breakpoint and hitting debugger in PyCharm.In general I think Python must be the most productive language I have ever used. Clojure might win the case in productivity after a couple of years of serious Clojure hacking but Python is unbeatable in the scripting category — you may have months of gaps between your Python hacking sessions but the language is always easy to put into real work regardless how long it was you programmed Python the last time.
+![](/img/2018-11-01-java-man-converts-to-python_img_3.png)
+
+*PyCharm debugger.*
+
+Adding breakpoint and hitting debugger in PyCharm.In general I think Python must be the most productive language I have ever used. Clojure might win the case in productivity after a couple of years of serious Clojure hacking but Python is unbeatable in the scripting category — you may have months of gaps between your Python hacking sessions but the language is always easy to put into real work regardless how long it was you programmed Python the last time.
 
 If you compare Python to Java — Python wins hands down. Java is verbose — Python is concise. Java has long development cycle (edit, compile, build, load to JVM, run) — Python has short development cycle (edit, run). Java has difficult syntax — Python has very easy syntax.
 
@@ -189,7 +213,11 @@ There is nothing inherently bad in Python. I would be cautious to use Python in 
 
 The final contest! Lines of Code! Let’s once again compare the lines of code between different implementations of the Simple Server (production code, i.e. not including unit tests):
 
-![](/img/2018-11-01-java-man-converts-to-python_img_4.png)If you drop the empty package files (‘\_\_init\_\_.py’) there are only 8 source code files in the production source tree and altogether only 582 lines of code. So, it seems that Python is the winner of this part of the contest. What could be a better language than one with a small amount of code and even that small amount of code being very simple, concise and easy to read.
+![](/img/2018-11-01-java-man-converts-to-python_img_4.png)
+
+*LoC.*
+
+If you drop the empty package files (‘\_\_init\_\_.py’) there are only 8 source code files in the production source tree and altogether only 582 lines of code. So, it seems that Python is the winner of this part of the contest. What could be a better language than one with a small amount of code and even that small amount of code being very simple, concise and easy to read.
 
 ### Performance
 

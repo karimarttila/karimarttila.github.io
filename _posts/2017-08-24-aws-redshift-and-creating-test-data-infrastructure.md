@@ -6,7 +6,11 @@ tags: [aws]
 date:	2017-08-24
 ---
 
-  ![](/img/2017-08-24-aws-redshift-and-creating-test-data-infrastructure_img_1.png)### Introduction
+![](/img/2017-08-24-aws-redshift-and-creating-test-data-infrastructure_img_1.png)
+
+*Creating test data in AWS.*
+
+### Introduction
 
 My project manager, distinguished business consultant Ville, told me a couple of days ago: “Kari, the customer wants us to create a component which fetches certain daily data out of customer’s Big data store, [Redshift](https://aws.amazon.com/documentation/redshift/), and processes the daily data and creates an integration message regarding the results. I want you to start working on it.” Right. I was already waiting to start something new. :-)
 

@@ -14,7 +14,9 @@ You can find the project in [Github](https://github.com/karimarttila/kotlin/tree
 
 Once again I tried to replicate the file/namespace/class names so that it is easy to compare the implementations (e.g. [server.kt](https://github.com/karimarttila/kotlin/blob/master/webstore-demo/simple-server/src/main/kotlin/simpleserver/webserver/server.kt) — [server.py](https://github.com/karimarttila/python/blob/master/webstore-demo/simple-server/simpleserver/webserver/server.py) — [server.js](https://github.com/karimarttila/javascript/blob/master/webstore-demo/simple-server/src/webserver/server.js) — [server.clj](https://github.com/karimarttila/clojure/blob/master/clj-ring-cljs-reagent-demo/simple-server/src/simpleserver/webserver/server.clj) — [Server.java](https://github.com/karimarttila/java/blob/master/webstore-demo/simple-server/src/main/java/simpleserver/webserver/Server.java) — [server.go](https://github.com/karimarttila/go/blob/master/simpleserver/app/webserver/server.go)).
 
-![](/img/2019-12-15-kotlin-much-more-than-just-a-better-java_img_1.png)Kotlin Code in IntelliJ IDEA
+![](/img/2019-12-15-kotlin-much-more-than-just-a-better-java_img_1.png)
+
+*Kotlin Code in IntelliJ IDEA.*
 
 ### Tools
 

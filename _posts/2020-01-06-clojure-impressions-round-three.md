@@ -6,7 +6,9 @@ tags: [aws]
 date:	2020-01-06
 ---
 
-  ![](/img/2020-01-06-clojure-impressions-round-three_img_1.png)The Clojure IDEs used in this exercise: Emacs + Cider and Intellij IDEA + Cursive
+![](/img/2020-01-06-clojure-impressions-round-three_img_1.png)
+
+*The Clojure IDEs used in this exercise: Emacs + Cider and Intellij IDEA + Cursive.*
 
 ### Introduction
 

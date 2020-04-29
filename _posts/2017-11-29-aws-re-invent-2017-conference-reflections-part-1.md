@@ -28,7 +28,11 @@ I recommend either [Aria](https://www.aria.com) or [the Venetian](https://www.ve
 
 ### Conference Mobile Application
 
-![](/img/2017-11-29-aws-re-invent-2017-conference-reflections-part-1_img_3.png)The AWS re:Invent Mobile Application.The AWS re:Invent mobile application is just great. You can browse the session catalog, mark sessions you are interested in and book reserved seats. In your planner you have a good view to your day’s program — times, venues etc. The mobile app also shows all kinds of other information regarding the conference, your points in scavanger hunt etc.
+![](/img/2017-11-29-aws-re-invent-2017-conference-reflections-part-1_img_3.png)
+
+*The AWS re:Invent Mobile Application.*
+
+The AWS re:Invent mobile application is just great. You can browse the session catalog, mark sessions you are interested in and book reserved seats. In your planner you have a good view to your day’s program — times, venues etc. The mobile app also shows all kinds of other information regarding the conference, your points in scavanger hunt etc.
 
 ### Sessions
 

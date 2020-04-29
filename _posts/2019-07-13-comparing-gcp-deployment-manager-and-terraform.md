@@ -14,7 +14,9 @@ Last week I wrote a simple GCP demonstration using Terraform and wrote a blog po
 * DM: <https://github.com/tieto-pc/gcp-intro-dm-demo>
 There is a lot of introduction type material found regarding these tools in the net so I don’t provide any basic information about them — the reader is recommended to use Google search to find this kind of information. To keep this blog post short I just briefly provide my personal experiences and developer feelings regarding these two tools.
 
-![](/img/2019-07-13-comparing-gcp-deployment-manager-and-terraform_img_1.png)GCP Intro Demonstration
+![](/img/2019-07-13-comparing-gcp-deployment-manager-and-terraform_img_1.png)
+
+*GCP Intro Demonstration.*
 
 ### Terraform
 

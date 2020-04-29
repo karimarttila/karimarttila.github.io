@@ -6,7 +6,9 @@ tags: [aws]
 date:	2018-09-24
 ---
 
-  ![](/img/2018-09-24-running-azure-kubernetes-service-aks_img_1.png)Azure + Kubernetes = Azure Kubernetes Service (AKS)
+![](/img/2018-09-24-running-azure-kubernetes-service-aks_img_1.png)
+
+*Azure + Kubernetes = Azure Kubernetes Service (AKS).*
 
 ### Introduction
 
@@ -39,7 +41,11 @@ Now that you have the static ip you can use the Kube deployment script given in 
 
 Usually you can base your ARM template by the “Automation script” template in the Azure Portal based on some configuration you created earlier e.g. using directly Azure Portal or Azure CLI (as we did earlier). However, Azure Portal does not provide at the moment the template for AKS (there was an error message: “Kubernetes services cannot be exported yet and is not included in the template”). So much for that idea. Therefore I had to manually write the needed ARM configuration for AKS. Check later if Azure Portal has started to support AKS also in the “Automation script” section — you can then validate that the template provided by Azure Portal does not differ too much from the template you have created manually. I just used Microsoft documentation and some examples how to configure AKS using ARM. Microsoft provides excellent quick start templates for ARM configurations in Github, e.g. this template did the trick: <https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes> . A screenshot how I slightly adapted the template to my needs.
 
-![](/img/2018-09-24-running-azure-kubernetes-service-aks_img_2.png)ARM json code related to AKS infra.There is some stuff that you need for the parameters for the script. A more experienced Azure guru might put that stuff into the script (at least in the AWS side in Terraform code I used to create/query various parameter values and injected them elsewhere in the code), but since this was more or less an exercise I just used CLI to create/query those values: az ad sp create-for-rbac --name <your-service-provider-name> --role=”Contributor” --scopes=”/subscriptions/<subscriptionID>/resourceGroups/<your-resource-group-name>” => you get appId and password, use them as parameters for the ARM configuration.
+![](/img/2018-09-24-running-azure-kubernetes-service-aks_img_2.png)
+
+*ARM json code related to AKS infra.*
+
+There is some stuff that you need for the parameters for the script. A more experienced Azure guru might put that stuff into the script (at least in the AWS side in Terraform code I used to create/query various parameter values and injected them elsewhere in the code), but since this was more or less an exercise I just used CLI to create/query those values: az ad sp create-for-rbac --name <your-service-provider-name> --role=”Contributor” --scopes=”/subscriptions/<subscriptionID>/resourceGroups/<your-resource-group-name>” => you get appId and password, use them as parameters for the ARM configuration.
 
 Then use Azure CLI to deploy that ARM file:
 

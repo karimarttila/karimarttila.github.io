@@ -6,7 +6,9 @@ tags: [aws]
 date:	2019-01-07
 ---
 
-  ![](/img/2019-01-07-creating-azure-kubernetes-service-aks-the-right-way_img_1.png)IntelliJ IDEA with Terraform Plugin
+![](/img/2019-01-07-creating-azure-kubernetes-service-aks-the-right-way_img_1.png)
+
+*IntelliJ IDEA with Terraform Plugin.*
 
 ### Introduction
 
@@ -24,9 +26,17 @@ I would say that the most compelling reason to learn Terraform and hcl when crea
 
 Let’s have a short example. First a short code snippet from the ARM / json version:
 
-![](/img/1*H9JQS1oFCkRup5Oz3hlvIA.png)ARM / json.… and then about the same thing using Terraform / hcl:
+![](/img/1*H9JQS1oFCkRup5Oz3hlvIA.png)
 
-![](/img/2019-01-07-creating-azure-kubernetes-service-aks-the-right-way_img_3.png)Terraform / hcl.I would say that using Terraform with its modules, variables etc. is nicer to work with than ARM / json.
+*ARM / json.*
+
+... and then about the same thing using Terraform / hcl:
+
+![](/img/2019-01-07-creating-azure-kubernetes-service-aks-the-right-way_img_3.png)
+
+*Terraform / hcl.*
+
+I would say that using Terraform with its modules, variables etc. is nicer to work with than ARM / json.
 
 ### The Solution
 

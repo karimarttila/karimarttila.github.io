@@ -6,7 +6,9 @@ tags: [aws]
 date:	2019-03-14
 ---
 
-  ![](/img/2019-03-14-comparing-aws-cloudformation-and-terraform_img_1.png)Terraform and CloudFormation in a Family Portrait
+![](/img/2019-03-14-comparing-aws-cloudformation-and-terraform_img_1.png)
+
+*Terraform and CloudFormation in a Family Portrait.*
 
 ### Introduction
 
@@ -96,7 +98,9 @@ Points: Terraform: 1, CloudFormation: 5.
 
 Here are the results of my opinionated and skewed comparison. I use a factor (“Fa”: 1–2) to provide some emphasis how important this feature is for me as an infrastructure developer (a SysOps guy might choose different factors and different original points). So, the fields are: Fa = Factor (1–2), OP = Original points, FP = Factored Points.
 
-![](/img/2019-03-14-comparing-aws-cloudformation-and-terraform_img_2.png)So, both tools seem to be pretty good: the original points (40–39) are almost identical. When I multiply original results with my personal importance factors I get some differences (69–59) — but as I already mentioned many times: these are personal opinions.
+![](/img/2019-03-14-comparing-aws-cloudformation-and-terraform_img_2.png)
+
+So, both tools seem to be pretty good: the original points (40–39) are almost identical. When I multiply original results with my personal importance factors I get some differences (69–59) — but as I already mentioned many times: these are personal opinions.
 
 Which tool to choose then? First ask your customer, of course. If your customer is using or requesting to use a specific IaC tool, then use that. Otherwise if you are a new cloud practitioner: learn both. At least in that way that you are fluent with one tool and know the basics of the other tool.
 

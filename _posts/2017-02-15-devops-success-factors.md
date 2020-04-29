@@ -6,7 +6,11 @@ tags: [aws]
 date:	2017-02-15
 ---
 
-  ![](/img/2017-02-15-devops-success-factors_img_1.png)Automating Build Pipeline.We just finished one system that we developed and deployed to [AWS](https://aws.amazon.com/) infra using certain [DevOps](https://en.wikipedia.org/wiki/DevOps) practices. The project was a real success: we created AWS infra from scratch (only VPC was provided) and developed the system (2 rest applications and 4 integration applications) in about 5 months with 1 project manager and 3 developers.
+![](/img/2017-02-15-devops-success-factors_img_1.png)
+
+*Automating Build Pipeline.*
+
+We just finished one system that we developed and deployed to [AWS](https://aws.amazon.com/) infra using certain [DevOps](https://en.wikipedia.org/wiki/DevOps) practices. The project was a real success: we created AWS infra from scratch (only VPC was provided) and developed the system (2 rest applications and 4 integration applications) in about 5 months with 1 project manager and 3 developers.
 
 After the project we had a short retrospective workshop with the customer to identify the success factors why the project was so successful, so that the customer could use these success factors in their future projects. We list here some generic observations of the identified success factors. The factors are grouped into the following categories: Architecture, Automation, and Methodology, People and Culture.
 

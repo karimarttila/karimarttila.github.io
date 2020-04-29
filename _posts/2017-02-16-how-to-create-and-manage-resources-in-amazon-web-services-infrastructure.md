@@ -6,7 +6,11 @@ tags: [aws]
 date:	2017-02-16
 ---
 
-  ![](/img/2017-02-16-how-to-create-and-manage-resources-in-amazon-web-services-infrastructure_img_1.png)Example Terraform Script to Create AWS Resources.We continue our AWS related blog series that we started in our first article “[**Use AWS Services as Building Blocks to Implement Your Enterprise System**](https://medium.com/tieto-developers/use-aws-services-as-building-blocks-to-implement-your-enterprise-system-598676a0ee49#.86dk7lu31)” . In this new article we talk about our experiences regarding how to create and manage resources in AWS.
+![](/img/2017-02-16-how-to-create-and-manage-resources-in-amazon-web-services-infrastructure_img_1.png)
+
+*Example Terraform Script to Create AWS Resources.*
+
+We continue our AWS related blog series that we started in our first article “[**Use AWS Services as Building Blocks to Implement Your Enterprise System**](https://medium.com/tieto-developers/use-aws-services-as-building-blocks-to-implement-your-enterprise-system-598676a0ee49#.86dk7lu31)” . In this new article we talk about our experiences regarding how to create and manage resources in AWS.
 
 ### Introduction
 
@@ -26,7 +30,11 @@ But a typical AWS project may have hundreds of bigger (RDS, EC2…) and smaller 
 
 ### 2. Custom Scripts Using AWS CLI
 
-![](/img/2017-02-16-how-to-create-and-manage-resources-in-amazon-web-services-infrastructure_img_2.png)AWS CLI code snippet example using Bash to reset autoscaling groups.[AWS CLI](https://aws.amazon.com/cli/) (command line interface) is a marvelous tool for implementing small custom scripts if you need to interact with AWS resources for some specific reason. E.g. We have used AWS CLI to implement various logging streaming tools, a tool to delete old AMIs (Amazon Machine Images), tools to shutdown and start resources etc. We have used Python as a glue to call AWS CLI and then process the returned JSON structures and make new calls based on those results. Another way is to use SDKs that AWS provides e.g. for Python and Java. For small tasks as examples given above I like to work directly with AWS CLI and Python since it is fast to test AWS CLI commands with Bash and then add the commands to Python scripts.
+![](/img/2017-02-16-how-to-create-and-manage-resources-in-amazon-web-services-infrastructure_img_2.png)
+
+*AWS CLI code snippet example using Bash to reset autoscaling groups.*
+
+[AWS CLI](https://aws.amazon.com/cli/) (command line interface) is a marvelous tool for implementing small custom scripts if you need to interact with AWS resources for some specific reason. E.g. We have used AWS CLI to implement various logging streaming tools, a tool to delete old AMIs (Amazon Machine Images), tools to shutdown and start resources etc. We have used Python as a glue to call AWS CLI and then process the returned JSON structures and make new calls based on those results. Another way is to use SDKs that AWS provides e.g. for Python and Java. For small tasks as examples given above I like to work directly with AWS CLI and Python since it is fast to test AWS CLI commands with Bash and then add the commands to Python scripts.
 
 But is it viable to use AWS CLI to manage 1200 resources? The answer is no. It would be extremely stupid to make a custom solution to manage your whole AWS infrastructure with custom scripts since there are two excellent solutions just for this purpose.
 

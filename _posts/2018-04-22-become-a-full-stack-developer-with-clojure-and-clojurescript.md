@@ -28,7 +28,11 @@ For my own learning purposes I implemented a hypothetical web store which sells 
 
 I’ll explain some typical Clojure + backend / ClojureScript + frontend development scenarios. I gathered the most relevant tools in one screen for illustration purposes (in real life I have three screens and all these windows are spread in those three screens so that I can look at them at the same time). For illustration purposes I have also added numbers with red circles for each window (I’ll refer to those numbers in the text like “#1”).
 
-![](/img/2018-04-22-become-a-full-stack-developer-with-clojure-and-clojurescript_img_1.png)Clojure / ClojureScript DevelopmentThe windows in the screen are:
+![](/img/2018-04-22-become-a-full-stack-developer-with-clojure-and-clojurescript_img_1.png)
+
+*Clojure / ClojureScript Development.*
+
+The windows in the screen are:
 
 * #1. Clojure Backend IDE
 * #2. Clojure Ring Server Console
@@ -121,11 +125,23 @@ The Reagent code maps directly to the Clojure data structures so it is very easy
 
 I used Chrome while developing the application. I’m not that fluent frontend developer so I can’t tell you the most bleeding edge frontend development tricks but let’s tell some basic stuff here anyway. What you really should do while doing exploratory testing in the browser is to use the Developer Tools of your browser — in Chrome the three dots in the upper right corner and then — More tools — Developer tools. I’m sorry I didn’t show that in the picture above so let’s show the most important browser Developer tools here:
 
-![](/img/1*RGcCr_LTjPBLOAzcQ1naHA.png)Chrome Developer tools — Console.![](/img/2018-04-22-become-a-full-stack-developer-with-clojure-and-clojurescript_img_2.png)Chrome Developer tools — Network.So, in the Developer tools you can see e.g. the Browser SPA console trace log (in Console tab). What is also helpful is the Network tab in which you can check the http request/response headers.
+![](/img/1*RGcCr_LTjPBLOAzcQ1naHA.png)
+
+*Chrome Developer tools — Console.*
+
+![](/img/2018-04-22-become-a-full-stack-developer-with-clojure-and-clojurescript_img_2.png)
+
+*Chrome Developer tools — Network.*
+
+So, in the Developer tools you can see e.g. the Browser SPA console trace log (in Console tab). What is also helpful is the Network tab in which you can check the http request/response headers.
 
 **CSS**. I later implemented simple CSS for the Simple Frontend using popular [Bootstrap](https://getbootstrap.com/) library (the main picture still shows the old UI, let’s show one screen of the new UI below).
 
-![](/img/2018-04-22-become-a-full-stack-developer-with-clojure-and-clojurescript_img_3.png)### Getting Help
+![](/img/2018-04-22-become-a-full-stack-developer-with-clojure-and-clojurescript_img_3.png)
+
+*A bit cleaner UI.*
+
+### Getting Help
 
 If you get stuck in something (like I did with [CORS issues](https://github.com/karimarttila/clojure/blob/master/clj-ring-cljs-reagent-demo/simple-server/README.md#cors-issues)) don’t spend too much time hitting your head on the wall, just google or ask for help. A great place for clojurians to ask help is the [Clojurians Slack](https://clojurians.slack.com) (use #beginners channel). My CORS issues were pretty soon solved once I stopped hitting my head on the wall and asked help.
 

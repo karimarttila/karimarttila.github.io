@@ -1,12 +1,14 @@
 ---
-layout:	post
+layout: post
 title:	"Writing Machine Learning Solutions — First Impressions"
 categories: [blog, aws]
 tags: [aws]
 date:	2018-01-25
 ---
 
-  ![](/img/2018-01-25-writing-machine-learning-solutions-first-impressions_img_1.png)Linear regression model created using TensorFlow
+![](/img/2018-01-25-writing-machine-learning-solutions-first-impressions_img_1.png)
+
+*Linear regression model created using TensorFlow.*
 
 ### Introduction
 

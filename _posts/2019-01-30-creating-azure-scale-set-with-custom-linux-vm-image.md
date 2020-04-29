@@ -6,7 +6,9 @@ tags: [aws]
 date:	2019-01-30
 ---
 
-  ![](/img/2019-01-30-creating-azure-scale-set-with-custom-linux-vm-image_img_1.png)The first version of the Simple Server Azure scale set infrastructure
+![](/img/2019-01-30-creating-azure-scale-set-with-custom-linux-vm-image_img_1.png)
+
+*The first version of the Simple Server Azure scale set infrastructure.*
 
 ### Introduction
 
