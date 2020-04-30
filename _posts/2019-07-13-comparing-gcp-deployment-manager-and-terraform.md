@@ -8,10 +8,11 @@ date: 2019-07-13
 
 ### Introduction
 
-Last week I wrote a simple GCP demonstration using Terraform and wrote a blog post to compare GCP, AWS and Azure when using Terraform: “[Comparing Simple GCP Infrastructure Demo to AWS and Azure](https://medium.com/@kari.marttila/comparing-simple-gcp-infrastructure-demo-to-aws-and-azure-abbbe8496d31)”. This week I wrote the same GCP demonstration again but this time using [GCP Deployment Manager](https://cloud.google.com/deployment-manager/). In this new blog post I compare GCP Deployment manager and [Terraform](https://www.terraform.io/) when implementing cloud systems on the [Google Cloud Platform](https://cloud.google.com/). Both demonstrations can be found in Tieto / Public Cloud team’s [Github account](https://github.com/tieto-pc):
+Last week I wrote a simple GCP demonstration using Terraform and wrote a blog post to compare GCP, AWS and Azure when using Terraform: [Comparing Simple GCP Infrastructure Demo to AWS and Azure]({% post_url 2019-07-13-comparing-gcp-deployment-manager-and-terraform %}). This week I wrote the same GCP demonstration again but this time using [GCP Deployment Manager](https://cloud.google.com/deployment-manager/). In this new blog post I compare GCP Deployment manager and [Terraform](https://www.terraform.io/) when implementing cloud systems on the [Google Cloud Platform](https://cloud.google.com/). Both demonstrations can be found in Tieto / Public Cloud team’s [Github account](https://github.com/tieto-pc):
 
 * Terraform: <https://github.com/tieto-pc/gcp-intro-demo>
 * DM: <https://github.com/tieto-pc/gcp-intro-dm-demo>
+
 There is a lot of introduction type material found regarding these tools in the net so I don’t provide any basic information about them — the reader is recommended to use Google search to find this kind of information. To keep this blog post short I just briefly provide my personal experiences and developer feelings regarding these two tools.
 
 ![](/img/2019-07-13-comparing-gcp-deployment-manager-and-terraform_img_1.png)
@@ -62,9 +63,8 @@ With AWS CloudFormation and Azure ARM I always had a bit of a discomfortable fee
 
 GCP Deployment Manager is a powerful tool to create cloud solutions to the Google Cloud Platform. So, you have two excellent tools to choose when working with GCP: Terraform and GCP Deployment Manager. I encourage you to create a simple cloud demonstration using both tools and then decide which one to use.
 
-*The writer has three AWS certifications, two GCP certifications and one Azure certification and is working in *[*Tieto Corporation*](https://www.tieto.com/)* in Custom Software Development / Public Cloud team designing and implementing cloud native solutions in all three public cloud platforms. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
+*The writer has three AWS certifications, two GCP certifications and one Azure certification and is working at [Tieto Corporation](https://www.tieto.com/) in Custom Software Development / Public Cloud team designing and implementing cloud native solutions in all three public cloud platforms. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
 
 Kari Marttila
 
 * Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
-  

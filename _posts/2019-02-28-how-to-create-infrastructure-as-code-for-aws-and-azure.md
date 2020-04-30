@@ -12,7 +12,7 @@ In this blog article I compare various ways and tools to create infrastructure a
 
 ### How to Create Cloud Infra?
 
-In most cases you should create cloud infra using some infrastructure as code (IaC) tool. I have covered various ways to create cloud infra (using cloud provider’s **portal**, **cli** and **IaC tool**) in my earlier blog post “[How to Create and Manage Resources in Amazon Web Services Infrastructure?](https://medium.com/tieto-developers/how-to-create-and-manage-resources-in-amazon-web-services-infrastructure-f9af85b77c4a)” — the instructions of that article to use IaC tool applies to Azure or any cloud provider as well.
+In most cases you should create cloud infra using some infrastructure as code (IaC) tool. I have covered various ways to create cloud infra (using cloud provider’s **portal**, **cli** and **IaC tool**) in my earlier blog post [How to Create and Manage Resources in Amazon Web Services Infrastructure?]({% post_url 2017-02-16-how-to-create-and-manage-resources-in-amazon-web-services-infrastructure %}) — the instructions of that article to use IaC tool applies to Azure or any cloud provider as well.
 
 ### What Infrastructure as Code Tool to Use?
 
@@ -20,10 +20,12 @@ Both AWS and Azure provide a native tool for creating infrastructure code:
 
 * AWS: [CloudFormation](https://aws.amazon.com/cloudformation/)
 * Azure: [Azure Resource Manager — ARM](https://docs.microsoft.com/en-us/azure/azure-resource-manager/)
+
 There are also some widely used generic cloud infrastructure tools that you can use with most big cloud providers, e.g.:
 
 * [Terraform](https://www.terraform.io/)
 * [Pulumi](https://pulumi.io/)
+
 If there are so many choices — which infrastructure as code tool to choose? My recommendation is: Learn to use the cloud provider’s native tool (in AWS: CloudFormation, and in Azure: ARM), and also learn to use one generic tool. My choice for a generic tool is Terraform.
 
 So, I have used CloudFormation, ARM and Terraform and they all have their strengths and weaknesses. Let’s briefly introduce the tools.
@@ -70,9 +72,8 @@ The portal is tempting in that sense that it is so easy to create cloud infra us
 
 Learn to use the cloud provider’s portal so that you can effectively navigate and search your resources. Use the cloud provider’s portal and cli for creating resources for ad hoc purposes (e.g. experimenting with a new service) but create all production infrastructure with a real infrastructure as code tool. My recommendation is to learn the cloud provider’s cloud native tool (AWS: CloudFormation, Azure: ARM) and one generic tool (like Terraform).
 
-*The writer has two AWS certifications and one Azure certification and is working in *[*Tieto Corporation*](https://www.tieto.com/)* in Application Services / Public Cloud team designing and implementing cloud native projects. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
+*The writer has two AWS certifications and one Azure certification and is working at [Tieto Corporation](https://www.tieto.com/) in Application Services / Public Cloud team designing and implementing cloud native projects. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
 
 **Kari Marttila**
 
 * Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
-  

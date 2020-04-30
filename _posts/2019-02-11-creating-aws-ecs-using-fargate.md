@@ -12,7 +12,7 @@ date:	2019-02-11
 
 ### Introduction
 
-I previously created infrastructure for running Docker containers in the AWS Kubernetes managed service ([EKS](https://aws.amazon.com/eks/) — see the blog article: “[Creating AWS Elastic Container Service for Kubernetes (EKS) the Right Way](https://medium.com/@kari.marttila/creating-aws-elastic-container-service-for-kubernetes-eks-the-right-way-9fd7ef4a66f1)”). Now I wanted to see if creating a Docker runtime using AWS [ECS](https://aws.amazon.com/ecs/) — Elastic Container Service is going to be as simple. It turned out not to be quite that simple and let’s see why.
+I previously created infrastructure for running Docker containers in the AWS Kubernetes managed service ([EKS](https://aws.amazon.com/eks/) — see the blog article: [Creating AWS Elastic Container Service for Kubernetes (EKS) the Right Way]({% post_url 2019-01-18-creating-aws-elastic-container-service-for-kubernetes-eks-the-right-way %}). Now I wanted to see if creating a Docker runtime using AWS [ECS](https://aws.amazon.com/ecs/) — Elastic Container Service is going to be as simple. It turned out not to be quite that simple and let’s see why.
 
 I created this demonstration for my new unit: Tieto / Application Services / Public Cloud, and therefore the demonstration can be found in the Public Cloud team’s [Github repository](https://github.com/tieto-pc/aws-ecs-fargate-demo).
 

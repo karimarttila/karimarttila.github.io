@@ -8,7 +8,7 @@ date: 2019-12-15
 
 ### Introduction
 
-This [Kotlin](https://kotlinlang.org/) version of my exercise server “Simple Server” is now the sixth language that I have used to implement the same server as an exercise (previous implementations: Clojure, Javascript, Java, Python and Go, see: my Medium blog post regarding these exercises: [Five Languages — Five Stories](https://medium.com/@kari.marttila/five-languages-five-stories-1afd7b0b583f)). I’m planning to implement the Simple Server also using Typescript — maybe after that implementation I update that blog post to “Seven Languages — Seven Stories :-).
+This [Kotlin](https://kotlinlang.org/) version of my exercise server “Simple Server” is now the sixth language that I have used to implement the same server as an exercise (previous implementations: Clojure, Javascript, Java, Python and Go, see: my previous blog post regarding these exercises: [Five Languages - Five Stories]({% post_url 2018-11-19-five-languages-five-stories %}). I’m planning to implement the Simple Server also using Typescript — maybe after that implementation I update that blog post to “Seven Languages - Seven Stories" :-).
 
 You can find the project in [Github](https://github.com/karimarttila/kotlin/tree/master/webstore-demo/simple-server).
 
@@ -26,6 +26,8 @@ I used the following tools in this exercise:
 * [Gradle](https://gradle.org/): 5.6.3 / Kotlin: 1.3.41 / Groovy: 2.5.4
 * [Kotlin](https://kotlinlang.org/): 1.3.50
 * [Ktor](https://ktor.io/): 1.2.6
+
+
 ### Kotlin vs. Java
 
 I actually started to learn Kotlin already some four years ago. But after a short introduction I thought that “Kotlin is just Java done right” and decided to deep dive into Clojure instead (which actually was a good decision — Clojure is an excellent language and very different when compared to Java and Kotlin). But this autumn I was “forced” to deep dive to Kotlin as well: I worked this autumn with an interesting customer which had a team of extremely competent developers who were also a bunch of real language enthusiastics. They had implemented many microservices using different languages, one of the languages being Kotlin. In that assignment I had a chance to convert one old Java application to Kotlin. Therefore I had a good reason to learn Kotlin and I also decided to implement my exercise server using Kotlin.
@@ -42,20 +44,26 @@ My main impressions regarding Kotlin as a language are:
 * **IDE tooling**. IntelliJ IDEA is a great Kotlin IDE, of course since the same company — JetBrains — is behind the language and the IDE. See: [Getting Started with IntelliJ IDEA](https://kotlinlang.org/docs/tutorials/getting-started.html) in Kotlin documentation.
 * **Gradle and Kotlin**. You can use Kotlin as a Gradle domain specific language (DSL). See: [Using Gradle](https://kotlinlang.org/docs/reference/using-gradle.html) in Kotlin documentation.
 * **Lesser need for exceptions**. Kotlin provides nice constructs that you can use to pass information e.g. whether you have found results for some query or not using sealed class. See [Sealed Classes](https://kotlinlang.org/docs/reference/sealed-classes.html) in Kotlin documentation for more information. Example:
-sealed class ProductsResult  
-data class ProductsFound(val data: List<Product>) : ProductsResult()  
-object ProductsNotFound : ProductsResult()Then you can use these sealed classes quite nicely to process various happy-day scenarios and exceptional scenarios, example:
 
-val ret = when (val products = getProducts(pgId)) {  
- is ProductsNotFound -> ProductNotFound  
- is ProductsFound -> {  
- when (val p = products.data.firstOrNull { it.pId == pId }) {  
- null -> ProductNotFound  
- p -> ProductFound(p)  
- else -> ProductNotFound  
- }  
- }  
- }This makes code pretty readable: “If you didn’t find any products you cannot find an individual product. If you found products you can try to find an individual product by pId field.” Because when is an expression you finally return some value to variable ret.
+```kotlin
+sealed class ProductsResult
+data class ProductsFound(val data: List<Product>) : ProductsResult()
+object ProductsNotFound :
+    ProductsResult()Then you can use these sealed classes quite nicely to process various happy-day scenarios and exceptional scenarios, example:
+
+val ret = when (val products = getProducts(pgId)) {
+    is ProductsNotFound -> ProductNotFound
+    is ProductsFound -> {
+        when (val p = products.data.firstOrNull { it.pId == pId }) {
+            null -> ProductNotFound
+            p -> ProductFound(p)
+            else -> ProductNotFound
+        }
+    }
+}
+```
+
+ This makes code pretty readable: “If you didn’t find any products you cannot find an individual product. If you found products you can try to find an individual product by pId field.” Because when is an expression you finally return some value to variable ret.
 
 ### Kotlin vs. Clojure
 

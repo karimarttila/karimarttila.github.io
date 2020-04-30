@@ -16,11 +16,12 @@
 title: Kari Marttila
 email: kari.marttila@iki.fi
 description: >- # this means to ignore newlines until "baseurl:"
-  This is Kari Marttila's Home Page.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: http://www.karimarttila.fi # the base hostname & protocol for your site, e.g. http://example.com
+timezone: Finland/Helsinki
+# Social
+linkedin_username: karimarttila
 github_username:  karimarttila
-
 # Build settings
 markdown: kramdown
 theme: minima

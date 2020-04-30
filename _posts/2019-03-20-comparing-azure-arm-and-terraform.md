@@ -14,17 +14,19 @@ date:	2019-03-20
 
 This is the final blog post regarding the AWS and Azure intro demonstrations that I created using native tools (AWS: CloudFormation and Azure: ARM) and Terraform. The previous articles in this series are:
 
-* [Comparing AWS CloudFormation and Terraform](https://medium.com/@kari.marttila/comparing-aws-cloudformation-and-terraform-c4251c88df96)
-* [Comparing Simple AWS and Azure Infrastructure Demos](https://medium.com/@kari.marttila/comparing-simple-aws-and-azure-infrastructure-demos-cf756d1ef68b) (compared creating the same infra in AWS and Azure using Terraform)
+* [Comparing AWS CloudFormation and Terraform]({% post_url 2019-03-14-comparing-aws-cloudformation-and-terraform %})
+* [Comparing Simple AWS and Azure Infrastructure Demos]({% post_url 2019-03-11-comparing-simple-aws-and-azure-infrastructure-demos %}) (compared creating the same infra in AWS and Azure using Terraform)
+
 In this current blog article I compare two IaC tools for creating infrastructure code for [Azure](https://azure.microsoft.com/): cloud native tool [ARM (Azure Resource Manager)](https://azure.microsoft.com/en-us/features/resource-manager/) and [Terraform](https://www.terraform.io/).
 
 All intro demonstrations are available in [Tieto / Public Cloud Github account](https://github.com/tieto-pc). The demonstrations that are compared in this blog article are:
 
 * **Terraform**: [azure-intro-demo](https://github.com/tieto-pc/azure-intro-demo)
 * **ARM**: [azure-intro-arm-demo](https://github.com/tieto-pc/azure-intro-arm-demo)
+
 ### Terraform vs ARM
 
-In this chapter I compare the two tools based on my experience when using them. I also give (very opinionated and personal) points (0–5, 5 highest) to tools regarding how I feel they excel in that category. At the end of the chapter I gather the results and give my personal recommendation which tool to use. The evaluation process is therefore pretty similar that I already used in my previous blog post: “[Comparing AWS CloudFormation and Terraform](https://medium.com/@kari.marttila/comparing-aws-cloudformation-and-terraform-c4251c88df96)” (and actually most of Terraform’s pros are pretty similar in these two articles).
+In this chapter I compare the two tools based on my experience when using them. I also give (very opinionated and personal) points (0–5, 5 highest) to tools regarding how I feel they excel in that category. At the end of the chapter I gather the results and give my personal recommendation which tool to use. The evaluation process is therefore pretty similar that I already used in my previous blog post: [Comparing AWS CloudFormation and Terraform]({% post_url 2019-03-14-comparing-aws-cloudformation-and-terraform %}) (and actually most of Terraform’s pros are pretty similar in these two articles).
 
 Disclaimer: I have used a lot more Terraform than ARM so my opinions here are naturally pretty skewed.
 
@@ -120,13 +122,12 @@ One final observation. Microsoft openly advertises that you can use Terraform wi
 
 ### Conclusions
 
-Both Terraform and ARM are pretty good when it comes to infrastructure coding for Azure. **The most important decision is to use an IaC tool **than which tool to use (I covered this decision a bit in my previous articles “[How to Create Infrastructure as Code for AWS and Azure](https://medium.com/@kari.marttila/how-to-create-infrastructure-as-code-for-aws-and-azure-ab0a5ddecc06)” and “[How to Create and Manage Resources in Amazon Web Services Infrastructure?](https://medium.com/tieto-developers/how-to-create-and-manage-resources-in-amazon-web-services-infrastructure-f9af85b77c4a)”).
+Both Terraform and ARM are pretty good when it comes to infrastructure coding for Azure. **The most important decision is to use an IaC tool** than which tool to use (I covered this decision a bit in my previous articles [How to Create Infrastructure as Code for AWS and Azure]({% post_url 2017-02-16-how-to-create-and-manage-resources-in-amazon-web-services-infrastructure %}) and [How to Create and Manage Resources in Amazon Web Services Infrastructure?]({% post_url 2017-02-16-how-to-create-and-manage-resources-in-amazon-web-services-infrastructure %}).
 
 Make an infrastructure project using both [ARM](https://azure.microsoft.com/en-us/features/resource-manager/) and [Terraform](https://www.terraform.io) (and why not evaluate also [Pulumi](https://www.pulumi.com/)) and make your decision based on your own priorities which tool made your life as an infrastructure coder more productive.
 
-*The writer has two AWS certifications and one Azure certification and is working in *[*Tieto Corporation*](https://www.tieto.com/)* in Application Services / Public Cloud team designing and implementing cloud native solutions. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
+*The writer has two AWS certifications and one Azure certification and is working at [Tieto Corporation](https://www.tieto.com/) in Application Services / Public Cloud team designing and implementing cloud native solutions. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
 
 Kari Marttila
 
 * Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
-  

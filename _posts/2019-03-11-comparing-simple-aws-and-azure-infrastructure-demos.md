@@ -22,7 +22,7 @@ In this blog post I comment how incredibly similar the demonstrations are even t
 
 ### Overall Infrastructure as Code Solutions
 
-I used [Terraform](https://www.terraform.io/) in both AWS and Azure demonstrations as an IaC tool (see also my previous blog post “[How to Create Infrastructure as Code for AWS and Azure](https://medium.com/@kari.marttila/how-to-create-infrastructure-as-code-for-aws-and-azure-ab0a5ddecc06)”). Even though the demonstrations target different public clouds you can and should modularize the Terraform code according the same best practices:
+I used [Terraform](https://www.terraform.io/) in both AWS and Azure demonstrations as an IaC tool (see also my previous blog post [How to Create Infrastructure as Code for AWS and Azure]({% post_url 2019-02-28-how-to-create-infrastructure-as-code-for-aws-and-azure %}). Even though the demonstrations target different public clouds you can and should modularize the Terraform code according the same best practices:
 
 **Environment parameters**. In the envs folders we host the various environments. In this demonstration we have only the dev environment, but this folder could have similar environment parameterizations for qa, perf, prod environments etc. If you look at both solutions you find that the dev.tf files in both sides are pretty similar: first there is the Terraform backend definition, then locals definitions and finally we call the env-def module injecting the parameter values of this environment.
 
@@ -35,7 +35,9 @@ I used [Terraform](https://www.terraform.io/) in both AWS and Azure demonstratio
 | vpc | vnet | Virtual network |  
 | rg | rg | Resource group(s) |  
 | ec2 | vm | Virtual machine |  
-|---------------------------------|### Virtual Network
+|---------------------------------|
+
+### Virtual Network
 
 The virtual networks in both sides are pretty similar. First in both AWS and Azure sides the modules define the virtual networks themselves (vpc and vnet). Then the modules define a subnet and a security group for the subnet. Defining these entities using Terraform is incredibly similar in both AWS and Azure sides. Since we are defining a public subnet the AWS side requires some additional infrastructure boilerplate: an internet gateway and a route table.
 
@@ -63,9 +65,8 @@ Both demonstrations provide a README.md file which gives a longer explanation re
 
 Using Terraform as an Infrastructure as Code tool you get synergy benefit you don’t get by using cloud providers’ native IaC tools: you can create infrastructure as code solutions in more than one public cloud using the same tool and therefore re-using your IaC knowledge— that’s why Terraform is my choice of tool when creating infrastructure as code in both AWS and Azure.
 
-*The writer has two AWS certifications and one Azure certification and is working in *[*Tieto Corporation*](https://www.tieto.com/)* in Application Services / Public Cloud team designing and implementing cloud native solutions. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
+*The writer has two AWS certifications and one Azure certification and is working at [Tieto Corporation](https://www.tieto.com/) in Application Services / Public Cloud team designing and implementing cloud native solutions. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
 
 Kari Marttila
 
 * Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
-  

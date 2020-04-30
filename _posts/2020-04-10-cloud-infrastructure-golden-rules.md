@@ -85,4 +85,3 @@ Cloud infrastructure programming is hard. But it is not rocket science. I have f
 Kari Marttila
 
 * Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
-  

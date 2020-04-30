@@ -12,10 +12,12 @@ date: 2019-03-14
 
 ### Introduction
 
-I created two simple infrastructure demos using [Terraform](https://www.terraform.io/) for training new cloud learners in my new unit: one [AWS demo](https://github.com/tieto-pc/aws-intro-demo) and one [Azure demo](https://github.com/tieto-pc/azure-intro-demo) and compared the demos in my previous blog post “[Comparing Simple AWS and Azure Infrastructure Demos](https://medium.com/@kari.marttila/comparing-simple-aws-and-azure-infrastructure-demos-cf756d1ef68b)”. This time I implemented the same AWS demo using AWS native IaC tool, [CloudFormation](https://aws.amazon.com/cloudformation/): [AWS CloudFormation demo](https://github.com/tieto-pc/aws-intro-cloudformation-demo). In this blog post I compare these identical AWS simple intro demos created by two different IaC tools:
+I created two simple infrastructure demos using [Terraform](https://www.terraform.io/) for training new cloud learners in my new unit: one [AWS demo](https://github.com/tieto-pc/aws-intro-demo) and one [Azure demo](https://github.com/tieto-pc/azure-intro-demo) and compared the demos in my previous blog post [Comparing Simple AWS and Azure Infrastructure Demos]({% post_url 2019-03-11-comparing-simple-aws-and-azure-infrastructure-demos %}). This time I implemented the same AWS demo using AWS native IaC tool, [CloudFormation](https://aws.amazon.com/cloudformation/): [AWS CloudFormation demo](https://github.com/tieto-pc/aws-intro-cloudformation-demo). In this blog post I compare these identical AWS simple intro demos created by two different IaC tools:
 
 * **Terraform**: [aws-intro-demo](https://github.com/tieto-pc/aws-intro-demo)
 * **CloudFormation**: [aws-intro-cloudformation-demo](https://github.com/tieto-pc/aws-intro-cloudformation-demo)
+
+
 ### Terraform vs CloudFormation
 
 In this chapter I compare the two tools based on my experience when using them. I also give (very opinionated and personal) points (0–5, 5 highest) to tools regarding how I feel they excel in that category. At the end of the chapter I gather the results and give my personal recommendation which tool to use.
@@ -30,7 +32,7 @@ Points: Terraform: 5, CloudFormation: 0.
 
 #### 2. Language
 
-I like Terraform’s [hcl language](https://www.terraform.io/docs/configuration/syntax.html). Hcl’s interpolation syntax is very powerful and it lets you to reference variables, attributes etc. Combined with a good IDE plugin this makes infrastructure coding a breeze. CloudFormation uses either JSON or Yaml which are as bare notation languages not as powerful as hcl. With CloudFormation you can also reference parameters, other stacks etc but in overall feeling I think hcl makes me more productive. CloudFormation on the other hand has good support for various [conditional functionality](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html). Terraform has the [count](https://www.terraform.io/intro/examples/count.html) parameter which lets you make certain things easy (like creating N identical resources) and certain things a bit harder (like if else type conditional structure — e.g: count = “${1 — var.my\_workstation\_is\_linux}”. CloudFormation has also [WaitCondition](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html) and [CreationPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html) which can be important in certain deployment situations in which you have to wait before certain condition is satisfied.
+I like Terraform’s [hcl language](https://www.terraform.io/docs/configuration/syntax.html). Hcl’s interpolation syntax is very powerful and it lets you to reference variables, attributes etc. Combined with a good IDE plugin this makes infrastructure coding a breeze. CloudFormation uses either JSON or Yaml which are as bare notation languages not as powerful as hcl. With CloudFormation you can also reference parameters, other stacks etc but in overall feeling I think hcl makes me more productive. CloudFormation on the other hand has good support for various [conditional functionality](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html). Terraform has the [count](https://www.terraform.io/intro/examples/count.html) parameter which lets you make certain things easy (like creating N identical resources) and certain things a bit harder (like if else type conditional structure — e.g: ```count = “${1 - var.my_workstation_is_linux}```. CloudFormation has also [WaitCondition](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html) and [CreationPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html) which can be important in certain deployment situations in which you have to wait before certain condition is satisfied.
 
 Points: Terraform: 4, CloudFormation: 3.
 
@@ -48,7 +50,9 @@ Points: Terraform: 4, CloudFormation: 4.
 
 #### 5. Readability
 
-Look at the family portrait screen shot at the beginning of this blog post. I think Terraform is a lot more readable for the following reasons: 1. Terraform’s hcl language is more readable than pure json/yaml that you need to use with CloudFormation. 2. Terraform’s modularity also makes the code more readable. Some CloudFormation developers may not agree with me regarding the curly braces and dollar signs but once you know the syntax those make perfect sense for readability.
+Look at the family portrait screen shot at the beginning of this blog post. I think Terraform is a lot more readable for the following reasons: 
+1. Terraform’s hcl language is more readable than pure json/yaml that you need to use with CloudFormation. 
+2. Terraform’s modularity also makes the code more readable. Some CloudFormation developers may not agree with me regarding the curly braces and dollar signs but once you know the syntax those make perfect sense for readability.
 
 Points: Terraform: 4, CloudFormation: 2.
 
@@ -106,13 +110,12 @@ Which tool to choose then? First ask your customer, of course. If your customer 
 
 ### Conclusions
 
-Both Terraform and CloudFormation are pretty good when it comes to infrastructure coding. **The most important decision is to use an IaC tool** than which tool to use (I covered this decision a bit in my previous articles “[How to Create Infrastructure as Code for AWS and Azure](https://medium.com/@kari.marttila/how-to-create-infrastructure-as-code-for-aws-and-azure-ab0a5ddecc06)” and “[How to Create and Manage Resources in Amazon Web Services Infrastructure?](https://medium.com/tieto-developers/how-to-create-and-manage-resources-in-amazon-web-services-infrastructure-f9af85b77c4a)”).
+Both Terraform and CloudFormation are pretty good when it comes to infrastructure coding. **The most important decision is to use an IaC tool** than which tool to use (I covered this decision a bit in my previous articles [How to Create Infrastructure as Code for AWS and Azure]({% post_url 2019-02-28-how-to-create-infrastructure-as-code-for-aws-and-azure %}) and [How to Create and Manage Resources in Amazon Web Services Infrastructure?]({% post_url 2017-02-16-how-to-create-and-manage-resources-in-amazon-web-services-infrastructure %}).
 
 Make an infrastructure project using both [CloudFormation](https://aws.amazon.com/cloudformation) and [Terraform](https://www.terraform.io) (and why not evaluate also [Pulumi](https://www.pulumi.com/)) and make your decision based on your own priorities which tool made your life as an infrastructure coder more productive.
 
-*The writer has two AWS certifications and one Azure certification and is working in *[*Tieto Corporation*](https://www.tieto.com/)* in Application Services / Public Cloud team designing and implementing cloud native solutions. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
+*The writer has two AWS certifications and one Azure certification and is working at [Tieto Corporation](https://www.tieto.com/) in Application Services / Public Cloud team designing and implementing cloud native solutions. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
 
 Kari Marttila
 
 * Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
-  

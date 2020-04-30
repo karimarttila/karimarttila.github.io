@@ -12,16 +12,17 @@ date: 2019-07-05
 
 ### Introduction
 
-Working as a Cloud Mentor in my corporation one of my duties is to teach junior cloud developers to create infrastructure as code (IaC). I have created various demonstrations both in AWS and Azure using both Terraform and cloud native tools (CloudFormation and ARM). At the same time I was studying [Google Cloud Platform](https://cloud.google.com/gcp/) myself. Last month I did two GCP certifications: Associate Cloud Engineer and Professional Cloud Architect. After these studies I decided to create the same simple IaC demonstration using the Google Cloud Platform that I had earlier created for AWS and Azure platforms. I have already written a blog article in which I compared AWS and Azure Terraform implementations ([Comparing Simple AWS and Azure Infrastructure Demos](https://medium.com/@kari.marttila/comparing-simple-aws-and-azure-infrastructure-demos-cf756d1ef68b)). In this new blog post I compare the new GCP demonstration to those previous demonstrations in the AWS and Azure side. All three demonstrations can be found in Tieto / Public Cloud team’s [Github account](https://github.com/tieto-pc):
+Working as a Cloud Mentor in my corporation one of my duties is to teach junior cloud developers to create infrastructure as code (IaC). I have created various demonstrations both in AWS and Azure using both Terraform and cloud native tools ([CloudFormation](https://aws.amazon.com/cloudformation/) and [ARM](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview)). At the same time I was studying [Google Cloud Platform](https://cloud.google.com/gcp/) myself. Last month I did two GCP certifications: Associate Cloud Engineer and Professional Cloud Architect. After these studies I decided to create the same simple IaC demonstration using the Google Cloud Platform that I had earlier created for AWS and Azure platforms. I have already written a blog article in which I compared AWS and Azure Terraform implementations [Comparing Simple AWS and Azure Infrastructure Demos]({% post_url 2019-03-11-comparing-simple-aws-and-azure-infrastructure-demos %}). In this new blog post I compare the new GCP demonstration to those previous demonstrations in the AWS and Azure side. All three demonstrations can be found in Tieto / Public Cloud team’s [Github account](https://github.com/tieto-pc):
 
 * AWS: <https://github.com/tieto-pc/aws-intro-demo>
 * Azure: <https://github.com/tieto-pc/azure-intro-demo>
 * GCP: <https://github.com/tieto-pc/gcp-intro-demo>
-I try not to iterate the same information in this new blog post that I already wrote in the previous blog post “[Comparing Simple AWS and Azure Infrastructure Demos](https://medium.com/@kari.marttila/comparing-simple-aws-and-azure-infrastructure-demos-cf756d1ef68b)” — exception being e.g. some tables since I add the GCP related information in this new blog post. I recommend the reader to read first that previous blog post to have some context for reading this new blog post.
+
+I try not to iterate the same information in this new blog post that I already wrote in the previous blog post [Comparing Simple AWS and Azure Infrastructure Demos]({% post_url 2019-03-11-comparing-simple-aws-and-azure-infrastructure-demos %}) — exception being e.g. some tables since I add the GCP related information in this new blog post. I recommend the reader to read first that previous blog post to have some context for reading this new blog post.
 
 ### Overall Infrastructure as Code Solutions
 
-The overall Terraform solution structure is already explained in the previous blog post ([Comparing Simple AWS and Azure Infrastructure Demos](https://medium.com/@kari.marttila/comparing-simple-aws-and-azure-infrastructure-demos-cf756d1ef68b) — the same title as in this chapter), so I don’t iterate it here. Instead, let’s just briefly summarize the main structure of all these three IaC solutions:
+The overall Terraform solution structure is already explained in the previous blog post [Comparing Simple AWS and Azure Infrastructure Demos]({% post_url 2019-03-11-comparing-simple-aws-and-azure-infrastructure-demos %}) — the same title as in this chapter), so I don’t iterate it here. Instead, let’s just briefly summarize the main structure of all these three IaC solutions:
 
 * Environment parameters are hosted in the envs folder.
 * Environment definition is hosted in the modules/env-def folder.
@@ -63,9 +64,8 @@ All three public clouds— AWS, GCP and Azure — are excellent cloud platforms 
 
 Using Terraform as an Infrastructure as Code tool you get synergy benefit you don’t get by using cloud providers’ native IaC tools: you can create infrastructure as code solutions in more than one public cloud using the same tool and therefore re-using your IaC knowledge — that’s why Terraform is my choice of tool when creating infrastructure as code in all “Big three”: GCP, AWS and Azure.
 
-*The writer has three AWS certifications, two GCP certifications and one Azure certification and is working in *[*Tieto Corporation*](https://www.tieto.com/)* in Custom Software Development / Public Cloud team designing and implementing cloud native solutions in all three public cloud platforms. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
+*The writer has three AWS certifications, two GCP certifications and one Azure certification and is working at [Tieto Corporation](https://www.tieto.com/) in Custom Software Development / Public Cloud team designing and implementing cloud native solutions in all three public cloud platforms. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
 
 Kari Marttila
 
 * Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
-  

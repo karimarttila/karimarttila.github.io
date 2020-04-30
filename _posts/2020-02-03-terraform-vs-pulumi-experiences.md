@@ -102,9 +102,8 @@ Can you see a plan phase before actual deployment — i.e. what resources are go
 
 Regarding these two short POCs I would say that both Terraform and Pulumi are excellent infrastructure as code tools — it is mostly a personal preference whether you want to stick with a stringent declarative tool (Terraform) or want to use your favorite programming language with more relaxed rules (Pulumi).
 
-*The writer is working in *[*Metosin*](https://www.metosin.fi/)* using Clojure in cloud projects. If you are interested to start a cloud / Clojure project in Finland or you are interested to get cloud / Clojure training in Finland you can contact me by sending email to my Metosin email address or contact me via LinkedIn.*
+*The writer is working at [Metosin](https://www.metosin.fi/) using Clojure in cloud projects. If you are interested to start a cloud / Clojure project in Finland or you are interested to get cloud / Clojure training in Finland you can contact me by sending email to my Metosin email address or contact me via LinkedIn.*
 
 Kari Marttila
 
 * Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
-  

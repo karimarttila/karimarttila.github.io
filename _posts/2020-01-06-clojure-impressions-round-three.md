@@ -14,11 +14,12 @@ date: 2020-01-06
 
 This Clojure Simple Server is a re-implementation of my original Clojure Simple Server I did some three years ago. I created the first version of that Clojure exercise server to learn to use Clojure. I created this new Clojure Simple Server version mainly to learn new Clojure libraries and new ways to work more efficiently with the Clojure REPL. If you are interested about my Clojure learning history you can read my earlier Clojure related blog posts:
 
-* [Clojure First Impressions](https://medium.com/tieto-developers/clojure-first-impressions-2c6232f4b514)
-* [Clojure Impressions Round Two](https://medium.com/tieto-developers/clojure-impressions-round-two-f989c0945f4b)
-* [Using Clojure to Implement a Web Service Server](https://medium.com/@kari.marttila/using-clojure-to-implement-a-web-service-server-53f62dca964f)
-* [Become a Full Stack Developer with Clojure and ClojureScript!](https://medium.com/@kari.marttila/become-a-full-stack-developer-with-clojure-and-clojurescript-c58c93479294)
-* [Five Languages — Five Stories](https://medium.com/@kari.marttila/five-languages-five-stories-1afd7b0b583f)
+* [Clojure First Impressions]({% post_url 2017-08-29-clojure-first-impressions %})
+* [Clojure Impressions Round Two]({% post_url 2017-09-14-clojure-impressions-round-two %})
+* [Using Clojure to Implement a Web Service Server]({% post_url 2018-03-25-using-clojure-to-implement-a-web-service-server %})
+* [Become a Full Stack Developer with Clojure and ClojureScript!]({% post_url 2018-04-22-become-a-full-stack-developer-with-clojure-and-clojurescript %})
+* [Five Languages — Five Stories]({% post_url 2018-11-19-five-languages-five-stories %})
+
 In this new “Clojure Impressions Round Three” blog post I document some new Clojure programming practices I learned doing this new Clojure exercise.
 
 You can find the project in [Github](https://github.com/karimarttila/clojure/tree/master/webstore-demo/simple-server).
@@ -34,15 +35,19 @@ I watched [Chicago Clojure — 2017–06–21 — Stuart Halloway on Repl Driven
 * [**myscratch.clj**](https://github.com/karimarttila/clojure/blob/master/webstore-demo/simple-server/dev-src/myscratch.clj): the REPL scratch file I talked earlier. This file is pure unstructured mind flow. The idea of this file is what Stuart Halloway is talking about in the above mentioned presentation: do not write code in the REPL editor but in a scratch file. So, in this file I experimented various things when developing the application — take a look to have an idea what I was thinking about when developing the application.
 In my scratch file I have experimental code or various short Clojure code snippets e.g. to start the server and test something quickly. Example:
 
-(do  
- (in-ns 'simpleserver.webserver.server)  
- (start-web-server (get-in simpleserver.util.config/config [:server :port]))  
- (let [  
- \_ (require 'mydev)  
- ret (mydev/do-get "/info" {})]  
- (prn (str "/info returned: " ret)))  
- (stop-web-server)  
- (in-ns 'user))I.e. jump into the right namespace, start the server, curl one api, stop the server and go back to user namespace. You can run the S-expression in the scratch file with one hotkey, of course (more about configuring Clojure hot keys in my next blog post, so stay tuned!).
+```clojure
+  (do
+    (in-ns 'simpleserver.webserver.server)
+    (start-web-server (get-in simpleserver.util.config/config [:server :port]))
+    (let [
+          _ (require 'mydev)
+          ret (mydev/do-get "/info" {})]
+      (prn (str "/info returned: " ret)))
+    (stop-web-server)
+    (in-ns 'user))
+ ```
+ 
+ I.e. jump into the right namespace, start the server, curl one api, stop the server and go back to user namespace. You can run the S-expression in the scratch file with one hotkey, of course (more about configuring Clojure hot keys in my next blog post, so stay tuned!).
 
 So, if you are learning Clojure I strongly recommend to learn efficient REPL practices, e.g. watch the above mentioned Stuart Halloway’s presentation. Another great resource for learning efficient Clojure REPL practices is Eric Normand’s excellent [REPL Driven Development](https://purelyfunctional.tv/courses/repl-driven-development-in-clojure/) course. REPL is the very heart and soul of Clojure development — learn to use it.
 
@@ -54,9 +59,13 @@ I realized that for a simple application like this exercise you don’t actually
 
 This is a trick I learned from one of Stuart Halloway’s excellent videos. Add at the end of your Clojure (production) file a “rich comment” which demonstrates how to use the entities defined in that namespace. Example from: [domain\_single\_node.clj](https://github.com/karimarttila/clojure/blob/master/webstore-demo/simple-server/src/simpleserver/domain/domain_single_node.clj):
 
+```clojure
 (comment  
- (-get-raw-products 1)  
-)I.e. a comment S-expression defines valid Clojure code that gets parsed *but not evaluated*. This way the code doesn't have any effect in production but during development it provides a nice way to give examples how to use entities in your Clojure code and also quickly evaluate the S-expressions inside the comment block (efficiently and quickly using your Clojure editor hot keys, of course).
+  (-get-raw-products 1)  
+)
+```
+
+I.e. a comment S-expression defines valid Clojure code that gets parsed *but not evaluated*. This way the code doesn't have any effect in production but during development it provides a nice way to give examples how to use entities in your Clojure code and also quickly evaluate the S-expressions inside the comment block (efficiently and quickly using your Clojure editor hot keys, of course).
 
 ### Debugger
 
@@ -70,7 +79,11 @@ I used [clj-kondo](https://github.com/borkdude/clj-kondo) as a linter. There are
 
 To run the unit tests in command line use: [run-tests.sh](https://github.com/karimarttila/clojure/blob/master/webstore-demo/simple-server/run-tests.sh), example:
 
-./run-tests.sh env-dev-single-nodeStarting the unit tests in command line takes some time since Clojure needs to boot a new JVM instance. I ran unit tests in command line usually only once per coding session: before commiting the code to Git. You seldom need to run the unit tests in command line since you have a REPL integration in your editor and you have a live REPL in your editor at all times when you are programming new Clojure code. So, you usually create new code and experiment with the code in your scratch file sending forms for evaluation to REPL (with your hotkeys). When you are happy with the functionality you move the production part of the code to src tree and the test part to test tree. And then run the unit tests in the test tree with your hot keys by sending the tests for evaluation to a running REPL session (i.e. no JVM boot — very fast).
+```bash
+./run-tests.sh env-dev-single-node
+```
+
+Starting the unit tests in command line takes some time since Clojure needs to boot a new JVM instance. I ran unit tests in command line usually only once per coding session: before commiting the code to Git. You seldom need to run the unit tests in command line since you have a REPL integration in your editor and you have a live REPL in your editor at all times when you are programming new Clojure code. So, you usually create new code and experiment with the code in your scratch file sending forms for evaluation to REPL (with your hotkeys). When you are happy with the functionality you move the production part of the code to src tree and the test part to test tree. And then run the unit tests in the test tree with your hot keys by sending the tests for evaluation to a running REPL session (i.e. no JVM boot — very fast).
 
 ### Using IntelliJ IDEA + Cursive and Emacs + Cider Interchangeably
 
@@ -84,9 +97,8 @@ By the way. **Stay tuned** in my blog, since my next blog post will provide the 
 
 I hope this exercise is helpful also for someone learning Clojure. I have tried to provide some efficient Clojure programming practices and links to various resources you can find more information. Try to configure e.g. Emacs the same way I did, git clone this repository, load various namespaces and try to send the S-expressions in the scratch file for evaluation to REPL.
 
-*The writer is working in *[*Metosin*](https://www.metosin.fi/)* using Clojure in cloud projects. If you are interested to start a Clojure project in Finland or you are interested to get Clojure training in Finland you can contact me by sending email to my Metosin email address or contact me via LinkedIn.*
+*The writer is working at [Metosin](https://www.metosin.fi/) using Clojure in cloud projects. If you are interested to start a Clojure project in Finland or you are interested to get Clojure training in Finland you can contact me by sending email to my Metosin email address or contact me via LinkedIn.*
 
 Kari Marttila
 
 * Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
-  

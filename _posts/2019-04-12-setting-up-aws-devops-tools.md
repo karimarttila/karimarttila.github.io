@@ -6,11 +6,11 @@ tags: [devops, aws, cloud, iac, terraform]
 date: 2019-04-12
 ---
 
-### Introduction
-
 ![](/img/2019-04-12-setting-up-aws-devops-tools_img_1.png)
 
 *AWS DevOps Demonstration Topology.*
+
+### Introduction
 
 In my new unit working as a Cloud Mentor I was thinking myself that sooner or later some AWS project asks me to help them to set up AWS DevOps tools for the project. So, I created a short AWS DevOps demonstration as a learning project and also to be used as a template and example for setting up these tools in a new AWS project. The diagram above depicts the components I used in the project and which I also describe in more detail in this blog post.
 
@@ -48,13 +48,19 @@ Ok. Now you have a working reference model of your cloud infra, created using th
 
 There are a couple of ways to examine the manually created entities and figure out how to re-create them using IaC. One way is to examine the entities in the portal and then create the equivalent entities in infrastructure code. Another way is to get the structural description of the entities e.g. using the cloud provider’s CLI (command line interface):
 
-AWS\_PROFILE=YOUR-AWS-PROFILE aws codepipeline get-pipeline --name YOUR-MANUAL-CODEPIPELINE-PROJECT-NAME > manual-codepipeline-description.txt  
-AWS\_PROFILE=YOUR-AWS-PROFILE aws codebuild batch-get-projects --name YOUR-MANUAL-CODEBUILD-PROJECT-NAME --output json > manual-codebuild-description.txtThen you can examine the contents of the files and re-create the same entities using an IaC tool.
+```bash
+AWS_PROFILE=YOUR-AWS-PROFILE aws codepipeline get-pipeline --name YOUR-MANUAL-CODEPIPELINE-PROJECT-NAME > manual-codepipeline-description.txt  
+AWS_PROFILE=YOUR-AWS-PROFILE aws codebuild batch-get-projects --name YOUR-MANUAL-CODEBUILD-PROJECT-NAME --output json > manual-codebuild-description.txt
+```
+
+Then you can examine the contents of the files and re-create the same entities using an IaC tool.
 
 Of course this was a happy day scenario. In real life there are always bits and pieces missing. The portal wizards create all kinds of stuff behind the scenes that you have to figure out yourself. One example. When I had the Terraform modules of CodePipeLine project and CodeBuild projects ready and I was testing the pipeline I was wondering why the CodePipeline that I created using the portal wizard (the reference model) got automatically triggered but my CodePipeline that I created using Terraform IaC was not. Consult the book of knowledge — Google — and I got the answer in an AWS document — [Start a Pipeline Execution in CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-about-starting.html):
 
 
-> *”*When you use the console to create a pipeline that has a CodeCommit source repository or Amazon S3 source bucket, CodePipeline creates an Amazon CloudWatch Events rule that starts your pipeline when the source changes.*”*So, the portal wizards create all kinds of service roles, policies and triggering mechanisms to make your life easier when you are creating the service entities using the portal. Portal makes things often so easy that some cloud developers create the whole cloud native system using the portal — big mistake. I once audited a customer’s big data system that was created using the portal — no documentation how the system was created, no way to reproduce the equivalent system for development or testing automatically. The only way to make a reproducible cloud system is to use infrastructure as code.
+> ”When you use the console to create a pipeline that has a CodeCommit source repository or Amazon S3 source bucket, CodePipeline creates an Amazon CloudWatch Events rule that starts your pipeline when the source changes.”
+
+So, the portal wizards create all kinds of service roles, policies and triggering mechanisms to make your life easier when you are creating the service entities using the portal. Portal makes things often so easy that some cloud developers create the whole cloud native system using the portal — big mistake. I once audited a customer’s big data system that was created using the portal — no documentation how the system was created, no way to reproduce the equivalent system for development or testing automatically. The only way to make a reproducible cloud system is to use infrastructure as code.
 
 So, the lesson of the story is: Use the portal to explore and learn new cloud services, but create the final system using infrastructure as code.
 
@@ -62,9 +68,8 @@ So, the lesson of the story is: Use the portal to explore and learn new cloud se
 
 AWS DevOps tools (CodeCommit, CodePipeline and CodeBuild) are powerful tools for building a DevOps pipeline in AWS that integrates excellently to other AWS services — no need to use Github or Jenkins anymore. The only downside of these tools is that they are a bit complex to set up for a junior cloud developer. A cloud development best practice helps in this road: first build a reference model using cloud provider’s portal wizards, examine the entities created by the wizards and create the same entities using infrastructure as code.
 
-*The writer has three AWS certifications and one Azure certification and is working in *[*Tieto Corporation*](https://www.tieto.com/)* in Application Services / Public Cloud team as a Cloud Mentor designing and implementing cloud native solutions. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
+*The writer has three AWS certifications and one Azure certification and is working at [Tieto Corporation](https://www.tieto.com/) in Application Services / Public Cloud team as a Cloud Mentor designing and implementing cloud native solutions. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
 
 Kari Marttila
 
 * Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
-  
