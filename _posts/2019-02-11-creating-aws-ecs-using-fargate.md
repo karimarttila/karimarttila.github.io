@@ -35,6 +35,7 @@ It is a cloud best practice that you should modularize your infra code and also 
 1. **Environment parameters**. In the [envs](https://github.com/tieto-pc/aws-ecs-fargate-demo/tree/master/terraform/envs) folder we host the various environments. In this demonstration we have only the dev environment, but this folder could have similar environment parameterizations for qa, perf, prod environments etc.
 2. **Environment definition**. In the [env-def](https://github.com/tieto-pc/aws-ecs-fargate-demo/tree/master/terraform/modules/env-def) folder we define the modules that will be used in every environment. The environment injects the environment specific parameters to the env-def module which then creates the actual infra using those parameters by calling various infra modules and forwarding environment parameters to the infra modules.
 3. **Modules**. In [modules](https://github.com/tieto-pc/aws-ecs-fargate-demo/tree/master/terraform/modules) folder we have the terraform modules that are used by the environment definition (env-def, also a terraform module itself). There are three modules for the main services used in this demonstration: [VPC](https://aws.amazon.com/vpc/), [ECR](https://aws.amazon.com/ecr/) and [ECS](https://aws.amazon.com/ecs/) (and a couple of other utility modules).
+
 ### Demo Application
 
 The demo application used in this demonstration is a simple Java REST application that simulates a CRM system : [java-simple-rest-demo-app](https://github.com/tieto-pc/java-simple-rest-demo-app).
@@ -61,30 +62,36 @@ The ECS even with using Fargate is a bit complex to configure.
 
 The [resource-groups](https://github.com/tieto-pc/aws-ecs-fargate-demo/tree/master/terraform/modules/resource-groups) module defines a dedicated resource group for each tag key I use in all AWS resources that support tagging. The tag keys are:
 
-- Name: <prefix>-<env>-<name-of-the-resource>, e.g. “aws-ecs-demo-dev-vpc” (not used in resource groups, of course)  
-- Env: <env>, e.g. “dev”  
-- Environment: <prefix>-<env>, e.g. “aws-ecs-demo-dev”  
-- Prefix: <prefix>, e.g. “aws-ecs-demo”  
-- Region: <region>, e.g. “eu-west-1  
-- Terraform: “true” (fixed)This way you can pretty easily search the resources. Examples:
+- Name: ```<prefix>-<env>-<name-of-the-resource>```, e.g. “aws-ecs-demo-dev-vpc” (not used in resource groups, of course)  
+- Env: ```<env>```, e.g. “dev”  
+- Environment: ```<prefix>-<env>```, e.g. “aws-ecs-demo-dev”  
+- Prefix: ```<prefix>```, e.g. “aws-ecs-demo”  
+- Region: ```<region>```, e.g. “eu-west-1  
+- Terraform: “true” (fixed)This way you can pretty easily search the resources. 
 
-* Env = “dev” => All resources in all projects which have deployed as development (“dev”).
-* Prefix = “aws-ecs-demo” => All AWS ECS demo resources in all envs (dev, perf, qa, prod…).
-* Environment = “aws-ecs-demo-dev” => The resources of a specific terraform deployment (since each demo has dedicated deployments for all envs), i.e. this deployment.
+Examples:
+
+* Env = ```dev``` => All resources in all projects which have deployed as development (“dev”).
+* Prefix = ```aws-ecs-demo``` => All AWS ECS demo resources in all envs (dev, perf, qa, prod…).
+* Environment = ```aws-ecs-demo-dev``` => The resources of a specific terraform deployment (since each demo has dedicated deployments for all envs), i.e. this deployment.
+
 After deployment open AWS Console => “Resource Groups” view => Saved Resource Groups => You see the 5 resource groups => Click one and you see all resources regarding that tag key and value (of resources that support tagging in AWS). This is a nice way to search what resources are in various envs (dev, qa, prod), for certain system in any environment (prefix) etc.
 
 ### Testing the Application Running in ECS
 
-Run command ‘AWS\_PROFILE=YOUR-PROFILE terraform output -module=env-def.ecs’ => you get the application load balancer DNS. Use it to curl the ALB:
+Run command ```AWS_PROFILE=YOUR-PROFILE terraform output -module=env-def.ecs``` => you get the application load balancer DNS. Use it to curl the ALB:
 
+```bash
 curl <http://ALB-DNS-HERE:5055/customer/1>  
-# => Should return: {“ret”:”ok”,”customer”:{“id”:1,”email”:”[kari.karttinen@foo.com](mailto:kari.karttinen@foo.com)”,”firstName”:”Kari”,”lastName”:”Karttinen”}}### Conclusion
+# => Should return: {“ret”:”ok”,”customer”:{“id”:1,”email”:”[kari.karttinen@foo.com](mailto:kari.karttinen@foo.com)”,”firstName”:”Kari”,”lastName”:”Karttinen”}}
+```
+
+### Conclusion
 
 Configuring everything using ECS turned out to be a bigger task than I originally thought. When comparing experiences between ECS and EKS I think EKS is easier to setup from the infra coding point of view. On the other hand EKS might be a bit overkill to run just one docker container (with redundancy, of course) in which case ECS is a more streamlined way even though the initial infra setup might be a bit intimidating for the first time.
 
-*The writer has two AWS certifications and one Azure certification and is working in *[*Tieto Corporation*](https://www.tieto.com/)* in Application Services / Application Development / Public Cloud team designing and implementing cloud native projects. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
+*The writer has two AWS certifications and one Azure certification and is working at [Tieto Corporation](https://www.tieto.com/) in Application Services / Application Development / Public Cloud team designing and implementing cloud native projects. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
 
 Kari Marttila
 
 * Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
-  
