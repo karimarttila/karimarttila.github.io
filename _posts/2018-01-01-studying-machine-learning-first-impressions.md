@@ -6,9 +6,14 @@ tags: [ml, ai]
 date:	2018-01-01
 ---
 
-  ![](/img/2018-01-01-studying-machine-learning-first-impressions_img_1.jpeg)[Technology image created by Kjpargeter — Freepik.com](https://www.freepik.com/free-photo/robot-with-nuts-and-bolts_958203.htm)### Introduction
 
-Studying is one of my favourite hobbies and winters are good time for studying in Finland, since it's dark and cold and you have to stay inside most of the day. Last winter I studied [Clojure](https://clojure.org/), the incredible Lisp implementation on JVM (and used it to implement a [microservice to process Big data on AWS](https://medium.com/@kari.marttila/aws-batch-and-docker-containers-41c92784bd96), for more information about my Clojure experiences see my previous blog articles: [Clojure First Impressions](https://medium.com/tieto-developers/clojure-first-impressions-2c6232f4b514) and [Clojure Impressions Round Two](https://medium.com/tieto-developers/clojure-impressions-round-two-f989c0945f4b)). A couple of winters before that I studied [AWS](https://aws.amazon.com/) (and have been using AWS quite a lot ever since, feel free to browse the experiences using AWS [here](https://medium.com/@kari.marttila)). This autumn and winter I decided to study [Machine learning](https://en.wikipedia.org/wiki/Machine_learning).
+![](/img/2018-01-01-studying-machine-learning-first-impressions_img_1.jpeg)
+
+*[Technology image created by Kjpargeter — Freepik.com](https://www.freepik.com/free-photo/robot-with-nuts-and-bolts_958203.htm)*
+
+### Introduction
+
+Studying is one of my favourite hobbies and winters are good time for studying in Finland, since it's dark and cold and you have to stay inside most of the day. Last winter I studied [Clojure](https://clojure.org/), the incredible Lisp implementation on JVM (and used it to implement a [microservice to process Big data on AWS]({% post_url 2017-11-09-aws-batch-and-docker-containers %}), for more information about my Clojure experiences see my previous blog articles: [Clojure First Impressions]({% post_url 2017-08-29-clojure-first-impressions %}) and [Clojure Impressions Round Two]({% post_url 2017-09-14-clojure-impressions-round-two %}). A couple of winters before that I studied [AWS](https://aws.amazon.com/) (and have been using AWS quite a lot ever since, feel free to browse the experiences using AWS [here](https://medium.com/@kari.marttila)). This autumn and winter I decided to study [Machine learning](https://en.wikipedia.org/wiki/Machine_learning).
 
 ### What is Machine Learning?
 
@@ -16,7 +21,7 @@ Studying is one of my favourite hobbies and winters are good time for studying i
 
 ### Why Machine Learning?
 
-I often have coffee discussions with my good friend and colleague regarding what to learn next, what is going to be the next big hit in IT (and therefore in which studies you should invest as a developer to be competent in the job market). We realized that Machine learning is a topic that tends to appear more and more in various software engineering sites. Machine learning was also a big topic in this year's AWS re:Invent conference (more about it [here](https://medium.com/@kari.marttila/aws-re-invent-2017-conference-reflections-part-1-55099cb12821)). We decided together to dedicate this autumn and winter for studying Machine learning.
+I often have coffee discussions with my good friend and colleague regarding what to learn next, what is going to be the next big hit in IT (and therefore in which studies you should invest as a developer to be competent in the job market). We realized that Machine learning is a topic that tends to appear more and more in various software engineering sites. Machine learning was also a big topic in this year's AWS re:Invent conference (more about it [here]({% post_url 2017-11-29-aws-re-invent-2017-conference-reflections-part-1 %}). We decided together to dedicate this autumn and winter for studying Machine learning.
 
 ### Our Future Machine Learning Study Path
 

@@ -12,9 +12,11 @@ date:	2018-01-25
 
 ### Introduction
 
-As I described in my previous blog article [Studying Machine Learning — First Impressions](https://medium.com/@kari.marttila/studying-machine-learning-first-impressions-a8008d68b847) I decided to dedicate this winter's studies in Machine learning. I have been doing the excellent Machine learning [Coursera](https://www.coursera.org/) course and working with the exercises using [Octave](https://www.gnu.org/software/octave/). This was basically the first step (theory) in my Machine learning study path.
+As I described in my previous blog article [Studying Machine Learning — First Impressions]({% post_url 2018-01-01-studying-machine-learning-first-impressions %}) I decided to dedicate this winter's studies in Machine learning. I have been doing the excellent Machine learning [Coursera](https://www.coursera.org/) course and working with the exercises using [Octave](https://www.gnu.org/software/octave/). This was basically the first step (theory) in my Machine learning study path.
 
-Now that I finally after many weeks managed to walk through all material and exercises in that Coursera course I decided to do the same exercises using some industry level ML library (step two in my Machine learning study path). I evaluated the libraries and finally decided to start using [TensorFlow](https://www.tensorflow.org/). Why TensorFlow? TensorFlow seems to be one of the most used ML libraries. You can create the models using [Python](https://www.python.org/) which makes the model creation pretty easy (using the Python REPL) if you are fluent in Python (see my previous [Python Rocks!](https://medium.com/tieto-developers/python-rocks-5dc453b5c222) blog article). And the good side is that you can use the ML model (you created using Python) in [Java](https://www.java.com/en/), and therefore also in [Clojure](https://clojure.org/) — my current choice of programming language (see more in my previous blog article [Clojure Impressions Round Two](https://medium.com/tieto-developers/clojure-impressions-round-two-f989c0945f4b)).
+Now that I finally after many weeks managed to walk through all material and exercises in that Coursera course I decided to do the same exercises using some industry level ML library (step two in my Machine learning study path). I evaluated the libraries and finally decided to start using [TensorFlow](https://www.tensorflow.org/). Why TensorFlow? TensorFlow seems to be one of the most used ML libraries. You can create the models using [Python](https://www.python.org/) which makes the model creation pretty easy (using the Python REPL) if you are fluent in Python (see my previous [Python Rocks!]({% post_url 2017-01-30-python-rocks %}) blog article). And the good side is that you can use the ML model (you created using Python) in [Java](https://www.java.com/en/), and therefore also in [Clojure](https://clojure.org/) — my current choice of programming language (see more in my previous blog article [Clojure Impressions Round Two]({% post_url 2017-09-14-clojure-impressions-round-two %})).
+
+
 
 ### You Also Need Other Libraries When Creating ML Models…
 
@@ -22,6 +24,7 @@ When I was doing the first exercise [Linear regression](https://en.wikipedia.org
 
 * [NumPy](http://www.numpy.org/) (scientific computing with Python) — without NumPy various matrix operations would be rather painfull, and ML is basically mostly rolling various matrices).
 * [Matplotlib](https://matplotlib.org/) (Python plotting library for creating graphics). It is important to visualize the data you are working with, and when working in Python Matplotlib is your friend. The graphic in the beginning of this blog article was generated using Matplotlib.
+
 These libraries are not that difficult to learn, you can basically learn to use them on the fly when you are working with your ML model. And remember: Python REPL is your friend while learning any Python library.
 
 ### Python REPL
@@ -49,6 +52,7 @@ array([[ 1. , 6.1101],
  [ 1. , 5.5277],  
  [ 1. , 8.5186],
 ```
+
 So, what's happening here? You can import your source code in Python REPL and then interact with the code. Here I import the exercise module and instantiate the Linear regression class I created in the module. I use the readCsvFile method of that class just to get the data read into a Python tuple. Then I import NumPy library and experiment with it using the data.
 
 Python [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) (read/eval/print/loop) is pretty good. It is much faster to use it to create production software in small blocks than e.g. traditional write/compile/deploy/test cycle used in Java. BUT… If you have never used Clojure REPL you know nothing about how powerfull a REPL can be…
@@ -73,7 +77,7 @@ J_history = np.empty(shape=[1],dtype=float)
 for i in range(iterations):  
  sess.run(step,feed_dict={X:X_train_normalized_bias, y:y_train})  
  J_history = np.append(J_history,sess.run(J,feed_dict={X:X_train_normalized_bias,y:y_train}))
-```python
+```
 
 In the above code we create a couple of TensorFlow variables, and then define the y_prediction as matrix operation X * W (X = train set features, W = weights, or X * theta using Machine learning course terminology). Then we define the [cost function](https://en.wikipedia.org/wiki/Loss_function) as squared error (see in [Coursera](https://www.coursera.org/learn/machine-learning/lecture/rkTp3/cost-function) how prof. Ng describes it — the lectures were really good). Using TensorFlow to create a linear regression model like this is pretty straightforward once you have basic understanding of what linear regression is and how to get the weights (theta) using a [gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) algorithm (here we use TensorFlow's [GradientDescentOptimizer](https://www.tensorflow.org/api_docs/python/tf/train/GradientDescentOptimizer) method to do the heavy lifting; in the Coursera course exercises we did this part using matrix calculation— doing the same thing using basic matrix operations was amazingly simple in Octave).
 
@@ -90,5 +94,3 @@ I'm pretty sure this combination is going to be a killer knowledge for a future 
 * Analytics and data science.
 * Machine learning and Artificial intelligence.
 If you got interested I strongly recommend to start building your developer competence in that direction. You can start e.g. your Machine learning studies today — just sign in Coursera and start watching the first [Machine Learning](https://www.coursera.org/learn/machine-learning) video lecture.
-
-  

@@ -14,13 +14,13 @@ I was asked to create a proof-of-concept for storing and analyzing clickstream e
 
 *Proof-of-concept of a S3 based Data lake for Clickstream events.*
 
-So, this would be a good reason to refresh my [Clojure](https://clojure.org/) programming skills (see my earlier Clojure related blog post: [Clojure Impressions Round Two](https://medium.com/tieto-developers/clojure-impressions-round-two-f989c0945f4b)).
+So, this would be a good reason to refresh my [Clojure](https://clojure.org/) programming skills (see my earlier Clojure related blog post: [Clojure Impressions Round Two]({% post_url 2017-09-14-clojure-impressions-round-two %}).
 
 The implementation of the Clickstream Web service server is in my github account: <https://github.com/karimarttila/clojure/tree/master/clickstream-generator> . The link shows the README.md which explains most of the technicalities, so I'm not going to explain the same stuff here. Instead, I'll write here some experiences implementing a Web service server using Clojure, how to develop a Clojure application and how to integrate the Clojure application with AWS.
 
 ### Clojure REPL Rocks
 
-I have been using Tensorflow lately in [my Machine learning exercises](https://medium.com/@kari.marttila/writing-machine-learning-solutions-first-impressions-93b5e4385970), and therefore used quite a bit the Python REPL (both with [PyCharm](https://www.jetbrains.com/pycharm/) and command line). Python REPL is good (if you have used languages like Java which provide no REPL at all — except Java 9 introduced some REPL which I haven't tried yet). But every time I use the Python REPL I just miss the power and easiness of the Clojure REPL, especially when using it with [Cursive](https://cursive-ide.com/userguide/repl.html). And using Cursive is even more enjoyable if you assign good hot keys for it. Some of my own favorite Cursive hot keys are:
+I have been using Tensorflow lately in [my Machine learning exercises]({% post_url 2018-01-25-writing-machine-learning-solutions-first-impressions %}), and therefore used quite a bit the Python REPL (both with [PyCharm](https://www.jetbrains.com/pycharm/) and command line). Python REPL is good (if you have used languages like Java which provide no REPL at all — except Java 9 introduced some REPL which I haven't tried yet). But every time I use the Python REPL I just miss the power and easiness of the Clojure REPL, especially when using it with [Cursive](https://cursive-ide.com/userguide/repl.html). And using Cursive is even more enjoyable if you assign good hot keys for it. Some of my own favorite Cursive hot keys are:
 
 * <shift><ctrl><N> (In editor)=> Switch REPL namespace to current file (which is in editor when the command is given).
 * <shift><ctrl><M> (In editor)=> Load current namespace to REPL.
