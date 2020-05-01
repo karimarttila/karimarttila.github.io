@@ -10,14 +10,15 @@ date: 2018-11-19
 
 Last spring I wanted to see how easy it would be to implement a small web server using Clojure and to provide a simple frontend for the backend implementation using ClojureScript. This autumn I got a nice idea: why not implement the same server using 4 other languages, 2 of which I already knew quite well (Java and Python) and 2 of which I wanted to learn (Javascript/Node and Go) so that I could compare these 5 languages how they do the job to implement the exactly same thing. So, my exercise is now over and all the five stories are available in my Medium blog:
 
-* **Clojure**: "[Become a Full Stack Developer with Clojure and ClojureScript!](https://medium.com/@kari.marttila/become-a-full-stack-developer-with-clojure-and-clojurescript-c58c93479294)"
-* **Javascript/Node**: "[Java Man's Unholy Quest in the Node Land](https://medium.com/@kari.marttila/java-mans-unholy-quest-in-the-node-land-958e61da0451)"
-* **Java**: "[Java Man Returns Home Confused](https://medium.com/@kari.marttila/java-man-returns-home-confused-2fe951eb51a9)"
-* **Python**: "[Java Man Converts to Python](https://medium.com/@kari.marttila/java-man-converts-to-python-166578beeb6b)"
-* **Go**: "[Go — Good Productivity with Bare Metal](https://medium.com/@kari.marttila/go-good-productivity-with-bare-metal-4fa70e0177fb)"
+* **Clojure**: [Become a Full Stack Developer with Clojure and ClojureScript!]({% post_url 2018-04-22-become-a-full-stack-developer-with-clojure-and-clojurescript %})
+* **Javascript/Node**: [Java Man's Unholy Quest in the Node Land]({% post_url 2018-10-07-java-man-s-unholy-quest-in-the-node-land %})
+* **Java**: [Java Man Returns Home Confused]({% post_url 2018-10-29-java-man-returns-home-confused %})
+* **Python**: [Java Man Converts to Python]({% post_url 2018-11-01-java-man-converts-to-python %})
+* **Go**: [Go — Good Productivity with Bare Metal]({% post_url 2018-11-13-go-good-productivity-with-bare-metal %})
+
 So, in this blog article I'm going **to compare these five languages regarding my experiences** while implementing the same server over and over again. I'm also going to **score the languages** regarding various aspects using either the same scale (1–5, **1=best,** **5=worst**), or some other metrics I feel more suitable for the situation. The reader must understand that these scores and everything I have written here are based on a very personal taste and done tongue in cheek. So, let's start!
 
-Update: There is a sixth language, **Kotlin**. I'm about to update this blog post to "Six Languages - Six Stories", but before I have time to do that you can read about my Kotlin experiences in [Kotlin - Much More Than Just a Better Java]({% post_url 2019-12-15-kotlin-much-more-than-just-a-better-java %}).
+**Update**: There is a sixth language, **Kotlin**. I'm about to update this blog post to "Six Languages - Six Stories", but before I have time to do that you can read about my Kotlin experiences in [Kotlin - Much More Than Just a Better Java]({% post_url 2019-12-15-kotlin-much-more-than-just-a-better-java %}).
 
 All right, let's get on with this post!
 
@@ -38,7 +39,7 @@ The five languages are quite different from each other which is a good thing sin
 
 ### Language Design
 
-The histories of these languages are quite different. Personally I think that the best designed languages are Clojure and Go. They really fit into their ecological compartments pretty well. Java as a programming language is well designed but it is a bit too verbose and bloated, however it provides excellent abstraction mechanisms which Go lacks. On the other hand Clojure being a Lisp provides what ever abstractions you can imagine, and the language design is also a very modern version of Lisp. Python is also pretty nicely designed language for the jobs it is mostly meant. The black sheep of the class is obviously Javascript which was designed and implemented in about 10 days if the Netscape story is true (and probably it is when you learn the language and its weird syntax). So, the verdict is (I'm mostly going to use these ascii tables since there is no table support in Medium):
+The histories of these languages are quite different. Personally I think that the best designed languages are Clojure and Go. They really fit into their ecological compartments pretty well. Java as a programming language is well designed but it is a bit too verbose and bloated, however it provides excellent abstraction mechanisms which Go lacks. On the other hand Clojure being a Lisp provides what ever abstractions you can imagine, and the language design is also a very modern version of Lisp. Python is also pretty nicely designed language for the jobs it is mostly meant. The black sheep of the class is obviously Javascript which was designed and implemented in about 10 days if the Netscape story is true (and probably it is when you learn the language and its weird syntax). So, the verdict is:
 
 | Language | Design |  
 | ------------|--------|  
@@ -70,7 +71,9 @@ Headers used in the table:
 I have to be honest and I didn't bother to check in Github how many evenings I programmed Clojure but I estimate it was something like two weeks. So, the "Evenings" are not that comparable since I had very different experiences for the languages (Java & Python: some 20 years, Javascript: some weeks, Node: zero, Clojure: about 1 year, Go: zero). But this is also pretty interesting. With some 20 years of experience with Java I manged to hassle some 18 evenings with the job (well, I hadn't done serious Java programming for some 1,5 years and I spent quite a lot of time exploring new Java 10 features, new Spring features, new IDEA features, how to use Java REPL etc…). But with zero experience with Go and I managed to do the same server in 8 evenings. Let's iterate this:
 
 
-> 20 years of experience in Java and 18 evenings spent in implementation vs. zero knowledge of Go and 8 evenings spent in implementation. Wtf? Because the "Evenings" are not that comparable regarding my background on those languages I therefore added column "**2y**" which is my very personal feeling of *how many evenings I would do the same implementation with that language again if I had some 2 years of experience regarding that language*. So, I dropped some 6 evenings away from Java considering that I don't spend any extra time to study new language, Spring etc. features. I think I could also squeeze Javascript to half and Clojure from 13 to 3 since it really is a very productive language once you master it. Python is already in its optimal state: 3. I could squeeze at least a couple of evenings away from Go as well.
+> 20 years of experience in Java and 18 evenings spent in implementation vs. zero knowledge of Go and 8 evenings spent in implementation. Wtf? 
+
+Because the "Evenings" are not that comparable regarding my background on those languages I therefore added column "**2y**" which is my very personal feeling of *how many evenings I would do the same implementation with that language again if I had some 2 years of experience regarding that language*. So, I dropped some 6 evenings away from Java considering that I don't spend any extra time to study new language, Spring etc. features. I think I could also squeeze Javascript to half and Clojure from 13 to 3 since it really is a very productive language once you master it. Python is already in its optimal state: 3. I could squeeze at least a couple of evenings away from Go as well.
 
 To make this blog post look more professional and scientific I invented a new index: "*Marttila Productivity Index*" (**MPI**) so that I divided all language results of column 2y using the shortest evenings of column 2y (Python: 3). This method provides a very scientific index for each language's productivity (tongue in cheek).
 
@@ -88,7 +91,7 @@ This category gives good scoring for a language which provides excellent product
 
 ### Lines of Code
 
-This part is probably the most scientific part in this blog post — everyone can verify the results cloning the repos in [my Github](https://github.com/karimarttila) and running "find . -iname <language-extension> | xargs wc -l".
+This part is probably the most scientific part in this blog post — everyone can verify the results cloning the repos in [my Github](https://github.com/karimarttila) and running ```find . -iname <language-extension> | xargs wc -l```.
 
 Headers used in the table:
 
@@ -101,6 +104,7 @@ Headers used in the table:
 - A-LoC: all lines of code together  
 - MLCI: Marttila Lines of Code Index (divide all language's A-F with the lowest A-F)  
 - MPI: Marttila Productivity Index (from previous chapter)And the table is:
+
 
 | Language | P-F | P-LoC | T-F | T-LoC | A-F | A-LoC | MLCI | MPI |  
 | ---------|-----|-------|-----|-------|-----|-------|------|-----|  
@@ -162,7 +166,7 @@ Java, Go, Python and Clojure provide very good standard libraries. Javascript on
 
 On the other hand, if the standard library support in Java is so good, why do you see a hideous list of over 500 lines of various dependencies when you give command: ```./gradlew dependencies | wc -l``` => 594, wtf? How do you even count how many dependencies are needed when you have direct dependencies A, B, C, D, E and then A and C draws J,K,L, and then B draws J,K,R,S, and then J draws R,S,T, and then R draws V,W and so on and so on (which is pretty much the case when you read that listing of over 500 lines of dependencies). And then the clashes between dependencies. You tend to write various exclusions in your build files because some dependencies R and S that are drawn by A are clashed by dependency F, which is drawn by B and so on. A real example from Java Simple Server:
 
-```java
+```groovy
 testImplementation("org.springframework.boot:spring-boot-starter-test") {  
  exclude group: 'junit.junit'  
  exclude group: 'com.vaadin.external.google'  
@@ -251,6 +255,8 @@ Here we also have some hard data. I ran "time" for all projects when running the
 
 It's pretty obvious that Clojure and Java lose the contest because of the loading of JVM. Javascript and Python are pretty fast since they just start running the tests and hope that while interpreting the code there are no runtime errors. Go is a statically compiled language and needs to compile first before running tests.
 
+For Clojure, the situation is actually not bad as it seems regarding this table. In Clojure you start the REPL once (and you pay the JVM boot time only then), and then you run the unit tests in your editor in that REPL (very fast).
+
 ### Error Handling
 
 I kind of like Go's error handling with error entities returned with the actual payload from functions. Java adopted the exception strategy from C++ but divided exceptions to runtime exceptions which you didn't have to explicitly handle and checked exceptions which you had to explicitly handle — many consider this as a failed experiment since e.g. Spring exclusively uses just runtime exceptions. Python also provides exceptions and they are pretty easy to use. Though, I mostly return e.g. None from functions if something went wrong and then check if the returned value is None. Javascript as a language is a bit of a mess and so is its error handling practices. Clojure is somewhere between — there are exceptions but they are a bit cumbersome to use in a functional language so I mostly check the return values for errors.
@@ -281,7 +287,7 @@ So, based on my experience the best error messages are provided by Java and Pyth
 
 This category relates to how well you are able to treat data as data in the code and not to be forced to use some cryptic classes to represent data. Example from server unit tests:
 
-**Would you like to code data like this (Java):
+Would you like to code data like this (Java):
 
 ```java
  HashMap<String, String> productGroups = new HashMap<>();  
@@ -290,6 +296,7 @@ This category relates to how well you are able to treat data as data in the code
 ```
 
 Or like this (Clojure):
+
 ```clojure
  right-body {:ret :ok, :product-groups {"1" "Books", "2" "Movies"}}
 ```
@@ -359,8 +366,7 @@ So, my final recommendations for these five languages are:
 * **Go**: If you need bare metal performance with excellent concurrency support and you don't need to manipulate a lot of data: use Go. Go probably is best as a system tool language — data manipulation is a lot more verbose than in Python and Clojure.
 * **Java**: If you have a really big enterprise system and and offshore development with tens of developers working with the same code base, probably Java.
 * **Javascript**: If you need a server which should serve thousands of concurrent clients really fast and processing the requests are not CPU intensive then Node and its asynchronous server model might be unbeatable.
+
 ### Disclaimer
 
-Because I have noticed that there are many developers who think of their favorite language with great religious-like affection I must add this disclaimer. The opinions in this blog article are personal and I'm not going to read any comments that "*language X should have gotten more points because blaa, blaa, blaa*". So, for this blog article I hope that you are not going to add any comments like that. If you didn't like what you just read: relax, have a home brew and write your own blog article. Life is not that serious, dude. 😀
-
-  
+Because I have noticed that there are many developers who think of their favorite language with great religious-like affection I must add this disclaimer. The opinions in this blog article are personal and I'm not going to read any comments that "*language X should have gotten more points because blaa, blaa, blaa*". If you didn't like what you just read: relax, have a home brew and write your own blog article. Life is not that serious, dude. 😀

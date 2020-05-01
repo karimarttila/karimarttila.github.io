@@ -10,10 +10,11 @@ date:	2018-11-13
 
 This is the fifth blog article (and at least for now the last one) in my series to implement the same web server in five different languages. The previous articles are:
 
-* **Clojure**: "[Become a Full Stack Developer with Clojure and ClojureScript!](https://medium.com/@kari.marttila/become-a-full-stack-developer-with-clojure-and-clojurescript-c58c93479294)"
-* **Javascript/Node**: "[Java Man's Unholy Quest in the Node Land](https://medium.com/@kari.marttila/java-mans-unholy-quest-in-the-node-land-958e61da0451)"
-* **Java**: "[Java Man Returns Home Confused](https://medium.com/@kari.marttila/java-man-returns-home-confused-2fe951eb51a9)"
-* **Python**: "[Java Man Converts to Python](https://medium.com/@kari.marttila/java-man-converts-to-python-166578beeb6b)"
+* **Clojure**: [Become a Full Stack Developer with Clojure and ClojureScript!]({% post_url 2018-04-22-become-a-full-stack-developer-with-clojure-and-clojurescript %})
+* **Javascript/Node**: [Java Man's Unholy Quest in the Node Land]({% post_url 2018-10-07-java-man-s-unholy-quest-in-the-node-land %})
+* **Java**: [Java Man Returns Home Confused]({% post_url 2018-10-29-java-man-returns-home-confused %})
+* **Python**: [Java Man Converts to Python]({% post_url 2018-11-01-java-man-converts-to-python %})
+
 This blog article is about my fifth language, [**Go**](https://golang.org/) (or 'golang' for search engines). This time I did this exercise just to learn Go programming language and the Go tools. I have been reading about Go for a while and I was pretty interested to learn Go. This exercise of implementing the same web server with different languages has taught me that if you want to learn a language the best way is just to start implementing something — this way you have to find ways of molding the language to your needs and also learn the libraries and tools related to that language. I implemented the Simple Server in about 8 evenings, which is not that bad if you compare it to some 18 evenings I used for implementing the same server in Java (and comparing to 3 evenings in Python). So, Go provides pretty good productivity being a statically typed language that compiles straight to the machine code.
 
 Once again, you can find the project in [**Github**](https://github.com/karimarttila/go/tree/master/simpleserver).
@@ -48,7 +49,7 @@ I was using [Go](https://golang.org) version 1.11 on Ubuntu18 when implementing 
 
 When programming Go you have to set the $GOPATH and $GOROOT environmental variables to point to your Go project directory and where your Go installation is. See a more detailed example in [setenv.sh](https://github.com/karimarttila/go/blob/master/simpleserver/setenv.sh).
 
-I used [dep](https://github.com/golang/go/wiki/PackageManagementTools) tool to mangage Go packages. I had to use only one package (for JSON web token handling) — everything else was possible to implement using just the Go standard library. The dep tool is not that much of a package manager. For package management Go is one of the worst I've seen — package management is basically "go get <some-git-repo>" and you get the source files from that git repo to your $GOPATH and Go compiler compiles and links those sources as part of your binary. A rather weird system if you have used e.g. Java's [Java ARchive](https://en.wikipedia.org/wiki/JAR_%28file_format%29) files and dependencies to Maven repositories. But I understood that this is going to change in some future Go version.
+I used [dep](https://github.com/golang/go/wiki/PackageManagementTools) tool to mangage Go packages. I had to use only one package (for JSON web token handling) — everything else was possible to implement using just the Go standard library. The dep tool is not that much of a package manager. For package management Go is one of the worst I've seen — package management is basically ```go get <some-git-repo>``` and you get the source files from that git repo to your $GOPATH and Go compiler compiles and links those sources as part of your binary. A rather weird system if you have used e.g. Java's [Java ARchive](https://en.wikipedia.org/wiki/JAR_%28file_format%29) files and dependencies to Maven repositories. But I understood that this is going to change in some future Go version.
 
 ### GoLand
 
@@ -58,13 +59,13 @@ GoLand is really great for Go development (as JetBrains products are for other l
 
 ### Code Format
 
-Go is an interesting language in that sense that formatting of the Go code is very opinionated. Very opinionated in that sense that the Go compiler even requests code to be in certain format or it doesn't compile the code even though the code would otherwise be syntactically right. Formatting the Go code is provided by the Go basic tools (see: [format](https://golang.org/pkg/go/format/)). You can run the **fmt** tool using command: "go fmt github.com/karimarttila/go/simpleserver/app/…".
+Go is an interesting language in that sense that formatting of the Go code is very opinionated. Very opinionated in that sense that the Go compiler even requests code to be in certain format or it doesn't compile the code even though the code would otherwise be syntactically right. Formatting the Go code is provided by the Go basic tools (see: [format](https://golang.org/pkg/go/format/)). You can run the **fmt** tool using command: ```go fmt github.com/karimarttila/go/simpleserver/app/...```.
 
 ### Static Code Analysis
 
 Go provides a simple static code analysis tool in the standard Go toolbox: [**vet**](https://golang.org/cmd/vet/).
 
-I also found another interesting tool: [Staticcheck](https://staticcheck.io/docs/). Install the package and you can run various tools like staticcheck, gosimple and unused in one go for all Go code files: using command: "megacheck github.com/karimarttila/go/simpleserver/app/…"
+I also found another interesting tool: [Staticcheck](https://staticcheck.io/docs/). Install the package and you can run various tools like staticcheck, gosimple and unused in one go for all Go code files: using command: ```megacheck github.com/karimarttila/go/simpleserver/app/...```.
 
 Staticcheck open source version is free. If you find the tool useful you should consider buying the commercial version.
 
@@ -73,28 +74,29 @@ Staticcheck open source version is free. If you find the tool useful you should 
 Go is an unusual language in that sense that it provides excellent standard library and therefore you seldom need to import extra dependencies. There are some external http routing libraries in Go, e.g. [Gorilla](https://github.com/gorilla/mux) but why to introduce external dependencies to your project if you can manage with the standard library? So, for http / REST handling I just used the Go standard library [net/http](https://golang.org/pkg/net/http). It was pretty straightforward to use net/http, see example below.
 
 ```go
-func getProductGroups(writer http.ResponseWriter, request *http.Request) {  
- util.LogEnter()  
- writeHeaders(writer)  
- if request.Method == "OPTIONS" {  
- return  
- }  
- parsedEmail, errorResponse := isValidToken(request)  
- var productGroups domaindb.ProductGroups  
- if !errorResponse.Flag {  
- util.LogTrace("parsedEmail from token: " + parsedEmail)  
- productGroups = domaindb.GetProductGroups()  
- encoder := json.NewEncoder(writer)  
- encoder.SetEscapeHTML(false)  
- err := encoder.Encode(productGroups)  
- if err != nil {  
- errorResponse = createErrorResponse(err.Error())  
- }  
- }  
- if errorResponse.Flag {  
- writeError(writer, errorResponse)  
- }  
- util.LogExit()  
+
+func getProductGroups(writer http.ResponseWriter, request *http.Request) {
+    util.LogEnter()
+    writeHeaders(writer)
+    if request.Method == "OPTIONS" {
+        return
+    }
+    parsedEmail, errorResponse := isValidToken(request)
+    var productGroups domaindb.ProductGroups
+    if !errorResponse.Flag {
+        util.LogTrace("parsedEmail from token: " + parsedEmail)
+        productGroups = domaindb.GetProductGroups()
+        encoder := json.NewEncoder(writer)
+        encoder.SetEscapeHTML(false)
+        err := encoder.Encode(productGroups)
+        if err != nil {
+            errorResponse = createErrorResponse(err.Error())
+        }
+    }
+    if errorResponse.Flag {
+        writeError(writer, errorResponse)
+    }
+    util.LogExit()
 }
 ```
 
@@ -115,46 +117,55 @@ Go is pretty amazing in that sense that you have also [the Go testing framework]
 Go tests are pretty easy to create. You don't have asserts but instead you just write standard application logic to test whether your package works as expected. Example:
 
 ```go
-func TestGetProductGroups(t *testing.T) {  
- util.LogEnter()  
- port := util.MyConfig["port"]  
- token, err := CreateJsonWebToken("[kari.karttinen@foo.com](mailto:kari.karttinen@foo.com)")  
- if err != nil {  
- t.Errorf("Failed to get test token: %s", err.Error())  
- }  
+
+func TestGetProductGroups(t *testing.T) {
+    util.LogEnter()
+    port := util.MyConfig["port"]
+    // We could implement get this by querying /login, but let's make a shortcut.
+    token, err := CreateJsonWebToken("kari.karttinen@foo.com")
+    if err != nil {
+        t.Errorf("Failed to get test token: %s", err.Error())
 //...  
- response := recorder.Body.String()  
- if len(response) == 0 {  
- t.Error("Response was nil or empty")  
- }  
- pgMap := make(map[string]map[string]string)  
- err = json.Unmarshal([]byte(response), &pgMap)  
- if err != nil {  
- t.Errorf("Unmarshalling response failed: %s", err.Error())  
- }  
- pg, ok := pgMap["product-groups"]  
- if !ok {  
- t.Errorf("Didn't find 'product-groups' in response")  
- }  
- pg1, ok := pg["1"]  
- if !ok {  
- t.Errorf("Didn't find product group 1 in response")  
- }  
- if pg1 != "Books" {  
- t.Errorf("Product group 1 should have been 'Books'")  
- }  
- util.LogEnter()  
+    response := recorder.Body.String()
+    if len(response) == 0 {
+        t.Error("Response was nil or empty")
+    }
+    // NOTE: Might look a bit weird, but it's pretty straightforward:
+    // pgMap is a map (key:string), and values are maps, which keys are strings and values are strings.
+    pgMap := make(map[string]map[string]string)
+    err = json.Unmarshal([]byte(response), &pgMap)
+    if err != nil {
+        t.Errorf("Unmarshalling response failed: %s", err.Error())
+    }
+    pg, ok := pgMap["product-groups"]
+    if !ok {
+        t.Errorf("Didn't find 'product-groups' in response")
+    }
+    pg1, ok := pg["1"]
+    if !ok {
+        t.Errorf("Didn't find product group 1 in response")
+    }
+    if pg1 != "Books" {
+        t.Errorf("Product group 1 should have been 'Books'")
+    }
+    util.LogEnter()
 }
 ```
 
-You can run all the tests with command: ```go test github.com/karimarttila/go/simpleserver/app/...```
+You can run all the tests with command:
+
+```bash
+go test github.com/karimarttila/go/simpleserver/app/...
+```
 
 ### Map, Reduce and Filter
 
 There are no map, reduce and filter implementations in the Go standard library because Go is a statically typed language which does not provide generics — you either should have a dynamically typed language (like Clojure, Javascript or Python) or a statically typed language with generics (like Java) to have real map, reduce and filter functions. I googled this a bit and found one of Go's inventors, Rob Pike's [filter](https://github.com/robpike/filter) implementation in which he says:
 
 
-> "I wanted to see how hard it was to implement this sort of thing in Go, with as nice an API as I could manage. It wasn't hard. Having written it a couple of years ago, I haven't had occasion to use it once. Instead, I just use "for" loops. **You shouldn't use it either.**"So, let's just use for loops while programming Go. This is a bit of a pity since map, reduce and filter are a good abstraction and very idiomatic e.g. in functional languages like Clojure. But you just have to accept that when in Rome do as the Romans do.
+> "I wanted to see how hard it was to implement this sort of thing in Go, with as nice an API as I could manage. It wasn't hard. Having written it a couple of years ago, I haven't had occasion to use it once. Instead, I just use "for" loops. **You shouldn't use it either.**" 
+
+So, let's just use for loops while programming Go. This is a bit of a pity since map, reduce and filter are a good abstraction and very idiomatic e.g. in functional languages like Clojure. But you just have to accept that when in Rome do as the Romans do.
 
 ### Go Playground
 

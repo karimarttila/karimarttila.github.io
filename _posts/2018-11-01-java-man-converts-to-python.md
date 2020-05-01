@@ -8,15 +8,16 @@ date: 2018-11-01
 
 ### Prologue
 
-Three evenings versus three weeks.
+> "Three evenings versus three weeks."
 
 ### Introduction
 
 This is the fourth blog article in my series to implement the same web server in five different languages. The previous articles are:
 
-* **Clojure**: "[Become a Full Stack Developer with Clojure and ClojureScript!](https://medium.com/@kari.marttila/become-a-full-stack-developer-with-clojure-and-clojurescript-c58c93479294)"
-* **Javascript/Node**: "[Java Man's Unholy Quest in the Node Land](https://medium.com/@kari.marttila/java-mans-unholy-quest-in-the-node-land-958e61da0451)"
-* **Java**: "[Java Man Returns Home Confused](https://medium.com/@kari.marttila/java-man-returns-home-confused-2fe951eb51a9)"
+* **Clojure**: [Become a Full Stack Developer with Clojure and ClojureScript!]({% post_url 2018-04-22-become-a-full-stack-developer-with-clojure-and-clojurescript %})
+* **Javascript/Node**: [Java Man's Unholy Quest in the Node Land]({% post_url 2018-10-07-java-man-s-unholy-quest-in-the-node-land %})
+* **Java**: [Java Man Returns Home Confused]({% post_url 2018-10-29-java-man-returns-home-confused %})
+
 This blog article is about my fourth language, [**Python**](https://www.python.org/). I didn't do this exercise to learn Python — I have been programming Python some 20 years now. I wanted to implement the same web server just to see how fast I can implement it compared to previous Java implementation. The result was about 3 evenings (Python) — 3 weeks (Java). A sad story for Java, a great victory for Python.
 
 You can find the project in [**Github**](https://github.com/karimarttila/python/tree/master/webstore-demo/simple-server).
@@ -42,6 +43,7 @@ pipenv install flask # => Use pipenv to install packages.
 ls -l Pipfile* # => List the generated Pipfile(s).  
 deactivate # => Leave the virtual environment.And so we finalized our short tour to "Python virtual environment and package management."
 ```
+
 For those who don't know Python land I tell that there are two major versions of Python: 2 and 3 — and they are not compatible. The recommendation is always to use the newer version 3 if possible.
 
 For accelerating the REST implementation I decided to use [Flask](http://flask.pocoo.org/ "http://flask.pocoo.org/") (version 1.0.2) since it is widely-used Python microframework for that purpose.
@@ -65,36 +67,48 @@ Let's compare the test performances between different implementations when runni
 **Clojure**:
 
 ```bash
-time ./run-tests.sh   
-19:52:18.637 [main] INFO simpleserver.util.prop - Using poperty file: resources/simpleserver.properties  
-lein test simpleserver.testutils.users-util  
-lein test simpleserver.userdb.users-test  
-lein test simpleserver.webserver.server-test  
-lein test simpleserver.webserver.session-test  
-Ran 11 tests containing 47 assertions.  
-0 failures, 0 errors.  
-real 0m6.027s**Java**:
+time ./run-tests.sh
+19:52:18.637 [main] INFO simpleserver.util.prop - Using poperty file: resources/simpleserver.properties
+lein test simpleserver.testutils.users-util
+lein test simpleserver.userdb.users-test
+lein test simpleserver.webserver.server-test
+lein test simpleserver.webserver.session-test
+Ran 11 tests containing 47 assertions.
+0 failures, 0 errors.
+real 0m6.027s
+```
 
-$ time ./gradlew --rerun-tasks test  
-Test result: SUCCESS  
-Test summary: 15 tests, 15 succeeded, 0 failed, 0 skipped  
-BUILD SUCCESSFUL in 5s  
-5 actionable tasks: 5 executed  
-real 0m5.757s**Javascript**:
+**Java**:
 
-time ./run-tests-with-trace.sh  
- 28 passing (94ms)  
-real 0m0.775s**Python**:
+```bash
+$ time ./gradlew --rerun-tasks test
+Test result: SUCCESS
+Test summary: 15 tests, 15 succeeded, 0 failed, 0 skipped
+BUILD SUCCESSFUL in 5s
+5 actionable tasks: 5 executed
+real 0m5.757s
+```
 
-time ./run-pytest.sh   
-========================================== test session starts   
-platform linux -- Python 3.6.6, pytest-3.9.3, py-1.7.0, pluggy-0.8.0  
+**Javascript**:
+
+```bash
+time ./run-tests-with-trace.sh
+ 28 passing (94ms)
+real 0m0.775s
+```
+
+**Python**:
+
+```bash
+time ./run-pytest.sh
+========================================== test session starts
+platform linux -- Python 3.6.6, pytest-3.9.3, py-1.7.0, pluggy-0.8.0
 rootdir: /mnt/edata/aw/kari/github/python/webstore-demo/simple-server, inifile: setup.cfg  
-collected 14 items   
-tests/domaindb/test_domain.py .... [ 28%]  
-tests/userdb/test_users.py ... [ 50%]  
-tests/webserver/test_server.py ...... [ 92%]  
-tests/webserver/test_session.py . [100%]======================================= 14 passed in 0.11 seconds   
+collected 14 items
+tests/domaindb/test_domain.py .... [ 28%]
+tests/userdb/test_users.py ... [ 50%]
+tests/webserver/test_server.py ...... [ 92%]
+tests/webserver/test_session.py . [100%]======================================= 14 passed in 0.11 seconds
 real 0m0.416s
 ```
 
@@ -103,6 +117,8 @@ real 0m0.416s
 ![](/img/2018-11-01-java-man-converts-to-python_img_2.png)
 
 It's pretty obvious that Clojure and Java lose the contest because of the loading of JVM. But I was surprised that Python runs the tests that fast.
+
+For Clojure, the situation is actually not bad as it seems regarding this table. In Clojure you start the REPL once (and you pay the JVM boot time only then), and then you run the unit tests in your editor in that REPL (very fast).
 
 ### Python REPL
 
@@ -124,7 +140,6 @@ PyCharm provides a nice REPL, an example follows:
 
 So, using the runfile method you are able to reload any module to PyCharm Python console and then try the methods there in isolation.
 
-
 ### Logging
 
 What a relief Python logging configuration is after Spring hassle. You just create the [logging.conf](https://github.com/karimarttila/python/blob/master/webstore-demo/simple-server/logging.conf "https://github.com/karimarttila/python/blob/master/webstore-demo/simple-server/logging.conf") file and that's about it.
@@ -138,57 +153,58 @@ Let's use Javascript and Python implementations as an examples of readability of
 **Javascript**:
 
 ```javascript
-describe('GET /product-groups', function () {  
- let jwt;  
- it('Get Json web token', async () => {  
- *// Async example in which we wait for the Promise to be*  
- *// ready (that i.e. the post to get jwt has been processed).*  
- const jsonWebToken = await getJsonWebToken();  
- logger.trace('Got jsonWebToken: ', jsonWebToken);  
- assert.equal(jsonWebToken.length > 20, true);  
- jwt = jsonWebToken;  
- });  
- it('Successful GET: /product-groups', function (done) {  
- logger.trace('Using jwt: ', jwt);  
- const authStr = createAuthStr(jwt);  
- supertest(webServer)  
- .get('/product-groups')  
- .set('Accept', 'application/json')  
- .set('Authorization', authStr)  
- .expect('Content-Type', /json/)  
- .expect(200, {  
- ret: 'ok',  
- 'product-groups': { 1: 'Books', 2: 'Movies' }  
- }, done);  
- });  
- });
+  describe('GET /product-groups', function () {
+    let jwt;
+    it('Get Json web token', async () => {
+      // Async example in which we wait for the Promise to be
+      // ready (that i.e. the post to get jwt has been processed).
+      const jsonWebToken = await getJsonWebToken();
+      logger.trace('Got jsonWebToken: ', jsonWebToken);
+      assert.equal(jsonWebToken.length > 20, true);
+      jwt = jsonWebToken;
+    });
+    it('Successful GET: /product-groups', function (done) {
+      logger.trace('Using jwt: ', jwt);
+      const authStr = createAuthStr(jwt);
+      supertest(webServer)
+        .get('/product-groups')
+        .set('Accept', 'application/json')
+        .set('Authorization', authStr)
+        .expect('Content-Type', /json/)
+        .expect(200, {
+          ret: 'ok',
+          'product-groups': { 1: 'Books', 2: 'Movies' }
+        }, done);
+    });
+  });
 ```
 
 **Python**:
 
 ```python
-def test_get_product_groups(client):  
- myLogger.debug(ENTER)  
- token = get_token(client)  
- decoded_token = (b64encode(token.encode())).decode()  
- mimetype = 'application/json'  
- headers = {  
- 'Content-Type': mimetype,  
- 'Accept': mimetype,  
- 'Authorization': 'Basic ' + decoded_token  
- }  
- url = '/product-groups'  
- response = client.get(url, headers=headers)  
- assert response.status == '200 OK'  
- json_data = json.loads(response.data)  
- assert json_data.get('ret') == 'ok'  
- assert b"product-groups" in response.data  
- product_groups = json_data.get('product-groups')  
- assert product_groups['1'] == 'Books'  
- assert product_groups['2'] == 'Movies'  
- myLogger.debug(EXIT)I would say that Python is more readable.
+def test_get_product_groups(client):
+    myLogger.debug(ENTER)
+    token = get_token(client)
+    decoded_token = (b64encode(token.encode())).decode()
+    mimetype = 'application/json'
+    headers = {
+        'Content-Type': mimetype,
+        'Accept': mimetype,
+        'Authorization': 'Basic ' + decoded_token
+    }
+    url = '/product-groups'
+    response = client.get(url, headers=headers)
+    assert response.status == '200 OK'
+    json_data = json.loads(response.data)
+    assert json_data.get('ret') == 'ok'
+    assert b"product-groups" in response.data
+    product_groups = json_data.get('product-groups')
+    assert product_groups['1'] == 'Books'
+    assert product_groups['2'] == 'Movies'
+    myLogger.debug(EXIT)
 ```
 
+I would say that Python is more readable.
 
 ### Productivity
 
