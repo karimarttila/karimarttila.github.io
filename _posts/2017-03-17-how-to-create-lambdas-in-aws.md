@@ -6,27 +6,29 @@ tags: [aws, lambda, cloud, iac]
 date:	2017-03-17
 ---
 
-  We continue our AWS related blog series that we started in our first article "[Use AWS Services as Building Blocks to Implement Your Enterprise System](https://medium.com/tieto-developers/use-aws-services-as-building-blocks-to-implement-your-enterprise-system-598676a0ee49#)". In this new article we talk about our experiences regarding how to create Lambdas in AWS.
+  We continue our AWS related blog series that we started in our first article [Use AWS services as building blocks to implement your enterprise system]({% post_url 2017-01-27-aws-services-as-building-blocks-to-your-enterprise-system %}). In this new article we talk about our experiences regarding how to create Lambdas in AWS.
 
-![](/img/2017-03-17-how-to-create-lambdas-in-aws_img_1.jpeg)Concept AWS Architecture using AWS Lambdas
+![](/img/2017-03-17-how-to-create-lambdas-in-aws_img_1.jpeg)
+
+*Concept AWS Architecture using AWS Lambdas.*
 
 ### Introduction
 
-In our previous blog post "[How to Create EC2 Images in AWS?](https://medium.com/tieto-developers/how-to-create-ec2-images-in-aws-a27b1afc97c6#)" we already explained that there are several ways to create services to AWS infrastructure: EC2 instances (servers), Docker containers and Lambdas.
+In our previous blog post [How to Create EC2 Images in AWS?]({% post_url 2017-03-08-how-to-create-ec2-images-in-aws %}) we already explained that there are several ways to create services to AWS infrastructure: EC2 instances (servers), Docker containers and Lambdas.
 
 This blog post is a short introduction how to create Lambdas for Amazon Web Services.
 
-### **What Are AWS Lambdas?**
+### What Are AWS Lambdas?
 
 [AWS Lambdas](https://aws.amazon.com/lambda/) are serverless functions that AWS hosts without the need to create dedicated servers (EC2) for them. This is a new cloud paradigm that is most probably going to be big in the future. You don't need to create and pay for EC2 instances if you know that you are going to run your functionality only in certain occasions — you only pay for the milliseconds you run the functions.
 
-### **How to Create AWS Lambdas?**
+### How to Create AWS Lambdas?
 
-You can create AWS Lambdas using the AWS Console or CLI — but you should do that only when experimenting with AWS resources — never use that kind of ad hoc process to create / maintain your production infrastructure (for a more detailed reason read our previous blog article "[How to Create and Manage Resources in Amazon Web Services Infrastructure?](https://medium.com/tieto-developers/how-to-create-and-manage-resources-in-amazon-web-services-infrastructure-f9af85b77c4a#)").
+You can create AWS Lambdas using the AWS Console or CLI — but you should do that only when experimenting with AWS resources — never use that kind of ad hoc process to create / maintain your production infrastructure (for a more detailed reason read our previous blog article [How to Create and Manage Resources in Amazon Web Services Infrastructure?]({% post_url 2017-02-16-how-to-create-and-manage-resources-in-amazon-web-services-infrastructure %})).
 
 We have created Lambdas using our favorite Infrastructure as Code tool — [Terraform](https://www.terraform.io/).
 
-### **For What Purposes Can You Use AWS Lambdas?**
+### For What Purposes Can You Use AWS Lambdas?
 
 As always with AWS Services — your imagination is the limit for what purposes you can use AWS services and how to combine them to other AWS services. All AWS services integrate to each other extremely well and AWS Lambdas are no exception. In the picture of the beginning of the article we have depicted some example Lambda use cases:
 
@@ -42,7 +44,7 @@ As always with AWS Services — your imagination is the limit for what purposes 
 
 The example Terraform code shows how to create generic AWS Lambda module and inject all environment related parameters to it — you can use it to create N number of similar Lambda instances to all of your AWS environments (dev, qa, perf, prod…). The latter part of the code shows how to connect the Lambda to be triggered by new Kinesis events.
 
-### **How to Implement AWS Lambdas?**
+### How to Implement AWS Lambdas?
 
 You can implement Lambdas using your favorite programming language. Currently supported languages are given in [AWS Lambda Programming model Documentation](http://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html):
 
@@ -50,14 +52,14 @@ You can implement Lambdas using your favorite programming language. Currently su
 * C#
 * Python
 * Node.js
+
 ### Conclusion
 
 There are many ways to create application services to AWS infrastructure. When you have short-lived functionalities for one focused task you should use AWS Lambdas.
 
-Both writers are AWS Certified Solution Architects Associate, architecting and implementing AWS projects in Tieto CEM Finland. If you are interested about starting a new AWS project in Finland, you can contact us with firstname.lastname at tieto.com.
+*Both writers are AWS Certified Solution Architects Associate, architecting and implementing AWS projects in Tieto CEM Finland. If you are interested about starting a new AWS project in Finland, you can contact us with firstname.lastname at tieto.com.*
 
 Kari Marttila & Timo Tapanainen
 
 * Kari Marttila's Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
 * Timo Tapanainen's Home Page in LinkedIn: <https://www.linkedin.com/in/timo-tapanainen/>
-  

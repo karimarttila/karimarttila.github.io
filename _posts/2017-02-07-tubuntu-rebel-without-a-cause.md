@@ -6,7 +6,9 @@ tags: [linux, ubuntu]
 date:	2017-02-07
 ---
 
-  ![](/img/2017-02-07-tubuntu-rebel-without-a-cause_img_1.jpeg)[© Francois Schnell](https://www.flickr.com/photos/frenchy/)I'm no [James Dean](https://en.wikipedia.org/wiki/Rebel_Without_a_Cause) but sometimes I feel a little like a rebel.
+  ![](/img/2017-02-07-tubuntu-rebel-without-a-cause_img_1.jpeg)
+
+*I'm no [James Dean](https://en.wikipedia.org/wiki/Rebel_Without_a_Cause) but sometimes I feel a little like a rebel. (Graphics: [© Francois Schnell](https://www.flickr.com/photos/frenchy/))*
 
 I have been using various [Linux](https://en.wikipedia.org/wiki/Linux) flavors ([Slackware](http://www.slackware.com/), [Red Hat](https://www.redhat.com/en), [CentOS](https://www.centos.org/), [Debian](https://www.debian.org/), [Ubuntu](https://www.ubuntu.com/)…) both at work and at home for many years but my personal workstation has always been the company standard Windows. About one year ago I decided to try the company Ubuntu version, if I can do my everyday work completely on the Linux side. There would be obvious synergy benefits since I use Ubuntu at home and I do most of my work in the OSS side, working with various Linux versions. Tieto has a tailored Ubuntu version called Tubuntu which has various corporate add-ons preconfigured, e.g. corporate security mechanisms, printers, chat, company apt-get repository etc.
 
@@ -28,5 +30,3 @@ How would Linux get more market place in corporate use? I think there are a few 
 **Conclusion**
 
 In the corporate world there are mostly two types of developers: Most guys just settle down with the standard Windows. If you are a .Net developer that makes sense. A small minority on the other hand is using Macs, and I guess that's just fine (I have never used Mac myself). But if you have a chance to try Linux I strongly recommend to do so, especially if you are developing in the OSS side. At least here in Tieto you can struggle against mainstream, find a small rebel inside yourself, and use Tubuntu.
-
-  

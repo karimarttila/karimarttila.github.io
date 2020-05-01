@@ -10,7 +10,7 @@ date: 2017-02-16
 
 *Example Terraform Script to Create AWS Resources.*
 
-We continue our AWS related blog series that we started in our first article "[**Use AWS Services as Building Blocks to Implement Your Enterprise System**](https://medium.com/tieto-developers/use-aws-services-as-building-blocks-to-implement-your-enterprise-system-598676a0ee49#.86dk7lu31)" . In this new article we talk about our experiences regarding how to create and manage resources in AWS.
+We continue our AWS related blog series that we started in our first article [Use AWS services as building blocks to implement your enterprise system]({% post_url 2017-01-27-aws-services-as-building-blocks-to-your-enterprise-system %}) . In this new article we talk about our experiences regarding how to create and manage resources in AWS.
 
 ### Introduction
 
@@ -20,13 +20,14 @@ There are many different ways and tools to create and manage resources in AWS. L
 * Custom scripts using AWS CLI
 * AWS CloudFormation
 * Terraform
+
 Next we'll elaborate the solutions and tools in more detail and list some pros and cons regarding the options.
 
 ### 1. Manually Using AWS Console
 
 [AWS Console](https://aws.amazon.com/console/) provides Web based interface to various AWS resources. You can create and manage any AWS resource using AWS Console. AWS Console is a good tool to browse the AWS resources and also to create certain temporary resources for experimentation or temporary testing. A typical way to use AWS Console is to use the [CloudWatch](https://aws.amazon.com/cloudwatch/) tool which provides excellent dashboard views to monitor any AWS resource and see correlations between different AWS resources using complex aggregated graphs.
 
-But a typical AWS project may have hundreds of bigger (RDS, EC2…) and smaller (S3 lifecycle rules, metric alarms) resources. And if you have many environments (development, testing environments for the team, customer and stakeholders, performance testing environment, QA environment and production environment) you multiply the resources by the number of your environments. E.g. if you have 200 AWS resources in one environment and you have 6 environments: 6 x 200 = 1200 resources. The conclusion is: In no way it is viable to manage that many resources without strict automation.
+But a typical AWS project may have hundreds of bigger (RDS, EC2...) and smaller (S3 lifecycle rules, metric alarms) resources. And if you have many environments (development, testing environments for the team, customer and stakeholders, performance testing environment, QA environment and production environment) you multiply the resources by the number of your environments. E.g. if you have 200 AWS resources in one environment and you have 6 environments: 6 x 200 = 1200 resources. The conclusion is: In no way it is viable to manage that many resources without strict automation.
 
 ### 2. Custom Scripts Using AWS CLI
 
@@ -56,10 +57,9 @@ In previous project we used Terraform to manage all our AWS resources in all of 
 
 What ever tool you choose to manage your Cloud resources we give you one definite recommendation: Do not do it manually. You have to do it using some tool which sees your environment as code. Good candidates are CloudFormation and Terraform.
 
-Both writers are AWS Certified Solutions Architects Associate, architecting and implementing AWS projects in Tieto CEM Finland. If you are interested about starting a new AWS project in Finland, you can contact us with firstname.lastname at tieto.com.
+*Both writers are AWS Certified Solutions Architects Associate, architecting and implementing AWS projects in Tieto CEM Finland. If you are interested about starting a new AWS project in Finland, you can contact us with firstname.lastname at tieto.com.*
 
 Kari Marttila & Timo Tapanainen
 
 * Kari Marttila's Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
 * Timo Tapanainen's Home Page in LinkedIn: <https://www.linkedin.com/in/timo-tapanainen/>
-  

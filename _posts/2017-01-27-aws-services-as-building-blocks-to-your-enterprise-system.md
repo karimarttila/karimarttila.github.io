@@ -6,11 +6,19 @@ tags: [aws, iac, cloud]
 date:	2017-01-27
 ---
 
-  We are going to share some experiences regarding how to build enterprise-level applications using the AWS platform. In this blog post we are talking about how to use AWS services as building blocks…   ![](/img/2017-01-27-aws-services-as-building-blocks-to-your-enterprise-system_img_1.jpeg)The real Amazon ecosystem. [© Big Blue Marble](https://www.flickr.com/photos/bbmexplorer/)We are going to share some experiences regarding how to build enterprise-level applications using the AWS platform. In this blog post we are talking about how to use AWS services as building blocks to implement your enterprise system.
+We are going to share some experiences regarding how to build enterprise-level applications using the AWS platform. In this blog post we are talking about how to use AWS services as building blocks.
+
+![](/img/2017-01-27-aws-services-as-building-blocks-to-your-enterprise-system_img_1.jpeg)
+
+*The real Amazon ecosystem. [© Big Blue Marble](https://www.flickr.com/photos/bbmexplorer/)*
+
+We are going to share some experiences regarding how to build enterprise-level applications using the AWS platform. In this blog post we are talking about how to use AWS services as building blocks to implement your enterprise system.
 
 The diagram below depicts some of the typical AWS services that you are going to use when implementing your enterprise system in AWS infrastructure. We are going to introduce these services in this article.
 
-![](/img/2017-01-27-aws-services-as-building-blocks-to-your-enterprise-system_img_2.jpeg)A concept diagram of AWS services used in an enterprise system
+![](/img/2017-01-27-aws-services-as-building-blocks-to-your-enterprise-system_img_2.jpeg)
+
+*A concept diagram of AWS services used in an enterprise system.*
 
 ### 1. Virtual Private Cloud
 
@@ -20,7 +28,7 @@ You can create VPC using [AWS CloudFormation](https://aws.amazon.com/cloudformat
 
 AWS CloudFormation provides many ready to use [templates](https://aws.amazon.com/cloudformation/aws-cloudformation-templates/) for creating VPCs for different purposes. Even if you used Terraform you can browse and create exploratory VPCs with CloudFormation templates to see what kind of configuration certain templates create.
 
-Most important entities with VPC are: IGW (Internet Gateway), NAT, public and private subnets at least in two different AZs (AWS Availability Zones). We recommend you to read more about these entities in AWS documentation and tutorials. You create subnets for each environment you need (in production account for production, in development account for each environment you need: development, customer testing, partner testing, QA, performance testing…). Using AWS it is pretty easy to create and decommission entities. Therefore you can and should create as many environments you need — the best practice is: one environment for one purpose. With CloudFormation / Terraform you can parameterize your environments and make them basically exact copies of each other. Read the next article "[How to Create and Manage Resources in Amazon Web Services Infrastructure?](https://medium.com/@kari.marttila/how-to-create-and-manage-resources-in-amazon-web-services-infrastructure-f9af85b77c4a#.gt6f4tkrj)" for more details.
+Most important entities with VPC are: IGW (Internet Gateway), NAT, public and private subnets at least in two different AZs (AWS Availability Zones). We recommend you to read more about these entities in AWS documentation and tutorials. You create subnets for each environment you need (in production account for production, in development account for each environment you need: development, customer testing, partner testing, QA, performance testing…). Using AWS it is pretty easy to create and decommission entities. Therefore you can and should create as many environments you need — the best practice is: one environment for one purpose. With CloudFormation / Terraform you can parameterize your environments and make them basically exact copies of each other. Read the next article [How to Create and Manage Resources in Amazon Web Services Infrastructure?]({% post_url 2017-02-16-how-to-create-and-manage-resources-in-amazon-web-services-infrastructure %}) for more details.
 
 ### 2. Virtual Servers, Auto-scaling and Firewalls
 
@@ -58,13 +66,14 @@ Amazon Web Services is so much more than just a platform for virtual servers. AW
 
 We list here all our AWS related articles written this far:
 
-* [**DevOps Success Factors**](https://medium.com/tieto-developers/devops-success-factors-53beafe63942#). A description of DevOps Success Factors / AWS Best Practices we have used in our previous AWS project.
-* [**How to Create and Manage Resources in Amazon Web Services Infrastructure?**](https://medium.com/tieto-developers/how-to-create-and-manage-resources-in-amazon-web-services-infrastructure-f9af85b77c4a#) A description how to create AWS resources. Do not create them using Ad hoc process with AWS Console or AWS CLI — use Code as Infrastructure tools.
-* [**How to Create EC2 Images in AWS?**](https://medium.com/tieto-developers/how-to-create-ec2-images-in-aws-a27b1afc97c6#) You can bake EC2 images in many ways — read our preference.
-* [**How to Create Lambdas in AWS?**](https://medium.com/@kari.marttila/how-to-create-lambdas-in-aws-8f04ac833b2e#) AWS Lambdas are an excellent way to create serverless functionalities.
-Both writers are AWS Certified Solutions Architects Associate, architecting and implementing AWS projects in Tieto CEM Finland. If you are interested about starting a new AWS project in Finland, you can contact us with firstname.lastname at tieto.com.
+* [DevOps Success Factors]({% post_url 2017-02-15-devops-success-factors %}) A description of DevOps Success Factors / AWS Best Practices we have used in our previous AWS project.
+* [How to Create and Manage Resources in Amazon Web Services Infrastructure?]({% post_url 2017-02-16-how-to-create-and-manage-resources-in-amazon-web-services-infrastructure %}) A description how to create AWS resources. Do not create them using Ad hoc process with AWS Console or AWS CLI — use Code as Infrastructure tools.
+* [How to Create EC2 Images in AWS?]({% post_url 2017-03-08-how-to-create-ec2-images-in-aws %}) You can bake EC2 images in many ways — read our preference.
+* [How to Create Lambdas in AWS?]({% post_url 2017-03-17-how-to-create-lambdas-in-aws %}) AWS Lambdas are an excellent way to create serverless functionalities.
 
-Kari Marttila & Timo Tapanainen
+*Both writers are AWS Certified Solutions Architects Associate, architecting and implementing AWS projects in Tieto CEM Finland. If you are interested about starting a new AWS project in Finland, you can contact us with firstname.lastname at tieto.com.*
+
+**Kari Marttila & Timo Tapanainen**
 
 * Kari Marttila's Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
 * Timo Tapanainen's Home Page in LinkedIn: <https://www.linkedin.com/in/timo-tapanainen/>
