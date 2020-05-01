@@ -4,7 +4,7 @@ title: Categories
 permalink: /categories/
 ---
 
-**Here you can find all posts grouped by categories.**
+Here you can find all posts grouped by categories.
 
 {% for category in site.categories %}
   {% assign t = category | first %}

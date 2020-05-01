@@ -4,7 +4,7 @@ title: Tags
 permalink: /tags/
 ---
 
-**Here you can find all posts grouped by tags.**
+Here you can find all posts grouped by tags.
 
 {% for tag in site.tags %}
   {% assign t = tag | first %}
