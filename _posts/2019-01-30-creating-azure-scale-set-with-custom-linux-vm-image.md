@@ -35,38 +35,39 @@ Once again I created a [dev.tf](https://github.com/karimarttila/azure/blob/maste
 # These values are per environment.  
 locals {  
 ...  
- application_port = "3045"  
- # NOTE: The custom image must have been created by Packer previously.  
- scaleset_image_name = "karissvmdemo5-vm-image"  
- scaleset_capacity** = "2"  
- # Single-node test mode Cloud-init file:  
- #scaleset_vm_custom_data_file = "/mnt/edata/aw/kari/github/azure/simple-server-vm/packer/cloud-init-set-env-mode-single-node.sh"  
- # Azure table storage real mode Cloud-init file:  
- scaleset_vm_custom_data_file = "/mnt/edata/aw/kari/github/azure/simple-server-vm/personal-info/cloud-init-set-env-mode-azure-table-storage.sh"  
-}# Here we inject our values to the environment definition module which creates all actual resources.  
+  application_port = "3045"  
+  # NOTE: The custom image must have been created by Packer previously.  
+  scaleset_image_name = "karissvmdemo5-vm-image"  
+  scaleset_capacity** = "2"  
+  # Single-node test mode Cloud-init file:  
+  #scaleset_vm_custom_data_file = "/mnt/edata/aw/kari/github/azure/simple-server-vm/packer /cloud-init-set-env-mode-single-node.sh"  
+  # Azure table storage real mode Cloud-init file:  
+  scaleset_vm_custom_data_file = "/mnt/edata/aw/kari/github/azure/simple-server-vm/personal-info/cloud-init-set-env-mode-azure-table-storage.sh"  
+}
+# Here we inject our values to the environment definition module which creates all actual resources.  
 module "env-def" {  
- source = "../../modules/env-def"  
-#...  
- scaleset_image_name** = "${local.scaleset_image_name}"  
- application_port = "${local.application_port}"  
- **scaleset_capacity** = "${local.scaleset_capacity}"  
- **scaleset_vm_custom_data_file** = "${local.scaleset_vm_custom_data_file}"  
+  source = "../../modules/env-def"  
+  #...  
+  scaleset_image_name = "${local.scaleset_image_name}"  
+  application_port = "${local.application_port}"  
+  scaleset_capacity = "${local.scaleset_capacity}"  
+  scaleset_vm_custom_data_file = "${local.scaleset_vm_custom_data_file}"  
 }
 ```
 
-I bolded the most important parameters that I’ll describe soon.
+I’ll describe that configuration soon.
 
 #### High Level Infra
 
-Then we introduce the high level infra — defined in the [env-def.tf](https://github.com/karimarttila/azure/blob/master/simple-server-vm/terraform/modules/env-def/env-def.tf) file:
+Then we introduce the high level infra — defined in the [env-def.tf](https://github.com/karimarttila/azure/blob/master/simple-server-vm/terraform/modules/env-def/env-def.tf) file.
 
-# Main resource group for the demonstration.  
+#### Main resource group for the demonstration
 
 ```terraform
 module "main-resource-group" {  
- source = "../resource-group"  
- prefix = "${var.prefix}"  
- env = "${var.env}"  
+  source = "../resource-group"  
+  prefix = "${var.prefix}"  
+  env = "${var.env}"  
 ...  
 }
 module "vnet" {  
@@ -74,11 +75,11 @@ module "vnet" {
 ...module "storage_tables" {  
 ...module "scale-set" {  
 ...  
-scaleset_image_name** = "${var.scaleset_image_name}"  
- subnet_id = "${module.vnet.private_scaleset_subnet_id}"  
- vm_ssh_public_key_file = "${var.vm_ssh_public_key_file}"  
- **scaleset_capacity** = "${var.scaleset_capacity}"  
- **scaleset_vm_custom_data_file** = "${var.scaleset_vm_custom_data_file}"  
+scaleset_image_name = "${var.scaleset_image_name}"  
+  subnet_id = "${module.vnet.private_scaleset_subnet_id}"  
+  vm_ssh_public_key_file = "${var.vm_ssh_public_key_file}"  
+  scaleset_capacity = "${var.scaleset_capacity}"  
+  scaleset_vm_custom_data_file = "${var.scaleset_vm_custom_data_file}"  
 }
 ```
 
@@ -86,22 +87,25 @@ I hope you noticed that we get the **scaleset_image_name**, **scaleset_capacity*
 
 #### Scale Set
 
-The Azure [Scale set](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview) is a mechanism that provides elasticity for a virtual machine based computing model. You can easily scale out and in the VMs — just change the **scaleset_capacity** parameter value in your environment terraform code and apply changes to the environment. (By the way, you should **never touch the infrastructure e.g. using Portal** if your infra is managed using some infra as code tool like Terraform — always keep all changes in the infrastructure code to keep the environments consistent, read more about that e.g. in my previous blog post “[How to Create and Manage Resources in Amazon Web Services Infrastructure?](https://medium.com/tieto-developers/how-to-create-and-manage-resources-in-amazon-web-services-infrastructure-f9af85b77c4a)” which is written in the AWS side but the cloud infrastructure best practices apply the same way in the Azure side.)
+The Azure [Scale set](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview) is a mechanism that provides elasticity for a virtual machine based computing model. You can easily scale out and in the VMs — just change the **scaleset_capacity** parameter value in your environment terraform code and apply changes to the environment. (By the way, you should **never touch the infrastructure e.g. using Portal** if your infra is managed using some infra as code tool like Terraform — always keep all changes in the infrastructure code to keep the environments consistent, read more about that e.g. in my previous blog post [How to Create and Manage Resources in Amazon Web Services Infrastructure?]({% post_url 2017-02-16-how-to-create-and-manage-resources-in-amazon-web-services-infrastructure %}) which is written in the AWS side but the cloud infrastructure best practices apply the same way in the Azure side.)
 
 So, below we see the actual “scaleset” resource in the “scale-set” module, you can see how we are finally using those parameters with this cloud resource:
 
 ```bash
 data "azurerm_image" "scaleset_image_reference" {  
- name = **"${var.scaleset_image_name}"**  
- resource_group_name = "${var.rg_name}"  
-}resource "azurerm_virtual_machine_scale_set" "scaleset" {  
-...  
-sku {  
-..  
-** capacity = "${var.scaleset_capacity}"**  
- }storage_profile_image_reference {  
- **id="${data.azurerm_image.scaleset_image_reference.id}"**  
- }  
+  name = "${var.scaleset_image_name}"
+  resource_group_name = "${var.rg_name}"
+}
+resource "azurerm_virtual_machine_scale_set" "scaleset" {
+  ...
+  sku {
+    ...
+    capacity = "${var.scaleset_capacity}"
+  }
+  storage_profile_image_reference {
+    id="${data.azurerm_image.scaleset_image_reference.id}"
+  }
+...
 ```
 
 #### The Idea
@@ -114,13 +118,12 @@ So, let’s go back to those parameters. Using parameter **scaleset_image_name**
 
 All right. We have created our custom Linux VM (my [Clojure Simple Server](https://github.com/karimarttila/clojure/tree/master/clj-ring-cljs-reagent-demo/simple-server) baked into the image with the openJDK runtime) and we have the Azure cloud infrastructure as code and we have deployed the cloud infra to an Azure subscription. Then let’s test the application in the real cloud infra. To make a long story short let’s just say that the image worked in the scale set just fine when running the app with the single-node test mode (simulating DB inside the app). But when I tried to run the app with the real azure-table-storage mode hitting the real DB in an Azure Storage account (Storage no-sql Tables) I had, well some difficulties. I finally figured out that the problem was actually pretty simple, I had hassled some environment variables. I created a new [cloud-init file](https://github.com/karimarttila/azure/blob/master/simple-server-vm/packer/cloud-init-set-env-mode-azure-table-storage_template.sh) for this mode and then everything worked fine. If you want to read the longer story about my hardship I documented the longer story in the [README.md](https://github.com/karimarttila/azure/blob/master/simple-server-vm/README.md) file.
 
-### Other Stuff… and the Story Continues in My Next Blog Post
+### Other Stuff... and the Story Continues in My Next Blog Post
 
 If you read the [terraform modules](https://github.com/karimarttila/azure/tree/master/simple-server-vm/terraform/modules) folder you can see that there is other stuff as well: storage-account, storage-tables, vnet and so on. I’m using this exercise to build a bit more real production like environment that we can use e.g. in cloud sales meetings to demonstrate how we are building cloud infra in Tieto using cloud best practices. But I’ll write more about those entities in my next blog posts, so stay tuned!
 
-*The writer has two AWS certifications and one Azure certification and is working in the *[*Tieto Corporation*](https://www.tieto.com/)* in Application Services / Application Development / Public Cloud team designing and implementing cloud native projects. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
+*The writer has two AWS certifications and one Azure certification and is working at the [Tieto Corporation](https://www.tieto.com/) in Application Services / Application Development / Public Cloud team designing and implementing cloud native projects. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
 
 Kari Marttila
 
 * Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
-  

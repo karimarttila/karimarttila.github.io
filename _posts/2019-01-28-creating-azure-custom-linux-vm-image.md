@@ -12,7 +12,7 @@ date:	2019-01-28
 
 ### Introduction
 
-I previously did an exercise in which I deployed my [Clojure Simple Server](https://github.com/karimarttila/clojure/tree/master/clj-ring-cljs-reagent-demo/simple-server) to Azure managed Kubernetes Service — AKS, you can read about that story in my previous blog posts: “[Creating Azure Kubernetes Service (AKS) the Right Way](https://medium.com/@kari.marttila/creating-azure-kubernetes-service-aks-the-right-way-9b18c665a6fa)” and “[Deploying Kubernetes Configuration to Azure AKS](https://medium.com/@kari.marttila/deploying-kubernetes-configuration-to-azure-aks-8d32c3c6de5f)”.
+I previously did an exercise in which I deployed my [Clojure Simple Server](https://github.com/karimarttila/clojure/tree/master/clj-ring-cljs-reagent-demo/simple-server) to Azure managed Kubernetes Service — AKS, you can read about that story in my previous blog posts: [Creating Azure Kubernetes Service (AKS) the Right Way]({% post_url 2019-01-07-creating-azure-kubernetes-service-aks-the-right-way %}) and [Deploying Kubernetes Configuration to Azure AKS]({% post_url 2019-01-14-deploying-kubernetes-configuration-to-azure-aks %}).
 
 Now that I had some experience how to use Azure AKS as a computing platform I thought that it would be an interesting exercise to create an Azure custom Linux virtual machine image with the Simple Server baked into the image (golden image) and then create an [Azure Scale set](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview) using Terraform and use that custom VM image to provision servers into the Scale set. In this blog post I describe some of the experiences creating the custom VM image and testing it. In the next blog post I’ll describe how I created the cloud infra for the Azure Scale set using Terraform and testing the application in that environment.
 
@@ -20,13 +20,17 @@ The project is in my [Github account in the packer directory](https://github.com
 
 ### Packer
 
-I’m using [Packer](https://www.packer.io/) which is quite widely used tool to create custom VM images. I have used Packer previously in the AWS side (see my previous article “[How to Create EC2 Images in AWS?](https://medium.com/tieto-developers/how-to-create-ec2-images-in-aws-a27b1afc97c6)”) and now it was interesting to see what it is like to use Packer also in the Azure side. Packer worked smoothly also in the Azure side — I’ll describe how I used Packer in the following chapters in more detail.
+I’m using [Packer](https://www.packer.io/) which is quite widely used tool to create custom VM images. I have used Packer previously in the AWS side (see my previous article [How to Create EC2 Images in AWS?]({% post_url 2017-03-08-how-to-create-ec2-images-in-aws %}) and now it was interesting to see what it is like to use Packer also in the Azure side. Packer worked smoothly also in the Azure side — I’ll describe how I used Packer in the following chapters in more detail.
 
 ### Create a Service Principal
 
 You need a service principal that Packer is going to use. You can easily create the service principal e.g. using Azure command line interface:
 
-az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"You get the service principal credentials. It is a good idea to create some environment file in your ~/.azure directory and export those variables there so you don’t need to write them in plain text in your scripts.
+```bash
+az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
+```
+
+You get the service principal credentials. It is a good idea to create some environment file in your ~/.azure directory and export those variables there so you don’t need to write them in plain text in your scripts.
 
 ### Create the Packer Configuration File
 
@@ -48,7 +52,11 @@ Typically you cannot bake the parameters into the image since some of the inform
 
 Once you are ready with all these configuration files you can try to build a test virtual machine using azure command line interface (in the next blog post I describe how I create an Azure Scale set infrastructure using Terraform in which I use this VM image):
 
-az vm create --resource-group YOUR-RESOURCE-GROUP --name YOUR-VIRTUAL-MACHINE-NAME --image YOUR-VM-IMAGE-NAME --custom-data ../packer/cloud-init-set-env-mode-single-node.sh --ssh-key-value [@vm_id_rsa](http://twitter.com/vm_id_rsa "Twitter profile for @vm_id_rsa").pub --vnet-name YOUR-VNET --subnet YOUR-SUBNET --admin-username YOUR-USER-NAME --location YOUR-LOCATIONThe script starts creating the virtual machine and finally tells that the VM is ready and tells some information regarding the VM like the public IP — use the public IP and the ssh key you used previously to logon to the server and check if the application is running:
+```bash
+az vm create --resource-group YOUR-RESOURCE-GROUP --name YOUR-VIRTUAL-MACHINE-NAME --image YOUR-VM-IMAGE-NAME --custom-data ../packer/cloud-init-set-env-mode-single-node.sh --ssh-key-value [@vm_id_rsa](http://twitter.com/vm_id_rsa "Twitter profile for @vm_id_rsa").pub --vnet-name YOUR-VNET --subnet YOUR-SUBNET --admin-username YOUR-USER-NAME --location YOUR-LOCATION
+```
+
+The script starts creating the virtual machine and finally tells that the VM is ready and tells some information regarding the VM like the public IP — use the public IP and the ssh key you used previously to logon to the server and check if the application is running:
 
 ```bash
 ps aux | grep java  
@@ -78,4 +86,9 @@ All right! The server started automatically with the new virtual machine. Now op
 
 Creating a custom VM image using Packer is pretty much the same in both AWS and Azure. Comparing building Docker container image and VM image the main thing is that building a VM image takes a really long time — you have to test all your provisioning and startup scripts in a live VM before you use them in the image building script.
 
-  
+
+*The writer has two AWS certifications and one Azure certification and is working at the [Tieto Corporation](https://www.tieto.com/) in Application Services / Application Development / Public Cloud team designing and implementing cloud native projects. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
+
+Kari Marttila
+
+* Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
