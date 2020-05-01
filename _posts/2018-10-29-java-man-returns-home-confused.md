@@ -8,11 +8,16 @@ date: 2018-10-29
 
 ### Prologue
 
-"Oh, god. Have I been using the wrong language all these years?"
+> "Oh, god. Have I been using the wrong language all these years?"
 
 ### Introduction
 
-I have earlier implemented the same simple REST server using Javascript/Node and Clojure for educational purposes to learn those languages (see my previous blog posts: Javascript/Node: "[Java Man's Unholy Quest in the Node Land](https://medium.com/@kari.marttila/java-mans-unholy-quest-in-the-node-land-958e61da0451)" and Clojure: "[Become a Full Stack Developer with Clojure and ClojureScript!](https://medium.com/@kari.marttila/become-a-full-stack-developer-with-clojure-and-clojurescript-c58c93479294)"). Now I implemented the same web server using Java. I have been programming Java for some 20 years, so I didn't do this exercise to learn Java. I mainly wanted to implement the Simple Server using Java just to compare the Java implementation with Javascript/Node and Clojure implementations. Actually it has been quite fun to implement the exact same functionality using three different languages — you get a funny deja vu feeling and can really compare the different languages when you have used them to implement the exactly same thing (something you never can do in corporate life).
+I have earlier implemented the same simple REST server using Javascript/Node and Clojure for educational purposes to learn those languages, (see my previous blog posts: 
+
+* **Clojure**: [Become a Full Stack Developer with Clojure and ClojureScript!]({% post_url 2018-04-22-become-a-full-stack-developer-with-clojure-and-clojurescript %})
+* **Javascript/Node**: [Java Man's Unholy Quest in the Node Land]({% post_url 2018-10-07-java-man-s-unholy-quest-in-the-node-land %})
+
+Now I implemented the same web server using Java. I have been programming Java for some 20 years, so I didn't do this exercise to learn Java. I mainly wanted to implement the Simple Server using Java just to compare the Java implementation with Javascript/Node and Clojure implementations. Actually it has been quite fun to implement the exact same functionality using three different languages — you get a funny deja vu feeling and can really compare the different languages when you have used them to implement the exactly same thing (something you never can do in corporate life).
 
 You can find the project in [**Github**](https://github.com/karimarttila/java/tree/master/webstore-demo/simple-server).
 
@@ -71,7 +76,7 @@ Using JUnit5 it is pretty nice to test e.g. exceptions:
 ```java
 // Trying to add the same email again.  
  Executable codeToTest = () -> {  
- User failedUser = users.addUser("jamppa.jamppanen@foo.com", "Jamppa", "Jamppanen", "JampanSalasana");  
+   User failedUser = users.addUser("jamppa.jamppanen@foo.com", "Jamppa", "Jamppanen", "JampanSalasana");  
  };  
  SSException ex = assertThrows(SSException.class, codeToTest);  
  assertEquals("Email already exists: jamppa.jamppanen@foo.com", ex.getMessage());
@@ -87,8 +92,12 @@ Test result: SUCCESS
 Test summary: 15 tests, 15 succeeded, 0 failed, 0 skipped  
 BUILD SUCCESSFUL in 5s  
 5 actionable tasks: 5 executed  
-real 0m5.757s**Javascript/Node:**
+real 0m5.757s
+```
 
+**Javascript/Node:**
+
+```bash
 time ./run-tests-with-trace.sh  
  28 passing (94ms)  
 real 0m0.775sJavascript: 0.8 secs — Java: 5.8 secs. 
@@ -105,79 +114,78 @@ Here we test API /product-groups which returns a simple JSON map. See how comple
 **Java:**
 
 ```java
-@Test  
- void getProductGroupsTest() throws Exception {  
- logger.debug(SSConsts.LOG_ENTER);  
- HashMap<String, String> productGroups = new HashMap<>();  
- productGroups.put("1", "Books");  
- productGroups.put("2", "Movies");  
- HashMap<String, Object> expectedResult = new HashMap<>();  
- expectedResult.put("ret", "ok");  
- expectedResult.put("product-groups", productGroups);  
- String expectedResultJson = new JSONObject(expectedResult).toString();  
- String encodedJwt = getEncodedJwt(); MockHttpServletRequestBuilder builder = MockMvcRequestBuilders  
- .get("/product-groups")  
- .contentType(MediaType.APPLICATION_JSON_UTF8)  
- .header("Authorization", "Basic " + encodedJwt)  
- .accept(MediaType.APPLICATION_JSON_UTF8);  
- MvcResult mvcResult = this.mockMvc.perform(builder)  
- .andExpect(MockMvcResultMatchers.status().isOk())  
- .andExpect(MockMvcResultMatchers.content().string(expectedResultJson))  
- .andReturn();  
- logger.trace("Content: " + mvcResult.getResponse().getContentAsString());  
- }
+    @Test
+    void getProductsTest() throws Exception {
+        logger.debug(SSConsts.LOG_ENTER);
+        String encodedJwt = getEncodedJwt();
+
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders
+                .get("/products/1")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .header("Authorization", "Basic " + encodedJwt)
+                .accept(MediaType.APPLICATION_JSON_UTF8);
+        MvcResult mvcResult = this.mockMvc.perform(builder)
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(jsonPath("$.ret").value("ok"))
+                .andExpect(jsonPath("$.pg-id").value("1"))
+                .andExpect(jsonPath("$.products", hasSize(35)))
+                .andReturn();
+
+        logger.trace("Content: " + mvcResult.getResponse().getContentAsString());
+        logger.debug(SSConsts.LOG_EXIT);
+    }
 ```
 
 **The same in Clojure:**
 
 ```clojure
-(deftest get-product-groups-test  
- (log/trace "ENTER get-product-groups-test")  
- (testing "GET: /product-groups"  
- (let [req-body {:email "kari.karttinen@foo.com", :password "Kari"}  
- login-ret (-call-request ws/app-routes "/login" :post nil req-body)  
- dummy (log/trace (str "Got login-ret: " login-ret))  
- login-body (:body login-ret)  
- json-web-token (:json-web-token login-body)  
- params (-create-basic-authentication json-web-token)  
- get-ret (-call-request ws/app-routes "/product-groups" :get params nil)  
- dummy (log/trace (str "Got body: " get-ret))  
- status (:status get-ret)  
- body (:body get-ret)  
- right-body {:ret :ok, :product-groups {"1" "Books", "2" "Movies"}}  
- ]  
- (is (not (nil? json-web-token)))  
- (is (= status 200))  
- (is (= body right-body)))))
+(deftest get-product-groups-test
+  (log/debug "ENTER get-product-groups-test")
+  (testing "GET: /product-groups"
+    (let [req-body {:email "kari.karttinen@foo.com", :password "Kari"}
+          login-ret (-call-request ws/app-routes "/login" :post nil req-body)
+          dummy (log/debug (str "Got login-ret: " login-ret))
+          login-body (:body login-ret)
+          json-web-token (:json-web-token login-body)
+          params (-create-basic-authentication json-web-token)
+          get-ret (-call-request ws/app-routes "/product-groups" :get params nil)
+          dummy (log/debug (str "Got body: " get-ret))
+          status (:status get-ret)
+          body (:body get-ret)
+          right-body {:ret :ok, :product-groups {"1" "Books", "2" "Movies"}}
+          ]
+      (is (= (not (nil? json-web-token)) true))
+      (is (= status 200))
+      (is (= body right-body)))))
 ```
 
 **... and Javascript:**
 
 ```javascript
-describe('GET /product-groups', function () {  
- let jwt;  
- it('Get Json web token', async () => {  
- // Async example in which we wait for the Promise to be  
- // ready (that i.e. the post to get jwt has been processed).  
- const jsonWebToken = await getJsonWebToken();  
- logger.trace('Got jsonWebToken: ', jsonWebToken);  
- assert.equal(jsonWebToken.length > 20, true);  
- jwt = jsonWebToken;  
- });  
- it('Successful GET: /product-groups', function (done) {  
- logger.trace('Using jwt: ', jwt);  
- const authStr = createAuthStr(jwt);  
- supertest(webServer)  
- .get('/product-groups')  
- .set('Accept', 'application/json')  
- .set('Authorization', authStr)  
- .expect('Content-Type', /json/)  
- .expect(200, {  
- ret: 'ok',  
- 'product-groups': { 1: 'Books', 2: 'Movies' }  
- }, done);  
- });  
- });
+  describe('GET /product-groups', function () {
+    let jwt;
+    it('Get Json web token', async () => {
+      // Async example in which we wait for the Promise to be
+      // ready (that i.e. the post to get jwt has been processed).
+      const jsonWebToken = await getJsonWebToken();
+      logger.trace('Got jsonWebToken: ', jsonWebToken);
+      assert.equal(jsonWebToken.length > 20, true);
+      jwt = jsonWebToken;
+    });
+    it('Successful GET: /product-groups', function (done) {
+      logger.trace('Using jwt: ', jwt);
+      const authStr = createAuthStr(jwt);
+      supertest(webServer)
+        .get('/product-groups')
+        .set('Accept', 'application/json')
+        .set('Authorization', authStr)
+        .expect('Content-Type', /json/)
+        .expect(200, {
+          ret: 'ok',
+          'product-groups': { 1: 'Books', 2: 'Movies' }
+        }, done);
+    });
+  });
 ```
 
 As you can see from the example in Clojure and Javascript we can treat data as data, in Java not so much. In Java if you want to create Java-ish code you have to implement class this and class that for your data. In Clojure you can just use Clojure native data structures in code, and in Javascript JSON data structures, which makes much more sense and makes the code more readable as well. (Now some Java wise guy might want to comment to this blog that "you could have populated the JSON as string, something like "{ 1: 'Books', 2: 'Movies' }" — yes, you can do that but you miss my point: in Javascript and Clojure you can represent the data inside the program using native data structures, not Java classes or Strings).
@@ -255,7 +263,7 @@ Some comments regarding Java as a language:
 
 **Verbosity.** Java is really, really verbose if you compare it to dynamic languages like Python, Javascript or Clojure. If you want to create a Java-ish solution you are implementing class this and class that. For almost any data you implement a new class. Why data can't just be — data?
 
-**Object oriented paradigm. **Object oriented paradigm was something cool in mid 1990's but nowadays seems more or less an unholy mess of classes having data, method and other classes having other data, methods and other classes… For data oriented applications I would rather use functional paradigm which makes a better separation between data and functions that operate on data.
+**Object oriented paradigm.** Object oriented paradigm was something cool in mid 1990's but nowadays seems more or less an unholy mess of classes having data, method and other classes having other data, methods and other classes… For data oriented applications I would rather use functional paradigm which makes a better separation between data and functions that operate on data.
 
 **Getters and Setters.** For simple data classes in which the fields are the interface it is stupid to make the fields private and provide a huge list of getters and setters. In those cases I think it is better just to make the fields public. If there is a reason to hide some internal structure, then you should make that field private, of course. The getters/setters is definitely something that was not properly designed in the Java language.
 
@@ -276,5 +284,3 @@ Some comments regarding Java as a language:
 In the beginning of this story I asked myself: "Have I been using the wrong language all these years?" Well, the answer is: yes and no. "No" in that sense that 20 years ago Java was really something new. You had an enterprise language with garbage collection, which was really good since most of the C / C++ programmers really never learned memory management properly. In those days there were not that much of a choice since customers wanted the projects to be implemented using Java, and Java we used. "Yes", in that sense that nowadays we have so much more choices. You really don't have to use Java for small microservice type applications. And I wouldn't use Java in those kind of small projects unless the customer required so. It is much better to implement small microservices using dynamic productive languages like Javascript/Node, Python or Clojure. And for data oriented projects I would use Clojure since Clojure really shines with data processing (and you can experiment with the live system using REPL so many ways). I would use Java only in some really, really big projects with a lot of developers working on the same code base, so that the static language protects developers from trivial errors assuming something about the parameters and return types.
 
 All right. My homecoming to Java land was rather short, and next I will move to Python land, and then to Go land. Let's see what kind of reflections those languages will give when comparing the experiences to the languages I already have used to implement the Simple Server.
-
-  

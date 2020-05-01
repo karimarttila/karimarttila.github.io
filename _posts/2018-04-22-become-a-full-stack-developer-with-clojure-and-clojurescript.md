@@ -47,12 +47,14 @@ I'll next explain how to use these tools when implementing a server using Clojur
 
 I use [IntelliJ IDEA](https://www.jetbrains.com/idea/) + [Cursive plugin](https://cursive-ide.com/) as my Clojure IDE (#1.). I evaluated other Clojure IDEs as well but I just fell in love with Cursive and its REPL (see my previous article "[Using Clojure to Implement a Web Service Server](https://medium.com/@kari.marttila/using-clojure-to-implement-a-web-service-server-53f62dca964f)" regarding my favourite Cursive configurations to boost Clojure programming productivity). As you can see in the picture you can have various REPLs in the IDE. The one that shows in the picture is a local REPL — local to your code. It is easy and fluent to test Clojure functions in isolation in a local REPL (as you can see the "(get-product 1 2001)" function call in the local REPL. You can also easily configure a remote REPL — a REPL that is connected to your running server. In a remote REPL after sign-in and login (either using the real Frontend, [Postman](https://www.getpostman.com/) or [Curl](https://en.wikipedia.org/wiki/CURL) — for Curl see the [scripts directory](https://github.com/karimarttila/clojure/tree/master/clj-ring-cljs-reagent-demo/simple-server/scripts) in which I provide some examples how to curl the server REST interface) you can check the sessions atom:
 
-simpleserver.webserver.session/my-sessions  
-=>  
+```clojure
+simpleserver.webserver.session/my-sessions
+;=>
 #object[clojure.lang.Atom  
- 0x3593d88  
- {:status :ready,  
+ 0x3593d88
+ {:status :ready,
  :val #{"eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InUiLCJleHAiOjE1MjQzMDUyNDZ9.Exz5iyNR9aK5pkH2lBbCqxD-didkGmRXCQ4mU1LSzIQ"}}]… to check that the server has created a JSON Web Token and stored it in the server's atom for sessions.
+```
 
 See more examples how to use the REPLs for exploratory testing in Simple Server's [README.md file](https://github.com/karimarttila/clojure/blob/master/clj-ring-cljs-reagent-demo/simple-server/README.md).
 
@@ -83,15 +85,20 @@ What is really cool is that you can have the same superb IDE in both server and 
 
 So, as I already started to tell in the previous chapter you have a remote REPL in the Figwheel console but I feel it easier to use my IDE's own REPL since it is easy to use my favorite hotkeys to jump from code editor window to REPL window and back. I have provided detailed instructions how to configure Cursive IDE to connect to a remote REPL for your SPA running in a browser, see Simple Frontend's [README.md](https://github.com/karimarttila/clojure/blob/master/clj-ring-cljs-reagent-demo/simple-frontend/README.md). In the above picture I have queried the Frontend's session atom:
 
+```clojure
 @simplefrontend.session/app-state  
 => {:page :productgroups,  
- :token "eyJhbG...How cool is that! You can have two remote REPLs: one connected to your live server and one connected to your live SPA in the browser! Web application development is a real breeze using Clojure!
+ :token "eyJhbG..."
+```
+
+How cool is that! You can have two remote REPLs: one connected to your live server and one connected to your live SPA in the browser! Web application development is a real breeze using Clojure!
 
 Some libraries I found helpful in the ClojureScript frontend development:
 
 * [Reagent](https://reagent-project.github.io/): An excellent ClojureScript wrapper to the popular [React](https://reactjs.org/) Javascript library.
 * [Secratary](https://github.com/gf3/secretary): A client-side router for ClojureScript.
 * [cljs-ajax](https://github.com/JulianBirch/cljs-ajax): An Ajax client (for calling server's REST interface).
+
 The Reagent code maps directly to the Clojure data structures so it is very easy to use it in the ClojureScript code. A code example using Reagent:
 
 ; An example of a React component.  
@@ -130,11 +137,11 @@ You can bind the React component to an atom in your ClojureScript code — React
 
 I used Chrome while developing the application. I'm not that fluent frontend developer so I can't tell you the most bleeding edge frontend development tricks but let's tell some basic stuff here anyway. What you really should do while doing exploratory testing in the browser is to use the Developer Tools of your browser — in Chrome the three dots in the upper right corner and then — More tools — Developer tools. I'm sorry I didn't show that in the picture above so let's show the most important browser Developer tools here:
 
-![](/img/1*RGcCr_LTjPBLOAzcQ1naHA.png)
+![](/img/2018-04-22-become-a-full-stack-developer-with-clojure-and-clojurescript_img_2.png)
 
 *Chrome Developer tools — Console.*
 
-![](/img/2018-04-22-become-a-full-stack-developer-with-clojure-and-clojurescript_img_2.png)
+![](/img/2018-04-22-become-a-full-stack-developer-with-clojure-and-clojurescript_img_3.png)
 
 *Chrome Developer tools — Network.*
 
@@ -142,7 +149,7 @@ So, in the Developer tools you can see e.g. the Browser SPA console trace log (i
 
 **CSS**. I later implemented simple CSS for the Simple Frontend using popular [Bootstrap](https://getbootstrap.com/) library (the main picture still shows the old UI, let's show one screen of the new UI below).
 
-![](/img/2018-04-22-become-a-full-stack-developer-with-clojure-and-clojurescript_img_3.png)
+![](/img/2018-04-22-become-a-full-stack-developer-with-clojure-and-clojurescript_img_4.png)
 
 *A bit cleaner UI.*
 
@@ -159,5 +166,3 @@ After learning Clojure an old backend developer can learn ClojureScript and basi
 ### Shameless Advertisement
 
 I'm currently looking for an interesting project in which I could use Clojure to implement a backend and ClojureScript to implement a frontend. I'm also pretty fluent with AWS so I can create the AWS infrastructure for my system as well. Now that I have paid my mortgage I'm not that interested to do bulk Java programming any more — let's start enjoying life and do Clojure!
-
-  

@@ -75,8 +75,12 @@ Well, this comparison doesn't tell the whole truth. With Clojure REPL you don't 
 
 Node REPL is pretty good, a bit like Python REPL, but not anything like a real Lisp REPL, of course. The following code snippet is copy-pasted from the Node REPL when experimenting if there are no nulls or empty strings in a list:
 
+```javascript
 !['a', '', 'c'].some(item => ((item == null) || (item == undefined) || (item == '')) )  
-falseWhen comparing Node and Clojure REPLs, Clojure wins this round hands down. The Lisp REPL is a real REPL compared to code snippet REPLs of Javascript and Python. See e.g. integrated [Cursive REPL](https://cursive-ide.com/userguide/repl.html) in IDEA (my favorite Clojure IDE). If you have never used a real Lisp REPL you just don't understand how enormously productive it can be to interact with the program you are developing.
+false
+```
+
+When comparing Node and Clojure REPLs, Clojure wins this round hands down. The Lisp REPL is a real REPL compared to code snippet REPLs of Javascript and Python. See e.g. integrated [Cursive REPL](https://cursive-ide.com/userguide/repl.html) in IDEA (my favorite Clojure IDE). If you have never used a real Lisp REPL you just don't understand how enormously productive it can be to interact with the program you are developing.
 
 ### Other Development Experiences
 
@@ -116,13 +120,13 @@ The more I programmed Javascript the more I began to like the programming model:
 
 ### Javascript vs. Python
 
-I understand that younger developers who have learned Javascript when implementing frontends like to use Javascript with Node also in the backend side and use it as a scripting language with shells. That's perfectly ok. But I would say that there is a much better language to be used as a bash surrogate: [Python](https://www.python.org/). I have used Python some 20 years (read more in my [blog](https://medium.com/tieto-developers/python-rocks-5dc453b5c222)) and it really is an excellent scripting language. It is always very easy to hack something quick in Python even if you haven't used the language for several months. The syntax is just so easy and clean and intuitive (which you really can't say about Javascript). That might be the most important reason why I have never bothered to learn bash properly — you can always install python in any Linux box with one yum/apt/whatever command and then hack the evil deed in Python and call the python script in the bash script.
+I understand that younger developers who have learned Javascript when implementing frontends like to use Javascript with Node also in the backend side and use it as a scripting language with shells. That's perfectly ok. But I would say that there is a much better language to be used as a bash surrogate: blog [Python](https://www.python.org/). I have used Python some 20 years (read more in my blog [Python Rocks!]({% post_url 2017-01-30-python-rocks %})) and it really is an excellent scripting language. It is always very easy to hack something quick in Python even if you haven't used the language for several months. The syntax is just so easy and clean and intuitive (which you really can't say about Javascript). That might be the most important reason why I have never bothered to learn bash properly — you can always install python in any Linux box with one yum/apt/whatever command and then hack the evil deed in Python and call the python script in the bash script.
 
 ### Javascript and Node — Is There a Place in My Toolbox for Them?
 
 **Backend**. Definitely yes. If I can freely choose the backend stack I would probably go for Java/Spring in enterprise type of heavy stuff with a lot of developers, Clojure in a bit more relaxed data oriented backend system, probably Python when implementing short serverless functions in AWS/Azure. But there are a lot of Node implementations out there and if some team is already using Node — no problem, let's use Node.
 
-**Frontend**. If I need to implement a simple admin type frontend for my own purposes I probably would use [ClojureScript](https://clojurescript.org/) since I really like the syntax and the real REPL when working with Lisp (read more in my [blog](https://medium.com/@kari.marttila/become-a-full-stack-developer-with-clojure-and-clojurescript-c58c93479294)). But the reality is that there are a lot of Javascript SPAs out there and if the team wants to use Javascript with Angular/React/whatever — no problem, let's use Javascript. One thing that I have learned anyway is that [SPA](https://en.wikipedia.org/wiki/Single-page_application) seems to be the future — I don't believe server side templating paradigm that much anymore (e.g. using Java with some templating libarary is a bit yesterday).
+**Frontend**. If I need to implement a simple admin type frontend for my own purposes I probably would use [ClojureScript](https://clojurescript.org/) since I really like the syntax and the real REPL when working with Lisp (read more in my blog [Become a Full Stack Developer with Clojure and ClojureScript!]({% post_url 2018-04-22-become-a-full-stack-developer-with-clojure-and-clojurescript %})). But the reality is that there are a lot of Javascript SPAs out there and if the team wants to use Javascript with Angular/React/whatever — no problem, let's use Javascript. One thing that I have learned anyway is that [SPA](https://en.wikipedia.org/wiki/Single-page_application) seems to be the future — I don't believe server side templating paradigm that much anymore (e.g. using Java with some templating libarary is a bit yesterday).
 
 ### What Next?
 

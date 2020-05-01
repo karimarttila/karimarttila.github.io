@@ -12,7 +12,7 @@ date: 2018-09-11
 
 ### Introduction
 
-I'm currently working in an Azure project and team members are considering to move various applications from VM to containers and run them in a Kubernetes cluster. They asked me to explore the Azure Kubernetes capabilities and document my experiences. While I was working on this assignment I thought that I could write two blog articles regarding my work: "Exploring Kubernetes with Minikube" (this article) and "[Running Azure Kubernetes Service (AKS)](https://medium.com/@kari.marttila/running-azure-kubernetes-service-aks-882faad43f2c)" (next article).
+I'm currently working in an Azure project and team members are considering to move various applications from VM to containers and run them in a Kubernetes cluster. They asked me to explore the Azure Kubernetes capabilities and document my experiences. While I was working on this assignment I thought that I could write two blog articles regarding my work: "Exploring Kubernetes with Minikube" (this article) and [Running Azure Kubernetes Service (AKS)]({% post_url 2018-09-24-running-azure-kubernetes-service-aks %}) (next article).
 
 ### What is Kubernetes?
 
@@ -40,8 +40,12 @@ Now is the time to boot Minikube for the first time:
 
 minikube startThe first time you give the "minikube start" command it starts downloading the Minikube ISO image and kube tools, this takes a while, be patient. When you see: "Starting cluster components…" this also takes a while, be patient again. :-) When you finally see: "Kubectl is now configured to use the cluster. Loading cached images from config file." you are done. Next try that your Minikube is up and running and your kubectl tool is working properly:
 
+```bash
 minikube status  
-kubectl cluster-infoMinikube command should tell that Minikube is running, the kubectl comand should show status information. Both commands give the IP number of Minikube VM (try to ping that ip number…).
+kubectl cluster-info
+```
+
+Minikube command should tell that Minikube is running, the kubectl comand should show status information. Both commands give the IP number of Minikube VM (try to ping that ip number…).
 
 Try to deploy the hello-minikube application given in the [Minikube documentation](https://github.com/kubernetes/minikube) to verify that your Kubernetes cluster works properly.
 
@@ -71,7 +75,7 @@ minikube dashboardYou should see output: "Opening kubernetes dashboard in defaul
 
 The dashboard gives a nice GUI to explore your Kubernetes deployments and various components that were created during deployments (pods, services…).
 
-minikube ssh"minikube ssh" command gives you ssh terminal to the Minikube VM. Try to logon and explore the Linux machine. "ps aux" and you should see quite a few kube and docker related processes.
+minikube ssh"minikube ssh" command gives you ssh terminal to the Minikube VM. Try to logon and explore the Linux machine. ```ps aux``` and you should see quite a few kube and docker related processes.
 
 ### Minikube and Docker
 
@@ -138,9 +142,13 @@ kubectl create -f deployment.ymlThe Kubernetes deployment process is pretty beau
 
 And the final test that my setup is running and serving http requests:
 
+```bash
 minikube status => get the Minikube VM ip.  
 kubectl get svc => get your Kubernetes's load balancer service's port forward (e.g.: dl-helloworld-demo-lb LoadBalancer 10.110.140.111 <pending> 8080:31833/TCP => 31833.  
-curl <http://192.168.99.100:31833/hello?name=Jamppa> => My demo application returns: {"hello":"Hello, Jamppa"}### Conclusions
+curl <http://192.168.99.100:31833/hello?name=Jamppa> => My demo application returns: {"hello":"Hello, Jamppa"}
+```
+
+### Conclusions
 
 Kubernetes is a production-ready environment to run your containerized applications. Using Minikube you can learn easily the basic Kubernetes concepts and processes.
 
