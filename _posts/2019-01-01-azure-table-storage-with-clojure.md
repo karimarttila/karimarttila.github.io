@@ -12,7 +12,7 @@ date: 2019-01-01
 
 ### Introduction
 
-In my previous project “[AWS DynamoDB with Clojure](https://medium.com/@kari.marttila/aws-dynamodb-with-clojure-b4402bf8e8e)” I implemented all database handling using AWS DynamoDB for my Simple Server which I have used recently for my personal study projects. My original idea was to use this AWS Simple Server version to create AWS EKS and Fargate Kubernetes deployments for the Simple Server to refresh my AWS and Terraform skills. But then I decided to make some changes to my plans. I did my first Azure certification ([Architecting Microsoft Azure Solutions](https://www.youracclaim.com/badges/62494509-bf1c-4cd0-ad5a-0b82d1dacfac/public_url)) on December and heard from my boss that I’m going to be working in an Azure project in the beginning of year 2019. For this reason I thought that it might be a better idea to refresh my Azure skills instead and gather some experience how to create Azure infra using Terraform (I have used only ARM in the Azure side).
+In my previous project [AWS DynamoDB with Clojure]({% post_url 2018-12-12-aws-dynamodb-with-clojure %}) I implemented all database handling using AWS DynamoDB for my Simple Server which I have used recently for my personal study projects. My original idea was to use this AWS Simple Server version to create AWS EKS and Fargate Kubernetes deployments for the Simple Server to refresh my AWS and Terraform skills. But then I decided to make some changes to my plans. I did my first Azure certification ([Architecting Microsoft Azure Solutions](https://www.youracclaim.com/badges/62494509-bf1c-4cd0-ad5a-0b82d1dacfac/public_url)) on December and heard from my boss that I’m going to be working in an Azure project in the beginning of year 2019. For this reason I thought that it might be a better idea to refresh my Azure skills instead and gather some experience how to create Azure infra using Terraform (I have used only ARM in the Azure side).
 
 So, the first task in this new project was to implement the Simple Server to use some Azure database service. Since I used DynamoDB (nosql) in the AWS side the natural candidates in the Azure side were [CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/) and [Table Storage Service](https://azure.microsoft.com/en-us/services/storage/tables/). Since this was just an exercise I chose Table Storage Service. In my next project I’m going to use this Azure version of Simple Server to create a Terraform configuration for using Azure AKS and deploy the Simple Server to an AKS Kubernetes cluster. But let’s talk about that in more detail in my blog and in this blog post let’s focus on my experiences using Azure Table Storage Service in Clojure.
 
@@ -43,25 +43,27 @@ My first task at this point was to find an appropriate Azure Table Storage API. 
 Clojure / Java interop was mostly very smooth. I basically just read in the Java API sample how the sample used the API and aped the usage in Clojure. Example. The API sample shows how to insert an entity to the Azure Table Storage:
 
 ```clojure
-tableClient = TableClientProvider.getTableClientReference();  
-;...  
-CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");  
-customer1.setEmail("[walter@contoso.com](mailto:walter@contoso.com)");  
-customer1.setHomePhoneNumber("425-555-0101");  
-table1.execute(TableOperation.insert(customer1));In my Clojure code I create a new user using the same API as:
+  tableClient = TableClientProvider.getTableClientReference () ;  
+  ;...  
+  CustomerEntity customer1 = new CustomerEntity ("Harp", "Walter") ;  
+  customer1.setEmail ("[walter@contoso.com](mailto:walter@contoso.com)") ;  
+  customer1.setHomePhoneNumber ("425-555-0101")             ;  
+  table1.execute (TableOperation.insert (customer1))        ;In my Clojure code I create a new user using the same API as:
 
-(let [my-env (environ/env :my-env)  
- users-table (. table-client getTableReference (str "sseks" my-env "users"))  
- new-user (new simpleserver.util.azuregenclass.users)  
- _ (.setPartitionKey new-user email)  
- _ (.setRowKey new-user (ss-users-common/uuid))  
- _ (.setFirstname new-user first-name)  
- _ (.setLastname new-user last-name)  
- _ (.setHpwd new-user (str (hash password)))   
- table-insert (TableOperation/insert new-user)  
- ; In real production code we should check the result value, of course.  
- result (. users-table execute table-insert)]  
- {:email email, :ret :ok}))))
+  (let [my-env (environ/env :my-env)
+        users-table (. table-client getTableReference (str "sseks" my-env "users"))
+        new-user (new simpleserver.util.azuregenclass.users)
+        _ (.setPartitionKey new-user email)
+        _ (.setRowKey new-user (ss-users-common/uuid))
+        _ (.setFirstname new-user first-name)
+        _ (.setLastname new-user last-name)
+        _ (.setHpwd new-user (str (hash password)))
+        table-insert (TableOperation/insert new-user)
+        ; In real production code we should check the result value, of course.  
+        result (. users-table execute table-insert)]
+    {:email email, :ret :ok})) 
+;...  
+customer1.setHomePhoneNumber("425-555-0101");  
 ```
 
 If you can read Clojure you realize that the API calls are exactly the same.
@@ -69,24 +71,24 @@ If you can read Clojure you realize that the API calls are exactly the same.
 The [simpleserver.util.azuregenclass.users](https://github.com/karimarttila/clojure/blob/master/clj-ring-cljs-reagent-demo/simple-server/src/simpleserver/util/azuregenclass/users.clj) class is a so-called Clojure [gen-class](https://clojuredocs.org/clojure.core/gen-class) — a Java class defined in Clojure. You typically create these when you need to use some Java API from Clojure and the API needs some specific extended class (extended from some API base class) — the exact reason I needed to create the users gen-class:
 
 ```clojure
-(ns simpleserver.util.azuregenclass.users  
- (:import (com.microsoft.azure.storage.table TableServiceEntity))  
- (:gen-class  
- :extends com.microsoft.azure.storage.table.TableServiceEntity  
- :constructors {[] []}  
- :state state  
- :init init  
- :prefix "bean-"  
- :main false  
- :methods [[getLastname [] String]  
- [setLastname [String] void]  
- [getFirstname [] String]  
- [setFirstname [String] void]  
- [getHpwd [] String]  
- [setHpwd [String] void]]  
- ))(defn bean-init []  
- [[] (atom {:last-name nil, :first-name nil, :hpwd nil})])  
-;...
+  (ns simpleserver.util.azuregenclass.users
+    (:import (com.microsoft.azure.storage.table TableServiceEntity))
+    (:gen-class
+      :extends com.microsoft.azure.storage.table.TableServiceEntity
+      :constructors {[] []}
+      :state state
+      :init init
+      :prefix "bean-"
+      :main false
+      :methods [[getLastname [] String]
+                [setLastname [String] void]
+                [getFirstname [] String]
+                [setFirstname [String] void]
+                [getHpwd [] String]
+                [setHpwd [String] void]]
+      )) (defn bean-init []
+           [[] (atom {:last-name nil, :first-name nil, :hpwd nil})])
+  ;...
 ```
 
 #### Clojure REPL Issues with Gen-Classes
@@ -102,46 +104,46 @@ While working with the new Azure version I did some refactorings. I realized tha
 **get-token in Azure version:**
 
 ```clojure
-(defn get-raw-session
- [token]  
- (let [my-env (environ/env** ***:my-env*)  
- table-filter (TableQuery/generateFilterCondition** **"PartitionKey"** **TableQuery$QueryComparisons/EQUAL token)  
- table-query (TableQuery/from** **simpleserver.util.azuregenclass.session)  
- table-query (**. **table-query where table-filter)  
- session-table (**. **table-client getTableReference (str "sseks" my-env "session"))  
- raw-sessions (**. **session-table execute table-query)]  
- (first** **raw-sessions)  
- )  
- )  
-(defn get-token
- [token]  
- (log/debug (str "ENTER get-token: " token))  
- (let [raw-session (get-raw-session token)]  
- (if (nil? raw-session)  
- nil  
- (. raw-session getPartitionKey))))**get-token in AWS version:**
+  (defn get-raw-session
+    [token]
+    (let [my-env (environ/env** ***:my-env*)
+          table-filter (TableQuery/generateFilterCondition** ** "PartitionKey" ** **TableQuery$QueryComparisons/EQUAL token)
+          table-query (TableQuery/from** **simpleserver.util.azuregenclass.session)
+          table-query (**. **table-query where table-filter)
+          session-table (**. **table-client getTableReference (str "sseks" my-env "session"))
+          raw-sessions (**. **session-table execute table-query)]
+      (first** **raw-sessions)
+      )
+    )
+  (defn get-token
+    [token]
+    (log/debug (str "ENTER get-token: " token))
+    (let [raw-session (get-raw-session token)]
+      (if (nil? raw-session)
+        nil
+        (. raw-session getPartitionKey)))) **get-token in AWS version:**
 
-(defn **get-token**  
- [token]  
- (let [my-env (environ/env :my-env)  
- my-table (str "sseks-" my-env "-session")  
- ret (dynamodb/query (ss-aws-utils/get-dynamodb-config)  
- :table-name my-table  
- :select "ALL_ATTRIBUTES"  
- :key-conditions {:token {:attribute-value-list [token]  
- :comparison-operator "EQ"}})  
- items (ret :items)  
- found-token (first items)]  
- found-token))
+  (defn **get-token**
+    [token]
+    (let [my-env (environ/env :my-env)
+          my-table (str "sseks-" my-env "-session")
+          ret (dynamodb/query (ss-aws-utils/get-dynamodb-config)
+                              :table-name my-table
+                              :select "ALL_ATTRIBUTES"
+                              :key-conditions {:token {:attribute-value-list [token]
+                                                       :comparison-operator  "EQ"}})
+          items (ret :items)
+          found-token (first items)]
+      found-token))
 ```
 
 ... and then in both versions I can just delegate to the common validate-token function and inject the needed functions as parameters:
 
 ```clojure
-(validate-token  
- [env token]  
- (log/debug (str "ENTER validate-token, token: " token))  
- (ss-session-common/validate-token token get-token remove-token))
+  (validate-token
+    [env token]
+    (log/debug (str "ENTER validate-token, token: " token))
+    (ss-session-common/validate-token token get-token remove-token))
 ```
 
 ### Using Clojure REPL to Experiment with a Java API
@@ -160,4 +162,8 @@ In the first “(into [] (let…” function call I experiment what happens when
 
 Using Clojure/Java interop you can use any Java library if you can’t find a native Clojure library for your purposes. Using Clojure REPL it is actually even easier to experiment with a Java API that using Java itself.
 
-  
+*The writer has two AWS certifications and one Azure certification and is working at the [Tieto Corporation](https://www.tieto.com/) in Application Services / Application Development / Public Cloud team designing and implementing cloud native projects. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
+
+Kari Marttila
+
+* Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>

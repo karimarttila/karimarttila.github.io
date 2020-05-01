@@ -12,9 +12,9 @@ date: 2019-01-07
 
 ### Introduction
 
-About 7 months ago I was asked to create a short Azure [AKS](https://docs.microsoft.com/en-us/azure/aks/) poc for one project using [ARM](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) with a preview version of AKS (of that time), you can read more about that in my previous blog post “[Running Azure Kubernetes Service (AKS)](https://medium.com/@kari.marttila/running-azure-kubernetes-service-aks-882faad43f2c)” . ARM was a requirement so I couldn’t use my choice of Infrastructure as Code tool [Terraform](https://www.terraform.io/).
+About 7 months ago I was asked to create a short Azure [AKS](https://docs.microsoft.com/en-us/azure/aks/) poc for one project using [ARM](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) with a preview version of AKS (of that time), you can read more about that in my previous blog post [Running Azure Kubernetes Service (AKS)]({% post_url 2018-09-24-running-azure-kubernetes-service-aks %}). ARM was a requirement so I couldn’t use my choice of Infrastructure as Code tool [Terraform](https://www.terraform.io/).
 
-In my free-time study projects I decided to deploy my Simple Server both in AWS side using [EKS](https://aws.amazon.com/eks) and Azure side using AKS and compare the experiences. I already converted the Simple Server to use [AWS DynamoDB](https://medium.com/@kari.marttila/aws-dynamodb-with-clojure-b4402bf8e8e) and [Azure Table Storage](https://medium.com/@kari.marttila/azure-table-storage-with-clojure-12055e02985c) databases for these future projects. In this blog post I write about my experiences when creating Azure AKS infra using Terraform.
+In my free-time study projects I decided to deploy my Simple Server both in AWS side using [EKS](https://aws.amazon.com/eks) and Azure side using AKS and compare the experiences. I already converted the Simple Server to use [AWS DynamoDB]({% post_url 2018-12-12-aws-dynamodb-with-clojure %}) and [Azure Table Storage]({% post_url 2019-01-01-azure-table-storage-with-clojure %}) databases for these future projects. In this blog post I write about my experiences when creating Azure AKS infra using Terraform.
 
 You can find the project in my [Github account](https://github.com/karimarttila/azure/tree/master/simple-server-aks).
 
@@ -26,7 +26,7 @@ I would say that the most compelling reason to learn Terraform and hcl when crea
 
 Let’s have a short example. First a short code snippet from the ARM / json version:
 
-![](/img/1*H9JQS1oFCkRup5Oz3hlvIA.png)
+![](/img/2019-01-07-creating-azure-kubernetes-service-aks-the-right-way_img_2.png)
 
 *ARM / json.*
 
@@ -78,4 +78,9 @@ Using Terraform it was pretty easy to create Azure AKS infra and related Azure r
 
 Stay tuned since in my next blog post I’m going to write about my experiences to deploy my Simple Server Azure Table Storage version to that Azure AKS Kubernetes cluster I wrote about in this current blog post.
 
-  
+
+*The writer has two AWS certifications and one Azure certification and is working at the [Tieto Corporation](https://www.tieto.com/) in Application Services / Application Development / Public Cloud team designing and implementing cloud native projects. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
+
+Kari Marttila
+
+* Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
