@@ -28,19 +28,23 @@ You need some business logic to run in your batch processing, of course. Maybe t
 
 Ok. You are ready with your application. You have tested application logic with your local tests and with integration tests in AWS. What next? You need to create a deployment unit, that is to bake your application e.g. either into an Amazon Machine Image to be deployed to EC2, or bake the application into a Docker container to be run in AWS ECS. Batch processing typically is stateless activity — you fetch data, create report, store report, end of story (at least for that night). This is a perfect use case for a Docker container: Docker containers can be booted in milliseconds, they do their job and once the job is over you stop or terminate the container. Using AWS Batch with Docker containers is a perfect mach. If you have to create e.g. 10.000 reports with different parameters every night, create one AWS Batch Job definition, and trigger it every night e.g. using Lambda to create 10.000 Batch jobs with different parameters in each. You can configure AWS Batch to run these jobs in parallel — this way you can process a lot of even long lasting batch jobs during a short period of time.
 
-We have already covered using Dockers in AWS context in another blog post ([How to Create Docker Containers in AWS?](https://medium.com/tieto-developers/how-to-create-docker-containers-in-aws-3134daec423c)), but let's iterate here the process from the AWS Batch point of view.
+We have already covered using Dockers in AWS context in another blog post ([How to Create Docker Containers in AWS?]({% post_url 2017-03-28-how-to-create-docker-containers-in-aws %})), but let's iterate here the process from the AWS Batch point of view.
 
 Creating a docker image is rather staightforward. You create a Dockerfile in which you tell what kind of stuff you need in your application, configure entrypoint to application etc. Let's skip that part and show how to ask your Continuous server to build the docker image after every successful build:
 
 ![](/img/2017-11-09-aws-batch-and-docker-containers_img_2.png)
 
-Docker build.Ok. Now you have your docker image. Next do some testing with the image, start container, run tests with it etc.
+*Docker build.*
+
+Ok. Now you have your docker image. Next do some testing with the image, start container, run tests with it etc.
 
 Next stop is to deploy the Docker image to [AWS ECR](https://aws.amazon.com/ecr/) to be used by various other AWS Services (like in AWS Batch Computing Environment we are going to see soon):
 
 ![](/img/2017-11-09-aws-batch-and-docker-containers_img_3.png)
 
-Docker deploy to AWS ECS.All right! You are ready to rock and roll with your Docker image in AWS!
+*Docker deploy to AWS ECS.*
+
+All right! You are ready to rock and roll with your Docker image in AWS!
 
 ### The AWS Batch CloudFormation Stack
 
@@ -48,7 +52,9 @@ When we started to use AWS Batch Terraform didn't provide full support for AWS B
 
 ![](/img/2017-11-09-aws-batch-and-docker-containers_img_4.png)
 
-AWS CloudFormation snippet for AWS Batch.So, the main players are:
+*AWS CloudFormation snippet for AWS Batch.*
+
+So, the main players are:
 
 * **The Docker repository** (AWS ECR). This is the service that hosts your business logic baked as a Docker image. AWS Batch Computing environment needs to be glued to the repository so that it knows where to get the computing resources for the task.
 * **Some IAM Roles and Policies**. You need to define for all computing resources the policies so that they are able to utilize other AWS services and your AWS entities hosted by those services to do the actual job (e.g. to store the final reports to S3).
@@ -62,11 +68,11 @@ Everything is ready for your first AWS Batch test! Open AWS Console, go to AWS B
 
 Once you have done all testing, you can add the triggering mechanism in CloudFormation to start the batch job e.g. nightly. For the triggering mechanism you can use e.g. [AWS Lambda](http://docs.aws.amazon.com/lambda/latest/dg/with-scheduled-events.html).
 
-Also configure your Continuous integration server (using the scripts given previously) automatically to build a new Docker image after every successful build and deploy image automatically to AWS ECR, so after every Git commit your CI pipeline creates a new Docker image in AWS ECR ready to be used in your AWS Batch Job definition (more about that part, see: [Jenkins on AWS](https://medium.com/tieto-developers/jenkins-on-aws-49133e011ac5)).
+Also configure your Continuous integration server (using the scripts given previously) automatically to build a new Docker image after every successful build and deploy image automatically to AWS ECR, so after every Git commit your CI pipeline creates a new Docker image in AWS ECR ready to be used in your AWS Batch Job definition (more about that part, see: [Jenkins on AWS]({% post_url 2017-10-10-jenkins-on-aws %})).
 
 ### Conclusions
 
-AWS provides an excellent batch processing framework which beautifully integrates to all other AWS services — no need to create an in-house solution for your batch processing. This idea nicely fits to the paradigm "[Use AWS Services as Building Blocks to Implement Your Enterprise System](https://medium.com/tieto-developers/use-aws-services-as-building-blocks-to-implement-your-enterprise-system-598676a0ee49)".
+AWS provides an excellent batch processing framework which beautifully integrates to all other AWS services — no need to create an in-house solution for your batch processing. This idea nicely fits to the paradigm [Use AWS Services as Building Blocks to Implement Your Enterprise System]({% post_url 2017-01-27-aws-services-as-building-blocks-to-your-enterprise-system %}).
 
 Both writers are AWS Certified Solutions Architects Associate, architecting and implementing AWS projects in Tieto CEM Finland. If you are interested about starting a new AWS project in Finland, you can contact us with firstname.lastname at tieto.com.
 
@@ -74,4 +80,3 @@ Kari Marttila & Timo Tapanainen
 
 * Kari Marttila's Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
 * Timo Tapanainen's Home Page in LinkedIn: <https://www.linkedin.com/in/timo-tapanainen/>
-  
