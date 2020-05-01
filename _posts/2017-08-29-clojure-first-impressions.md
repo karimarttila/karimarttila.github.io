@@ -8,7 +8,7 @@ date:	2017-08-29
 
 ![](/img/2017-08-29-clojure-first-impressions_img_1.png)
 
-*Clojure code.*
+*Clojure logo.*
 
 ### Introduction
 

@@ -8,7 +8,7 @@ date: 2017-06-12
 
 ### Introduction
 
-I've been using AWS for some time now, done one [successful project](https://medium.com/tieto-developers/devops-success-factors-53beafe63942) with production deployments with AWS and currently doing a big data project with AWS. And I just love AWS. Why? Let's list here some reasons why architect feels his life is full of unbearable lightness of AWS.
+I've been using AWS for some time now, done one [successful project]({% post_url 2017-02-15-devops-success-factors %}) with production deployments with AWS and currently doing a big data project with AWS. And I just love AWS. Why? Let's list here some reasons why architect feels his life is full of unbearable lightness of AWS.
 
 ### No Dependencies
 
@@ -16,7 +16,7 @@ I occasionally mentor junior architects in our corporation. Young lions are alwa
 
 ### No Low Level Stuff
 
-In the old days some enterprise architect might have chosen some application server, some db server and some integration platform, and then we as application architects and developers just had to live with the realities and glue everything together and possibly do quite a lot of plumbing (low level stuff) to make everything work together. Not anymore. I really do love the AWS ecosystem. Amazon Web Services has a great portfolio of anything an architect would need for building an enterprise system: networks, virtual servers, databases as services, queues and notifications as services etc. And the best part is that all services really are high level services that integrate to each other beautifully — you really can [use AWS services as building blocks to implement your enterprise system](https://medium.com/tieto-developers/use-aws-services-as-building-blocks-to-implement-your-enterprise-system-598676a0ee49).
+In the old days some enterprise architect might have chosen some application server, some db server and some integration platform, and then we as application architects and developers just had to live with the realities and glue everything together and possibly do quite a lot of plumbing (low level stuff) to make everything work together. Not anymore. I really do love the AWS ecosystem. Amazon Web Services has a great portfolio of anything an architect would need for building an enterprise system: networks, virtual servers, databases as services, queues and notifications as services etc. And the best part is that all services really are high level services that integrate to each other beautifully — you really can [use AWS services as building blocks to implement your enterprise system]({% post_url 2017-01-27-aws-services-as-building-blocks-to-your-enterprise-system %}).
 
 ### Explode Your Comfort Zone
 
@@ -25,5 +25,3 @@ In the old world most projects were somehow complex and slow — all kinds of se
 ### Point of No Return
 
 Is there going back to the old world software development with all kinds of ugly and slow dependencies, uninteresting low level stuff that really didn't bring any value to the customer or locking yourself into a pitiful small role in a mega project? No, I don't think so. For customer using cloud is going to be a lot more cost effective way to build software (because it is faster and you need a smaller team) and also running production (economy of scale). And this is good news for architects and developers — you can explode your old comfort zone and start learning new skills, and you realize how much more fun building software is going to be now.
-
-  

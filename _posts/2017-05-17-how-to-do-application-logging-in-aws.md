@@ -14,7 +14,7 @@ date:	2017-05-17
 
 ### Introduction
 
-[**AWS Logs**](http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) is provided by [AWS CloudWatch](https://aws.amazon.com/cloudwatch/). AWS Logs provides two primary concepts to categorize your logs: **Log Groups** and **Log Streams**. You can have 5000 Log Groups / AWS account / region, and multiple Log Streams inside Log Groups.
+[AWS Logs](http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) is provided by [AWS CloudWatch](https://aws.amazon.com/cloudwatch/). AWS Logs provides two primary concepts to categorize your logs: **Log Groups** and **Log Streams**. You can have 5000 Log Groups / AWS account / region, and multiple Log Streams inside Log Groups.
 
 Let's then discuss the various tasks related setting up your application logs to be used with AWS Logs. I'm concentrating here mostly on how to do logging in application logic modules deployed using EC2 images. Let's write another blog post later on how to do logging regarding other AWS resources.
 
@@ -37,9 +37,7 @@ We have have an environment acronym ("dev-", "test-", "perf-", "qa-", "prod-"…
 Then we have three Log Groups in every environment:
 
 1. One Log Group for each instance: this log group comprises of Log Stream per every individual application instance. This is the "projectX-app1-instance" section in the screenshot.
-
 2. One Log Group to merge logs from applications belonging to the same AWS Autoscaling Group — you might be interested to look logs of certain application regardless of the EC2 instance the application is running on. This is the "projectX-app1-asg" section in the screenshot.
-
 3. One Log Group which merges every single application instance of every autoscaling group to one big Log Stream — this Log Stream can be configured to be watched for warnings and errors that happen anywhere in the system. This is the "projectX-app1-merged" section in the screenshot.
 
 It is pretty easy to configure your application to send its logs to AWS Logs: just configure an "awslogs.conf" file that is baked into the golden images using Packer / Ansible. The only exception is how to bake the environment acronym to the AWS Logs configuration. Since we use golden images that are used the same way in each environment you cannot bake the environment acronym to the golden image. Inside the EC2 instance you can query the environment many ways. We do it like this: In the initial boot the EC2 instance queries its [metadata](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) ("Hi, I'm alive! In which environment am I running in?"), finds its environment, and makes the final tweaking to the AWS Logs configuration file.
@@ -56,9 +54,8 @@ AWS is API driven which means that you can control every aspect of AWS using its
 
 This was a brief introduction how to utilize AWS Logs and glue it together with other AWS services like AWS Simple Notification Service, AWS CloudWatch and its Alarms etc. Our recommendation is this: If you do application logic using EC2 / Docker, define and implement a good logging infrastructure to get good insight what is happening inside your system.
 
-The writer is AWS Certified Solutions Architect Associate and AWS Certified Developer Associate, architecting and implementing AWS projects in Tieto CEM Finland. If you are interested about starting a new AWS project in Finland, you can contact me with firstname.lastname at tieto.com.
+*The writer is AWS Certified Solutions Architect Associate and AWS Certified Developer Associate, architecting and implementing AWS projects in Tieto CEM Finland. If you are interested about starting a new AWS project in Finland, you can contact me with firstname.lastname at tieto.com.*
 
 Kari Marttila
 
 * Kari Marttila's Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
-  

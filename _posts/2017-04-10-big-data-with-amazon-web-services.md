@@ -8,11 +8,19 @@ date: 2017-04-10
 
   We attended a three day AWS Big Data course last week (given by [Luis Herrera](https://www.linkedin.com/in/lherrera/) — the best IT trainer I have met in 20 years; Luis is not a professional lecturer but a hands-on consultant with a massive amount of practical knowledge about Big Data, AWS and Docker which everyone attending the course could easily see). The course was a pretty good introduction to Big Data services provided by AWS, with a lot of hands-on labs. In this blog post we give a short introduction to AWS Big Data services.
 
-![](/img/2017-04-10-big-data-with-amazon-web-services_img_1.jpeg)Conceptual diagram related to Big Data streaming, storing, processing and visualization using AWS services.Regarding the AWS Big Data area Amazon Web Services has once again done excellent job adapting successful OSS tools to the AWS ecosystem: Hadoop wrapped as AWS EMR, AWS Kinesis modeled after Kafka etc. And two of my favorite AWS principles are again beautifully incorporated in AWS Big Data: 1. You can use [AWS services as building blocks to implement your Enterprise system](https://medium.com/tieto-developers/use-aws-services-as-building-blocks-to-implement-your-enterprise-system-598676a0ee49) — this time you can use AWS Big Data services without the need to implement the Big Data infrastructure yourself, and 2. All AWS services integrate to each other extremely well. The two above mentioned AWS principles also resonate wonderfully together. AWS truly is the one-stop-shop platform where you can get everything you need to build your enterprise system and incrementally let it evolve according to your future needs. We have seen so many wonderful examples how to use these services together that basically your imagination is the limit how you can combine different AWS services to build your enterprise system.
+![](/img/2017-04-10-big-data-with-amazon-web-services_img_1.jpeg)
+
+*Conceptual diagram related to Big Data streaming, storing, processing and visualization using AWS services.*
+
+Regarding the AWS Big Data area Amazon Web Services has once again done excellent job adapting successful OSS tools to the AWS ecosystem: Hadoop wrapped as AWS EMR, AWS Kinesis modeled after Kafka etc. And two of my favorite AWS principles are again beautifully incorporated in AWS Big Data: 1. You can use [AWS services as building blocks to implement your Enterprise system]({% post_url 2017-01-27-aws-services-as-building-blocks-to-your-enterprise-system %}) — this time you can use AWS Big Data services without the need to implement the Big Data infrastructure yourself, and 2. All AWS services integrate to each other extremely well. The two above mentioned AWS principles also resonate wonderfully together. AWS truly is the one-stop-shop platform where you can get everything you need to build your enterprise system and incrementally let it evolve according to your future needs. We have seen so many wonderful examples how to use these services together that basically your imagination is the limit how you can combine different AWS services to build your enterprise system.
 
 ### What is Big Data?
 
-According to [Wikipedia](https://en.wikipedia.org/wiki/Big_data) "***Big data is a term for data sets that are so large or complex that traditional data processing application software is inadequate to deal with them.***" We have seen this definition to be used rather liberally, e.g. with data sets that could have easily been loaded to our previous generation steam powered laptops. But with layman's terms you can think of a data set that is so big that it cannot be stored or processed efficiently in traditional relational based systems.
+According to [Wikipedia](https://en.wikipedia.org/wiki/Big_data):
+
+> *"Big data is a term for data sets that are so large or complex that traditional data processing application software is inadequate to deal with them."*
+ 
+We have seen this definition to be used rather liberally, e.g. with data sets that could have easily been loaded to our previous generation steam powered laptops. But with layman's terms you can think of a data set that is so big that it cannot be stored or processed efficiently in traditional relational based systems.
 
 We have divided this blog post into four parts: how to stream Big Data, how to store Big Data, how to process Big Data and how to visualize Big Data using AWS tools.
 
@@ -26,11 +34,9 @@ AWS provides good buffers — streams, queues and topics. We have already covere
 
 [AWS Kinesis](https://aws.amazon.com/kinesis/) is a simple way to provide a very fast buffer for many kinds of events. Kinesis actually provides three different services:
 
-1. Kinesis Streams — Basic stream service to buffer your data events.
-
-2. Kinesis Firehoses — Load your stream data to AWS permanent data stores (S3, Redshift, DynamoDB…).
-
-3. Kinesis Analytics — Analyze your data streams using SQL.
+1. **Kinesis Streams** — Basic stream service to buffer your data events.
+2. **Kinesis Firehoses** — Load your stream data to AWS permanent data stores (S3, Redshift, DynamoDB…).
+3. **Kinesis Analytics** — Analyze your data streams using SQL.
 
 Kinesis can buffer your events up to 7 days. Kinesis Streams are elastic as almost all AWS services — they grow and shrink according to your needs — you can easily scale out your streams by adding more shards.
 
@@ -58,10 +64,9 @@ AWS provides one excellent tool to visualize Big Data: [Amazon QuickSight](https
 
 AWS is a one-stop-shop to stream, store, process and visualize your Big Data — go no further.
 
-Both writers are AWS Certified Solutions Architects Associate, architecting and implementing AWS projects in Tieto CEM Finland. If you are interested about starting a new AWS project in Finland, you can contact us with firstname.lastname at tieto.com.
+*Both writers are AWS Certified Solutions Architects Associate, architecting and implementing AWS projects in Tieto CEM Finland. If you are interested about starting a new AWS project in Finland, you can contact us with firstname.lastname at tieto.com.*
 
 Kari Marttila & Timo Tapanainen
 
 * Kari Marttila's Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
 * Timo Tapanainen's Home Page in LinkedIn: <https://www.linkedin.com/in/timo-tapanainen/>
-  
