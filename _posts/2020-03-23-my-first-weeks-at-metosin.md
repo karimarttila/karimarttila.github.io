@@ -6,7 +6,7 @@ tags: [metosin, clojure]
 date: 2020-03-23
 ---
 
-NOTE: First published 2020-03-23 in [Metosin Blog](https://www.metosin.fi/blog/my-first-weeks-at-metosin/).
+First published 2020-03-23 in [Metosin Blog](https://www.metosin.fi/blog/my-first-weeks-at-metosin/).
 
 ### Introduction
 
