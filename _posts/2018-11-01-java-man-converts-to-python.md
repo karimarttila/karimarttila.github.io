@@ -91,10 +91,10 @@ time ./run-pytest.sh
 platform linux -- Python 3.6.6, pytest-3.9.3, py-1.7.0, pluggy-0.8.0  
 rootdir: /mnt/edata/aw/kari/github/python/webstore-demo/simple-server, inifile: setup.cfg  
 collected 14 items   
-tests/domaindb/test\_domain.py .... [ 28%]  
-tests/userdb/test\_users.py ... [ 50%]  
-tests/webserver/test\_server.py ...... [ 92%]  
-tests/webserver/test\_session.py . [100%]======================================= 14 passed in 0.11 seconds   
+tests/domaindb/test_domain.py .... [ 28%]  
+tests/userdb/test_users.py ... [ 50%]  
+tests/webserver/test_server.py ...... [ 92%]  
+tests/webserver/test_session.py . [100%]======================================= 14 passed in 0.11 seconds   
 real 0m0.416s
 ```
 
@@ -113,12 +113,12 @@ PyCharm provides a nice REPL, an example follows:
 ```bash
 >>> runfile('/mnt/edata/aw/kari/github/python/webstore-demo/simple-server/simpleserver/domaindb/domain.py', wdir='/mnt/edata/aw/kari/github/python/webstore-demo/simple-server')  
 >>> myD = Domain()  
-2018-10-30 18:40:11,769 - \_\_main\_\_ - \_\_init\_product\_db - DEBUG - ENTER  
-2018-10-30 18:40:11,770 - \_\_main\_\_ - \_\_read\_product\_groups - DEBUG - ENTER  
+2018-10-30 18:40:11,769 - __main__ - __init_product_db - DEBUG - ENTER  
+2018-10-30 18:40:11,770 - __main__ - __read_product_groups - DEBUG - ENTER  
 ...  
-2018-10-30 18:40:11,771 - \_\_main\_\_ - \_\_read\_raw\_products - DEBUG - EXIT  
-2018-10-30 18:40:11,771 - \_\_main\_\_ - \_\_init\_product\_db - DEBUG - EXIT  
->>> myD.get\_raw\_products(1)  
+2018-10-30 18:40:11,771 - __main__ - __read_raw_products - DEBUG - EXIT  
+2018-10-30 18:40:11,771 - __main__ - __init_product_db - DEBUG - EXIT  
+>>> myD.get_raw_products(1)  
 [['2001', '1', 'Kalevala', '3.95', 'Elias Lönnrot', '1835', 'Finland', 'Finnish'], ...]
 ```
 
@@ -167,25 +167,25 @@ describe('GET /product-groups', function () {
 **Python**:
 
 ```python
-def test\_get\_product\_groups(client):  
+def test_get_product_groups(client):  
  myLogger.debug(ENTER)  
- token = get\_token(client)  
- decoded\_token = (b64encode(token.encode())).decode()  
+ token = get_token(client)  
+ decoded_token = (b64encode(token.encode())).decode()  
  mimetype = 'application/json'  
  headers = {  
  'Content-Type': mimetype,  
  'Accept': mimetype,  
- 'Authorization': 'Basic ' + decoded\_token  
+ 'Authorization': 'Basic ' + decoded_token  
  }  
  url = '/product-groups'  
  response = client.get(url, headers=headers)  
  assert response.status == '200 OK'  
- json\_data = json.loads(response.data)  
- assert json\_data.get('ret') == 'ok'  
+ json_data = json.loads(response.data)  
+ assert json_data.get('ret') == 'ok'  
  assert b"product-groups" in response.data  
- product\_groups = json\_data.get('product-groups')  
- assert product\_groups['1'] == 'Books'  
- assert product\_groups['2'] == 'Movies'  
+ product_groups = json_data.get('product-groups')  
+ assert product_groups['1'] == 'Books'  
+ assert product_groups['2'] == 'Movies'  
  myLogger.debug(EXIT)I would say that Python is more readable.
 ```
 
@@ -218,7 +218,7 @@ The final contest! Lines of Code! Let’s once again compare the lines of code b
 
 *LoC.*
 
-If you drop the empty package files (‘\_\_init\_\_.py’) there are only 8 source code files in the production source tree and altogether only 582 lines of code. So, it seems that Python is the winner of this part of the contest. What could be a better language than one with a small amount of code and even that small amount of code being very simple, concise and easy to read.
+If you drop the empty package files (‘__init__.py’) there are only 8 source code files in the production source tree and altogether only 582 lines of code. So, it seems that Python is the winner of this part of the contest. What could be a better language than one with a small amount of code and even that small amount of code being very simple, concise and easy to read.
 
 ### Performance
 

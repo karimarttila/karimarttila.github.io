@@ -100,7 +100,7 @@ spec:
  spec:  
  containers:  
  - name: helloworld-container  
- image: REPLACE\_TAG  
+ image: REPLACE_TAG  
  ports:  
  - containerPort: 8080  
 ---  
@@ -124,7 +124,7 @@ kind: Service
 metadata:  
  name: dl-helloworld-demo-lb  
 spec:  
- loadBalancerIP: REPLACE\_IP  
+ loadBalancerIP: REPLACE_IP  
  type: LoadBalancer  
  ports:  
  - port: 8080  
@@ -132,9 +132,9 @@ spec:
  app: dl-helloworld-demo
 ```
 
-The “REPLACE\_TAG” and “REPLACE\_IP” will be processed by my bash/sed script that finally calls the processed deployment file:
+The “REPLACE_TAG” and “REPLACE_IP” will be processed by my bash/sed script that finally calls the processed deployment file:
 
-kubectl create -f deployment.ymlThe Kubernetes deployment process is pretty beautiful — the same deployment yml can be used to deploy your Kubernetes setup to practically any Kubernetes cluster. BTW. The Minikube part doesn’t need the static ip given in “REPLACE\_IP” above — the Azure AKS deployment had a couple of extra steps, one being to create a static ip to be used in the deployment but let’s talk more about it in the next article.
+kubectl create -f deployment.ymlThe Kubernetes deployment process is pretty beautiful — the same deployment yml can be used to deploy your Kubernetes setup to practically any Kubernetes cluster. BTW. The Minikube part doesn’t need the static ip given in “REPLACE_IP” above — the Azure AKS deployment had a couple of extra steps, one being to create a static ip to be used in the deployment but let’s talk more about it in the next article.
 
 And the final test that my setup is running and serving http requests:
 

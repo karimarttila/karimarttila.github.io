@@ -53,11 +53,11 @@ table1.execute(TableOperation.insert(customer1));In my Clojure code I create a n
 (let [my-env (environ/env :my-env)  
  users-table (. table-client getTableReference (str "sseks" my-env "users"))  
  new-user (new simpleserver.util.azuregenclass.users)  
- \_ (.setPartitionKey new-user email)  
- \_ (.setRowKey new-user (ss-users-common/uuid))  
- \_ (.setFirstname new-user first-name)  
- \_ (.setLastname new-user last-name)  
- \_ (.setHpwd new-user (str (hash password)))   
+ _ (.setPartitionKey new-user email)  
+ _ (.setRowKey new-user (ss-users-common/uuid))  
+ _ (.setFirstname new-user first-name)  
+ _ (.setLastname new-user last-name)  
+ _ (.setHpwd new-user (str (hash password)))   
  table-insert (TableOperation/insert new-user)  
  ; In real production code we should check the result value, of course.  
  result (. users-table execute table-insert)]  
@@ -127,7 +127,7 @@ While working with the new Azure version I did some refactorings. I realized tha
  my-table (str "sseks-" my-env "-session")  
  ret (dynamodb/query (ss-aws-utils/get-dynamodb-config)  
  :table-name my-table  
- :select "ALL\_ATTRIBUTES"  
+ :select "ALL_ATTRIBUTES"  
  :key-conditions {:token {:attribute-value-list [token]  
  :comparison-operator "EQ"}})  
  items (ret :items)  

@@ -58,11 +58,11 @@ Truncating tables from old test data was trivial. I just needed two files: one b
 
 Loading new test data had two parts: Uploading new test data to S3 bucket and calling the COPY command.
 
-For uploading the modified test data sets I used [AWS CLI](https://aws.amazon.com/cli/), a bash one-liner basically: AWS\_PROFILE=my-dev-profile aws s3 cp $TESTDATA\_DIR/ s3://$S3\_BUCKET\_NAME/$TESTDATA\_DIR/ — recursive — exclude “*” — include “*.csv”
+For uploading the modified test data sets I used [AWS CLI](https://aws.amazon.com/cli/), a bash one-liner basically: AWS_PROFILE=my-dev-profile aws s3 cp $TESTDATA_DIR/ s3://$S3_BUCKET_NAME/$TESTDATA_DIR/ — recursive — exclude “*” — include “*.csv”
 
 The COPY commands were rather simple to create after terraforming of the test data infrastructure:
 
-COPY myschema.mytable FROM ‘s3://BUCKET/CHANGE\_DIRECTORY/testdata.csv’ iam\_role ‘arn:aws:iam::99999999999:role/my-redshift-copycommand-role’ DELIMITER ‘\t’ NULL AS ‘<null>’;
+COPY myschema.mytable FROM ‘s3://BUCKET/CHANGE_DIRECTORY/testdata.csv’ iam_role ‘arn:aws:iam::99999999999:role/my-redshift-copycommand-role’ DELIMITER ‘\t’ NULL AS ‘<null>’;
 
 … and of course some [bashing](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) with [sed](https://en.wikipedia.org/wiki/Sed) to create the actual sql file from that template and then feed it to [psql](http://postgresguide.com/utilities/psql.html).
 

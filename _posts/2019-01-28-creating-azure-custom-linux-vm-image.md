@@ -26,7 +26,7 @@ I’m using [Packer](https://www.packer.io/) which is quite widely used tool to 
 
 You need a service principal that Packer is going to use. You can easily create the service principal e.g. using Azure command line interface:
 
-az ad sp create-for-rbac --query "{ client\_id: appId, client\_secret: password, tenant\_id: tenant }"You get the service principal credentials. It is a good idea to create some environment file in your ~/.azure directory and export those variables there so you don’t need to write them in plain text in your scripts.
+az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"You get the service principal credentials. It is a good idea to create some environment file in your ~/.azure directory and export those variables there so you don’t need to write them in plain text in your scripts.
 
 ### Create the Packer Configuration File
 
@@ -48,7 +48,7 @@ Typically you cannot bake the parameters into the image since some of the inform
 
 Once you are ready with all these configuration files you can try to build a test virtual machine using azure command line interface (in the next blog post I describe how I create an Azure Scale set infrastructure using Terraform in which I use this VM image):
 
-az vm create --resource-group YOUR-RESOURCE-GROUP --name YOUR-VIRTUAL-MACHINE-NAME --image YOUR-VM-IMAGE-NAME --custom-data ../packer/cloud-init-set-env-mode-single-node.sh --ssh-key-value [@vm\_id\_rsa](http://twitter.com/vm_id_rsa "Twitter profile for @vm_id_rsa").pub --vnet-name YOUR-VNET --subnet YOUR-SUBNET --admin-username YOUR-USER-NAME --location YOUR-LOCATIONThe script starts creating the virtual machine and finally tells that the VM is ready and tells some information regarding the VM like the public IP — use the public IP and the ssh key you used previously to logon to the server and check if the application is running:
+az vm create --resource-group YOUR-RESOURCE-GROUP --name YOUR-VIRTUAL-MACHINE-NAME --image YOUR-VM-IMAGE-NAME --custom-data ../packer/cloud-init-set-env-mode-single-node.sh --ssh-key-value [@vm_id_rsa](http://twitter.com/vm_id_rsa "Twitter profile for @vm_id_rsa").pub --vnet-name YOUR-VNET --subnet YOUR-SUBNET --admin-username YOUR-USER-NAME --location YOUR-LOCATIONThe script starts creating the virtual machine and finally tells that the VM is ready and tells some information regarding the VM like the public IP — use the public IP and the ssh key you used previously to logon to the server and check if the application is running:
 
 ```bash
 ps aux | grep java  

@@ -29,22 +29,22 @@ These libraries are not that difficult to learn, you can basically learn to use 
 Let’s add a short Python REPL session example to visualize how you can use Python REPL to learn a new Python library and experiment with it before writing the actual code in your Python editor (by the way, my choice of Python IDE is excellent [PyCharm](https://www.jetbrains.com/pycharm/)).
 
 ```bash
->>> import src.ml\_course\_ex1a as ex1a  
->>> model = ex1a.ProfitPopulationLinearRegression("ml\_course\_ex1a.ini", True)  
+>>> import src.ml_course_ex1a as ex1a  
+>>> model = ex1a.ProfitPopulationLinearRegression("ml_course_ex1a.ini", True)  
 >>> (populations,profits) = model.readCsvFile("data/ex1a-profit-population.csv")  
 >>> len(populations)  
 97  
 >>> import numpy as np  
->>> populations\_array = np.asarray(populations)  
->>> populations\_array  
+>>> populations_array = np.asarray(populations)  
+>>> populations_array  
 array([ 6.1101, 5.5277, 8.5186, 7.0032, 5.8598, ...   
->>> X\_train = np.asarray(populations)  
->>> X\_train\_bias = model.appendBias(X\_train)  
->>> X\_train.shape  
+>>> X_train = np.asarray(populations)  
+>>> X_train_bias = model.appendBias(X_train)  
+>>> X_train.shape  
 (97,)  
->>> X\_train\_bias.shape  
+>>> X_train_bias.shape  
 (97, 2)  
->>> X\_train\_bias  
+>>> X_train_bias  
 array([[ 1. , 6.1101],  
  [ 1. , 5.5277],  
  [ 1. , 8.5186],
@@ -61,21 +61,21 @@ The real reason for this blog article was TensorFlow so let’s focus on that. T
 X = tf.placeholder(tf.float32, [None, n])  
 y = tf.placeholder(tf.float32, [None, 1])  
 W = tf.Variable(tf.ones([n,1]), name="weights")  
-init = tf.global\_variables\_initializer()  
-y\_prediction = tf.matmul(X, W) # As matrix multiplication in ex1.  
+init = tf.global_variables_initializer()  
+y_prediction = tf.matmul(X, W) # As matrix multiplication in ex1.  
 # Cost  
-J = (1 / (2 * m)) * tf.reduce\_sum(tf.pow(y\_prediction - y, 2))  
+J = (1 / (2 * m)) * tf.reduce_sum(tf.pow(y_prediction - y, 2))  
 step = tf.train.GradientDescentOptimizer(alpha).minimize(J)  
 sess = tf.Session()  
 sess.run(init)# For recording cost history.  
-J\_history = np.empty(shape=[1],dtype=float)  
+J_history = np.empty(shape=[1],dtype=float)  
 # Train iterations.  
 for i in range(iterations):  
- sess.run(step,feed\_dict={X:X\_train\_normalized\_bias, y:y\_train})  
- J\_history = np.append(J\_history,sess.run(J,feed\_dict={X:X\_train\_normalized\_bias,y:y\_train}))
+ sess.run(step,feed_dict={X:X_train_normalized_bias, y:y_train})  
+ J_history = np.append(J_history,sess.run(J,feed_dict={X:X_train_normalized_bias,y:y_train}))
 ```python
 
-In the above code we create a couple of TensorFlow variables, and then define the y\_prediction as matrix operation X * W (X = train set features, W = weights, or X * theta using Machine learning course terminology). Then we define the [cost function](https://en.wikipedia.org/wiki/Loss_function) as squared error (see in [Coursera](https://www.coursera.org/learn/machine-learning/lecture/rkTp3/cost-function) how prof. Ng describes it — the lectures were really good). Using TensorFlow to create a linear regression model like this is pretty straightforward once you have basic understanding of what linear regression is and how to get the weights (theta) using a [gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) algorithm (here we use TensorFlow’s [GradientDescentOptimizer](https://www.tensorflow.org/api_docs/python/tf/train/GradientDescentOptimizer) method to do the heavy lifting; in the Coursera course exercises we did this part using matrix calculation— doing the same thing using basic matrix operations was amazingly simple in Octave).
+In the above code we create a couple of TensorFlow variables, and then define the y_prediction as matrix operation X * W (X = train set features, W = weights, or X * theta using Machine learning course terminology). Then we define the [cost function](https://en.wikipedia.org/wiki/Loss_function) as squared error (see in [Coursera](https://www.coursera.org/learn/machine-learning/lecture/rkTp3/cost-function) how prof. Ng describes it — the lectures were really good). Using TensorFlow to create a linear regression model like this is pretty straightforward once you have basic understanding of what linear regression is and how to get the weights (theta) using a [gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) algorithm (here we use TensorFlow’s [GradientDescentOptimizer](https://www.tensorflow.org/api_docs/python/tf/train/GradientDescentOptimizer) method to do the heavy lifting; in the Coursera course exercises we did this part using matrix calculation— doing the same thing using basic matrix operations was amazingly simple in Octave).
 
 If you are interested about the source code you can take a look in my Github repo in that exercise [1-ml-course-ex1](https://github.com/karimarttila/ml-exercises/tree/master/exercises/2-linear-regression/1-ml-course-ex1) directory. The readme.md in that directory gives a more detailed explanation regarding the exercise. I plan to create more ML exercises using TensorFlow and I add the exercises to that directory when I have done them.
 

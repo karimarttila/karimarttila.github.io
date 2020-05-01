@@ -57,7 +57,7 @@ I realized that for a simple application like this exercise you don’t actually
 
 ### Rich Comments
 
-This is a trick I learned from one of Stuart Halloway’s excellent videos. Add at the end of your Clojure (production) file a “rich comment” which demonstrates how to use the entities defined in that namespace. Example from: [domain\_single\_node.clj](https://github.com/karimarttila/clojure/blob/master/webstore-demo/simple-server/src/simpleserver/domain/domain_single_node.clj):
+This is a trick I learned from one of Stuart Halloway’s excellent videos. Add at the end of your Clojure (production) file a “rich comment” which demonstrates how to use the entities defined in that namespace. Example from: [domain_single_node.clj](https://github.com/karimarttila/clojure/blob/master/webstore-demo/simple-server/src/simpleserver/domain/domain_single_node.clj):
 
 ```clojure
 (comment  

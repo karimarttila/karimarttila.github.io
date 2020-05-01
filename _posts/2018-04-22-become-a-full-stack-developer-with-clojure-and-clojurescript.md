@@ -65,7 +65,7 @@ The Simple Server is implemented using Clojure and some popular Clojure server s
 * [Buddy](https://github.com/funcool/buddy): A security library for Clojure.
 You can start the server with command:
 
-SIMPLESERVER\_CONFIG\_FILE=resources/simpleserver.properties lein with-profile +log-dev ring server-headlessThis starts the server in development mode which hot reloads the code while you are changing it in the IDE (no need for any specific hot reloading tools like in the Java side). I always implement a rather detailed trace log to my servers to make development easier (you can keep the console in one screen to see what’s happening in the server side while you are doing exploratory testing).
+SIMPLESERVER_CONFIG_FILE=resources/simpleserver.properties lein with-profile +log-dev ring server-headlessThis starts the server in development mode which hot reloads the code while you are changing it in the IDE (no need for any specific hot reloading tools like in the Java side). I always implement a rather detailed trace log to my servers to make development easier (you can keep the console in one screen to see what’s happening in the server side while you are doing exploratory testing).
 
 If you are interested about the server side development have a look at the session handling example I have written in the Simple Server’s [README.md — Session Handling chapter](https://github.com/karimarttila/clojure/blob/master/clj-ring-cljs-reagent-demo/simple-server/README.md#session-handling).
 

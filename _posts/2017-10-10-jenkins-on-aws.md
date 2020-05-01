@@ -28,26 +28,26 @@ I did some automation, however. The kind of automation that is easy and serves a
 
 "builders": [  
  {  
- "associate\_public\_ip\_address": "true",  
+ "associate_public_ip_address": "true",  
  "type": "amazon-ebs",  
  "region": "XXXX",  
- "source\_ami": "ami-785db401",  
- "instance\_type": "t2.small",  
- "ssh\_username": "XXX",  
- "subnet\_id": "subnet-XXXXX",  
- "vpc\_id": "vpc-XXXXX",  
- "ami\_name": "XXX-jenkins-ami-{{timestamp}}"  
+ "source_ami": "ami-785db401",  
+ "instance_type": "t2.small",  
+ "ssh_username": "XXX",  
+ "subnet_id": "subnet-XXXXX",  
+ "vpc_id": "vpc-XXXXX",  
+ "ami_name": "XXX-jenkins-ami-{{timestamp}}"  
  }I also added Packer to install some basic tools I was going to need like Git, Emacs etc. I could have added the installation of Jenkins itself in the packer script but I decided that I do it manually when the AMI is ready on AWS. When the new AMI was built by Packer, I launched it using AWS Console and once the server was up and running I logged on to check everything was good. Then I terminated the EC2.
 
 The next step was to create the Terraform scripts to create the AWS infra around Jenkins — that is definitely something you want to automate also in a one-time deployment like this. One reason is that you get an excellent documentation regarding your AWS infrastructure in the form of Terraform code, and another reason is that using Terraform it is kind of easier to see your infrastructure in one glance in a couple of configuration files where all components are glued nicely together than to navigate in various AWS console views to figure out where everything is. So, I created a dedicated small (t2.nano EC2 server) bastion host for my Jenkins server (so that all connections to my Jenkins server go through bastion host, an extra onion level of security). I configured a security group for the bastion host to accept SSH connections only from my IP address (and later developers can add their IP addresses). I also configured a SSH key for this bastion host. Then I created a bigger EC2 server type with bigger disk for my Jenkins server with another security group accepting connections only from my bastion host to ports 22 (SSH) and 8080 (Jenkins http port), and another SSH key. I also decided to create a poor man’s backup service for my Jenkins server. So I created a S3 bucket for backups and an AWS IAM policy for the EC2 server to allow storing backup files to that S3 bucket. And of course I added the AMI identifier I previously got to be used with the Jenkins server EC2. Below some examples regarding Terraform automation.
 
-resource "aws\_instance" "ci\_jenkins\_server" {  
+resource "aws_instance" "ci_jenkins_server" {  
  ami = "ami-XXXXX"  
- instance\_type = "t2.medium"  
- subnet\_id = "${var.subnet\_id}"  
- key\_name = "${var.instance\_ssh\_key\_name}"  
- vpc\_security\_group\_ids = ["${aws\_security\_group.ci\_jenkins\_server\_sg.id}"]  
- iam\_instance\_profile = "${aws\_iam\_instance\_profile.ci\_jenkins\_instance\_profile.name}"  
+ instance_type = "t2.medium"  
+ subnet_id = "${var.subnet_id}"  
+ key_name = "${var.instance_ssh_key_name}"  
+ vpc_security_group_ids = ["${aws_security_group.ci_jenkins_server_sg.id}"]  
+ iam_instance_profile = "${aws_iam_instance_profile.ci_jenkins_instance_profile.name}"  
 ...The Jenkins installation itself I did pretty much manually. You could automate this part e.g. using [Ansible](https://www.ansible.com/) but since this was pretty much a one-time task I didn’t want to automate these parts but did them mostly manually. I knew that once all configurations are ready I was about to create a new AMI from this manually baked EC2 instance — and that would be my final AMI to be used in Terraform configuration.
 
 So, earlier I had chosen Ubuntu as the basic AMI so installing Jenkins is just calling “sudo apt-get install jenkins”. Then get the initial admin password and logon to Jenkins using the web console (before that you create an SSH tunnel via your bastion host from localhost to Jenkins EC2 port 8080, of course).
@@ -58,7 +58,7 @@ wget <http://localhost:8080/jnlpJars/jenkins-cli.jar>I had a lengthy list of Jen
 
 Then I created a dedicated Jenkins user to my team’s Github team and created a key pair for Jenkins server to be used as an authentication method to our team’s Github projects. Another solution would be to configure [OAuth](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) which would be a bit more transparent but let’s do that another time.
 
-We are almost there. Next step is to configure email so that developers can subscribe emails of failed builds. I used AWS [Simple Email Service](https://aws.amazon.com/ses/) (SES) for sending emails. I created IAM user with policy “ses:SendRawEmail”, i.e. the IAM user can just send emails. Then I added this user’s AWS credentials to Jenkins so that Jenkins can use this IAM user’s credentials to call SES service. Remember to register your email address to SES service and verify the address or SES won’t send the emails to you. Also remember to add plugins [email-ext](https://wiki.jenkins.io/display/JENKINS/Email-ext+plugin) and [emailext-template](https://wiki.jenkins.io/display/JENKINS/Email-ext+Template+Plugin) to your plugins.txt or install them manually. Also verify that your company’s email service is not accidentally migrated the very day you are doing the configurations. (As happened to me, can you believe the coincidence? After testing with “cat ses-input.txt | openssl s\_client -crlf -quiet -connect <aws-email-server>:465” and figuring out that it sends emails to my personal address but not company address I remembered reading in the intranet about the email migration, damn.)
+We are almost there. Next step is to configure email so that developers can subscribe emails of failed builds. I used AWS [Simple Email Service](https://aws.amazon.com/ses/) (SES) for sending emails. I created IAM user with policy “ses:SendRawEmail”, i.e. the IAM user can just send emails. Then I added this user’s AWS credentials to Jenkins so that Jenkins can use this IAM user’s credentials to call SES service. Remember to register your email address to SES service and verify the address or SES won’t send the emails to you. Also remember to add plugins [email-ext](https://wiki.jenkins.io/display/JENKINS/Email-ext+plugin) and [emailext-template](https://wiki.jenkins.io/display/JENKINS/Email-ext+Template+Plugin) to your plugins.txt or install them manually. Also verify that your company’s email service is not accidentally migrated the very day you are doing the configurations. (As happened to me, can you believe the coincidence? After testing with “cat ses-input.txt | openssl s_client -crlf -quiet -connect <aws-email-server>:465” and figuring out that it sends emails to my personal address but not company address I remembered reading in the intranet about the email migration, damn.)
 
 Now we are almost there. The final part. Adding jobs and testing that everything works. Configure Jenkinsfile in your Git project, e.g.
 

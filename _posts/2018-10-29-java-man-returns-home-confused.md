@@ -56,7 +56,7 @@ import io.jsonwebtoken.SignatureAlgorithm
 import io.jsonwebtoken.security.Keys  
 import java.security.Key  
 field Key key = javax.crypto.spec.SecretKeySpec@5883e04  
-field String jws = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKYW1wcGEifQ.PjF1ilMY\_iq96wTE8ptDRH\_zGaIrTU-mYmjy3SZmnos"  
+field String jws = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKYW1wcGEifQ.PjF1ilMY_iq96wTE8ptDRH_zGaIrTU-mYmjy3SZmnos"  
 field String name = "Jamppa"
 ```
 
@@ -107,7 +107,7 @@ Here we test API /product-groups which returns a simple JSON map. See how comple
 ```java
 @Test  
  void getProductGroupsTest() throws Exception {  
- logger.debug(SSConsts.LOG\_ENTER);  
+ logger.debug(SSConsts.LOG_ENTER);  
  HashMap<String, String> productGroups = new HashMap<>();  
  productGroups.put("1", "Books");  
  productGroups.put("2", "Movies");  
@@ -117,9 +117,9 @@ Here we test API /product-groups which returns a simple JSON map. See how comple
  String expectedResultJson = new JSONObject(expectedResult).toString();  
  String encodedJwt = getEncodedJwt(); MockHttpServletRequestBuilder builder = MockMvcRequestBuilders  
  .get("/product-groups")  
- .contentType(MediaType.APPLICATION\_JSON\_UTF8)  
+ .contentType(MediaType.APPLICATION_JSON_UTF8)  
  .header("Authorization", "Basic " + encodedJwt)  
- .accept(MediaType.APPLICATION\_JSON\_UTF8);  
+ .accept(MediaType.APPLICATION_JSON_UTF8);  
  MvcResult mvcResult = this.mockMvc.perform(builder)  
  .andExpect(MockMvcResultMatchers.status().isOk())  
  .andExpect(MockMvcResultMatchers.content().string(expectedResultJson))  

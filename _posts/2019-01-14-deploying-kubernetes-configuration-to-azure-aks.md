@@ -24,7 +24,7 @@ There are two dependencies for this Kubernetes exercise:
 * The Simple Server Docker image project which can be found in my [Github account](https://github.com/karimarttila/docker/tree/master/demo-images/simple-server/clojure).
 ### Kubernetes Deployment Configuration
 
-There are two Kubernetes configuration files: “[simple-server-namespace-template.yml](https://github.com/karimarttila/kubernetes/blob/master/simple-server/simple-server-namespace-template.yml)” and “[simple-server-deployment-template.yml](https://github.com/karimarttila/kubernetes/blob/master/simple-server/simple-server-deployment-template.yml)”. The configuration files are full of “REPLACE\_SOMETHING” strings so that I could use the same configuration files to deploy two different versions of the same Simple Server: the single-node test version and the table-storage version (uses Azure Table Storage as database, see my previous blog post: “[Azure Table Storage with Clojure](https://medium.com/@kari.marttila/azure-table-storage-with-clojure-12055e02985c)”). The deployment configuration files also support two Kubernetes clusters: Minikube test Kubernetes cluster and [Azure Kubernetes Service](https://azure.microsoft.com/en-us/services/kubernetes-service/) (AKS) Kubernetes cluster (which I created in my previous exercise and described in my previous blog post “[Creating Azure Kubernetes Service (AKS) the Right Way](https://medium.com/@kari.marttila/creating-azure-kubernetes-service-aks-the-right-way-9b18c665a6fa)”).
+There are two Kubernetes configuration files: “[simple-server-namespace-template.yml](https://github.com/karimarttila/kubernetes/blob/master/simple-server/simple-server-namespace-template.yml)” and “[simple-server-deployment-template.yml](https://github.com/karimarttila/kubernetes/blob/master/simple-server/simple-server-deployment-template.yml)”. The configuration files are full of “REPLACE_SOMETHING” strings so that I could use the same configuration files to deploy two different versions of the same Simple Server: the single-node test version and the table-storage version (uses Azure Table Storage as database, see my previous blog post: “[Azure Table Storage with Clojure](https://medium.com/@kari.marttila/azure-table-storage-with-clojure-12055e02985c)”). The deployment configuration files also support two Kubernetes clusters: Minikube test Kubernetes cluster and [Azure Kubernetes Service](https://azure.microsoft.com/en-us/services/kubernetes-service/) (AKS) Kubernetes cluster (which I created in my previous exercise and described in my previous blog post “[Creating Azure Kubernetes Service (AKS) the Right Way](https://medium.com/@kari.marttila/creating-azure-kubernetes-service-aks-the-right-way-9b18c665a6fa)”).
 
 ### Deployment to Minikube
 
@@ -75,7 +75,7 @@ args: ["-c", "while true; do echo hello; sleep 10;done"]The idea is to override 
 
 Then check the pod identifier and use the pod identifier to get an interactive bash to the pod:
 
-kubectl get pods --namespace $MY\_NS # => Get pod identifier, and use it in the next command:  
+kubectl get pods --namespace $MY_NS # => Get pod identifier, and use it in the next command:  
 kubectl exec -it kari-ss-table-storage-deployment-86b6d498ff-zdqq2 --namespace kari-ss-table-storage-ns /bin/bashVoila! You get the pod running and you can get an interactive bash session in the pod. Now you can examine the environmental variables to see what is the problem (or examine what ever you need to examine there).
 
 ### Conclusions

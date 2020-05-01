@@ -14,10 +14,11 @@ date:	2019-01-30
 
 This is the second part of the Azure Custom Linux VM Image and Scale Set related blog series that I initially thought that there will be only two parts. But then I realized that I’m going to use this exercise to study some Azure security and logging as well. So the series will be:
 
-* [Creating Azure Custom Linux VM Image](https://medium.com/@kari.marttila/creating-azure-custom-linux-vm-image-46f2a15c95bc) — done.
+* [Creating Azure Custom Linux VM Image]({% post_url 2019-01-28-creating-azure-custom-linux-vm-image %}) — done.
 * Creating Azure Scale Set with Custom Linux VM Image — done (this blog post).
 * Configuring Azure Scale Set Security (next blog post, I’m going to review infra’s security features: network security groups, implement a bastion host etc.).
 * Configuring Azure Scale Set Logging (the final blog post of this series — probably, unless I figure out something else interesting to study using this exercise).
+
 So, in this blog post I continued my Azure Custom Linux VM exercise and implemented an Azure [Scale Set](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview) in which I use the custom linux VM I implemented in the previous exercise.
 
 You can find the previous custom VM linux code in the packer folder and the Azure scale set infra code in the terraform folder in my [Github repository](https://github.com/karimarttila/azure/tree/master/simple-server-vm).
@@ -34,22 +35,22 @@ Once again I created a [dev.tf](https://github.com/karimarttila/azure/blob/maste
 # These values are per environment.  
 locals {  
 ...  
- application\_port = "3045"  
+ application_port = "3045"  
  # NOTE: The custom image must have been created by Packer previously.  
- **scaleset\_image\_name** = "karissvmdemo5-vm-image"  
- **scaleset\_capacity** = "2"  
+ scaleset_image_name = "karissvmdemo5-vm-image"  
+ scaleset_capacity** = "2"  
  # Single-node test mode Cloud-init file:  
- #scaleset\_vm\_custom\_data\_file = "/mnt/edata/aw/kari/github/azure/simple-server-vm/packer/cloud-init-set-env-mode-single-node.sh"  
+ #scaleset_vm_custom_data_file = "/mnt/edata/aw/kari/github/azure/simple-server-vm/packer/cloud-init-set-env-mode-single-node.sh"  
  # Azure table storage real mode Cloud-init file:  
- **scaleset\_vm\_custom\_data\_file** = "/mnt/edata/aw/kari/github/azure/simple-server-vm/personal-info/cloud-init-set-env-mode-azure-table-storage.sh"  
+ scaleset_vm_custom_data_file = "/mnt/edata/aw/kari/github/azure/simple-server-vm/personal-info/cloud-init-set-env-mode-azure-table-storage.sh"  
 }# Here we inject our values to the environment definition module which creates all actual resources.  
 module "env-def" {  
  source = "../../modules/env-def"  
-...  
- **scaleset\_image\_name** = "${local.scaleset\_image\_name}"  
- application\_port = "${local.application\_port}"  
- **scaleset\_capacity** = "${local.scaleset\_capacity}"  
- **scaleset\_vm\_custom\_data\_file** = "${local.scaleset\_vm\_custom\_data\_file}"  
+#...  
+ scaleset_image_name** = "${local.scaleset_image_name}"  
+ application_port = "${local.application_port}"  
+ **scaleset_capacity** = "${local.scaleset_capacity}"  
+ **scaleset_vm_custom_data_file** = "${local.scaleset_vm_custom_data_file}"  
 }
 ```
 
@@ -69,37 +70,37 @@ module "main-resource-group" {
 ...  
 }
 module "vnet" {  
-...module "table\_storage\_account" {  
-...module "storage\_tables" {  
+...module "table_storage_account" {  
+...module "storage_tables" {  
 ...module "scale-set" {  
 ...  
-scaleset\_image\_name** = "${var.scaleset\_image\_name}"  
- subnet\_id = "${module.vnet.private\_scaleset\_subnet\_id}"  
- vm\_ssh\_public\_key\_file = "${var.vm\_ssh\_public\_key\_file}"  
- **scaleset\_capacity** = "${var.scaleset\_capacity}"  
- **scaleset\_vm\_custom\_data\_file** = "${var.scaleset\_vm\_custom\_data\_file}"  
+scaleset_image_name** = "${var.scaleset_image_name}"  
+ subnet_id = "${module.vnet.private_scaleset_subnet_id}"  
+ vm_ssh_public_key_file = "${var.vm_ssh_public_key_file}"  
+ **scaleset_capacity** = "${var.scaleset_capacity}"  
+ **scaleset_vm_custom_data_file** = "${var.scaleset_vm_custom_data_file}"  
 }
 ```
 
-I hope you noticed that we get the **scaleset\_image\_name**, **scaleset\_capacity** and **scaleset\_vm\_custom\_data\_file** as parameters from the dev.tf — i.e. the development environment definition to this high level infrastructure definition and we then pass those values to the [scale-set.tf](https://github.com/karimarttila/azure/tree/master/simple-server-vm/terraform/modules/scale-set) module.
+I hope you noticed that we get the **scaleset_image_name**, **scaleset_capacity** and **scaleset_vm_custom_data_file** as parameters from the dev.tf — i.e. the development environment definition to this high level infrastructure definition and we then pass those values to the [scale-set.tf](https://github.com/karimarttila/azure/tree/master/simple-server-vm/terraform/modules/scale-set) module.
 
 #### Scale Set
 
-The Azure [Scale set](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview) is a mechanism that provides elasticity for a virtual machine based computing model. You can easily scale out and in the VMs — just change the **scaleset\_capacity** parameter value in your environment terraform code and apply changes to the environment. (By the way, you should **never touch the infrastructure e.g. using Portal** if your infra is managed using some infra as code tool like Terraform — always keep all changes in the infrastructure code to keep the environments consistent, read more about that e.g. in my previous blog post “[How to Create and Manage Resources in Amazon Web Services Infrastructure?](https://medium.com/tieto-developers/how-to-create-and-manage-resources-in-amazon-web-services-infrastructure-f9af85b77c4a)” which is written in the AWS side but the cloud infrastructure best practices apply the same way in the Azure side.)
+The Azure [Scale set](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview) is a mechanism that provides elasticity for a virtual machine based computing model. You can easily scale out and in the VMs — just change the **scaleset_capacity** parameter value in your environment terraform code and apply changes to the environment. (By the way, you should **never touch the infrastructure e.g. using Portal** if your infra is managed using some infra as code tool like Terraform — always keep all changes in the infrastructure code to keep the environments consistent, read more about that e.g. in my previous blog post “[How to Create and Manage Resources in Amazon Web Services Infrastructure?](https://medium.com/tieto-developers/how-to-create-and-manage-resources-in-amazon-web-services-infrastructure-f9af85b77c4a)” which is written in the AWS side but the cloud infrastructure best practices apply the same way in the Azure side.)
 
 So, below we see the actual “scaleset” resource in the “scale-set” module, you can see how we are finally using those parameters with this cloud resource:
 
 ```bash
-data "azurerm\_image" "scaleset\_image\_reference" {  
- name = **"${var.scaleset\_image\_name}"**  
- resource\_group\_name = "${var.rg\_name}"  
-}resource "azurerm\_virtual\_machine\_scale\_set" "scaleset" {  
+data "azurerm_image" "scaleset_image_reference" {  
+ name = **"${var.scaleset_image_name}"**  
+ resource_group_name = "${var.rg_name}"  
+}resource "azurerm_virtual_machine_scale_set" "scaleset" {  
 ...  
 sku {  
 ..  
-** capacity = "${var.scaleset\_capacity}"**  
- }storage\_profile\_image\_reference {  
- **id="${data.azurerm\_image.scaleset\_image\_reference.id}"**  
+** capacity = "${var.scaleset_capacity}"**  
+ }storage_profile_image_reference {  
+ **id="${data.azurerm_image.scaleset_image_reference.id}"**  
  }  
 ```
 
@@ -107,7 +108,7 @@ sku {
 
 So, what’s the purpose of this? This way we can create as many environments as we want and those **environments are as exact copies** of each other as we want — and using these parameters we can make controlled variations to the environments. Let’s have an example. We have been developing a web store system — the requirement of this project is that the application binary needs to be baked into a Linux image and should be running elastically in a scale set — we are going to double the computing capacity (virtual machines) before Christmas sale. Ok, the development has been going on for a few months and the first version of the web store application and the the Azure infrastructure have been ready for some time and the system is running smoothly in production. While the web store Linux image v. 1.0 is running in production (e.g. in our terraform prod environment), the QA team is testing the next version of the web store 1.1 which is deployed in to the QA environment (e.g. in our terraform qa environment with image 1.1). At the same time our development team is implementing the web store version 1.2 (in our terraform dev environment). The team’s continuous integration (CI) server gets triggered every time someone commits application code to team’s git repository. The CI server builds the application, runs all unit and integration tests and if everything is fine this far the CI server starts to the automatic new image (v. 1.2.z) building process (see folder [packer](https://github.com/karimarttila/azure/tree/master/simple-server-vm/packer) — this could be automated quite easily). When the new image is ready the CI server deploys the image to the development environment and runs all end-to-end tests in that environment.
 
-So, let’s go back to those parameters. Using parameter **scaleset\_image\_name** we can inject a specific image to be used in a specific environment (as in the example: image 1.0 in production, image 1.1 in QA and image 1.2 in development). Using parameter **scaleset\_capacity** we can choose in how detail we want to simulate the actual production environment. Perhaps in the development environment we run only a couple of VMs to cut some expenses, but in QA and performance testing environments we want to use the same number of VMs as is running in the production to get more assurance that our testing results apply to production environment as well.
+So, let’s go back to those parameters. Using parameter **scaleset_image_name** we can inject a specific image to be used in a specific environment (as in the example: image 1.0 in production, image 1.1 in QA and image 1.2 in development). Using parameter **scaleset_capacity** we can choose in how detail we want to simulate the actual production environment. Perhaps in the development environment we run only a couple of VMs to cut some expenses, but in QA and performance testing environments we want to use the same number of VMs as is running in the production to get more assurance that our testing results apply to production environment as well.
 
 ### Testing the Azure Scale Set with a Custom Linux VM
 
