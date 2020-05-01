@@ -116,11 +116,11 @@ Headers used in the table:
 
 Let's visualize the data to make it more readable.
 
-![](/img/1*PJLYpebyVo9K7dtBqLFWZg.png)
+![](/img/2018-11-19-five-languages-five-stories_img_2.png)
 
 *Lines of code.*
 
-![](/img/2018-11-19-five-languages-five-stories_img_2.png)
+![](/img/2018-11-19-five-languages-five-stories_img_3.png)
 
 *Source code files.*
 
