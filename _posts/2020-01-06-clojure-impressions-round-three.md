@@ -20,7 +20,7 @@ This Clojure Simple Server is a re-implementation of my original Clojure Simple 
 * [Become a Full Stack Developer with Clojure and ClojureScript!]({% post_url 2018-04-22-become-a-full-stack-developer-with-clojure-and-clojurescript %})
 * [Five Languages — Five Stories]({% post_url 2018-11-19-five-languages-five-stories %})
 
-In this new “Clojure Impressions Round Three” blog post I document some new Clojure programming practices I learned doing this new Clojure exercise.
+In this new "Clojure Impressions Round Three" blog post I document some new Clojure programming practices I learned doing this new Clojure exercise.
 
 You can find the project in [Github](https://github.com/karimarttila/clojure/tree/master/webstore-demo/simple-server).
 
@@ -30,7 +30,7 @@ I watched [Chicago Clojure — 2017–06–21 — Stuart Halloway on Repl Driven
 
 1. [**src**](https://github.com/karimarttila/clojure/tree/master/webstore-demo/simple-server/src): the actual production source code. This code will be packaged as the production deployment that runs the application in production. Will be added also into the Git repository, of course.
 2. [**test**](https://github.com/karimarttila/clojure/tree/master/webstore-demo/simple-server/test): the test source code. This code is for testing purposes and is not shipped into production but will be added also into the Git repository, of course (e.g. to be run in the CI server).
-3. [**dev-src**](https://github.com/karimarttila/clojure/tree/master/webstore-demo/simple-server/dev-src): the development source code. This code is just for development purposes and you don’t necessarily add this code into the git repository (and you don’t package this code as part of the deployment unit, of course). I have added this code also in the Git repository for educational purposes. In this directory I have two files:
+3. [**dev-src**](https://github.com/karimarttila/clojure/tree/master/webstore-demo/simple-server/dev-src): the development source code. This code is just for development purposes and you don't necessarily add this code into the git repository (and you don't package this code as part of the deployment unit, of course). I have added this code also in the Git repository for educational purposes. In this directory I have two files:
 * [**mydev.clj**](https://github.com/karimarttila/clojure/blob/master/webstore-demo/simple-server/dev-src/mydev.clj): auxiliary functions to call APIs for experimental testing etc.
 * [**myscratch.clj**](https://github.com/karimarttila/clojure/blob/master/webstore-demo/simple-server/dev-src/myscratch.clj): the REPL scratch file I talked earlier. This file is pure unstructured mind flow. The idea of this file is what Stuart Halloway is talking about in the above mentioned presentation: do not write code in the REPL editor but in a scratch file. So, in this file I experimented various things when developing the application — take a look to have an idea what I was thinking about when developing the application.
 In my scratch file I have experimental code or various short Clojure code snippets e.g. to start the server and test something quickly. Example:
@@ -49,15 +49,15 @@ In my scratch file I have experimental code or various short Clojure code snippe
  
  I.e. jump into the right namespace, start the server, curl one api, stop the server and go back to user namespace. You can run the S-expression in the scratch file with one hotkey, of course (more about configuring Clojure hot keys in my next blog post, so stay tuned!).
 
-So, if you are learning Clojure I strongly recommend to learn efficient REPL practices, e.g. watch the above mentioned Stuart Halloway’s presentation. Another great resource for learning efficient Clojure REPL practices is Eric Normand’s excellent [REPL Driven Development](https://purelyfunctional.tv/courses/repl-driven-development-in-clojure/) course. REPL is the very heart and soul of Clojure development — learn to use it.
+So, if you are learning Clojure I strongly recommend to learn efficient REPL practices, e.g. watch the above mentioned Stuart Halloway's presentation. Another great resource for learning efficient Clojure REPL practices is Eric Normand's excellent [REPL Driven Development](https://purelyfunctional.tv/courses/repl-driven-development-in-clojure/) course. REPL is the very heart and soul of Clojure development — learn to use it.
 
 ### You Can Do It Without Application State Management Libraries
 
-I realized that for a simple application like this exercise you don’t actually need some Clojure application state management library (like Component, Mount or Integrant). And personally I also realized that it is better to learn to compile your Clojure code in those three categories (individual S-expression, def and defn top forms and the whole namespace) when you change something than just blindly *“refresh all namespaces and rely some application state management library dependency graph magic to do it for you so that you don’t need fully to understand what actually happened”.* Well, this is my personal feeling and there might be reasons for more complex applications to use some real application state management library — let’s see when I have a chance to do something more complex using Clojure hopefully in the near future. So, my recommendation is first to try to manage without any application state management library and try to understand how to compile and load certain Clojure constructs manually.
+I realized that for a simple application like this exercise you don't actually need some Clojure application state management library (like Component, Mount or Integrant). And personally I also realized that it is better to learn to compile your Clojure code in those three categories (individual S-expression, def and defn top forms and the whole namespace) when you change something than just blindly *"refresh all namespaces and rely some application state management library dependency graph magic to do it for you so that you don't need fully to understand what actually happened".* Well, this is my personal feeling and there might be reasons for more complex applications to use some real application state management library — let's see when I have a chance to do something more complex using Clojure hopefully in the near future. So, my recommendation is first to try to manage without any application state management library and try to understand how to compile and load certain Clojure constructs manually.
 
 ### Rich Comments
 
-This is a trick I learned from one of Stuart Halloway’s excellent videos. Add at the end of your Clojure (production) file a “rich comment” which demonstrates how to use the entities defined in that namespace. Example from: [domain_single_node.clj](https://github.com/karimarttila/clojure/blob/master/webstore-demo/simple-server/src/simpleserver/domain/domain_single_node.clj):
+This is a trick I learned from one of Stuart Halloway's excellent videos. Add at the end of your Clojure (production) file a "rich comment" which demonstrates how to use the entities defined in that namespace. Example from: [domain_single_node.clj](https://github.com/karimarttila/clojure/blob/master/webstore-demo/simple-server/src/simpleserver/domain/domain_single_node.clj):
 
 ```clojure
 (comment  
@@ -69,7 +69,7 @@ I.e. a comment S-expression defines valid Clojure code that gets parsed *but not
 
 ### Debugger
 
-You don’t need a debugger with Clojure. :-) There is a debugger in IntelliJ IDEA + Cursive (and in Emacs + Cider), but I only once tried that it works. If you want to learn good debugging practices in Clojure you need to learn to use the REPL efficiently. Good resources are the above mentioned [REPL Driven Development](https://purelyfunctional.tv/courses/repl-driven-development-in-clojure/) course and [Chicago Clojure — 2017–06–21 — Stuart Halloway on Repl Driven Development](https://vimeo.com/223309989) video. E.g. in that video Stuart shows how to implement a simple breakpoint using Cursive — i.e. create your own debugger!
+You don't need a debugger with Clojure. :-) There is a debugger in IntelliJ IDEA + Cursive (and in Emacs + Cider), but I only once tried that it works. If you want to learn good debugging practices in Clojure you need to learn to use the REPL efficiently. Good resources are the above mentioned [REPL Driven Development](https://purelyfunctional.tv/courses/repl-driven-development-in-clojure/) course and [Chicago Clojure — 2017–06–21 — Stuart Halloway on Repl Driven Development](https://vimeo.com/223309989) video. E.g. in that video Stuart shows how to implement a simple breakpoint using Cursive — i.e. create your own debugger!
 
 ### Linting
 
@@ -87,7 +87,7 @@ Starting the unit tests in command line takes some time since Clojure needs to b
 
 ### Using IntelliJ IDEA + Cursive and Emacs + Cider Interchangeably
 
-I used [IntelliJ IDEA](https://www.jetbrains.com/idea/) + [Cursive](https://cursive-ide.com/) plugin when implementing this Clojure exercise but just out of curiosity I wanted to try how it feels like to use [Emacs](https://www.gnu.org/software/emacs/) +[Cider](https://github.com/clojure-emacs/cider) when programming Clojure. The experience was quite pleasant. I managed to configure Emacs with the same theme I use with IntelliJ ([leuven](https://github.com/fniessen/emacs-leuven-theme) — mostly the same colors for the same syntactic/semantic entities) and the same hotkeys to compile code regarding one S-expression or the whole namespace, run all tests in the namespace or just the test under cursor etc. It took some time and some googling regarding Emacs [elisp](https://www.gnu.org/software/emacs/manual/html_node/elisp/) but finally I was pretty satisfied: now I can quite effortlessly use either IntelliJ IDEA + Cursive or Emacs + Cider when developing Clojure code — and the look-and-feel is pretty much the same. Why? Well, e.g. you can use Emacs + Cider in headless environments where you don’t have GUI.
+I used [IntelliJ IDEA](https://www.jetbrains.com/idea/) + [Cursive](https://cursive-ide.com/) plugin when implementing this Clojure exercise but just out of curiosity I wanted to try how it feels like to use [Emacs](https://www.gnu.org/software/emacs/) +[Cider](https://github.com/clojure-emacs/cider) when programming Clojure. The experience was quite pleasant. I managed to configure Emacs with the same theme I use with IntelliJ ([leuven](https://github.com/fniessen/emacs-leuven-theme) — mostly the same colors for the same syntactic/semantic entities) and the same hotkeys to compile code regarding one S-expression or the whole namespace, run all tests in the namespace or just the test under cursor etc. It took some time and some googling regarding Emacs [elisp](https://www.gnu.org/software/emacs/manual/html_node/elisp/) but finally I was pretty satisfied: now I can quite effortlessly use either IntelliJ IDEA + Cursive or Emacs + Cider when developing Clojure code — and the look-and-feel is pretty much the same. Why? Well, e.g. you can use Emacs + Cider in headless environments where you don't have GUI.
 
 Emacs with various helpful packages like [company](https://company-mode.github.io/), [projectile](https://github.com/bbatsov/projectile), [clojure-mode](https://github.com/clojure-emacs/clojure-mode), [cider](https://github.com/clojure-emacs/cider), [eldoc-mode](https://www.emacswiki.org/emacs/ElDoc) turn Emacs to quite a powerful integrated development environment for Clojure. I recommend you to give Emacs a try. But I must say that I think I will stick with IntelliJ IDEA + Cursive when programming Clojure — IntelliJ is just a superb IDE.
 
@@ -101,4 +101,4 @@ I hope this exercise is helpful also for someone learning Clojure. I have tried 
 
 Kari Marttila
 
-* Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
+* Kari Marttila's Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>

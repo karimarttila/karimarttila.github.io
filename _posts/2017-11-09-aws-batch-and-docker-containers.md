@@ -14,13 +14,13 @@ date: 2017-11-09
 
 There are two very typical use cases in enterprise software: [API](https://en.wikipedia.org/wiki/Application_programming_interface) and [Batch processing](https://en.wikipedia.org/wiki/Batch_processing). For API work AWS provides a lot of useful services: you can bake your API into an [Amazon Machine Image](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) (AMI), [Docker](https://www.docker.com/) container using [EC2 Container Service](https://aws.amazon.com/ecs/) (ECS), utilize [Auto scaling](https://aws.amazon.com/autoscaling/) for elasticity, possibly use [API Gateway](https://aws.amazon.com/api-gateway/) to publish your API (not necessary even some junior developers assume that you have to publish your APIs using AWS API Gateway) etc.
 
-For batch processing you usually don’t have such strict latency requirements as in API processing, error handling can be more relaxed etc. Typical batch processing tasks are e.g. to do some nightly analysis, do reports and send them to some integrations etc.
+For batch processing you usually don't have such strict latency requirements as in API processing, error handling can be more relaxed etc. Typical batch processing tasks are e.g. to do some nightly analysis, do reports and send them to some integrations etc.
 
 ### AWS Batch
 
-If you need to do some batch processing AWS provides an excellent framework for it: [AWS Batch](https://aws.amazon.com/batch/). Using AWS Batch you don’t have to reinvent the batch processing framework wheel, you get all necessary entities nicely glued together: Computing environment, job definitions, job queues and batch orchestration. Your batches are elastic: AWS Batch takes care of the needed capacity to run your batch jobs efficiently. Let’s take a closer developer’s point of view at the AWS Batch.
+If you need to do some batch processing AWS provides an excellent framework for it: [AWS Batch](https://aws.amazon.com/batch/). Using AWS Batch you don't have to reinvent the batch processing framework wheel, you get all necessary entities nicely glued together: Computing environment, job definitions, job queues and batch orchestration. Your batches are elastic: AWS Batch takes care of the needed capacity to run your batch jobs efficiently. Let's take a closer developer's point of view at the AWS Batch.
 
-The original AWS Batch archicture and CloudFormation setup described in this blog article was done by my brother in arms in AWS battles, distingueshed AWS Guru [Timo Tapanainen](https://www.linkedin.com/in/timo-tapanainen/), so let’s give him most of the credit regarding the information we are sharing here.
+The original AWS Batch archicture and CloudFormation setup described in this blog article was done by my brother in arms in AWS battles, distingueshed AWS Guru [Timo Tapanainen](https://www.linkedin.com/in/timo-tapanainen/), so let's give him most of the credit regarding the information we are sharing here.
 
 ### The Batch Application
 
@@ -28,9 +28,9 @@ You need some business logic to run in your batch processing, of course. Maybe t
 
 Ok. You are ready with your application. You have tested application logic with your local tests and with integration tests in AWS. What next? You need to create a deployment unit, that is to bake your application e.g. either into an Amazon Machine Image to be deployed to EC2, or bake the application into a Docker container to be run in AWS ECS. Batch processing typically is stateless activity — you fetch data, create report, store report, end of story (at least for that night). This is a perfect use case for a Docker container: Docker containers can be booted in milliseconds, they do their job and once the job is over you stop or terminate the container. Using AWS Batch with Docker containers is a perfect mach. If you have to create e.g. 10.000 reports with different parameters every night, create one AWS Batch Job definition, and trigger it every night e.g. using Lambda to create 10.000 Batch jobs with different parameters in each. You can configure AWS Batch to run these jobs in parallel — this way you can process a lot of even long lasting batch jobs during a short period of time.
 
-We have already covered using Dockers in AWS context in another blog post ([How to Create Docker Containers in AWS?](https://medium.com/tieto-developers/how-to-create-docker-containers-in-aws-3134daec423c)), but let’s iterate here the process from the AWS Batch point of view.
+We have already covered using Dockers in AWS context in another blog post ([How to Create Docker Containers in AWS?](https://medium.com/tieto-developers/how-to-create-docker-containers-in-aws-3134daec423c)), but let's iterate here the process from the AWS Batch point of view.
 
-Creating a docker image is rather staightforward. You create a Dockerfile in which you tell what kind of stuff you need in your application, configure entrypoint to application etc. Let’s skip that part and show how to ask your Continuous server to build the docker image after every successful build:
+Creating a docker image is rather staightforward. You create a Dockerfile in which you tell what kind of stuff you need in your application, configure entrypoint to application etc. Let's skip that part and show how to ask your Continuous server to build the docker image after every successful build:
 
 ![](/img/2017-11-09-aws-batch-and-docker-containers_img_2.png)
 
@@ -44,7 +44,7 @@ Docker deploy to AWS ECS.All right! You are ready to rock and roll with your Doc
 
 ### The AWS Batch CloudFormation Stack
 
-When we started to use AWS Batch Terraform didn’t provide full support for AWS Batch. Therefore we created the AWS Batch environment using [AWS CloudFormation](https://aws.amazon.com/cloudformation) (nowadays there is full support by Terraform, so you can use either tool). The whole CloudFormation stack description is easily some 200 lines — you have to glue every single bit and piece together, but don’t get intimidated by it — you soon learn to see Terraform / CloudFormation code visually as AWS resources and how they are co-operating. An example of the CloudFormation file which introduces the most important players in the field:
+When we started to use AWS Batch Terraform didn't provide full support for AWS Batch. Therefore we created the AWS Batch environment using [AWS CloudFormation](https://aws.amazon.com/cloudformation) (nowadays there is full support by Terraform, so you can use either tool). The whole CloudFormation stack description is easily some 200 lines — you have to glue every single bit and piece together, but don't get intimidated by it — you soon learn to see Terraform / CloudFormation code visually as AWS resources and how they are co-operating. An example of the CloudFormation file which introduces the most important players in the field:
 
 ![](/img/2017-11-09-aws-batch-and-docker-containers_img_4.png)
 
@@ -66,12 +66,12 @@ Also configure your Continuous integration server (using the scripts given previ
 
 ### Conclusions
 
-AWS provides an excellent batch processing framework which beautifully integrates to all other AWS services — no need to create an in-house solution for your batch processing. This idea nicely fits to the paradigm “[Use AWS Services as Building Blocks to Implement Your Enterprise System](https://medium.com/tieto-developers/use-aws-services-as-building-blocks-to-implement-your-enterprise-system-598676a0ee49)”.
+AWS provides an excellent batch processing framework which beautifully integrates to all other AWS services — no need to create an in-house solution for your batch processing. This idea nicely fits to the paradigm "[Use AWS Services as Building Blocks to Implement Your Enterprise System](https://medium.com/tieto-developers/use-aws-services-as-building-blocks-to-implement-your-enterprise-system-598676a0ee49)".
 
 Both writers are AWS Certified Solutions Architects Associate, architecting and implementing AWS projects in Tieto CEM Finland. If you are interested about starting a new AWS project in Finland, you can contact us with firstname.lastname at tieto.com.
 
 Kari Marttila & Timo Tapanainen
 
-* Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
-* Timo Tapanainen’s Home Page in LinkedIn: <https://www.linkedin.com/in/timo-tapanainen/>
+* Kari Marttila's Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
+* Timo Tapanainen's Home Page in LinkedIn: <https://www.linkedin.com/in/timo-tapanainen/>
   

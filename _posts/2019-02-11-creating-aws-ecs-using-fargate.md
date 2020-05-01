@@ -12,9 +12,9 @@ date:	2019-02-11
 
 ### Introduction
 
-I previously created infrastructure for running Docker containers in the AWS Kubernetes managed service ([EKS](https://aws.amazon.com/eks/) — see the blog article: [Creating AWS Elastic Container Service for Kubernetes (EKS) the Right Way]({% post_url 2019-01-18-creating-aws-elastic-container-service-for-kubernetes-eks-the-right-way %}). Now I wanted to see if creating a Docker runtime using AWS [ECS](https://aws.amazon.com/ecs/) — Elastic Container Service is going to be as simple. It turned out not to be quite that simple and let’s see why.
+I previously created infrastructure for running Docker containers in the AWS Kubernetes managed service ([EKS](https://aws.amazon.com/eks/) — see the blog article: [Creating AWS Elastic Container Service for Kubernetes (EKS) the Right Way]({% post_url 2019-01-18-creating-aws-elastic-container-service-for-kubernetes-eks-the-right-way %}). Now I wanted to see if creating a Docker runtime using AWS [ECS](https://aws.amazon.com/ecs/) — Elastic Container Service is going to be as simple. It turned out not to be quite that simple and let's see why.
 
-I created this demonstration for my new unit: Tieto / Application Services / Public Cloud, and therefore the demonstration can be found in the Public Cloud team’s [Github repository](https://github.com/tieto-pc/aws-ecs-fargate-demo).
+I created this demonstration for my new unit: Tieto / Application Services / Public Cloud, and therefore the demonstration can be found in the Public Cloud team's [Github repository](https://github.com/tieto-pc/aws-ecs-fargate-demo).
 
 ### AWS Solution
 
@@ -22,13 +22,13 @@ The demonstration uses a dedicated [VPC](https://aws.amazon.com/vpc/). There are
 
 There is also an internet gateway for NAT, a [S3](https://aws.amazon.com/s3/) Bucket for ALB logs, an [ECR](https://aws.amazon.com/ecr/) for storing Docker images used by ECS and an [IAM](https://aws.amazon.com/iam/) role for running the ECS tasks.
 
-You can use ECS using custom EC2 and Auto-scaling setup or you can leave the heavy lifting of managing EC2 to AWS — using Fargate. In this demonstration I’m using [Fargate](https://aws.amazon.com/fargate/).
+You can use ECS using custom EC2 and Auto-scaling setup or you can leave the heavy lifting of managing EC2 to AWS — using Fargate. In this demonstration I'm using [Fargate](https://aws.amazon.com/fargate/).
 
 ### Terraform Code
 
-I am using [Terraform](https://www.terraform.io/) as an [infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code) (IaC) tool. Terraform is very much used both in the AWS and Azure side and one of Terraform’s strenghts compared to cloud native tools (AWS / [CloudFormation](https://aws.amazon.com/cloudformation) and Azure / [ARM templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates)) is that you can use Terraform with many cloud providers, you have to learn just one infra language and syntax, and Terraform language (hcl) is pretty powerful and clear.
+I am using [Terraform](https://www.terraform.io/) as an [infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code) (IaC) tool. Terraform is very much used both in the AWS and Azure side and one of Terraform's strenghts compared to cloud native tools (AWS / [CloudFormation](https://aws.amazon.com/cloudformation) and Azure / [ARM templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates)) is that you can use Terraform with many cloud providers, you have to learn just one infra language and syntax, and Terraform language (hcl) is pretty powerful and clear.
 
-If you are new to infrastructure as code (IaC) and terraform specifically let’s explain the high level structure of the terraform code first. Project’s terraform code is hosted in the [terraform](https://github.com/tieto-pc/aws-ecs-fargate-demo/tree/master/terraform) folder.
+If you are new to infrastructure as code (IaC) and terraform specifically let's explain the high level structure of the terraform code first. Project's terraform code is hosted in the [terraform](https://github.com/tieto-pc/aws-ecs-fargate-demo/tree/master/terraform) folder.
 
 It is a cloud best practice that you should modularize your infra code and also modularize it so that you can create many different (exact) copies of your infra as you like re-using the infra modules. I use a common practice to organize terraform code in three levels:
 
@@ -50,7 +50,7 @@ The [vpc](https://github.com/tieto-pc/aws-ecs-fargate-demo/tree/master/terraform
 
 #### ECR Module
 
-The [ecr](https://github.com/tieto-pc/aws-ecs-fargate-demo/tree/master/terraform/modules/ecr) module is pretty simple: it defines the only repository we need in this demonstration, the “java-crm-demo” repository.
+The [ecr](https://github.com/tieto-pc/aws-ecs-fargate-demo/tree/master/terraform/modules/ecr) module is pretty simple: it defines the only repository we need in this demonstration, the "java-crm-demo" repository.
 
 #### ECS Module
 
@@ -62,20 +62,20 @@ The ECS even with using Fargate is a bit complex to configure.
 
 The [resource-groups](https://github.com/tieto-pc/aws-ecs-fargate-demo/tree/master/terraform/modules/resource-groups) module defines a dedicated resource group for each tag key I use in all AWS resources that support tagging. The tag keys are:
 
-- Name: ```<prefix>-<env>-<name-of-the-resource>```, e.g. “aws-ecs-demo-dev-vpc” (not used in resource groups, of course)  
-- Env: ```<env>```, e.g. “dev”  
-- Environment: ```<prefix>-<env>```, e.g. “aws-ecs-demo-dev”  
-- Prefix: ```<prefix>```, e.g. “aws-ecs-demo”  
-- Region: ```<region>```, e.g. “eu-west-1  
-- Terraform: “true” (fixed)This way you can pretty easily search the resources. 
+- Name: ```<prefix>-<env>-<name-of-the-resource>```, e.g. "aws-ecs-demo-dev-vpc" (not used in resource groups, of course)  
+- Env: ```<env>```, e.g. "dev"  
+- Environment: ```<prefix>-<env>```, e.g. "aws-ecs-demo-dev"  
+- Prefix: ```<prefix>```, e.g. "aws-ecs-demo"  
+- Region: ```<region>```, e.g. "eu-west-1  
+- Terraform: "true" (fixed)This way you can pretty easily search the resources. 
 
 Examples:
 
-* Env = ```dev``` => All resources in all projects which have deployed as development (“dev”).
+* Env = ```dev``` => All resources in all projects which have deployed as development ("dev").
 * Prefix = ```aws-ecs-demo``` => All AWS ECS demo resources in all envs (dev, perf, qa, prod…).
 * Environment = ```aws-ecs-demo-dev``` => The resources of a specific terraform deployment (since each demo has dedicated deployments for all envs), i.e. this deployment.
 
-After deployment open AWS Console => “Resource Groups” view => Saved Resource Groups => You see the 5 resource groups => Click one and you see all resources regarding that tag key and value (of resources that support tagging in AWS). This is a nice way to search what resources are in various envs (dev, qa, prod), for certain system in any environment (prefix) etc.
+After deployment open AWS Console => "Resource Groups" view => Saved Resource Groups => You see the 5 resource groups => Click one and you see all resources regarding that tag key and value (of resources that support tagging in AWS). This is a nice way to search what resources are in various envs (dev, qa, prod), for certain system in any environment (prefix) etc.
 
 ### Testing the Application Running in ECS
 
@@ -83,7 +83,7 @@ Run command ```AWS_PROFILE=YOUR-PROFILE terraform output -module=env-def.ecs``` 
 
 ```bash
 curl <http://ALB-DNS-HERE:5055/customer/1>  
-# => Should return: {“ret”:”ok”,”customer”:{“id”:1,”email”:”[kari.karttinen@foo.com](mailto:kari.karttinen@foo.com)”,”firstName”:”Kari”,”lastName”:”Karttinen”}}
+# => Should return: {"ret":"ok","customer":{"id":1,"email":"[kari.karttinen@foo.com](mailto:kari.karttinen@foo.com)","firstName":"Kari","lastName":"Karttinen"}}
 ```
 
 ### Conclusion
@@ -94,4 +94,4 @@ Configuring everything using ECS turned out to be a bigger task than I originall
 
 Kari Marttila
 
-* Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
+* Kari Marttila's Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>

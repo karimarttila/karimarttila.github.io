@@ -17,4 +17,4 @@ TODO
 
 Kari Marttila
 
-* Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
+* Kari Marttila's Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>

@@ -16,11 +16,11 @@ The diagram below depicts some of the typical AWS services that you are going to
 
 The first task implementing [AWS](https://aws.amazon.com/) infrastructure is to create a [VPC](https://aws.amazon.com/vpc/). A best practice is to create at least two AWS accounts, one for production and another for any other purposes (development, test etc). This way you completely separate production environment from other activities and have e.g. different [IAM](https://aws.amazon.com/iam/) users for production environment.
 
-You can create VPC using [AWS CloudFormation](https://aws.amazon.com/cloudformation/) or e.g. [Terraform](https://www.terraform.io). We recommend to choose either tool and then create and manage all AWS resources consistently with that tool. We have used Terraform to create all AWS resources. We’ll write later another post to describe in more detail how to utilize Terraform to manage AWS resources.
+You can create VPC using [AWS CloudFormation](https://aws.amazon.com/cloudformation/) or e.g. [Terraform](https://www.terraform.io). We recommend to choose either tool and then create and manage all AWS resources consistently with that tool. We have used Terraform to create all AWS resources. We'll write later another post to describe in more detail how to utilize Terraform to manage AWS resources.
 
 AWS CloudFormation provides many ready to use [templates](https://aws.amazon.com/cloudformation/aws-cloudformation-templates/) for creating VPCs for different purposes. Even if you used Terraform you can browse and create exploratory VPCs with CloudFormation templates to see what kind of configuration certain templates create.
 
-Most important entities with VPC are: IGW (Internet Gateway), NAT, public and private subnets at least in two different AZs (AWS Availability Zones). We recommend you to read more about these entities in AWS documentation and tutorials. You create subnets for each environment you need (in production account for production, in development account for each environment you need: development, customer testing, partner testing, QA, performance testing…). Using AWS it is pretty easy to create and decommission entities. Therefore you can and should create as many environments you need — the best practice is: one environment for one purpose. With CloudFormation / Terraform you can parameterize your environments and make them basically exact copies of each other. Read the next article “[How to Create and Manage Resources in Amazon Web Services Infrastructure?](https://medium.com/@kari.marttila/how-to-create-and-manage-resources-in-amazon-web-services-infrastructure-f9af85b77c4a#.gt6f4tkrj)” for more details.
+Most important entities with VPC are: IGW (Internet Gateway), NAT, public and private subnets at least in two different AZs (AWS Availability Zones). We recommend you to read more about these entities in AWS documentation and tutorials. You create subnets for each environment you need (in production account for production, in development account for each environment you need: development, customer testing, partner testing, QA, performance testing…). Using AWS it is pretty easy to create and decommission entities. Therefore you can and should create as many environments you need — the best practice is: one environment for one purpose. With CloudFormation / Terraform you can parameterize your environments and make them basically exact copies of each other. Read the next article "[How to Create and Manage Resources in Amazon Web Services Infrastructure?](https://medium.com/@kari.marttila/how-to-create-and-manage-resources-in-amazon-web-services-infrastructure-f9af85b77c4a#.gt6f4tkrj)" for more details.
 
 ### 2. Virtual Servers, Auto-scaling and Firewalls
 
@@ -32,7 +32,7 @@ You can create a dedicated bastion server for each environment. Configure your [
 
 ### 3. Databases as Services
 
-AWS provides Relational Database as a Service - [RDS](https://aws.amazon.com/rds/). AWS also provides NoSQL database as a service — [DynamoDB](https://aws.amazon.com/dynamodb/). You should create these resources with CloudFormation / Terraform as all AWS resources. E.g. using Terraform you can create a RDS module into which you inject the instance size and HA as parameters — smaller instance with no HA in development to minimize costs, bigger instance and HA in performance and production environments). You don’t have to do maintenance operations to databases — maintenance is provided as a service by AWS.
+AWS provides Relational Database as a Service - [RDS](https://aws.amazon.com/rds/). AWS also provides NoSQL database as a service — [DynamoDB](https://aws.amazon.com/dynamodb/). You should create these resources with CloudFormation / Terraform as all AWS resources. E.g. using Terraform you can create a RDS module into which you inject the instance size and HA as parameters — smaller instance with no HA in development to minimize costs, bigger instance and HA in performance and production environments). You don't have to do maintenance operations to databases — maintenance is provided as a service by AWS.
 
 ### 4. Queues and Notifications as Services
 
@@ -54,7 +54,7 @@ There are dozens of various new AWS services, go and check the latest situation 
 
 ### Conclusion
 
-Amazon Web Services is so much more than just a platform for virtual servers. AWS is a rich ecosystem providing dozens of services that you can use as building blocks when you implement your enterprise system. Your imagination is the limit how to combine those services into a working enterprise system. There are good AWS [Reference Architectures](https://aws.amazon.com/architecture/) - browse down to the chapter “AWS Reference Architectures” and open the PDF files: for each reference architecture there is a descriptive picture (with AWS services used) and a good explanation how the AWS services are used together.
+Amazon Web Services is so much more than just a platform for virtual servers. AWS is a rich ecosystem providing dozens of services that you can use as building blocks when you implement your enterprise system. Your imagination is the limit how to combine those services into a working enterprise system. There are good AWS [Reference Architectures](https://aws.amazon.com/architecture/) - browse down to the chapter "AWS Reference Architectures" and open the PDF files: for each reference architecture there is a descriptive picture (with AWS services used) and a good explanation how the AWS services are used together.
 
 We list here all our AWS related articles written this far:
 
@@ -66,6 +66,6 @@ Both writers are AWS Certified Solutions Architects Associate, architecting and 
 
 Kari Marttila & Timo Tapanainen
 
-* Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
-* Timo Tapanainen’s Home Page in LinkedIn: <https://www.linkedin.com/in/timo-tapanainen/>
+* Kari Marttila's Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
+* Timo Tapanainen's Home Page in LinkedIn: <https://www.linkedin.com/in/timo-tapanainen/>
   

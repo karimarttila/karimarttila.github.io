@@ -6,23 +6,23 @@ tags: [aws, lambda, cloud, iac]
 date:	2017-03-17
 ---
 
-  We continue our AWS related blog series that we started in our first article “[Use AWS Services as Building Blocks to Implement Your Enterprise System](https://medium.com/tieto-developers/use-aws-services-as-building-blocks-to-implement-your-enterprise-system-598676a0ee49#)”. In this new article we talk about our experiences regarding how to create Lambdas in AWS.
+  We continue our AWS related blog series that we started in our first article "[Use AWS Services as Building Blocks to Implement Your Enterprise System](https://medium.com/tieto-developers/use-aws-services-as-building-blocks-to-implement-your-enterprise-system-598676a0ee49#)". In this new article we talk about our experiences regarding how to create Lambdas in AWS.
 
 ![](/img/2017-03-17-how-to-create-lambdas-in-aws_img_1.jpeg)Concept AWS Architecture using AWS Lambdas
 
 ### Introduction
 
-In our previous blog post “[How to Create EC2 Images in AWS?](https://medium.com/tieto-developers/how-to-create-ec2-images-in-aws-a27b1afc97c6#)” we already explained that there are several ways to create services to AWS infrastructure: EC2 instances (servers), Docker containers and Lambdas.
+In our previous blog post "[How to Create EC2 Images in AWS?](https://medium.com/tieto-developers/how-to-create-ec2-images-in-aws-a27b1afc97c6#)" we already explained that there are several ways to create services to AWS infrastructure: EC2 instances (servers), Docker containers and Lambdas.
 
 This blog post is a short introduction how to create Lambdas for Amazon Web Services.
 
 ### **What Are AWS Lambdas?**
 
-[AWS Lambdas](https://aws.amazon.com/lambda/) are serverless functions that AWS hosts without the need to create dedicated servers (EC2) for them. This is a new cloud paradigm that is most probably going to be big in the future. You don’t need to create and pay for EC2 instances if you know that you are going to run your functionality only in certain occasions — you only pay for the milliseconds you run the functions.
+[AWS Lambdas](https://aws.amazon.com/lambda/) are serverless functions that AWS hosts without the need to create dedicated servers (EC2) for them. This is a new cloud paradigm that is most probably going to be big in the future. You don't need to create and pay for EC2 instances if you know that you are going to run your functionality only in certain occasions — you only pay for the milliseconds you run the functions.
 
 ### **How to Create AWS Lambdas?**
 
-You can create AWS Lambdas using the AWS Console or CLI — but you should do that only when experimenting with AWS resources — never use that kind of ad hoc process to create / maintain your production infrastructure (for a more detailed reason read our previous blog article “[How to Create and Manage Resources in Amazon Web Services Infrastructure?](https://medium.com/tieto-developers/how-to-create-and-manage-resources-in-amazon-web-services-infrastructure-f9af85b77c4a#)”).
+You can create AWS Lambdas using the AWS Console or CLI — but you should do that only when experimenting with AWS resources — never use that kind of ad hoc process to create / maintain your production infrastructure (for a more detailed reason read our previous blog article "[How to Create and Manage Resources in Amazon Web Services Infrastructure?](https://medium.com/tieto-developers/how-to-create-and-manage-resources-in-amazon-web-services-infrastructure-f9af85b77c4a#)").
 
 We have created Lambdas using our favorite Infrastructure as Code tool — [Terraform](https://www.terraform.io/).
 
@@ -58,6 +58,6 @@ Both writers are AWS Certified Solution Architects Associate, architecting and i
 
 Kari Marttila & Timo Tapanainen
 
-* Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
-* Timo Tapanainen’s Home Page in LinkedIn: <https://www.linkedin.com/in/timo-tapanainen/>
+* Kari Marttila's Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
+* Timo Tapanainen's Home Page in LinkedIn: <https://www.linkedin.com/in/timo-tapanainen/>
   

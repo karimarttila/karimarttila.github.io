@@ -12,7 +12,7 @@ date:	2019-03-11
 
 ### Introduction
 
-In my new unit I was asked to create some training material how to do infrastructure coding for both AWS and Azure. I considered a while what kind of infrastructure to use as an example and finally I decided that the infrastructure should be as simple as possible (not to intimidate new cloud learners) but comprising some basic elements that you can find in every infrastructure: a virtual network, a subnet, a firewall and some computing resource. So, I created two intro demonstrations, one for both AWS and Azure sides using this specification. The demonstrations can be found in Tieto / Public Cloud team’s [Github account](https://github.com/tieto-pc):
+In my new unit I was asked to create some training material how to do infrastructure coding for both AWS and Azure. I considered a while what kind of infrastructure to use as an example and finally I decided that the infrastructure should be as simple as possible (not to intimidate new cloud learners) but comprising some basic elements that you can find in every infrastructure: a virtual network, a subnet, a firewall and some computing resource. So, I created two intro demonstrations, one for both AWS and Azure sides using this specification. The demonstrations can be found in Tieto / Public Cloud team's [Github account](https://github.com/tieto-pc):
 
 * AWS: <https://github.com/tieto-pc/aws-intro-demo>
 * Azure: <https://github.com/tieto-pc/azure-intro-demo>
@@ -26,7 +26,7 @@ I used [Terraform](https://www.terraform.io/) in both AWS and Azure demonstratio
 
 **Environment parameters**. In the envs folders we host the various environments. In this demonstration we have only the dev environment, but this folder could have similar environment parameterizations for qa, perf, prod environments etc. If you look at both solutions you find that the dev.tf files in both sides are pretty similar: first there is the Terraform backend definition, then locals definitions and finally we call the env-def module injecting the parameter values of this environment.
 
-**Environment definition**. In the env-def folders we define the modules that will be used in every environment. The environment injects the environment specific parameters to the env-def module which then creates the actual infra using those parameters by calling various infra modules and forwarding environment parameters to the infra modules. In AWS side we call modules: “resource-groups”, “vpc” and “ec2”. In Azure side we call modules: “main-resource-group”, “vnet” and “vm”. You can see the one-to-one relationships of these modules.
+**Environment definition**. In the env-def folders we define the modules that will be used in every environment. The environment injects the environment specific parameters to the env-def module which then creates the actual infra using those parameters by calling various infra modules and forwarding environment parameters to the infra modules. In AWS side we call modules: "resource-groups", "vpc" and "ec2". In Azure side we call modules: "main-resource-group", "vnet" and "vm". You can see the one-to-one relationships of these modules.
 
 **Modules**. In the modules folder we have the terraform modules that are used by the environment definition (env-def, also a terraform module itself). Both sides host the (conceptually) same three modules:
 
@@ -63,10 +63,10 @@ Both demonstrations provide a README.md file which gives a longer explanation re
 
 ### Conclusions
 
-Using Terraform as an Infrastructure as Code tool you get synergy benefit you don’t get by using cloud providers’ native IaC tools: you can create infrastructure as code solutions in more than one public cloud using the same tool and therefore re-using your IaC knowledge— that’s why Terraform is my choice of tool when creating infrastructure as code in both AWS and Azure.
+Using Terraform as an Infrastructure as Code tool you get synergy benefit you don't get by using cloud providers' native IaC tools: you can create infrastructure as code solutions in more than one public cloud using the same tool and therefore re-using your IaC knowledge— that's why Terraform is my choice of tool when creating infrastructure as code in both AWS and Azure.
 
 *The writer has two AWS certifications and one Azure certification and is working at [Tieto Corporation](https://www.tieto.com/) in Application Services / Public Cloud team designing and implementing cloud native solutions. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
 
 Kari Marttila
 
-* Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
+* Kari Marttila's Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>

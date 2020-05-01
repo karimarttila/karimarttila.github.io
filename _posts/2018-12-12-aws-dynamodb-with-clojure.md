@@ -12,7 +12,7 @@ date: 2018-12-12
 
 ### Introduction
 
-After my [Five Languages]({% post_url 2018-11-19-five-languages-five-stories %}) project I was searching something new to learn. I decided to refresh my AWS skills a bit and and compare AWS container services [EKS](https://aws.amazon.com/eks/) and [Fargate](https://aws.amazon.com/fargate/) and compare their deployment models for Docker containers. I decided to use my [Clojure Simple Server](https://github.com/karimarttila/clojure/tree/master/clj-ring-cljs-reagent-demo/simple-server) exercise as a demo application. There was one problem, though. The Simple Server was just a demo application and it simulated database by reading csv files to internal data structures — therefore making the server stateful. First I needed to change the implementation to make the server fully stateless — storing all state outside the server in a real external database. I decided to use AWS [DynamoDB](https://aws.amazon.com/dynamodb/) nosql database. In this blog post I write about my experiences to manipulate DynamoDB using Clojure and how to use local DynamoDB Docker container instance as a development database. Next I’ll be using this DynamoDB version of Simple Server to deploy the server to EKS and Fargate and write new blog posts regarding those experiences, so stay tuned.
+After my [Five Languages]({% post_url 2018-11-19-five-languages-five-stories %}) project I was searching something new to learn. I decided to refresh my AWS skills a bit and and compare AWS container services [EKS](https://aws.amazon.com/eks/) and [Fargate](https://aws.amazon.com/fargate/) and compare their deployment models for Docker containers. I decided to use my [Clojure Simple Server](https://github.com/karimarttila/clojure/tree/master/clj-ring-cljs-reagent-demo/simple-server) exercise as a demo application. There was one problem, though. The Simple Server was just a demo application and it simulated database by reading csv files to internal data structures — therefore making the server stateful. First I needed to change the implementation to make the server fully stateless — storing all state outside the server in a real external database. I decided to use AWS [DynamoDB](https://aws.amazon.com/dynamodb/) nosql database. In this blog post I write about my experiences to manipulate DynamoDB using Clojure and how to use local DynamoDB Docker container instance as a development database. Next I'll be using this DynamoDB version of Simple Server to deploy the server to EKS and Fargate and write new blog posts regarding those experiences, so stay tuned.
 
 You can find the project in my [Github account](https://github.com/karimarttila/clojure/tree/master/clj-ring-cljs-reagent-demo/simple-server).
 
@@ -26,27 +26,27 @@ You can start the local DynamoDB Docker container using command:
 docker run -p 8000:8000 amazon/dynamodb-local:latest
 ```
 
-That’s it! You have a running DynamoDB in your workstation and you can use [AWS command line interface](https://aws.amazon.com/cli/) (cli), or any DynamoDB API SDK to access this DynamoDB instance.
+That's it! You have a running DynamoDB in your workstation and you can use [AWS command line interface](https://aws.amazon.com/cli/) (cli), or any DynamoDB API SDK to access this DynamoDB instance.
 
-### Let’s Create Tables
+### Let's Create Tables
 
 I created a sub-directory [dynamodb](https://github.com/karimarttila/clojure/tree/master/clj-ring-cljs-reagent-demo/simple-server/dynamodb) for DynamoDB related utilities I used in this project. You can find in that directory [create-tables.sh](https://github.com/karimarttila/clojure/blob/master/clj-ring-cljs-reagent-demo/simple-server/dynamodb/create-tables.sh) script which creates the four tables needed in the project: session table, users table, product groups table and products table. It is pretty straightforward to use aws cli to create the tables, and the script works the same way with local DynamoDB Docker container instance and with real AWS DynamoDB service. Example of one aws cli call to create the product table:
 
 ```bash
-AWS_PROFILE=$MY_AWS_PROFILE aws dynamodb create-table $MY_ENDPOINT — table-name $MY_PRODUCT_TABLE — attribute-definitions AttributeName=pgid,AttributeType=S AttributeName=pid,AttributeType=S — key-schema AttributeName=pid,KeyType=HASH AttributeName=pgid,KeyType=RANGE — provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5 — global-secondary-indexes IndexName=PGIndex,KeySchema=[“{AttributeName=pgid,KeyType=HASH}”,”{AttributeName=pid,KeyType=RANGE}”],Projection=”{ProjectionType=INCLUDE ,NonKeyAttributes=[“title”,”price”]}”,ProvisionedThroughput=”{ReadCapacityUnits=5,WriteCapacityUnits=5}”
+AWS_PROFILE=$MY_AWS_PROFILE aws dynamodb create-table $MY_ENDPOINT — table-name $MY_PRODUCT_TABLE — attribute-definitions AttributeName=pgid,AttributeType=S AttributeName=pid,AttributeType=S — key-schema AttributeName=pid,KeyType=HASH AttributeName=pgid,KeyType=RANGE — provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5 — global-secondary-indexes IndexName=PGIndex,KeySchema=["{AttributeName=pgid,KeyType=HASH}","{AttributeName=pid,KeyType=RANGE}"],Projection="{ProjectionType=INCLUDE ,NonKeyAttributes=["title","price"]}",ProvisionedThroughput="{ReadCapacityUnits=5,WriteCapacityUnits=5}"
 ```
 
 The endpoint is used only for local DynamoDB Docker container instance and it points to the port you deployed the container earlier:
 
 ```bash
-MY_ENDPOINT=” -- endpoint-url http://localhost:8000"
+MY_ENDPOINT=" -- endpoint-url http://localhost:8000"
 ```
 
-### Let’s Import Data
+### Let's Import Data
 
 The next task is to import the test data. I used this as an excuse to refresh my Python/[boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) skills. I could have used Clojure for this as well but since this is my personal project I can do it any way I like. I thought that it might be interesting to do the data import using Python.
 
-First we need to create the virtual environment for python3, activate the virtual environment and then install boto3 to the virtual environment (well, you don’t have to use virtual environment but I personally almost always create a virtual environment to keep my workstation Python installation cleaner):
+First we need to create the virtual environment for python3, activate the virtual environment and then install boto3 to the virtual environment (well, you don't have to use virtual environment but I personally almost always create a virtual environment to keep my workstation Python installation cleaner):
 
 ```bash
 # Create the virtual environment for Python.  
@@ -63,7 +63,7 @@ aws_access_key_id = XXXXXXXXXXXXXX___NOT
 aws_secret_access_key = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX___NOT
 ```
 
-NOTE: When I first experimented with the local DynamoDB Docker container instance I just couldn’t make it work. Then I tried a real access key and secret key generated by AWS — and they magically worked. So, I guess the local DynamoDB Docker container instance expects the access key and secret key to be with valid length even though the content is irrelevant.
+NOTE: When I first experimented with the local DynamoDB Docker container instance I just couldn't make it work. Then I tried a real access key and secret key generated by AWS — and they magically worked. So, I guess the local DynamoDB Docker container instance expects the access key and secret key to be with valid length even though the content is irrelevant.
 
 Then you are ready to import the data using the script:
 
@@ -75,8 +75,8 @@ Then you are ready to import the data using the script:
 The [table_importer.py](https://github.com/karimarttila/clojure/blob/master/clj-ring-cljs-reagent-demo/simple-server/dynamodb/table_importer.py) is pretty simple. First we get the dynamodb client:
 
 ```python
-if my_aws_profile == ‘local-dynamodb’:
- dynamodb = session.resource(service_name=’dynamodb’, endpoint_url=’http://localhost:8000')
+if my_aws_profile == 'local-dynamodb':
+ dynamodb = session.resource(service_name='dynamodb', endpoint_url='http://localhost:8000')
 else:
  dynamodb = session.resource(service_name='dynamodb')
 ```
@@ -84,14 +84,14 @@ else:
 And then we just dump everything from the csv file to DynamoDB:
 
 ```python
-with open(my_csv_file, ‘r’) as csvfile:   
- reader = csv.reader(csvfile,delimiter=’\t’)   
- with table.batch_writer() as batch:   
- for user_id, email, first_name, last_name, hashed_password in reader:   
- batch.put_item(Item={“userid”: user_id, “email”: email, “firstname”: first_name, “lastname”: last_name, “hpwd”: hashed_password})
+with open(my_csv_file, 'r') as csvfile:
+ reader = csv.reader(csvfile,delimiter='\t')
+ with table.batch_writer() as batch:
+ for user_id, email, first_name, last_name, hashed_password in reader:
+ batch.put_item(Item={"userid": user_id, "email": email, "firstname": first_name, "lastname": last_name, "hpwd": hashed_password})
 ```
 
-That’s it! With two commands we can create the development tables and import the test data to the development tables.
+That's it! With two commands we can create the development tables and import the test data to the development tables.
 
 ### Clojure Implementation
 
@@ -99,7 +99,7 @@ Programming [Clojure](https://clojure.org/) was once again a real joy. Clojure R
 
 I used [amazonica](https://github.com/mcohen01/amazonica) library to manipulate DynamoDB. There is going to be another interesting choice with the next Clojure 1.10 version by Cognitect: [aws-api](https://github.com/cognitect-labs/aws-api). I definitely try to use it once Clojure 1.10 is rolled out. But at least this time I was still using amazonica.
 
-I refactored the original stateful Clojure implementation under new profile “single-node” denoting that this profile runs the server in a stateful single node. Then I created two new profiles: “local-dynamodb” and “dynamodb-dev” for local DynamoDB Docker container instance and for real AWS DynamoDB development environment. Check the details in [profiles.clj](https://github.com/karimarttila/clojure/blob/master/clj-ring-cljs-reagent-demo/simple-server/profiles.clj) file.
+I refactored the original stateful Clojure implementation under new profile "single-node" denoting that this profile runs the server in a stateful single node. Then I created two new profiles: "local-dynamodb" and "dynamodb-dev" for local DynamoDB Docker container instance and for real AWS DynamoDB development environment. Check the details in [profiles.clj](https://github.com/karimarttila/clojure/blob/master/clj-ring-cljs-reagent-demo/simple-server/profiles.clj) file.
 
 Clojure provides nice polymorhism by [multimethods](https://clojure.org/reference/multimethods) and [protocols](https://clojure.org/reference/protocols). I used these mechanisms to abstract the database manipulation — i.e. the unit tests and the server layer has no idea whether the database queries are hitting the internal dummy database, local DynamoDB Docker container instance or the real AWS DynamoDB service. When running the unit tests you just select the right profile and the server uses the database configured for that profile (see the shell scripts I provided for all three environments).
 
@@ -108,14 +108,14 @@ Using amazonica is really simple. You just provide the credentials for that Dyna
 ```clojure
   (dynamodb/query (ss-aws-utils/get-dynamodb-config)
                   :table-name my-table
-                  :select “ALL_ATTRIBUTES”
+                  :select "ALL_ATTRIBUTES"
                   :key-conditions {:pgid {:attribute-value-list [(str pg-id)]
-                                          :comparison-operator  “EQ”}
+                                          :comparison-operator  "EQ"}
                                    :pid  {:attribute-value-list [(str p-id)]
-                                          :comparison-operator  “EQ”}})
+                                          :comparison-operator  "EQ"}})
 ```
 
-Once I had implemented all DynamoDB manipulations and had run the unit tests that everything is working properly using the local DynamoDB Docker container instance I tried the unit tests with real AWS DynamoDB profile. There was one discrepancy that I found out. I had created a secondary index for one table and local DynamoDB Docker container instance happily accepted **:select “ALL_ATTRIBUTES”** but real AWS DynamoDB service complained about this mistake. When changing the select clause to **:select “ALL_PROJECTED_ATTRIBUTES”** everything worked fine also with the real AWS DynamoDB service.
+Once I had implemented all DynamoDB manipulations and had run the unit tests that everything is working properly using the local DynamoDB Docker container instance I tried the unit tests with real AWS DynamoDB profile. There was one discrepancy that I found out. I had created a secondary index for one table and local DynamoDB Docker container instance happily accepted **:select "ALL_ATTRIBUTES"** but real AWS DynamoDB service complained about this mistake. When changing the select clause to **:select "ALL_PROJECTED_ATTRIBUTES"** everything worked fine also with the real AWS DynamoDB service.
 
 ### Conclusions
 
@@ -126,4 +126,4 @@ Using local DynamoDB Docker container instance makes DynamoDB development really
 
 Kari Marttila
 
-* Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
+* Kari Marttila's Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>

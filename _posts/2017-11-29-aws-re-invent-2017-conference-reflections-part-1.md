@@ -14,9 +14,9 @@ date: 2017-11-29
 
 Reserve your conference and hotel well beforehand since the conference is pretty popular (some 40.000 attendees in 2017).   
    
-And now comes the most important piece of advice. Check out the session catalog well beforehand the actual booking for sessions begins, and make a note to your calendar the date and time for the session bookings. When the session booking starts (this year midnight in Helsinki time), book a seat for all sessions you definitely don’t want to miss. The most popular sessions will be booked in minutes, so you have to be fast.   
+And now comes the most important piece of advice. Check out the session catalog well beforehand the actual booking for sessions begins, and make a note to your calendar the date and time for the session bookings. When the session booking starts (this year midnight in Helsinki time), book a seat for all sessions you definitely don't want to miss. The most popular sessions will be booked in minutes, so you have to be fast.   
    
-In the conference there are some 25% of the seats reserved for walk-ups but there could be a very long queue and you might have to come to the walk-up queue some 50 minutes before the session starts to get in. So, make sure you book reserved seats for those sessions you don’t want to miss.
+In the conference there are some 25% of the seats reserved for walk-ups but there could be a very long queue and you might have to come to the walk-up queue some 50 minutes before the session starts to get in. So, make sure you book reserved seats for those sessions you don't want to miss.
 
 ### When to Arrive and Where to Stay?
 
@@ -32,7 +32,7 @@ I recommend either [Aria](https://www.aria.com) or [the Venetian](https://www.ve
 
 *The AWS re:Invent Mobile Application.*
 
-The AWS re:Invent mobile application is just great. You can browse the session catalog, mark sessions you are interested in and book reserved seats. In your planner you have a good view to your day’s program — times, venues etc. The mobile app also shows all kinds of other information regarding the conference, your points in scavanger hunt etc.
+The AWS re:Invent mobile application is just great. You can browse the session catalog, mark sessions you are interested in and book reserved seats. In your planner you have a good view to your day's program — times, venues etc. The mobile app also shows all kinds of other information regarding the conference, your points in scavanger hunt etc.
 
 ### Sessions
 
@@ -40,11 +40,11 @@ The AWS re:Invent mobile application is just great. You can browse the session c
    
 One more thing when you create a conference plan for your sessions. Try to schedule morning / afternoon sessions at the same hotel. Traveling between hotels consumes precious time that you could use attending sessions.   
    
-I’ll write another blog post regarding some interesting sessions later, so stay tuned!
+I'll write another blog post regarding some interesting sessions later, so stay tuned!
 
 ### AWS Certified Lounge
 
-If you are an AWS Certified specialist don’t miss the AWS Certified Lounge. You will get “AWS Certified” sticker to your conference badge which will give you some extra benefits in the conference premises.
+If you are an AWS Certified specialist don't miss the AWS Certified Lounge. You will get "AWS Certified" sticker to your conference badge which will give you some extra benefits in the conference premises.
 
 ### Funny Things
 
@@ -63,6 +63,6 @@ A bit strange to have a conversation with a machine whose voice was very natural
 
 ### Conclusion
 
-![](/img/2017-11-29-aws-re-invent-2017-conference-reflections-part-1_img_6.jpeg)Nordic travelers — the appearance is ragged but the spirit is high. (Note the AWS Certified stickers on the badges.)Why bother the long flight from Finland to Las Vegas if you can watch the sessions for free in youtube after the conference? After working with AWS technology a couple of years it is a great chance to attend the huge AWS conference and to walk from one session to another and check out all new cool ways AWS services are being used, and get ideas for your next project. You can fully concentrate in the sessions for one week. Walk in the Squad area and have discussions with guys who have prepared interesting demonstrations using AWS services. Walk in the Expo area and check out companies using AWS to build all kinds of systems you just couldn’t imagine before cloud era. My recommendation is not just to choose sessions regarding AWS services you already are familiar with but boldly go to check new AWS services you haven’t used before. You’ll get a big picture of the vast AWS ecosystem and how different AWS services can be used together to create new exciting systems for your clients.
+![](/img/2017-11-29-aws-re-invent-2017-conference-reflections-part-1_img_6.jpeg)Nordic travelers — the appearance is ragged but the spirit is high. (Note the AWS Certified stickers on the badges.)Why bother the long flight from Finland to Las Vegas if you can watch the sessions for free in youtube after the conference? After working with AWS technology a couple of years it is a great chance to attend the huge AWS conference and to walk from one session to another and check out all new cool ways AWS services are being used, and get ideas for your next project. You can fully concentrate in the sessions for one week. Walk in the Squad area and have discussions with guys who have prepared interesting demonstrations using AWS services. Walk in the Expo area and check out companies using AWS to build all kinds of systems you just couldn't imagine before cloud era. My recommendation is not just to choose sessions regarding AWS services you already are familiar with but boldly go to check new AWS services you haven't used before. You'll get a big picture of the vast AWS ecosystem and how different AWS services can be used together to create new exciting systems for your clients.
 
   

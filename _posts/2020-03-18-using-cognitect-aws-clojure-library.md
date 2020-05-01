@@ -22,7 +22,7 @@ I used [local DynamoDB Docker emulator](https://hub.docker.com/r/amazon/dynamodb
 
 When I had implemented all functions in all interfaces I deployed the tables to the real AWS DynamoDB and ran the tests hitting the real AWS DynamoDB. You can create the tables, import data, etc. using those scripts both for local DynamoDB Docker emulator and for the real AWS DynamoDB.
 
-Why should you use the DynamoDB Docker emulator? Well, for two reasons. Firstly, you don’t generate any costs while doing the development using the local DynamoDB Docker emulator (though, I must say that developing this application required so little resources that in my AWS account everything could be done just using the free tier). Secondly, using DynamoDB locally is faster than sending and fetching data over the wire to your nearest AWS region. E.g. I am in Finland and I used Ireland region, comparisons:
+Why should you use the DynamoDB Docker emulator? Well, for two reasons. Firstly, you don't generate any costs while doing the development using the local DynamoDB Docker emulator (though, I must say that developing this application required so little resources that in my AWS account everything could be done just using the free tier). Secondly, using DynamoDB locally is faster than sending and fetching data over the wire to your nearest AWS region. E.g. I am in Finland and I used Ireland region, comparisons:
 
 ![](/img/2020-03-18-using-cognitect-aws-clojure-library_img_2.png)
 
@@ -48,4 +48,4 @@ The Cognitect AWS Clojure library provides an excellent tool to query the API it
 
 Kari Marttila
 
-* Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
+* Kari Marttila's Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>

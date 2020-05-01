@@ -12,15 +12,15 @@ date: 2019-01-01
 
 ### Introduction
 
-In my previous project [AWS DynamoDB with Clojure]({% post_url 2018-12-12-aws-dynamodb-with-clojure %}) I implemented all database handling using AWS DynamoDB for my Simple Server which I have used recently for my personal study projects. My original idea was to use this AWS Simple Server version to create AWS EKS and Fargate Kubernetes deployments for the Simple Server to refresh my AWS and Terraform skills. But then I decided to make some changes to my plans. I did my first Azure certification ([Architecting Microsoft Azure Solutions](https://www.youracclaim.com/badges/62494509-bf1c-4cd0-ad5a-0b82d1dacfac/public_url)) on December and heard from my boss that I’m going to be working in an Azure project in the beginning of year 2019. For this reason I thought that it might be a better idea to refresh my Azure skills instead and gather some experience how to create Azure infra using Terraform (I have used only ARM in the Azure side).
+In my previous project [AWS DynamoDB with Clojure]({% post_url 2018-12-12-aws-dynamodb-with-clojure %}) I implemented all database handling using AWS DynamoDB for my Simple Server which I have used recently for my personal study projects. My original idea was to use this AWS Simple Server version to create AWS EKS and Fargate Kubernetes deployments for the Simple Server to refresh my AWS and Terraform skills. But then I decided to make some changes to my plans. I did my first Azure certification ([Architecting Microsoft Azure Solutions](https://www.youracclaim.com/badges/62494509-bf1c-4cd0-ad5a-0b82d1dacfac/public_url)) on December and heard from my boss that I'm going to be working in an Azure project in the beginning of year 2019. For this reason I thought that it might be a better idea to refresh my Azure skills instead and gather some experience how to create Azure infra using Terraform (I have used only ARM in the Azure side).
 
-So, the first task in this new project was to implement the Simple Server to use some Azure database service. Since I used DynamoDB (nosql) in the AWS side the natural candidates in the Azure side were [CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/) and [Table Storage Service](https://azure.microsoft.com/en-us/services/storage/tables/). Since this was just an exercise I chose Table Storage Service. In my next project I’m going to use this Azure version of Simple Server to create a Terraform configuration for using Azure AKS and deploy the Simple Server to an AKS Kubernetes cluster. But let’s talk about that in more detail in my blog and in this blog post let’s focus on my experiences using Azure Table Storage Service in Clojure.
+So, the first task in this new project was to implement the Simple Server to use some Azure database service. Since I used DynamoDB (nosql) in the AWS side the natural candidates in the Azure side were [CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/) and [Table Storage Service](https://azure.microsoft.com/en-us/services/storage/tables/). Since this was just an exercise I chose Table Storage Service. In my next project I'm going to use this Azure version of Simple Server to create a Terraform configuration for using Azure AKS and deploy the Simple Server to an AKS Kubernetes cluster. But let's talk about that in more detail in my blog and in this blog post let's focus on my experiences using Azure Table Storage Service in Clojure.
 
 You can find the project in my [Github account](https://github.com/karimarttila/clojure/tree/master/clj-ring-cljs-reagent-demo/simple-server).
 
 ### Local Azure Table Storage Database — Azurite
 
-As in AWS side I first googled a bit to find a local Azure Table Storage Database. And there was one — [Azurite](https://github.com/arafato/azurite). I started to use it in development until the point I just couldn’t get one query to work. I rechecked the same query using the real Azure Table Storage Service and found out that the query was working just fine but. I then stopped using Azurite and used the real Azure Table Storage Service as my development bench for the rest of the project. Hopefully Azurite will be finalized in the future — it would be a perfect tool to be used with Azure Storage development.
+As in AWS side I first googled a bit to find a local Azure Table Storage Database. And there was one — [Azurite](https://github.com/arafato/azurite). I started to use it in development until the point I just couldn't get one query to work. I rechecked the same query using the real Azure Table Storage Service and found out that the query was working just fine but. I then stopped using Azurite and used the real Azure Table Storage Service as my development bench for the rest of the project. Hopefully Azurite will be finalized in the future — it would be a perfect tool to be used with Azure Storage development.
 
 ### Azure Table Storage Tables
 
@@ -36,7 +36,7 @@ Clojure implementation was once again really nice. Clojure and especially the Cl
 
 #### Azure Table Storage API
 
-My first task at this point was to find an appropriate Azure Table Storage API. I googled for a while to find a native Clojure API but couldn’t find one. No problem! Since Clojure is a JVM hosted language and there is an excellent interoperability between Clojure and it’s host language Java you can use any Java API from Clojure. This project was a perfect chance to learn how to use Clojure/Java interoperability. I used [azure-storage-java](https://github.com/Azure/azure-storage-java) v. 8.0.0 as my API when manipulating Azure Table Storage. I couldn’t actually find the Table Storage part in the newest version 10 in that repo (there was an API for Blob Storage, though), but a short googling told me that there is an API for Table Storage in the previous 8.0.0 version. So I git cloned the repo, checked out the 8.0.0 version and read the samples how to use that version.
+My first task at this point was to find an appropriate Azure Table Storage API. I googled for a while to find a native Clojure API but couldn't find one. No problem! Since Clojure is a JVM hosted language and there is an excellent interoperability between Clojure and it's host language Java you can use any Java API from Clojure. This project was a perfect chance to learn how to use Clojure/Java interoperability. I used [azure-storage-java](https://github.com/Azure/azure-storage-java) v. 8.0.0 as my API when manipulating Azure Table Storage. I couldn't actually find the Table Storage part in the newest version 10 in that repo (there was an API for Blob Storage, though), but a short googling told me that there is an API for Table Storage in the previous 8.0.0 version. So I git cloned the repo, checked out the 8.0.0 version and read the samples how to use that version.
 
 #### Clojure / Java Interop
 
@@ -95,7 +95,7 @@ The [simpleserver.util.azuregenclass.users](https://github.com/karimarttila/cloj
 
 There was only one issue with my Clojure/Java interop journey — refreshing Clojure REPL with gen-classes. Since gen-classes are Clojure code and you need to compile them to Java classes there was some hassle using them with REPL. If I make changes to many Clojure namespaces it is sometimes easier to refresh the REPL (to load all namespaces) instead of loading the changed namespaces manually one by one:
 
-(do (require ‘[clojure.tools.namespace.repl :refer [refresh]]) (refresh))The problem was that the REPL complained that it cannot find the gen-class after loading it. I understood that there is some patch to fix this issue and I up-voted the Clojure JIRA ticket — hopefully this issue will be solved in the near future. (This was not a major hindrance to my development since usually you are working with 1–2 namespaces at a time and it’s not a big deal to load those namespaces manually to REPL — and even after refreshing you can just manually import the gen-classes.)
+(do (require '[clojure.tools.namespace.repl :refer [refresh]]) (refresh))The problem was that the REPL complained that it cannot find the gen-class after loading it. I understood that there is some patch to fix this issue and I up-voted the Clojure JIRA ticket — hopefully this issue will be solved in the near future. (This was not a major hindrance to my development since usually you are working with 1–2 namespaces at a time and it's not a big deal to load those namespaces manually to REPL — and even after refreshing you can just manually import the gen-classes.)
 
 #### Some Refactorings
 
@@ -156,14 +156,14 @@ This was an astonishing moment to realize: If you need to experiment with a new 
 
 So, I have loaded the simpleserver.userdb.users-table-storage namespace in my Clojure REPL and switched my REPL to use that namespace (easier to call methods without namespace prefix…).
 
-In the first “(into [] (let…” function call I experiment what happens when I ape the functionality I found in the Java API sample in Clojure => I get a list of users classes. Ok. In the next function call I ask the first of these items and then call the getPartitionKey Java method of that Java class => I get the email which was stored as PartitionKey in Azure Table Storage field. Pretty nice to be able to dynamically experiment with a library that was written in a static language.
+In the first "(into [] (let…" function call I experiment what happens when I ape the functionality I found in the Java API sample in Clojure => I get a list of users classes. Ok. In the next function call I ask the first of these items and then call the getPartitionKey Java method of that Java class => I get the email which was stored as PartitionKey in Azure Table Storage field. Pretty nice to be able to dynamically experiment with a library that was written in a static language.
 
 ### Conclusions
 
-Using Clojure/Java interop you can use any Java library if you can’t find a native Clojure library for your purposes. Using Clojure REPL it is actually even easier to experiment with a Java API that using Java itself.
+Using Clojure/Java interop you can use any Java library if you can't find a native Clojure library for your purposes. Using Clojure REPL it is actually even easier to experiment with a Java API that using Java itself.
 
 *The writer has two AWS certifications and one Azure certification and is working at the [Tieto Corporation](https://www.tieto.com/) in Application Services / Application Development / Public Cloud team designing and implementing cloud native projects. If you are interested to start a new cloud native project in Finland you can contact me by sending me email to my corporate email or contact me via LinkedIn.*
 
 Kari Marttila
 
-* Kari Marttila’s Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
+* Kari Marttila's Home Page in LinkedIn: <https://www.linkedin.com/in/karimarttila/>
