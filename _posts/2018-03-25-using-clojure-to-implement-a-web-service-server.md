@@ -102,7 +102,7 @@ If you are interested to use Clojure with AWS you should explore Amazonica — t
 
 ### Deployment
 
-There are two basic ways to create a deployment unit for this kind of web server in an AWS environment: AWS AMI and Docker container. AWS Lambda is not an option since the web server is a stateful entity (knows whether it is in a stopped or running state). For the POC I wanted minimal hassle so I used Packer and Ansible to create a simple AMI which could be then deployed as part of the AWS POC infra. I have already covered how to create AWS AMIs and Docker containers in other blog posts, e.g. How to [Create EC2 Images in AWS?](https://medium.com/tieto-developers/how-to-create-ec2-images-in-aws-a27b1afc97c6), [How to Create Docker Containers in AWS?](https://medium.com/tieto-developers/how-to-create-docker-containers-in) and [AWS Batch and Docker Containers](https://medium.com/@kari.marttila/aws-batch-and-docker-containers-41c92784bd96).
+There are two basic ways to create a deployment unit for this kind of web server in an AWS environment: AWS AMI and Docker container. AWS Lambda is not an option since the web server is a stateful entity (knows whether it is in a stopped or running state). For the POC I wanted minimal hassle so I used Packer and Ansible to create a simple AMI which could be then deployed as part of the AWS POC infra. I have already covered how to create AWS AMIs and Docker containers in other blog posts, e.g. [How to Create EC2 Images in AWS?]({% post_url 2017-03-08-how-to-create-ec2-images-in-aws %}), [How to Create Docker Containers in AWS?]({% post_url 2017-03-28-how-to-create-docker-containers-in-aws %}) and [AWS Batch and Docker Containers]({% post_url 2017-11-09-aws-batch-and-docker-containers %}).
 
 ### Conclusions
 
