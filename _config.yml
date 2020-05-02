@@ -25,11 +25,8 @@ github_username:  karimarttila
 # Build settings
 markdown: kramdown
 theme: minima
-#theme: jekyll-theme-merlot
-#theme: merlot
 plugins:
   - jekyll-feed
-#  - jekyll-theme-merlot
 
 # Specify the name of a file to show as a masthead graphic at the top of each page, instead of a title, here:
 masthead: /img/km-logo.png
@@ -45,3 +42,5 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - personal
+  - tmp
