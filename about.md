@@ -22,6 +22,13 @@ I have done work in all major clouds, though most of my experience is with AWS. 
 
 I have experience creating cloud infra code using [Terraform](https://www.terraform.io/) and [Pulumi](https://www.pulumi.com/) and cloud native tools like [CloudFormation](https://aws.amazon.com/cloudformation/).
 
+My Social Media Sites:
+- [Kari Marttila Home Page](https://www.karimarttila.fi)
+- [Kari Marttila at LinkedIn](https://www.linkedin.com/in/karimarttila/)
+- [Kari Marttila at GitHub](https://github.com/karimarttila)
+- [Kari Marttila at Medium](https://medium.com/@kari.marttila)
+
+
 ### Software as a Hobby
 
 I do various cloud and Clojure exercises in my free time mostly to learn new cloud related technologies and programming practices. I'm especially thrilled with [Clojure](https://clojure.org/) - the main reason I decided to leave my long corporate career and join Metosin. Even though Clojure is my favorite programming language, I have used e.g. C, C++, Java, Python, Javascript and Clojure in production, and used e.g. Go and Kotlin in my pet projects (if you are interested how I feel about those languages you might like to read [Five Languages - Five Stories]({% post_url 2018-11-19-five-languages-five-stories %}))
@@ -49,10 +56,3 @@ Some picture taken from our trips.
 ![Miska portrait](/img/about_page_miska_portrait.jpg)
 
 *Miska's official portrait in our fireplace room.*
-
-
-
-
-[Kari Marttila at LinkedIn](https://www.linkedin.com/in/karimarttila/)
-
-[Kari Marttila at GitHub](https://github.com/karimarttila)
