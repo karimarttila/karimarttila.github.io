@@ -303,8 +303,8 @@ Or like this (Clojure):
 
 ... or this (Javascript):
 
-```javascript  
- .expect(200, {ret: 'ok', product-groups': { 1: 'Books', 2: 'Movies'} }, done);
+```javascript
+ .expect(200, {ret: 'ok', 'product-groups': { 1: 'Books', 2: 'Movies' } }, done);
 ```
 
 Data should look like data in code. It's pretty apparent that it's more natural to treat data as data and not as some data structure. This is actually a pretty important aspect in the language and affects readability and joy of programming. Clearly Java does a terrible job here and all dynamic languages perform well (but we can't blame Java — this is the way it is and it should be in a statically typed language; the flip side of the coin is that statically typed languages provide you type safety). Go's structs are also a pretty good simplification for a statically typed language. Actually using Go you get the benefits of a statically typed language and treating data is not too bad. Special award goes to Javascript in which JSON (Javascript Object Notation) is built into the language and using JSON is very nice, of course (and JSON is pretty ubiquitous). Python also provides a simple way to treat data in code. As well as Clojure — using Clojure's native types is very readable in code (see literal map in above example). So, my verdict is:
