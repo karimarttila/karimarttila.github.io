@@ -11,7 +11,7 @@ Here you can find all posts grouped by categories.
   {% assign t = category | first %}
   {% assign posts = category | last %}
 
-{{ t | downcase }}
+#### {{ t | downcase }}
 <ul>
 {% for post in posts %}
   {% if post.category contains t %}

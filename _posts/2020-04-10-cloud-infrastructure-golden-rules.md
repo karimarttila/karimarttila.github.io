@@ -2,7 +2,7 @@
 layout: post
 title: Cloud Infrastructure Golden Rules
 category: [iac]
-tags: [iac, aws, azure, gcp, cloud, productivity, quality]
+tags: [iac, aws, azure, gcp, cloud, productivity, quality, featured]
 date:	2020-04-10
 ---
 

@@ -11,7 +11,7 @@ Here you can find all posts grouped by tags.
   {% assign t = tag | first %}
   {% assign posts = tag | last %}
 
-{{ t | downcase }}
+#### {{ t | downcase }}
 <ul>
 {% for post in posts %}
   {% if post.tags contains t %}

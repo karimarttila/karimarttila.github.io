@@ -2,7 +2,7 @@
 layout: post
 title: "DevOps Success Factors"
 category: [devops]
-tags: [devops, aws, cloud, iac, terraform, automation, testing, productivity, packer, ansible]
+tags: [devops, aws, cloud, iac, terraform, automation, testing, productivity, packer, ansible, featured]
 date: 2017-02-15
 ---
 
