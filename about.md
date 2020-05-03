@@ -51,7 +51,7 @@ Some pictures taken from our trips.
 
 ![Miska in Winter](/img/about_page_miska_winter.jpg)
 
-*Miska in the local forest in winter time.*
+*Miska in the local forest in wintertime.*
 
 ![Miska portrait](/img/about_page_miska_portrait.jpg)
 

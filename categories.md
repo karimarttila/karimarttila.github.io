@@ -6,7 +6,8 @@ permalink: /categories/
 
 Here you can find all posts grouped by categories.
 
-{% for category in site.categories %}
+{% assign sorted_categories = site.categories | sort %}
+{% for category in sorted_categories %}
   {% assign t = category | first %}
   {% assign posts = category | last %}
 
