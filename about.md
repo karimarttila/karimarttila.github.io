@@ -10,15 +10,15 @@ permalink: /about/
 
 ### Professional Life
 
-I'm an enthusiastic Cloud and Clojure developer working at [Metosin](http://www.metosin.fi/). Before Metosin I had a long corporate career at the [Tieto Corporation](https://www.tietoevry.com/) where I worked in various roles, last role being a Cloud Mentor.
+I'm an enthusiastic Cloud and Clojure developer working at [Metosin](http://www.metosin.fi/) (see also: [My First Weeks at Metosin!]({% post_url 2020-03-23-my-first-weeks-at-metosin %})). Before Metosin I had a long corporate career at the [Tieto Corporation](https://www.tietoevry.com/) where I worked in various roles, the last role being a [Cloud Mentor](https://www.tietoevry.com/en/blog/2019/07/reinventing-oneself-professionally--the-story-of-a-cloud-specialist/).
 
 I have done work in all major clouds, though most of my experience is with AWS. I have the following cloud certifications:
-- AWS Certified Solutions Architect Associate
-- AWS Certified Developer Associate
-- AWS Certified SysOps Administrator Associate
-- Google Cloud Certified Associate Cloud Engineer
-- Google Cloud Certified Professional Cloud Architect
-- Microsoft Certified Azure Solutions Architect Expert
+- [AWS Certified Solutions Architect Associate](https://www.certmetrics.com/amazon/public/badge.aspx?i=1&t=c&d=2016-10-24&ci=AWS00215033)
+- [AWS Certified Developer Associate](https://www.certmetrics.com/amazon/public/badge.aspx?i=2&t=c&d=2017-04-03&ci=AWS00215033)
+- [AWS Certified SysOps Administrator Associate](https://www.certmetrics.com/amazon/public/badge.aspx?i=3&t=c&d=2019-03-27&ci=AWS00215033)
+- [Google Cloud Certified Associate Cloud Engineer](https://www.credential.net/54ddbf17-bc7c-4df8-b370-d2e734dca2bb)
+- [Google Cloud Certified Professional Cloud Architect](https://www.credential.net/d7b8e7e6-c396-4ad1-8336-7bb53936b0ef)
+- [Microsoft Certified Azure Solutions Architect Expert](https://www.youracclaim.com/badges/c69ef1ee-3fbc-4566-b1c1-a478f7fdf016/linked_in_profile)
 
 I have experience creating cloud infra code using [Terraform](https://www.terraform.io/) and [Pulumi](https://www.pulumi.com/) and cloud native tools like [CloudFormation](https://aws.amazon.com/cloudformation/).
 
@@ -33,13 +33,13 @@ My Social Media Sites:
 
 I do various cloud and Clojure exercises in my free time mostly to learn new cloud related technologies and programming practices. I'm especially thrilled with [Clojure](https://clojure.org/) - the main reason I decided to leave my long corporate career and join Metosin. Even though Clojure is my favorite programming language, I have used e.g. C, C++, Java, Python, Javascript and Clojure in production, and used e.g. Go and Kotlin in my pet projects (if you are interested how I feel about those languages you might like to read [Five Languages - Five Stories]({% post_url 2018-11-19-five-languages-five-stories %}))
 
-I try to write new blog articles regarding my latest exercises, and also about interesting technologies I have had a chance to use in my day work.
+I write new blog articles regarding my latest exercises, and also about interesting technologies I have had a chance to use in my day job.
 
 ### Freetime
 
 When I'm off duty I like to walk with Miska in the [Helsinki Central Park](https://www.hel.fi/hel2/keskuspuisto/eng/1centralpark/).
 
-Some picture taken from our trips.
+Some pictures taken from our trips.
 
 ![Kari and Miska](/img/about_page_kari_miska_field.jpg)
 
