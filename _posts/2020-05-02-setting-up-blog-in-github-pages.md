@@ -14,7 +14,7 @@ date:	2020-05-02
 
 I started to work at [Metosin](http://www.metosin.fi) and pretty soon a couple of my colleagues complained that they don't like to read my blog posts in [Medium](https://medium.com/). I was a bit puzzled since I have always liked Medium - writing blog posts is pretty easy and Medium is a good publishing platform. In Medium I occasionally got offers to add my blog posts to some publishing channel behind the paywall but I was never interested to do that - I like that my blog posts are free for anyone who might find something useful there. But after listening to my colleagues' nagging for a few weeks I finally gave in and decided that I have to create my own independent blog site. When I thought about it the idea actually started to make sense: I can have my blog posts in my site and then also syndicate the blog posts in Medium besides my site. (I understood that my colleagues' reluctance to use Medium had something to do with an idea called ["Posse"](https://indieweb.org/POSSE)).
 
-This blog post is the story about how I created my new blogging site.
+This blog post is a story about how I created my new blogging site.
 
 ### Options
 

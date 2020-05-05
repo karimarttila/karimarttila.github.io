@@ -22,4 +22,4 @@ date: 2017-02-22
 
 If you got interested about the power of inner motivation you can next watch an excellent animated presentation of [Dan Pink's lecture](https://www.youtube.com/watch?v=u6XAPnuFjJc) about it.
 
-*The writer has double majors: Master of Arts (Psychology) and Master of Science (Software Engineering). The writer has spent his career in softare industry but still reads various psychology related articles with great interest.*
+*The writer has double majors: Master of Arts (Psychology) and Master of Science (Software Engineering). The writer has spent his career in the field of software industry but still reads various psychology related articles with great interest.*
