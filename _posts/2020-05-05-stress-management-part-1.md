@@ -16,6 +16,17 @@ I have spent my professional career in the software production field for which I
 
 I feel that this blog post and the following 4 stress management related posts just might be much more important than my technology related blog posts. During my 25 years in the field of software production, I have seen how devastating stress can be in one’s life. I have seen mild and more serious stress symptoms among my colleagues (and in myself). I have even seen several cases for people spending long sick leaves because of stress, burn-out and depression. The most important reason why stress is so common in IT industry is haste and tight schedules, which make people feel that they are constantly hunted by a pack of lions (more about that later). If I can prevent even one psychological collapse of some stressed colleague of mine; i.e. when he or she is reading these posts and understands his or her stress situation and he or she decides to take measures to handle his or her stress using some of the tools mentioned in these posts - it was worth to spend the time writing these posts.
 
+### What is Stress?
+
+![What is stress?](/img/2020-05-05-stress-management-part-1_img_2.png)
+
+*What is stress?*
+
+[Definition of Stress by the Free Dictionary](http://medical-dictionary.thefreedictionary.com/stress): ”Stress is defined as an organism's total response to environmental demands or pressures. ...the word stressor has been used for the stimulus that provokes a stress response. … (physical) external response that can be measured by changes in glandular secretions, skin reactions, and other physical functions, … internal interpretation…”
+
+So, stress is something you tend to react with various physical and psychological reactions stimulated by stressors, e.g. strict dead-lines at work, a difficult situation at home, etc.
+
+
 ### The Vicious Cycle of Stress
 
 Let’s first look at the graph below - “The Vicious Cycle of Stress”.
@@ -26,11 +37,13 @@ Let’s first look at the graph below - “The Vicious Cycle of Stress”.
 
 So, what do we see in this graph?
 
-1. There are **two dimensions**:
+ **1**. There are **two dimensions**:
+
 - **Axis of well-being**. This axis illustrates your feeling of well-being. The upper you are the better you feel.
 - **Width of perspective in life**. This axis illustrates your perspective in life. The wider it is the more you feel you have interesting and revitalizing things in life.
 
-2. There are some interesting **conclusions** to be drawn from the graph above:
+ **2**. There are some interesting **conclusions** to be drawn from the graph above:
+
 - The wider your perspective in life is the better you feel. This is pretty obvious when you think about it. If you have good health, hobbies and outdoor activities, good relations with your family, a lot of friends (or at least a couple of good friends) and interesting work you are usually feeling good. You may have some worries but on the average, you have more revitalizing (yellow) things in life than consuming (red) things.
 - If you experience stress in life that you cannot cope you go down in the Vicious Cycle of Stress. This is also pretty obvious but an utterly important issue to understand. Everybody has some worries in life. The point is to have more revitalizing things in life than consuming things. And you must have tools to handle stress to be on the area of Normal life. If you don’t you are going to drop down to the area of Early symptoms.
 - If you go down to the next level in the Vicious Cycle of Stress, your perspective in life narrows and your overall well-being suffers. You may feel that there are more consuming things (red) than revitalizing things (yellow) in your life. Some revitalizing (yellow) things may have turned into neutral (gray) or consuming (red) things (like work on the area of Early symptoms).
