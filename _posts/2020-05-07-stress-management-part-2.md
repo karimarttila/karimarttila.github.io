@@ -18,7 +18,7 @@ The Early symptoms can be summarized in the graph presented in the first part of
 
 ### Test your stress level
 
-There are early symptoms that you can use to check your stress level. The internet is full of stress management pages and if you feel that you are in the danger zone you should test your stress level. Some examples of these pages can be found using keywords “psychological stress online test”. But beware: some of these tests are just rubbish. Try to find a stress test that has some major clinical organization backing up (e.g. [Mental Health Foundation, UK](www.mentalhealth.org.uk)). Or consult your general practitioner.
+There are early symptoms that you can use to check your stress level. The internet is full of stress management pages and if you feel that you are in the danger zone you should test your stress level. Some examples of these pages can be found using keywords “psychological stress online test”. But beware: some of these tests are just rubbish. Try to find a stress test that has some major clinical organization backing up (e.g. [Mental Health Foundation, UK](http://www.mentalhealth.org.uk)). Or consult your general practitioner.
 
 ### List of Early Symptoms
 
