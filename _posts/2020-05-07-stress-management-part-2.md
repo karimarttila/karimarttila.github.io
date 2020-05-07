@@ -47,7 +47,7 @@ The basic idea of the stress symptoms was good. 100.000 years ago when you were 
 
 *Stress management in the brain, designed by Nature.*
 
-When the stress level is turned on too long time it will make psychological and physiological changes in your brain that are hard to cure. The most important thing of this post for you is to understand that the Early stress symptoms are an important indicator for you to know that there is something wrong in your life and you should do something about it (before things are going too ugly for you yourself to do anything about it anymore, but more about it in the next post).
+When the stress level is turned on a too long time it will make psychological and physiological changes in your brain that are hard to cure. The most important thing of this post for you is to understand that the Early stress symptoms are an important indicator for you to know that there is something wrong in your life and you should do something about it (before things are going too ugly for you yourself to do anything about it anymore, but more about it in the next post).
 
 
 *The writer has double majors: Master of Arts (Psychology) and Master of Science (Software Engineering). The writer has spent his career in the field of software industry but still reads various psychology related articles with great interest.*
