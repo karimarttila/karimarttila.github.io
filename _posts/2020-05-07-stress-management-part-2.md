@@ -24,13 +24,13 @@ There are early symptoms that you can use to check your stress level. The intern
 
 You can also use this list of early symptoms to check your stress level:
 
-- **Memory**.  Do you feel that you cannot remember things as easily as you used to? Stress affects brain in a physiological level so that your memory impairs.
-- **Concentration**. Do you feel that it is harder for you to concentrate now than earlier? The physiological changes in brain caused by stress also affect your ability to concentrate. You may feel that you cannot concentrate e.g. listening to the news, you are just sitting on your sofa and wondering what the news anchor has been talking about the last 5 minutes.
+- **Memory**.  Do you feel that you cannot remember things as easily as you used to? Stress affects the brain in a physiological level so that your memory impairs.
+- **Concentration**. Do you feel that it is harder for you to concentrate now than earlier? The physiological changes in the brain caused by stress also affect your ability to concentrate. You may feel that you cannot concentrate e.g. listening to the news, you are just sitting on your sofa and wondering what the news anchor has been talking about the last 5 minutes.
 - **Energy**. You don’t have the energy to do things you used to do (go to jogging after work, see your friends...).
 - **Emotions**. Your emotions are darker than they used to be. You feel down more often than you used to.
 - **Tension**. You feel physical and mental tension almost daily. Mental tension is an odd feeling of threat even though you realize that there is no real physical threat in your life. The bodily tension can be felt e.g. in your stomach.
 - **Interests**. The things that used to be interesting in your life don’t interest you any more or you feel you don’t have the energy to be involved with them anymore.
-- **Sleep**. You don’t sleep as well as you used to. Sleep is a very sensitive indicator of your overall well-being, so listen to it. If you don’t sleep well there is something wrong and you definitely should do something about it. Bad symptoms are if you have problems to fall asleep (because of all those stressful things are making a major hassle in your mind on bed) or you wake up 2-3 hours too early and can’t get back to sleep. Problems with sleep need to be addressed soon and with rigour: lack of sleep will make changes in your brain that might eventually start serious mental problems (like depression).
+- **Sleep**. You don’t sleep as well as you used to. Sleep is a very sensitive indicator of your overall well-being, so listen to it. If you don’t sleep well there is something wrong and you definitely should do something about it. Bad symptoms are if you have problems to fall asleep (because of all those stressful things are making a major hassle in your mind on the bed) or you wake up 2-3 hours too early and can’t get back to sleep. Problems with sleep need to be addressed soon and with rigor: lack of sleep will make changes in your brain that might eventually start serious mental problems (like depression).
 - **Work**. You don’t enjoy your work as you used to.
 
 ### Why Do We Feel Stress Symptoms?
