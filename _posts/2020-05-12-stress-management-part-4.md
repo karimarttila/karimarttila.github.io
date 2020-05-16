@@ -8,7 +8,7 @@ date:	2020-05-12
 
 ### Introduction
 
-This is the fourth part of my five-part series about stress management. The first two parts can be found here:
+This is the fourth part of my five-part series about stress management. The first three parts can be found here:
 
 - [Stress Management Part 1]({% post_url 2020-05-05-stress-management-part-1 %})
 - [Stress Management Part 2]({% post_url 2020-05-07-stress-management-part-2 %})
