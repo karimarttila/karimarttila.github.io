@@ -3,7 +3,7 @@ layout: post
 title: Stress Management Part 5
 category: [well-being]
 tags: [psychology, stress, well-being]
-date:	2020-05-16
+date: 2020-05-16
 ---
 
 ### Introduction
