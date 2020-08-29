@@ -2,7 +2,7 @@
 layout: post
 title: Use Clojure with Docker and Kubernetes!
 category: [clojure]
-tags: [devops, automation, ci, container, docker, kubernetes, cloud]
+tags: [clojure, container, docker, kubernetes, cloud]
 date: 2020-08-29
 ---
 
