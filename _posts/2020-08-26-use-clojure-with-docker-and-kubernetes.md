@@ -7,7 +7,7 @@ date: 2020-08-29
 ---
 
 
-![Cursive REPL output window](/img/2020-08-26-use-clojure-with-docker-and-kubernetes_img_1.png)
+![Cursive REPL output window](/img/2020-08-29-use-clojure-with-docker-and-kubernetes_img_1.png)
 
 *Cursive REPL output window. Just listing the buckets using my repl scratch file.*
 
@@ -104,7 +104,7 @@ If you wonder why we have the MINIO_HOST in this yaml file, let's see the Aero c
 
 I use excellent [Cursive REPL](https://cursive-ide.com/userguide/repl.html) Clojure IDE as an example, but you can connect to the nrepl server pretty much same way using any Clojure IDE.
 
-![Connecting to Nrepl server](/img/2020-08-26-use-clojure-with-docker-and-kubernetes_img_2.png)
+![Connecting to Nrepl server](/img/2020-08-29-use-clojure-with-docker-and-kubernetes_img_2.png)
 
 *Cursive REPL configuration.*
 
