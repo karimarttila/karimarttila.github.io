@@ -6,7 +6,7 @@ tags: [devops, automation, ci, container, docker]
 date: 2020-08-26
 ---
 
-![Drone step](/img/2020-08-26-drone.png)
+![Drone step](/img/2020-08-26-using-drone-ci_img_1.png)
 
 *The pretty archaic Drone UI - but that's all you need with Drone.*
 
@@ -246,7 +246,7 @@ I have mostly used [Jenkins](https://www.jenkins.io/) the previous years as my C
 
 - **Shell scripting.** As you could see in the examples above you can write your pipeline steps using simple shell commands inside container, and do basically anything you like in those steps. You don't have to use some "language that is a bit like Groovy but not quite", I guess you know what I mean.
 - **Containers.** Containers provide a nice isolated place for your builds and they are also rather nice to debug once you understand the basic Drone container based architecture. Debugging Jenkins builds are of course rather easy, since you can always just get a `ssh` session to the Jenkins server and go to the Jenkins workplace directory and experiment there.
-- **Local development.** `drone exec` is a real nice tool to develop your CI pipelines. And if you follow some practices (e.g. the same user in all steps...) your local pipeline runs are exactly the same way as your Drone server runs them.
+- **Local development.** `drone exec` is a real nice tool to develop your CI pipelines. And if you follow some practices (e.g. the same user in all steps...) you can run the pipelines exactly the same way both in locally in your workstation and in your team's Drone server.
 - **No UI hassle.** If you want to use some specific plugins in Jenkins you can of course install them when you install Jenkins, but there are quite a lot of configurations in those plugins that you usually need to do using Jenkins UI. With Drone everything are just Docker containers, no special configurations.
 
 ### Conclusions
