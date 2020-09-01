@@ -13,11 +13,11 @@ date: 2020-09-01
 
 ### Introduction
 
-I never bothered to learn [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) so that I could be really fluent with it. If I needed anything beyond basic Bash stuff I immediately used [Python](https://www.python.org/) in command line scripting.
+I never bothered to learn [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) so that I could be really fluent with it. If I needed anything beyond basic Bash stuff I immediately used [Python](https://www.python.org/) in command-line scripting.
 
-I'm currently implementing my Clojure simple server again, this time using Integrant library. In this new version I implemented three data stores: CSV, AWS DynamoDB and Postgres. I had already implemented importing development data into DynamoDB (using Python), this time I used [Babashka](https://github.com/borkdude/Babashka) to import development data into Postgres - mainly just to have an excuse to try if I could replace Python with Clojure when scripting something with Bash.
+I'm currently implementing my Clojure simple server again, this time using the [Integrant](https://github.com/weavejester/integrant) library. In this new version, I implemented three data stores: CSV, AWS DynamoDB, and Postgres. I had already implemented importing development data into DynamoDB (using Python), this time I used [Babashka](https://github.com/borkdude/Babashka) to import development data into Postgres - mainly just to have an excuse to try if I could replace Python with Clojure when scripting something with Bash.
 
-The scripts can be found in my [clojure git](https://github.com/karimarttila/clojure) repo in directory [postgres](https://github.com/karimarttila/clojure/tree/master/webstore-demo/integrant-simple-server/postgres).
+The scripts can be found in my [Clojure git](https://github.com/karimarttila/clojure) repo in directory [postgres](https://github.com/karimarttila/clojure/tree/master/webstore-demo/integrant-simple-server/postgres).
 
 
 ### Developing with Babashka
@@ -28,7 +28,7 @@ The really neat thing with Babashka is that you can develop your Babashka script
  :postgres {:extra-paths ["postgres"]}
 ```
 
-Then the nice thing is that I can develop the Clojure code as part of other project Clojure code. Let's first create a short bash script that tells Babashka to run your Clojure code with a flag so that we know in the Clojure code when we are running the code using Babashka or using Clojure IDE REPL (file [run-bb-load-data.sh](https://github.com/karimarttila/clojure/blob/master/webstore-demo/integrant-simple-server/postgres/run-bb-load-data.sh)):
+Then the nice thing is that I can develop the Clojure code as part of project's other Clojure code. Let's first create a short bash script that tells Babashka to run your Clojure code with a flag so that we know in the Clojure code when we are running the code using Babashka or using Clojure IDE REPL (file [run-bb-load-data.sh](https://github.com/karimarttila/clojure/blob/master/webstore-demo/integrant-simple-server/postgres/run-bb-load-data.sh)):
 
 ```bash
 #/bin/bash
@@ -54,7 +54,7 @@ Then in the Clojure code we have a top level form `(run-me)` in the namespace (f
 (run-me)
 ```
 
-I.e. when reloading the namespace REPL runs the code but if the flag is not set it doesn't actually do anything - it imports the code only if we are running the code using Babashka. The reason for this is that when I reload the namespace as part of my Clojure workflow I don't want the data import happen. For development purposes to test importing data, or any other function, I have a `rich comment` at the end of the file:
+I.e. when reloading the namespace REPL runs the code but if the flag is not set it doesn't actually do anything - it imports the code only if we are running the code using Babashka. The reason for this is that when I reload the namespace as part of my Clojure workflow I don't want the data import to happen. For development purposes to test importing data, or any other function, I have a `rich comment` at the end of the file:
 
 ```clojure
 (comment
