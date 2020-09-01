@@ -6,7 +6,7 @@ tags: [clojure, languages, cursive, intellij, repl]
 date: 2020-09-01
 ---
 
-![Ordinary Clojure code](/img/2020-08-31-using-clojure-in-command-line-with-babashka_img_1.png)
+![Ordinary Clojure code](/img/2020-09-01-using-clojure-in-command-line-with-babashka_img_1.png)
 
 *Ordinary Clojure code - can be run in REPL or in command line with Babashka (the whole file can be found [here](https://github.com/karimarttila/clojure/blob/master/webstore-demo/integrant-simple-server/postgres/bb_postgres.clj) )*
 
