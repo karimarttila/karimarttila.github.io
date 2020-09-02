@@ -159,9 +159,9 @@ Let's finally compare Python and Clojure (Babashka) when doing some Linux shell 
 
 **Easiness**. Both languages are pretty easy and fast to work if you have used them. Developing Python scripts is pretty fast - you just run the script in command line. Working with Clojure has one additional plus: you can use the Clojure REPL. 
 
-**Library support**: Python wins hands down. When you are scripting in Python and you realize that it would be nice to use some AWS library - just use it (e.g. [table_importer.py](https://github.com/karimarttila/clojure/blob/master/webstore-demo/integrant-simple-server/dynamodb/pysrc/table_importer.py) - the AWS [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) library). Not so with Babashka. Currently Babashka supports just `clojure.core` - if you want to use anything else you have to switch to JVM side (and say goodbye to fast start time).
+**Library support**: Python wins. When you are scripting in Python and you realize that it would be nice e.g. to use some AWS library - just use it (e.g. [table_importer.py](https://github.com/karimarttila/clojure/blob/master/webstore-demo/integrant-simple-server/dynamodb/pysrc/table_importer.py) - the AWS [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) library). The library support for Babashka is not as extensive, of course - but Babashka supports quite many namespaces outside `clojure.core` and also some additional libraries: [Babashka built-in namespaces](https://github.com/borkdude/babashka#built-in-namespaces) - keep eye on that page, maybe Babashka library support is growing in the future!
 
-So, the library support might be one reason to continue using Python. But if you know beforehand that what you need is in `clojure.core` that's not an issue. And if you are implementing the apps using Clojure it is really nice to do some ad hoc scripting using Babashka.
+So, the library support might not be as good as with Python. But I really do love Clojure and if I'm implementing apps using Clojure it is really nice to do some ad hoc scripting using Babashka.
 
 ### Conclusions
 
