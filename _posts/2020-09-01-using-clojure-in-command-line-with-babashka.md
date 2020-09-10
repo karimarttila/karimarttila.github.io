@@ -43,10 +43,11 @@ The flag is the `RUNNING_BB` export above.
 Then in the Clojure code we have a top level form `(run-me)` in the namespace (file [bb_postgres.clj](https://github.com/karimarttila/clojure/blob/master/webstore-demo/integrant-simple-server/postgres/bb_postgres.clj)):
 
 ```clojure
-(defn run-me []
-  "Loads data only if running from Babashka script which sets the environment variable.
+(defn run-me
+  "Loads data only if running from babashka script which sets the environment variable.
   We don't want the repl to load the data when reloading the namespace.
   In repl experimentation use the rich comment below."
+  []
   (let [running-bb? (System/getenv "RUNNING_BB")]
     (if (= running-bb? "TRUE")
       (import-data))))
