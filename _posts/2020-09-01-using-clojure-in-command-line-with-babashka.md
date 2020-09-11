@@ -13,16 +13,24 @@ date: 2020-09-01
 
 ### Introduction
 
-I never bothered to learn [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) so that I could be really fluent with it. If I needed anything beyond basic Bash stuff I immediately used [Python](https://www.python.org/) in command-line scripting.
+I never bothered to learn [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) well enough to be fluent with it. If I needed anything beyond basic Bash stuff I immediately used [Python](https://www.python.org/) in command-line scripting.
 
 I'm currently implementing my Clojure simple server again, this time using the [Integrant](https://github.com/weavejester/integrant) library. In this new version, I implemented three data stores: CSV, AWS DynamoDB, and Postgres. I had already implemented importing development data into DynamoDB (using Python), this time I used [Babashka](https://github.com/borkdude/Babashka) to import development data into Postgres - mainly just to have an excuse to try if I could replace Python with Clojure when scripting something with Bash.
 
 The scripts can be found in my [Clojure git](https://github.com/karimarttila/clojure) repo in directory [postgres](https://github.com/karimarttila/clojure/tree/master/webstore-demo/integrant-simple-server/postgres).
 
+### What is Babashka?
+
+[Babashka](https://github.com/borkdude/babashka) is "Clojure for scripting". As the implementor of Babashka, [Michiel Borkent](https://github.com/borkdude), says in the Babashka home page: *"The main idea behind babashka is to leverage Clojure in places where you would be using bash otherwise."* When running Clojure code with Babashka your script is not compiled to JVM bytecode but executed with a native binary runtime which implements certain core namespaces of the Clojure language. Therefore:
+
+- If you need to do programming tasks and startup is not an issue - use Clojure on the JVM.
+- If you need Clojure for scripting and fast startup is important - use Babashka.
+
+Babashka home page provides a good explanation regarding the [Differences with Clojure](https://github.com/borkdude/babashka#differences-with-clojure).
 
 ### Developing with Babashka
 
-The really neat thing with Babashka is that you can develop your Babashka scripts as part of your Clojure project, or independently but using your favorite Clojure IDE. The picture above shows Clojure code in my favorite Clojure IDE, [Cursive](https://cursive-ide.com/). I have the Clojure code that imports data into the Postgres database in directory [postgres](https://github.com/karimarttila/clojure/tree/master/webstore-demo/integrant-simple-server/postgres), so I have the following extra path in my [deps.edn](https://github.com/karimarttila/clojure/blob/master/webstore-demo/integrant-simple-server/deps.edn):
+The neat thing with Babashka is that you can develop your Babashka scripts as part of your Clojure project, or independently but using your favorite Clojure IDE. The picture above shows Clojure code in my favorite Clojure IDE, [Cursive](https://cursive-ide.com/). I have the Clojure code that imports data into the Postgres database in directory [postgres](https://github.com/karimarttila/clojure/tree/master/webstore-demo/integrant-simple-server/postgres), so I have the following extra path in my [deps.edn](https://github.com/karimarttila/clojure/blob/master/webstore-demo/integrant-simple-server/deps.edn):
 
 ```clojure
  :postgres {:extra-paths ["postgres"]}
@@ -78,7 +86,7 @@ The `comment` block is here so that REPL does not run this code when reloading, 
 
 ### Babashka Use Cases
 
-I really like the idea that I can now use Clojure in shell scripting. Of course I could use Clojure in shell scripting also without Babashka but JVM boot takes quite a long time which makes testing of the script in command line a bit painful. Not so with Babashka - Babashka boots lightning fast:
+I really like the idea that I can now use Clojure in shell scripting. Of course, I could use Clojure in shell scripting without Babashka but starting a small Clojure script on JVM has certain penalties (if you are interested about the topic, read an excellent article [Clojure's slow start — what's inside?](http://clojure-goes-fast.com/blog/clojures-slow-start/) by Alexander Yakushev to learn more about it). Not so with Babashka - Babashka boots lightning fast:
 
 ```bash
 λ> time bb '(println "Hello world!")'
@@ -160,7 +168,7 @@ Let's finally compare Python and Clojure (Babashka) when doing some Linux shell 
 
 **Easiness**. Both languages are pretty easy and fast to work if you have used them. Developing Python scripts is pretty fast - you just run the script in command line. Working with Clojure has one additional plus: you can use the Clojure REPL. 
 
-**Library support**: Python wins. When you are scripting in Python and you realize that it would be nice e.g. to use some AWS library - just use it (e.g. [table_importer.py](https://github.com/karimarttila/clojure/blob/master/webstore-demo/integrant-simple-server/dynamodb/pysrc/table_importer.py) - the AWS [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) library). The library support for Babashka is not as extensive, of course - but Babashka supports quite many namespaces outside `clojure.core` and also some additional libraries: [Babashka built-in namespaces](https://github.com/borkdude/babashka#built-in-namespaces) - keep eye on that page, maybe Babashka library support is growing in the future!
+**Library support**: Python wins. When you are scripting in Python and you realize that it would be nice e.g. to use some AWS library - just use it (e.g. [table_importer.py](https://github.com/karimarttila/clojure/blob/master/webstore-demo/integrant-simple-server/dynamodb/pysrc/table_importer.py) - the AWS [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) library). The library support for Babashka is not as extensive, of course - but Babashka supports quite a few namespaces outside of `clojure.core` and also some additional libraries: [Babashka built-in namespaces](https://github.com/borkdude/babashka#built-in-namespaces) - keep eye on that page, maybe Babashka library support is growing in the future!
 
 So, the library support might not be as good as with Python. But I really do love Clojure and if I'm implementing apps using Clojure it is really nice to do some ad hoc scripting using Babashka.
 
