@@ -29,33 +29,9 @@ theme: minima
 plugins:
   - jekyll-feed
 
-feed:
-  collections:
-    clojure:
-      path: "/clojure.xml"
-      categories:
-        - clojure
-
-feed:
-  collections:
-    clojure:
-      path: "/all.xml"
-      categories:
-        - clojure
-        - devops
-        - clojure
-        - aws
-        - linux
-        - iac
-        - azure
-        - kubernetes
-        - writing
-        - psychology
-        - ml
-        - gcp
-        - languages
-
-
+# See feeds e.g.
+# https://www.karimarttila.fi/feed.xml
+# https://www.karimarttila.fi/feed/clojure.xml
 feed:
   categories:
     - devops
