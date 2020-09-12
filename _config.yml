@@ -29,27 +29,27 @@ theme: minima
 plugins:
   - jekyll-feed
 
-feed:
-  collections:
-    clojure:
-      path: "/clojure.xml"
-      categories:
-        - clojure
+# feed:
+#   collections:
+#     clojure:
+#       path: "/clojure.xml"
+#       categories:
+#         - clojure
 
-#feed:
-#  categories:
-#    - devops
-#    - clojure
-#    - aws
-#    - linux
-#    - iac
-#    - azure
-#    - kubernetes
-#    - writing
-#    - psychology
-#    - ml
-#    - gcp
-#    - languages
+feed:
+ categories:
+   - devops
+   - clojure
+   - aws
+   - linux
+   - iac
+   - azure
+   - kubernetes
+   - writing
+   - psychology
+   - ml
+   - gcp
+   - languages
 
 
 # Specify the name of a file to show as a masthead graphic at the top of each page, instead of a title, here:
