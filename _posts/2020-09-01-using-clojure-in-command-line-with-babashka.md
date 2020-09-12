@@ -134,6 +134,18 @@ The use cases using Babashka in my personal scripting probably is a bit like I u
 
 I.e. parsing CSV, transforming data, and then call some program with the transformed data, possibly read what was returned and do other stuff. You could possibly do all this using plain old Bash but I never bothered to learn Bash in that level that I can do more than test some flags and call other programs using Bash.
 
+Another ad hoc example. I was wondering how many distinct categories there are in my blog. Of course I could check the Jekyll generated site, but let's see how we can solve this using Babashka:
+
+```bash
+λ> grep -ohP 'category:.*\[.*\]' _posts/*.md | bb -i '(into #{} (flatten (map #(drop 1 (re-matches #"category:.*\[(.*)].*" %)) (vec *input*))))'
+#{"devops" "clojure" "aws" "linux" "iac" "azure" "kubernetes" "writing" "psychology" "ml" "gcp" "languages" "well-being" "finance" "metosin"}
+
+λ> grep -ohP 'category:.*\[.*\]' _posts/*.md | bb -i '(count (into #{} (flatten (map #(drop 1 (re-matches #"category:.*\[(.*)].*" %)) (vec *input*)))))'
+15
+```
+
+I never bothered to learn tools like [grep](https://en.wikipedia.org/wiki/Grep), [sed](https://en.wikipedia.org/wiki/Sed) or [awk](https://en.wikipedia.org/wiki/AWK) properly, since if I couldn't do something with basic Bash + very basic Grep I immediately turned into Python. Maybe for now on using Clojure with Babashka.
+
 ### How Do I Use the Babashka Script in This Exercise?
 
 I used Babashka to load development data into the Postgres data store. During development I built a custom Postgres image and provided a [Just](https://github.com/casey/just) recipe to start the data store (file [Justfile](https://github.com/karimarttila/clojure/blob/master/webstore-demo/integrant-simple-server/Justfile)):
