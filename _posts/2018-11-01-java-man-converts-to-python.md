@@ -2,7 +2,7 @@
 layout: post
 title: "Java Man Converts to Python"
 category: [languages]
-tags: [languages, python, repl]
+tags: [languages, python, repl, programming]
 date: 2018-11-01
 ---
 

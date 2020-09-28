@@ -2,7 +2,7 @@
 layout: post
 title: "Java Man's Unholy Quest in the Node Land"
 category: [languages]
-tags: [languages, javascript]
+tags: [languages, javascript, programming]
 date: 2018-10-07
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: Clojure Integrant Exercise
 category: [clojure]
-tags: [clojure, languages, cursive, intellij, dynamodb, postgresql, productivity, repl, testing]
+tags: [clojure, languages, cursive, intellij, dynamodb, postgresql, productivity, repl, testing, programming]
 date: 2020-09-07
 ---
 

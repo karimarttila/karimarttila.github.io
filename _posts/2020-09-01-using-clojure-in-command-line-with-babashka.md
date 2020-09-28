@@ -2,7 +2,7 @@
 layout: post
 title: Using Clojure in Command Line with Babashka
 category: [clojure]
-tags: [clojure, languages, cursive, intellij, repl]
+tags: [clojure, languages, cursive, intellij, repl, programming]
 date: 2020-09-01
 ---
 

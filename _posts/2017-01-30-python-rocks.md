@@ -2,7 +2,7 @@
 layout:	post
 title:	"Python Rocks!"
 category: [languages]
-tags: [languages, python]
+tags: [languages, python, programming]
 date:	2017-01-30
 ---
 

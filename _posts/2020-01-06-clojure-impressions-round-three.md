@@ -2,7 +2,7 @@
 layout: post
 title: "Clojure Impressions Round Three"
 category: [clojure]
-tags: [clojure, languages, repl, productivity, testing, emacs, intellij, cursive]
+tags: [clojure, languages, repl, productivity, testing, emacs, intellij, cursive, programming]
 date: 2020-01-06
 ---
 

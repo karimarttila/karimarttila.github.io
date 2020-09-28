@@ -2,7 +2,7 @@
 layout: post
 title: "Using Clojure to Implement a Web Service Server"
 category: [clojure]
-tags: [clojure, web, repl, linux]
+tags: [clojure, web, repl, linux, programming]
 date:	2018-03-25
 ---
 

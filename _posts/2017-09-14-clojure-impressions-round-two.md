@@ -2,7 +2,7 @@
 layout: post
 title: "Clojure Impressions Round Two"
 category: [clojure]
-tags: [clojure, languages]
+tags: [clojure, languages, programming]
 date: 2017-09-14
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Using Cognitect AWS Clojure Library"
 category: [clojure]
-tags: [clojure, aws, dynamodb, cloud, iac, docker]
+tags: [clojure, aws, dynamodb, cloud, iac, docker, programming]
 date: 2020-03-18
 ---
 

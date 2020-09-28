@@ -2,7 +2,7 @@
 layout: post
 title: "Go - Good Productivity with Bare Metal"
 category: [languages]
-tags: [languages, golang]
+tags: [languages, golang, programming]
 date:	2018-11-13
 ---
 

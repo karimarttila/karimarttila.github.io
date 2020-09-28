@@ -2,7 +2,7 @@
 layout: post
 title: "Writing Machine Learning Solutions — First Impressions"
 category: [ml]
-tags: [ml, ai, python]
+tags: [ml, ai, python, programming]
 date:	2018-01-25
 ---
 
