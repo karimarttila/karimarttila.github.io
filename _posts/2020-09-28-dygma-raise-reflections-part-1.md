@@ -103,6 +103,36 @@ Who knows? Maybe I realize that there is a way to make my new Dygma Keyboard eve
 
 One thing that I have been thinking about with the split keyboard is to use a trackpad instead of the mouse - I could use my thumbs with a trackpad positioned between the keyboard halves now that I have space for it there - thanks to Dygma Raise split keyboard.
 
+### Update 2020-10-03
+
+I have now used my brand new Dygma Raise about a week. I have forced myself to use the new key mappings I configured and I have done some fine-tuning. This chapter is an update to the original blog post.
+
+**Forcing oneself to use the new key mappings.** Learning the new key mappings will take some time. After one week I'm still stumbling to find the numbers in the new place in layer 1. The parenthesis I learned pretty quickly - probably because in programming one uses the parenthesis a lot more than numbers. I realized that one just have to force oneself to use the new key mappings even though it would be faster to use the old keys father away. But I believe that in a few weeks the new key mappings will go to the muscle memory and then it is a lot faster to use the new keys near the home row.
+
+**Some tweaking with layer 0.** I did some modifications to layer 0 regarding the thumb buttons. The new key mapping is below.
+
+![My Dygma Raise](/img/2020-09-27-dygma-raise-keyboard-reflections-part-1_img_6.jpg)
+
+Changes:
+
+- I changed the right lower thumb buttons as in the left side. I realized that it is easier to remember and use them this way. Now  `Shift` and `Ctrl` keys are mirror images just like in their standard positions.
+- I moved `Enter` key next to `Space` key. It is a bit awkward to twist the right hand thumb to this key but I sacrifice a bit in ergonomics to have the `Shift` and `Ctrl` keys in more logical positions.
+
+**Some tweaking with layer 1.** I did some modifications to layer 1. The new key mapping is below.
+
+![My Dygma Raise](/img/2020-09-27-dygma-raise-keyboard-reflections-part-1_img_5.jpg)
+
+Changes:
+
+- I moved the `Esc` key below the home row. The reason was to have a more logical layout for the numbers. 
+- I realized that the keys below the right home row are empty and I can utilize that row. So:
+- `Tab` added next to `Esc`.
+- I moved `\` key next to `tab`. `\` key provides the `` ` `` character that I need in Slack to provide code snippets without formatting.
+- The weird two dots key provides the precious tilde key (`~`) that a programmer needs in terminal when referring to the user home directory. This key is in standard position really far a way in second upper row near `Enter` key.
+- `'` key actually provides the asterisk (`*`) when used with `Shift`. The asterisk key is used in terminal to represent any number of characters - also used quite often. This key is in standard position next to the `Enter` key and therefore a bit far away.
+
+**Ordered new switches.** I experimented with the test switches Dygma kindly added to the box. First I thought that I would order `Kailh Speed Silver` switches (Linear, 40 cN, Pretravel 1.1 mm, Travel 3.5 mm) since I feel that the `Cherry MX Brown` (Tactile, 55 cN, Pretravel 2 mm, Travel 4 mm) switches that I ordered with my Dygma are a bit too heavy and `Kailh Speed Silver` switches were really easy to press. I also tried the `Kailh Speed Copper` (tactile, 50 cN, Pretravel 1,1 mm, Travel 3,5 mm) - it was a nice switch also, a bit more consistent feeling that with `Cherry MX Brown`. But then I surprised myself. I tried `Kailh Speed Bronze` (clicky, 60 cN, Pretravel 1.1 mm, Travel 3.5 mm) - and I immediately fell in love with the feeling and the "click" which is really sharp and provides a really nice haptic and auditory feedback regarding a key press without being too heavy. I ordered `Kailh Speed Bronze` switches and also `Kailh Low Profile Choc White` switches for the lower thumb buttons.
+
 ### Conclusions
 
 If you are a programmer and you are looking for a top-quality mechanical keyboard with absolute configurability - look no further: you want Dygma Raise. With Dygma Raise your imagination is your limit on how you can configure your new keyboard.
