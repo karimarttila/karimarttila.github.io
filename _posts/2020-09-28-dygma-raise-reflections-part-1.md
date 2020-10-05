@@ -41,7 +41,7 @@ Before understanding how I configured Dygma Raise I need to tell the reader a bi
 
 A screenshot regarding some of these configurations (`.Xkeymap` file):
 
-![My Dygma Raise](/img/2020-09-28-dygma-raise-keyboard-reflections-part-1_img_2.jpg)
+![My Linux .Xkeymap](/img/2020-09-28-dygma-raise-keyboard-reflections-part-1_img_2.jpg)
 
 ### Configuring Dygma Raise: The Bazecor Software
 
@@ -53,7 +53,7 @@ Every key is programmable. And there are ten layers and in all of those layers, 
 
 One very neat feature is also that there are eight "thumb keys" instead of one big spacebar. You really should give some thought on how to use these thumb keys since they can be really powerful. Let's start with the thumb keys. Below you can see my Layer 0 configuration in the Bazecor application:
 
-![My Dygma Raise](/img/2020-09-28-dygma-raise-keyboard-reflections-part-1_img_3.jpg)
+![Layer 0](/img/2020-09-28-dygma-raise-keyboard-reflections-part-1_img_3.jpg)
 
 I have played classical guitar some 20 years and now that I look at that picture I realize something regarding the hotkeys I tend to use. Like playing the guitar one has different functions for the left hand and for the right hand: left hand fingers press the strings in various positions on the guitar neck, and right hand fingers pick the strings. The same way I tend to use my keyboard: I press some combination of the `Shift`, `Ctrl`, `Alt` and `CapsLock` (remember: my `CapsLock` is the `Alt-Gr` key) with my left hand fingers, and then I click some key on the right side of the keyboard with my right hand fingers. Therefore I configured my new Dygma Raise so that I have all relevant modifiers in the lefthand side four thumb keys: `Alt`, `Shift`, `Ctrl` and `Shift-to-1`. Some examples of how I use these combinations may shed some light to the importance of these new left hand side thumb keys. I program [Clojure](https://clojure.org/) and I use either [IntelliJ IDEA](https://www.jetbrains.com/idea/) with excellent [Cursive](https://cursive-ide.com/) plugin or [Emacs](https://www.gnu.org/software/emacs/) editor with [Cider](https://github.com/clojure-emacs/cider) plugin (mostly IDEA/Cursive, though). In Clojure you program quite a lot with [REPL](https://clojure.org/guides/repl/introduction) and to make the Clojure programming workflow fluent one needs good hotkeys e.g. to reload stuff into the REPL, send namespace to the REPL for evaluation, evaluate certain S-expression in the Clojure code or edit the code, e.g. kill S-expression, [slurp/barf](http://danmidwood.com/content/2014/11/21/animated-paredit.html), etc. I'm not going to explain the meaning of those manipulations but let's just say that I do a lot of them when programming Clojure and there needs to be fast hotkeys for them. Some examples of those hotkeys:
 
@@ -68,7 +68,7 @@ And so on, and so on... I could write a whole series of blog posts regarding the
 
 Ok, let's move on. What's that Orange `Shift to 1` thumb button in the left upper row? It's the beauty of Dygma Raise: You can shift to the next layer when pressing this key (you can also configure some key so that you move to the next layer instead of activating it only when this key is pressed, but it is better for my personal workflow to have it as "shift"). Let's see what´s there in the `Layer 1`:
 
-![My Dygma Raise](/img/2020-09-28-dygma-raise-keyboard-reflections-part-1_img_4.jpg)
+![Layer 1](/img/2020-09-28-dygma-raise-keyboard-reflections-part-1_img_4.jpg)
 
 In this layer I have some Media controllers on the left side just to make playing Spotify easier and also to control volume in meetings: I.e. I press the `Shift to 1` with my left hand side thumb and then some media buttons also with my left hand side. This is a bit awkward since I have to use the same hand but as a guitarist, I have pretty flexible fingers and I don't use these buttons that often. But then the actual beef: **Why do I have the numbers on the right hand side in two rows?**. The actual reason is not the numbers per se but what's behind the numbers. The most important row in this layer is the resting position row `J`, `K`, `L`, `Ö` => `8`, `9`, `0`, `+`. The reason is that I have mapped the various parentheses behind these numbers, for example: `{` => `Alt-Gr`+`7`, and because `Alt-Gr` is `Caps-Lock` it is `Caps-Lock`+`7`, and because in `Layer 0` I can shift to the next `Layer 1` with the left hand side button key, and the number `7` is not in the upper row in this layer but in the resting row, it is very easy to get `{` => `Shift to 1`+`CapsLock` with my left hand fingers (thumb and little finger, I use this very often so it is very easy for me) + `H` (layer 0) (which is `7` in layer 1). Therefore:
 
@@ -122,16 +122,17 @@ I have now used my brand new Dygma Raise about a week. I have forced myself to u
 
 **Some tweaking with layer 0.** I did some modifications to layer 0 regarding the thumb buttons. The new key mapping is below.
 
-![My Dygma Raise](/img/2020-09-28-dygma-raise-keyboard-reflections-part-1_img_5.jpg)
+![New layer 0](/img/2020-09-28-dygma-raise-keyboard-reflections-part-1_img_5.jpg)
 
 Changes:
 
 - I changed the right lower thumb buttons as in the left side. I realized that it is easier to remember and use them this way. Now  `Shift` and `Ctrl` keys are mirror images just like in their standard positions.
 - I moved `Enter` key next to `Space` key. It is a bit awkward to twist the right hand thumb to this key but I sacrifice a bit in ergonomics to have the `Shift` and `Ctrl` keys in more logical positions.
+- Then a bit later I realized that I can utilize the double action key functionality: I configured `Enter` in the left side but with double action: when hit once it is `Enter` but when hold down it is `Shift to layer 1` as previous.
 
 **Some tweaking with layer 1.** I did some modifications to layer 1. The new key mapping is below.
 
-![My Dygma Raise](/img/2020-09-28-dygma-raise-keyboard-reflections-part-1_img_6.jpg)
+![New layer 1](/img/2020-09-28-dygma-raise-keyboard-reflections-part-1_img_6.jpg)
 
 Changes:
 
@@ -141,9 +142,14 @@ Changes:
 - I moved `\` key next to `tab`. `\` key provides the `` ` `` character that I need in Slack to provide code snippets without formatting.
 - The weird two dots key provides the precious tilde key (`~`) that a programmer needs in terminal when referring to the user home directory. This key is in standard position really far a way in second upper row near `Enter` key.
 - `'` key actually provides the asterisk (`*`) when used with `Shift`. The asterisk key is used in terminal to represent any number of characters - also used quite often. This key is in standard position next to the `Enter` key and therefore a bit far away.
-- I added `Enter` also here in the second layer in the lower right thumb. After some experimentation I realized that it is actually easier to hit `Shift to Layer 1` and `Enter` in this new position than the `Enter` key in layer 0 (I hit Enter quite often and I began to feel uncomfortable to twist my thumb to the new `Enter` key next to `Space` key).
+- I added `Enter` also here in the second layer in the lower right thumb. After some experimentation I realized that it is actually easier to hit `Shift to Layer 1` and `Enter` in this new position than the `Enter` key in layer 0 (I hit Enter quite often and I began to feel uncomfortable to twist my thumb to the new `Enter` key next to `Space` key). This is actually not  important anymore when I realized to utilize the double action key (see previous layer). Well, maybe sometimes when adding a  lot of numbers it  might be easier to have the `Enter` key also in this layer.
 - I also added `CapsLock` and `Left Shift` keys to this layer since I'm planning to start learning to hit these keys as modifiers for the various parentheses (possibly, let's see).
 - I also added the mouse buttons in this layer since I  realized that sometimes it is nice to paste something that I painted earlier using the mouse.
+
+
+**Cheat sheet.** I created a cheat sheet for myself to learn the new key mappings with Dygma Raise faster. On the left side note are the thumb buttons, on the right side note are layer 0 key mappings.
+
+![Cheat sheet](/img/2020-09-28-dygma-raise-keyboard-reflections-part-1_img_7.jpg)
 
 
 **Ordered new switches.** I experimented with the test switches Dygma kindly added to the box. First I thought that I would order `Kailh Speed Silver` switches (Linear, 40 cN, Pretravel 1.1 mm, Travel 3.5 mm) since I feel that the `Cherry MX Brown` (Tactile, 55 cN, Pretravel 2 mm, Travel 4 mm) switches that I ordered with my Dygma are a bit too heavy and `Kailh Speed Silver` switches were really easy to press. I also tried the `Kailh Speed Copper` (tactile, 50 cN, Pretravel 1,1 mm, Travel 3,5 mm) - it was a nice switch also, a bit more consistent feeling that with `Cherry MX Brown`. But then I surprised myself. I tried `Kailh Speed Bronze` (clicky, 60 cN, Pretravel 1.1 mm, Travel 3.5 mm) - and I immediately fell in love with the feeling and the "click" which is really sharp and provides a really nice haptic and auditory feedback regarding a key press without being too heavy. I ordered `Kailh Speed Bronze` switches and also `Kailh Low Profile Choc White` switches for the lower thumb buttons.
