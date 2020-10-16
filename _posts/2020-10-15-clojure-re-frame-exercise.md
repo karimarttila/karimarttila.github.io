@@ -74,24 +74,24 @@ For routing, I used [Reitit](https://github.com/metosin/reitit) both in the back
 
 Since I'm a company man I'm using Metosin libraries, of course. I examined Metosin [Reitin + re-frame](https://github.com/metosin/reitit/tree/master/examples/frontend-re-frame) example and based my work on it. The example provides a simple solution for frontend routing based on the [Reitit library](https://github.com/metosin/reitit)
 
-I only had one issue with Reitit - the path parameters - something I need to figure out later.
 
 ### Using Re-Frame
 
 I created a dedicated ClojureScript namespace for every view (see directory [simplefrontend](https://github.com/karimarttila/clojure/tree/master/webstore-demo/re-frame-demo/src/cljs/simplefrontend) ). Using Hiccup, Reagent and Re-frame you can quickly create React application even though you know almost nothing of React itself. Example [products.cljs](https://github.com/karimarttila/clojure/blob/master/webstore-demo/re-frame-demo/src/cljs/simplefrontend/products.cljs):
 
 ```clojure
+
 (defn products-page
   "Products view."
-  [match]
+  [match] ; NOTE: This is the current-route given as paramter to the view. You can get the pgid also from :path-params.
   (let [_ (sf-util/clog "ENTER products-page, match" match)
         {:keys [path]} (:parameters match)
         {:keys [pgid]} path
-        _ (js/console.log match)]
+        pgid (str pgid)
+        _ (sf-util/clog "path" path)
+        _ (sf-util/clog "pgid" pgid)]
     (fn []
-      (let [;; Getting pgid here since reitit frontend path params not working.
-            pgid @(re-frame/subscribe [::pgid])
-            products-data @(re-frame/subscribe [::products-data pgid])
+      (let [products-data @(re-frame/subscribe [::products-data pgid])
             product-group-name @(re-frame/subscribe [::product-group-name pgid])
             _ (if-not products-data (re-frame/dispatch [::get-products pgid]))]
         [:div
@@ -227,8 +227,6 @@ Some issues I need to fix later.
 **index.html in uri.** I'd like to get rid of the `index.html` in uri, e.g. `http://localhost:6161/index.html#/products/1` should be `http://localhost:6161/#/products/1`.
 
 **edn data in http requests.** I tried passing `edn` instead of `json` in http requests but I had some issues with it (e.g. the response body came just fine as edn, but re-frame error handler got triggered even though the reply was `200`).
-
-**Reitit path parameter.** I tried to use Reitit path parameters to pass e.g. product group number to products page view. I just couldn't make it work. Therefore I used re-frame app-db e.g. passing the product-group id parameter to the Products view - a bit ugly workaround but did the job.
 
 
 ### Live Reloading
