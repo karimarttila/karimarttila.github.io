@@ -36,8 +36,7 @@ I did most of the tooling as I have learned to use them in the Metosin frontend 
 - **Shadow-cljs.** [Shadow-cljs](https://github.com/thheller/shadow-cljs) is a build tool for ClojureScript. Shadow-cljs is really nice to use - you get to see your changes both in the ClojureScript code and Sass code in real-time in the browser. You can also get a [REPL](https://clojure.org/guides/repl/introduction) which runs your ClojureScript code in the browser (see the example in the picture above - I have a scratch file in which I have written some ClojureScript code and I send the forms for evaluation to the REPL running in the browser - you can e.g. examine the re-frame app db using the REPL). Shadow-cljs configuration, see: [shadow-cljs.edn](https://github.com/karimarttila/clojure/blob/master/webstore-demo/re-frame-demo/shadow-cljs.edn).
 - **Justfile.** I use [Just](https://github.com/casey/just) to provide commandline interface to setup the project fixture before development, e.g. `just postgres`: start the PostgreSQL development database, `just backend-kari`: start backend repl with my own Clojure config, `just frontend-kari`: start frontend etc. Justfile configuration, see: [Justfile](https://github.com/karimarttila/clojure/blob/master/webstore-demo/re-frame-demo/Justfile).
 - **Npm.** Shadow-cljs integrates nicely with [Npm](https://www.npmjs.com/). See [package.json](https://github.com/karimarttila/clojure/blob/master/webstore-demo/re-frame-demo/package.json) for a list of npm packages I'm using in this exercise.
-- **Sass.** I'm using [Sass](https://sass-lang.com/) which is an extension language for [CSS](https://www.w3.org/Style/CSS/).
-- The Sass in this exercise is pretty minimalistic - the purpose of this exercise was not to create a beautiful frontend but to learn to use the tooling and re-frame. See example in [main.scss](https://github.com/karimarttila/clojure/blob/master/webstore-demo/re-frame-demo/src/sass/main.scss).
+- **Sass.** I'm using [Sass](https://sass-lang.com/) which is an extension language for [CSS](https://www.w3.org/Style/CSS/). The Sass in this exercise is pretty minimalistic - the purpose of this exercise was not to create a beautiful frontend but to learn to use the tooling and re-frame. See example in [main.scss](https://github.com/karimarttila/clojure/blob/master/webstore-demo/re-frame-demo/src/sass/main.scss).
 - **Deps.edn.** In the [deps.edn](https://github.com/karimarttila/clojure/blob/master/webstore-demo/re-frame-demo/deps.edn) file you can find the `frontend` alias which gives the dependencies for the frontend in this exercise.
 - **Metosin Reagent-dev-tools.** I used quite a lot the excellent [Metosin Reagent-dev-tools](https://github.com/metosin/reagent-dev-tools) (as you can see in the picture below). I tried the [re-frame-10x](https://github.com/day8/re-frame-10x) tool as well, but I liked more the Metosin Reagent-dev-tool's visual layout (and I'm a company man - you eat your own dog food). The Metosin Reagent-dev-tool was one of the most important development and debugging tools during this exercise. Once you configure the tool to show the Re-frame application db state you get a nice tree view to the app-db:
 
@@ -72,7 +71,7 @@ For routing, I used [Reitit](https://github.com/metosin/reitit) both in the back
 ...
 ```
 
-Since I'm a company man I'm using Metosin libraries, of course. I examined Metosin [Reitin + re-frame](https://github.com/metosin/reitit/tree/master/examples/frontend-re-frame) example and based my work on it. The example provides a simple solution for frontend routing based on the [Reitit library](https://github.com/metosin/reitit)
+Since I'm a company man I'm using Metosin libraries, of course. I examined Metosin [Reitit + re-frame](https://github.com/metosin/reitit/tree/master/examples/frontend-re-frame) example and based my work on it. The example provides a simple solution for frontend routing based on the [Reitit library](https://github.com/metosin/reitit)
 
 
 ### Using Re-Frame
@@ -133,7 +132,7 @@ In this code snippet we are sending a get request to the backend to get the prod
           (assoc-in [:products :data pgid] (:products res-body))))))
 ```
 
-As you can see we are storing the data in the re-frame app-db. The actual data needed is stored in map `[:products :data :pgid]` but I'm storing the whole response there also just for development, learning and debugging purposes.
+As you can see we are storing the data in the re-frame app-db. The actual data needed is stored in map in hierarchy `[:products :data pgid]` but I'm storing the whole response there also just for development, learning and debugging purposes.
 
 Ok, now we have the data in the re-frame application database. Then in the view you just make a subscription for that data: `products-data @(re-frame/subscribe [::products-data pgid])`. The actual subscription registration is:
 
