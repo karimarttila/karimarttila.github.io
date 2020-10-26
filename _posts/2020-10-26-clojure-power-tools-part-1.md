@@ -2,7 +2,7 @@
 layout: post
 title: Clojure Power Tools Part 1
 category: [clojure]
-tags: [clojure, repl, productivity, languages]
+tags: [clojure, repl, productivity, languages, cursive, intellij, programming]
 date: 2020-10-26
 ---
 
