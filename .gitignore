@@ -69,5 +69,7 @@ clj-scratch/:kari@p53:/a/prs/github/karimarttila
 # Personal stuff.
 personal/
 
+# Don't ignore _drafts so that you can have them in dev branch commits.
+# BUT DO NOT COMMIT DRAFTS TO MASTER!
 # Drafts.
-_drafts/
+#_drafts/
