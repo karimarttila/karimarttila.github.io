@@ -61,7 +61,7 @@ I.e. All projects have various aliases that you need to use when starting the RE
 
 Clojurians use so called `rich comments`. These are typically small code snippets at the end of the file surrounded in `comment` form. This way the Clojure code inside the rich comment is valid Clojure code that *is read* by the Clojure reader but it is not *evaluated*. Therefore you can put all kinds of namespace specific experimentation or code examples in the rich comment block. Example from one of my exercises: [domain_postgres.clj](https://github.com/karimarttila/clojure/blob/master/webstore-demo/re-frame-demo/src/clj/simpleserver/service/domain/domain_postgres.clj#L48):
 
-```Clojure
+```clojure
 (comment
   (simpleserver.test-config/go)
   (simpleserver.test-config/halt)
