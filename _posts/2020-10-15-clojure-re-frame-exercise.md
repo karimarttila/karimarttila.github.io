@@ -82,7 +82,7 @@ I created a dedicated ClojureScript namespace for every view (see directory [sim
 
 (defn products-page
   "Products view."
-  [match] ; NOTE: This is the current-route given as paramter to the view. You can get the pgid also from :path-params.
+  [match] ; NOTE: This is the current-route given as parameter to the view. You can get the pgid also from :path-params.
   (let [_ (sf-util/clog "ENTER products-page, match" match)
         {:keys [path]} (:parameters match)
         {:keys [pgid]} path

@@ -11,12 +11,12 @@ date: 2020-10-26
 
 ### Introduction
 
-I have been working at [Metosin](https://www.metosin.fi) for some months now and I'm learning new Clojure tricks almost every day. I list here some of my favorite Clojure tricks that I have learned either from various Clojure presentations or at Metosin. I know that for a newcomer Clojure might be a bit weird language and newcomers usually don't know simple productivity tricks. Hopefully this presentation makes it a bit easier for newcomers to start being productive with Clojure.
+I have been working at [Metosin](https://www.metosin.fi) for some months now and I'm learning new Clojure tricks almost every day. I list here some of my favorite Clojure tricks that I have learned either from various Clojure presentations or at Metosin. I know that for a newcomer Clojure might be a bit weird language and newcomers usually don't know simple productivity tricks. Hopefully, this presentation makes it a bit easier for newcomers to start being productive with Clojure.
 
 
 ### Start Doing It
 
-If you are a complete newcomer in the Clojure land I have one recommendation: Just start doing it. Choose an editor, install required tools and start learning. The most important thing is that you start learning with a Clojure REPL. And with an editor that has good integration with the Clojure REPL. There are several options:
+If you are a complete newcomer in the Clojure land I have one recommendation: Just start doing it. Choose an editor, install the required tools, and start learning. The most important thing is that you start learning with a Clojure REPL. And with an editor that has good integration with the Clojure REPL. There are several options:
 
 - [Emacs](https://www.gnu.org/software/emacs/) with [Cider](https://github.com/clojure-emacs/cider)
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/) with [Cursive](https://cursive-ide.com/)
@@ -32,7 +32,7 @@ Once you have a working development environment start learning Clojure. A good r
 
 ### Use a REPL Scratch File
 
-I believe that newcomers often write their experiments in the REPL editor, at least I did. Don't do it. Instead create a scratch file and write your experiments there. I watched some Stuart Halloway presentation in which he told that he has a dedicated clojure directory in which he has written all his Clojure experimentations for several years - must be pretty nice to be able to [grep](https://en.wikipedia.org/wiki/Grep) when looking for something you have written years ago. I have another habit. I have in my `~/.clojure/deps.edn` file:
+I believe that newcomers often write their experiments in the REPL editor, at least I did. Don't do it. Instead, create a scratch file and write your experiments there. I watched some Stuart Halloway presentation in which he told that he has a dedicated Clojure directory in which he has written all his Clojure experimentations for several years - must be pretty nice to be able to [grep](https://en.wikipedia.org/wiki/Grep) when looking for something you have written years ago. I have another habit. I have in my `~/.clojure/deps.edn` file:
 
 ```clojure
 {
@@ -59,7 +59,7 @@ I.e. All projects have various aliases that you need to use when starting the RE
 
 ### Rich Comments
 
-Clojurians use so called `rich comments`. These are typically small code snippets at the end of the file surrounded in `comment` form. This way the Clojure code inside the rich comment is valid Clojure code that *is read* by the Clojure reader but it is not *evaluated*. Therefore you can put all kinds of namespace specific experimentation or code examples in the rich comment block. Example from one of my exercises: [domain_postgres.clj](https://github.com/karimarttila/clojure/blob/master/webstore-demo/re-frame-demo/src/clj/simpleserver/service/domain/domain_postgres.clj#L48):
+Clojurians use so-called `rich comments`. These are typically small code snippets at the end of the file surrounded in `comment` form. This way the Clojure code inside the rich comment is valid Clojure code that *is read* by the Clojure reader but it is not *evaluated*. Therefore you can put all kinds of namespace specific experimentation or code examples in the rich comment block. Example from one of my exercises: [domain_postgres.clj](https://github.com/karimarttila/clojure/blob/master/webstore-demo/re-frame-demo/src/clj/simpleserver/service/domain/domain_postgres.clj#L48):
 
 ```clojure
 (comment
@@ -73,7 +73,7 @@ Clojurians use so called `rich comments`. These are typically small code snippet
   )
 ```
 
-It's pretty easy later on to remember stuff in those rich comments. E.g. in the above mentioned example I have some functions to start/halt the Integrant test state, and some functions in which I test some sql operations in the domain using the database connection from the test state.
+It's pretty easy later on to remember stuff in those rich comments. E.g. in the above-mentioned example I have some functions to start/halt the Integrant test state and some functions in which I test some SQL operations in the domain using the database connection from the test state.
 
 ### Use Defs Inside Functions When Debugging
 
@@ -109,7 +109,8 @@ todo-kv
 
 ### Use Hashp for Printing Values
 
-Sometimes you want to preserve the data structure and examine it in your scratch file - then the `def` trick described in the previous chapter is all you need. But sometimes you just want to see the value. You could use e.g. [clojure.pprint](https://clojure.github.io/clojure/clojure.pprint-api.html) to print the value of the var but there is another nice power tool for it: [hashp](https://github.com/weavejester/hashp). E.g. in your rich comment evaluate: `(require '[hashp.core])` and then add `#p` before the function you are interested, e.g.:
+Sometimes you want to preserve the data structure and examine it in your scratch file - then the `def` trick described in the previous chapter is all you need. But sometimes you just want to see the value. You could use e.g. [clojure.pprint](https://clojure.github.io/clojure/clojure.pprint-api.html) to print the value of the var but there is another nice power tool for it: [hashp](https://github.com/weavejester/hashp). E.g. in your rich comment evaluate: `(require '[hashp.core])` and then add `#p` before the function you are interested
+in, e.g.:
 
 ```clojure
 (if-let [kv #p (sql-get-product db {:pg-id (str pg-id) :p-id (str p-id)})]
@@ -132,9 +133,9 @@ Testing simpleserver.service.domain.domain-test
 
 ### Use Panel to Visualize Data
 
-This is pretty cool and I learned this only this week from one Metosin Clojure guru (aah, I need remember to write a chapter: "Find a Clojure Shop").
+This is pretty cool and I learned this only this week from one Metosin Clojure guru (aah, I need to remember to write a chapter: "Find a Clojure Shop").
 
-If you have a complex domain in which you have a lot of data with a lot of children and those children having children and so on - it is a bit taunting to try to visualize this in the REPL output window or using the REPL to navigate in the data. [portal](https://github.com/djblue/portal) to the rescue!
+If you have a complex domain in which you have a lot of data with a lot of children and those children having children and so on - it is a bit daunting to try to visualize this in the REPL output window or using the REPL to navigate in the data. [portal](https://github.com/djblue/portal) to the rescue!
 
 Write the following forms in your scratch file or in the rich comment of your namespace - I'll use the same [domain_postgres.clj](https://github.com/karimarttila/clojure/blob/master/webstore-demo/re-frame-demo/src/clj/simpleserver/service/domain/domain_postgres.clj) file as an example.
 
@@ -150,7 +151,7 @@ So, the `(portal.api/open)` opens the visualization window, `(portal.api/tap)` a
 
 ![IntelliJ IDEA and Cursive](/img/2020-10-26-clojure-power-tools-part-1_img_3.png)
 
-This is a very simple example. But imagine that there are hundreds of lines of data, vectors, maps, more vectors and maps inside them etc. A visualization tool like Portal is a must-have tool. There are other similar visualization tools - the Clojure itself has one nowadays: [clojure.inspector](https://clojure.github.io/clojure/clojure.inspector-api.html)
+This is a very simple example. But imagine that there are hundreds of lines of data, vectors, maps, more vectors and maps inside them, etc. A visualization tool like Portal is a must-have tool. There are other similar visualization tools - the Clojure itself has one nowadays: [clojure.inspector](https://clojure.github.io/clojure/clojure.inspector-api.html)
 
 
 ### Find a Clojure Shop
