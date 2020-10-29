@@ -11,11 +11,11 @@ date: 2020-10-29
 
 ### Introduction
 
-This is the second part of my Clojure Power Tools series (I'm a bit interested myself how many blog posts I will write to this series). If you haven't read the first part I recommend you to read it first: [Clojure Power Tools Part 1]({% post_url 2020-10-26-clojure-power-tools-part-1 %}). In this second blog article, I list a couple of new power tool tricks for debugging. I'll first introduce a poor man's debug repl, and then the real debug repl.
+This is the second part of my Clojure Power Tools series (I'm a bit interested myself how many blog posts I will write to this series). If you haven't read the first part I recommend you to read it first: [Clojure Power Tools Part 1]({% post_url 2020-10-26-clojure-power-tools-part-1 %}). In this second blog article, I list a couple of new power tool tricks for debugging. I first introduce a poor man's debug repl, and then the real debug repl.
 
 ### Poor Man's Debug Repl
 
-I was refactoring some Clojure tests for the second version of a complicated application. There were quite a few structural changes in the application logic, and the domain was rather complicated comprising a lot of various recursive data structures. In some tests, I was quite puzzled what kind of state there was in several places of the application. The tests were also rather complicated and I wanted a simple way to record certain bindings in several places of the application when I was running a certain area of the test - and only that area. I quickly implemented a poor man's debug recorder:
+I was refactoring some Clojure tests for the second version of a complicated application. There were quite a few structural changes in the application logic, and the domain was rather complicated comprising a lot of various recursive data structures. In some tests, I was quite puzzled about what kind of state there was in several places of the application. The tests were also rather complicated and I wanted a simple way to record certain bindings in several places of the application when I was running a certain area of the test - and only that area. I quickly implemented a poor man's debug recorder:
 
 ```clojure
 (ns recorder)
@@ -140,7 +140,7 @@ Then you can add a debug-repl breakpoint in your code, run your code, stop the w
 
 ![debug-repl](/img/2020-10-29-clojure-power-tools-part-2_img_3.png)
 
-I have added `_ (break! "Yihaa!")` breakpoint in one of the tests. Then I run the test and the world stops at the breakpoint (`Hijacking repl for breakpoint: Yihaa!` output in the REPL output window). Then I have moved cursor in various let-bindings: `json-web-token`, `params` and `get-ret` and evaluated the forms: you can see the evaluated values in the REPL output window on the right. If I try to evaluate `status` I get an error "Unable to resolve symbol: status in this context" - of course, because it's outside the context.
+I have added `_ (break! "Yihaa!")` breakpoint in one of the tests. Then I run the test and the world stops at the breakpoint (`Hijacking repl for breakpoint: Yihaa!` output in the REPL output window). Then I have moved the cursor in various let-bindings: `json-web-token`, `params` and `get-ret` and evaluated the forms: you can see the evaluated values in the REPL output window on the right. If I try to evaluate `status` I get an error "Unable to resolve symbol: status in this context" - of course, because it's outside the context.
 
 
 ### Conclusions
