@@ -25,27 +25,23 @@ I was refactoring some Clojure tests for the second version of a complicated app
 (def flag (atom false))
 
 (defn next-id []
-  (let [id (swap! counter inc)]
-    id))
+  (swap! counter inc))
 
-(defn reset-value []
-  (reset! value {}))
-
-(defn add-value-with-id [k v]
+(defn assoc-value-with-id! [k v]
   (let [id (next-id)
         new-k (keyword (str (name k) "-" id))]
     (swap! value assoc new-k v)))
 
-(defn add-value-if-flag [k v]
+(defn add-value-if-recording! [k v]
   (when @flag
-    (add-value-with-id k v)))
+    (assoc-value-with-id! k v)))
 
-(defn start []
+(defn start! []
   (reset! value {})
   (reset! counter 0)
   (reset! flag true))
 
-(defn stop []
+(defn stop! []
   (reset! flag false))
 ```
 
@@ -59,7 +55,7 @@ So, let's add the start/stop recording to the test we are interested:
 (deftest product-groups-test
   (log/debug "ENTER product-groups-test")
   (testing "GET: /api/product-groups"
-    (let [_ (re/start)
+    (let [_ (re/start!)
           login-ret (ss-tc/-call-api :post "login" nil {:email "test-kari.karttinen@foo.com" :password "Kari"})
           _ (log/debug (str "Got login-ret: " login-ret))
           json-web-token (get-in login-ret [:body :json-web-token])
@@ -68,29 +64,28 @@ So, let's add the start/stop recording to the test we are interested:
           status (:status get-ret)
           body (:body get-ret)
           right-body {:ret "ok", :product-groups {:1 "Test-Books", :2 "Test-Movies"}}
-          _ (re/stop)]
+          _ (re/stop!)]
       (is (= (not (nil? json-web-token)) true))
       (is (= status 200))
       (is (= body right-body)))))
 ```
 
-See the `(re/start)` and `(re/stop)` commands in the test - we are recording only during that time.
+See the `(re/start!)` and `(re/stop!)` commands in the test - we are recording only during that time.
 
 Then I can add stuff to my recorder where-ever I want:
 
 ```clojure
-
 (defn -valid-token?
   "Parses the token from the http authorization header and asks session ns to validate the token."
   [env req]
   (log/debug "ENTER -valid-token?")
   (let [basic (get-in req [:headers "authorization"])
-        _ (re/add-value-if-flag :valid-token-basic basic)
+        _ (re/add-value-if-recording! :valid-token-basic basic)
         basic-str (and basic (last (re-find #"^Basic (.*)$" basic)))
 ...
 ```
 
-I.e. `(re/add-value-if-flag :valid-token-basic basic)` (I just realized that one should not use technical terms like `flag` - a better name for this function would have been `add-value-if-recording`). 
+I.e. `(re/add-value-if-recording! :valid-token-basic basic)`.
 
 Run the tests.
 
