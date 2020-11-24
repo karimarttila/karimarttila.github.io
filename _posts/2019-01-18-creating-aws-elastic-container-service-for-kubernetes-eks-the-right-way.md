@@ -2,7 +2,7 @@
 layout: post
 title:	"Creating AWS Elastic Container Service for Kubernetes (EKS) the Right Way"
 category: [aws]
-tags: [aws, eks, cloud, iac, terraform]
+tags: [aws, eks, cloud, iac, terraform, kubernetes]
 date: 2019-01-18
 ---
 
