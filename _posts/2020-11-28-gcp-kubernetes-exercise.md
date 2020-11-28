@@ -95,7 +95,7 @@ So, if the prefix is the project name (e.g. `projx`) and the Terraform workspace
 
 ### Patterns for Creating Environments
 
-Since it is so easy and quick to create new environments using GKE I wouldn't simulate environments using Kubernetes namespaces in the same GKE cluster. You can do this but interacting with the other resources in the same environment would be complex (inside the Kubernetes cluster you can have a dynamic number of virtual environments but outside the Kubernetes cluster you typically have one environment, the one the cluster itself belongs to). Instead, I would just create exact copies of the environments (by parameterizing the instance sizes, of course). Read more about this pattern in my earlier blog post [Cloud Infrastructure Golden Rules](({% post_url 2019-01-07-creating-azure-kubernetes-service-aks-the-right-way %})).
+Since it is so easy and quick to create new environments using GKE I wouldn't simulate environments using Kubernetes namespaces in the same GKE cluster. You can do this but interacting with the other resources in the same environment would be complex (inside the Kubernetes cluster you can have a dynamic number of virtual environments but outside the Kubernetes cluster you typically have one environment, the one the cluster itself belongs to). Instead, I would just create exact copies of the environments (by parameterizing the instance sizes, of course). Read more about this pattern in my earlier blog post [Cloud Infrastructure Golden Rules]({% post_url 2020-04-10-cloud-infrastructure-golden-rules %}) .
 
 ### Conclusions
 
