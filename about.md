@@ -13,9 +13,9 @@ permalink: /about/
 I'm an enthusiastic Cloud and Clojure developer working at [Metosin](http://www.metosin.fi/) (see also: [My First Weeks at Metosin!]({% post_url 2020-03-23-my-first-weeks-at-metosin %})). Before Metosin I had a long corporate career at the [Tieto Corporation](https://www.tietoevry.com/) where I worked in various roles, the last role being a [Cloud Mentor](https://www.tietoevry.com/en/blog/2019/07/reinventing-oneself-professionally--the-story-of-a-cloud-specialist/).
 
 I have done work in all major clouds, though most of my experience is with AWS. I have the following cloud certifications:
-- [AWS Certified Solutions Architect Associate](https://www.certmetrics.com/amazon/public/badge.aspx?i=1&t=c&d=2016-10-24&ci=AWS00215033)
-- [AWS Certified Developer Associate](https://www.certmetrics.com/amazon/public/badge.aspx?i=2&t=c&d=2017-04-03&ci=AWS00215033)
-- [AWS Certified SysOps Administrator Associate](https://www.certmetrics.com/amazon/public/badge.aspx?i=3&t=c&d=2019-03-27&ci=AWS00215033)
+- [AWS Certified Solutions Architect Associate](https://www.youracclaim.com/badges/7e21adbd-591a-4ba0-8882-c2bd1857ce22/public_url)
+- [AWS Certified Developer Associate](https://www.youracclaim.com/badges/9b1b7d53-aab6-4572-a7ab-7cdd3fd0eb57/public_url)
+- [AWS Certified SysOps Administrator Associate](https://www.youracclaim.com/badges/3089fc8b-d3d0-4dc9-b063-464de8d158ff/public_url)
 - [Google Cloud Certified Associate Cloud Engineer](https://www.credential.net/54ddbf17-bc7c-4df8-b370-d2e734dca2bb)
 - [Google Cloud Certified Professional Cloud Architect](https://www.credential.net/d7b8e7e6-c396-4ad1-8336-7bb53936b0ef)
 - [Microsoft Certified Azure Solutions Architect Expert](https://www.youracclaim.com/badges/c69ef1ee-3fbc-4566-b1c1-a478f7fdf016/linked_in_profile)
