@@ -12,6 +12,8 @@ permalink: /about/
 
 I'm an enthusiastic Cloud and Clojure developer working at [Metosin](http://www.metosin.fi/) (see also: [My First Weeks at Metosin!]({% post_url 2020-03-23-my-first-weeks-at-metosin %})). Before Metosin I had a long corporate career at the [Tieto Corporation](https://www.tietoevry.com/) where I worked in various roles, the last role being a [Cloud Mentor](https://www.tietoevry.com/en/blog/2019/07/reinventing-oneself-professionally--the-story-of-a-cloud-specialist/).
 
+![Cloud badges](/img/about_cloud-badges.png)
+
 I have done work in all major clouds, though most of my experience is with AWS. I have the following cloud certifications:
 - [AWS Certified Solutions Architect Associate](https://www.youracclaim.com/badges/7e21adbd-591a-4ba0-8882-c2bd1857ce22/public_url)
 - [AWS Certified Developer Associate](https://www.youracclaim.com/badges/9b1b7d53-aab6-4572-a7ab-7cdd3fd0eb57/public_url)
