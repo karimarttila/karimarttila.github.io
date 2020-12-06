@@ -81,6 +81,7 @@ Short descriptions of the Just recipes:
 - datomic-console: Starts the Datomic Console server, open Chrome: `http://localhost:8080/browse`
 
 The `datomic-ss-reset` is a bit of a hack, calls `reset-simpleserver-db.sh`:
+
 ```bash
 #!/bin/bash
 THIS_DIR=$(pwd)
