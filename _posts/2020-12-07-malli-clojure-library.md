@@ -217,9 +217,9 @@ I.e. Our `name-schema` is closed - no middle-name allowed. But we have left the 
   (:require [malli.core :as m]
             [malli.error :as me]
             [malli.util :as mu]
-            [clojure.data :as c-data]))
+            [clojure.data :as data]))
 
-(c-data/diff (m/schema sign-in-schema) (mu/closed-schema sign-in-schema))
+(data/diff (m/schema sign-in-schema) (mu/closed-schema sign-in-schema))
 ;; =>
 ;[[:map 
 ;  [:name [:map {:closed true} [:first-name string?] [:last-name string?]]] 
