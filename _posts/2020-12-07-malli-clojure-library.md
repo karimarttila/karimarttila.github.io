@@ -27,6 +27,7 @@ If you are interested to learn more about `malli` I list below some resources I 
 - [Data-driven Rapid Application Development with Malli](https://www.youtube.com/watch?v=ww9yR_rbgQs) in Youtube
 - [Inside Data-driven Schemas presentation](https://www.youtube.com/watch?v=MR83MhWQ61E) in Youtube
 - [malli.io playground](https://malli.io)
+- [Designing with Malli](https://www.youtube.com/watch?v=bQDkuF6-py4) in Youtube, Tommi's presentation in London Clojurians. This is a great presentation. The presentation does a great job explaining the differences between different data validation libraries and the various ways you can utilize the malli library for data validation and specification.
 
 My colleague [Miikka Koskinen](https://miikka.me/) has written a couple of excellent blog posts regarding `malli` and other data validation libraries:
 - [Schema, Spec, and Malli](https://quanttype.net/posts/2020-05-03-schema-spec-and-malli.html)
