@@ -2,7 +2,7 @@
 layout: post
 title: Clojure Re-Frame Exercise
 category: [clojure]
-tags: [clojure, clojurescript, languages, cursive, intellij, productivity, repl, frontend, fullstack, re-frame]
+tags: [clojure, clojurescript, languages, cursive, intellij, productivity, repl, frontend, fullstack, re-frame, reagent]
 date: 2020-10-15
 ---
 

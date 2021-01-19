@@ -2,7 +2,7 @@
 layout: post
 title: World Statistics Exercise
 category: [clojure]
-tags: [clojure, clojurescript, repl, graphics, vega, bulma, kixi,fullstack, re-frame, reagent]
+tags: [clojure, clojurescript, repl, graphics, vega, bulma, kixi,fullstack, re-frame, reagent, data, web, programming]
 date: 2021-01-19
 ---
 
@@ -13,16 +13,16 @@ date: 2021-01-19
 
 ### Introduction
 
-After implementing my web-store exercise using six languages (Clojure, Python, Javascript, Java, Go and Kotlin) and with 5 data stores (CSV, DynamoDB, Azure Tables, PostgreSQL, and Datomic, read more about in my blog posts, e.g. [Five Languages - Five Stories]({% post_url 2018-11-19-five-languages-five-stories %}) ) I was pretty much fed up with that exercise. I wanted to do something totally different. But what? I spent quite a lot of time figuring out what to do. I was dreaming to do something with [Finnish Open data](https://www.avoindata.fi/fi) that could benefit the general public. I was browsing the Finnish Open data but couldn't figure out anything useful that would contain a lot of data points. Then I decided to take a look at the [World Bank Open data](https://data.worldbank.org/). Just out of curiosity I downloaded various metrics between years 2002-2017, some 150.000 data points all-together. Then I just started to experiment with the data using the Clojure REPL - a great tool for studying and experimenting with data. Little by little a new exercise was formed in my head: Implement a full-stack app using Clojure and ClojureScript to filter and enrich the data and visualize the data sets using a frontend. This blog post depicts the story of this exercise.
+After implementing my web-store exercise using six languages (Clojure, Python, Javascript, Java, Go, and Kotlin) and with 5 data stores (CSV, DynamoDB, Azure Tables, PostgreSQL, and Datomic, read more about in my blog posts, e.g. [Five Languages - Five Stories]({% post_url 2018-11-19-five-languages-five-stories %}) ) I was pretty much fed up with that exercise. I wanted to do something totally different. But what? I spent quite a lot of time figuring out what to do. I was dreaming to do something with [Finnish Open data](https://www.avoindata.fi/fi) that could benefit the general public. I was browsing the Finnish Open data but couldn't figure out anything useful that would contain a lot of data points. Then I decided to take a look at the [World Bank Open data](https://data.worldbank.org/). Just out of curiosity I downloaded various metrics between the years 2002-2017, some 150.000 data points altogether. Then I just started to experiment with the data using the Clojure REPL - a great tool for studying and experimenting with data. Little by little a new exercise was formed in my head: Implement a full-stack app using Clojure and ClojureScript to filter and enrich the data and visualize the data sets using a frontend. This blog post depicts the story of this exercise.
 
-The application source can be found in my [Github clojure repo](https://github.com/karimarttila/clojure) in directory [statistics/worldstat](https://github.com/karimarttila/clojure/tree/master/statistics/worldstat). The application is live in [Heroku](https://km-worldstat.herokuapp.com/worldstat/index.html) (as long as the Heroku free tier dyno hours have not run out). NOTE: If there are still dyno hours and no-one has used the app for some time you may need to wait for a while for Heroku to start the app. Since the app is running in free tier there might be other aspects as well that may impact using the app (max connections etc.)
+The application source can be found in my [Github clojure repo](https://github.com/karimarttila/clojure) in directory [statistics/worldstat](https://github.com/karimarttila/clojure/tree/master/statistics/worldstat). The application is live in [Heroku](https://km-worldstat.herokuapp.com/worldstat/index.html) (as long as the Heroku free tier dyno hours have not run out). NOTE: If there are still dyno hours and no-one has used the app for some time you may need to wait for a while for Heroku to start the app. Since the app is running in the free tier there might be other aspects as well that may impact using the app (max connections etc.)
 
 
 ### Technology Overview
 
-I used [Clojure](https://clojure.org/), and some Clojure libraries (like [reitit](https://github.com/metosin/reitit)) to implement the backend. The backend reads the data from CSV files that I downloaded from Worldbank site, and manipulates the data so that we have the data and meta-data nicely as Clojure data structures stored as part of the [Integrant](https://github.com/weavejester/integrant) state. I used [kixi](https://github.com/MastodonC/kixi.stats) as the statistics library.
+I used [Clojure](https://clojure.org/), and some Clojure libraries (like [reitit](https://github.com/metosin/reitit)) to implement the backend. The backend reads the data from CSV files that I downloaded from the Worldbank site, and manipulates the data so that we have the data and meta-data nicely as Clojure data structures stored as part of the [Integrant](https://github.com/weavejester/integrant) state. I used [kixi](https://github.com/MastodonC/kixi.stats) as the statistics library.
 
-I used [ClojureScript](https://clojurescript.org/), [Reagent](https://reagent-project.github.io/), and [Re-Frame](https://day8.github.io/re-frame/) to implement the frontend. For frontend development I used [shadow-cljs](https://github.com/thheller/shadow-cljs). For CSS I used the excellent and light CSS library [Bulma](https://bulma.io/). For data visualization I used [Vega Lite](https://vega.github.io/vega-lite/) and as a Clojure wrapper for Vega I used Metasoarous' [Oz](https://github.com/metasoarous/oz) library. The [world-110m.json](https://github.com/vega/vega/blob/master/packages/vega-loader/test/data/world-110m.json) world map is from Vega.
+I used [ClojureScript](https://clojurescript.org/), [Reagent](https://reagent-project.github.io/), and [Re-Frame](https://day8.github.io/re-frame/) to implement the frontend. For frontend development I used [shadow-cljs](https://github.com/thheller/shadow-cljs). For CSS I used the excellent and light CSS library [Bulma](https://bulma.io/). For data visualization, I used [Vega Lite](https://vega.github.io/vega-lite/) and as a Clojure wrapper for Vega, I used Metasoarous' [Oz](https://github.com/metasoarous/oz) library. The [world-110m.json](https://github.com/vega/vega/blob/master/packages/vega-loader/test/data/world-110m.json) world map is from Vega.
 
 
 ### Backend - Creating the Data
@@ -34,7 +34,7 @@ In [main.clj](https://github.com/karimarttila/clojure/blob/master/statistics/wor
   (init/get-data data-files topojson-file))
 ```
 
-In [init.clj](https://github.com/karimarttila/clojure/blob/master/statistics/worldstat/src/clj/worldstat/backend/data/init.clj) I parse the data from the CSV files and convert it to [edn](https://github.com/edn-format/edn). In that file I do some processing and finally return the data structure back to main.clj which stores the data as part of the Integrant state:
+In [init.clj](https://github.com/karimarttila/clojure/blob/master/statistics/worldstat/src/clj/worldstat/backend/data/init.clj) I parse the data from the CSV files and convert it to [edn](https://github.com/edn-format/edn). In that file, I do some processing and finally return the data structure back to main.clj which stores the data as part of the Integrant state:
 
 ```clojure
 (defn get-data [data-files topojson-file]
@@ -58,7 +58,7 @@ In [init.clj](https://github.com/karimarttila/clojure/blob/master/statistics/wor
 
 An important part of this processing is to store the topojson country ids as part of the data points so that we can later use them as hooks to actual countries in the topojson map.
 
-I downloaded some 150.000 data points for this exercise (`:raw-points`). I removed various data points (`:points`) that were associated to continents, income groups etc. Finally I had some 130.000 data points that were associated to actual countries found in the topojson map. It's easy to study the data using the clojure REPL:
+I downloaded some 150.000 data points for this exercise (`:raw-points`). I removed various data points (`:points`) that were associated with continents, income groups, etc. Finally, I had some 130.000 data points that were associated with actual countries found in the topojson map. It's easy to study the data using the Clojure REPL:
 
 ```clojure
 (count (:raw-points (user/data)))
@@ -139,7 +139,7 @@ Using a real REPL is such a joy with Clojure. Let's use it to experiment with th
 => 2.601440577329428
 ```
 
-Repl is truly such a powerful tool in Lisp. I always keep a repl scratch file in all my Clojure projects and I do experimentation like above in those scratch files - it's nice to have those experimentations later on as a historical record how I implemented functions.
+Repl is truly such a powerful tool in Lisp. I always keep a repl scratch file in all my Clojure projects and I do experimentation like above in those scratch files - it's nice to have those experimentations later on as a historical record of how I implemented functions.
 
 ### Backend - API
 
@@ -173,7 +173,7 @@ I used the excellent Metosin [reitit](https://github.com/metosin/reitit) library
 
 So, you can query the actual data points by giving a metric (`:series-code`) and backend returns the data points for that metric. Basically, I just implemented a minimum API that is needed by the frontend to do the visualization.
 
-Reitit library provides a swagger documentation out of the box, so you can experiment with the API easily also with the browser:
+Reitit library provides swagger documentation out of the box, so you can experiment with the API easily also with the browser:
 
 ![Swagger](/img/2021-01-19-world-statistics-exercise_img_2.png)
 
@@ -183,13 +183,13 @@ Next, let's move to the frontend.
 
 ### Frontend - Reagent and Re-frame
 
-I used [ClojureScript](https://clojurescript.org/), [Reagent](https://reagent-project.github.io/), and [Re-Frame](https://day8.github.io/re-frame/) to implement the frontend. For frontend development I used [shadow-cljs](https://github.com/thheller/shadow-cljs). Reagent provides a nice interface to [React](https://reactjs.org/), and Re-frame is ClojureScript framework, that uses Reagent and provides simple state management to build single page applications using Clojurescript. All this tooling works pretty seamlessly with the Clojure backend repl so that when I refresh the Integrant state (with one hot key, of course) the frontend also refreshes. One can get a Clojurescript repl and connect to the frontend application running inside the browser, if you need it. Usually you don't, since there are nice tools and tricks to examine the frontend state.
+I used [ClojureScript](https://clojurescript.org/), [Reagent](https://reagent-project.github.io/), and [Re-Frame](https://day8.github.io/re-frame/) to implement the frontend. For frontend development I used [shadow-cljs](https://github.com/thheller/shadow-cljs). Reagent provides a nice interface to [React](https://reactjs.org/), and Re-frame is a ClojureScript framework, that uses Reagent and provides simple state management to build single-page applications using Clojurescript. All this tooling works pretty seamlessly with the Clojure backend repl so that when I refresh the Integrant state (with one hotkey, of course) the frontend also refreshes. One can get a Clojurescript repl and connect to the frontend application running inside the browser if you need it. Usually, you don't, since there are nice tools and tricks to examine the frontend state.
 
 ![Clojurescript frontend tools](/img/2021-01-19-world-statistics-exercise_img_3.png)
 
 *Clojurescript frontend tools.*
 
-On the right side of the browser you see the standard Chrome developer tools window. There you can examine the html structure, see console log etc, nothing new for any frontend developer. 
+On the right side of the browser, you see the standard Chrome developer tools window. There you can examine the html structure, see console log, etc, nothing new for any frontend developer. 
 
 At the bottom is the Metosin [reagent-dev-tools](https://github.com/metosin/reagent-dev-tools). You can subscribe all re-frame application data there and browse the data. I also implemented a simple debug panel in which I show some most important application data that I used when implementing the frontend. Btw. I really recommend using the Metosin reagent-dev-tools. E.g. I'm in a customer project in which we are implementing a rather complex Clojure fullstack application and there is really complex business logic - we have various fixtures in the reagent-dev-tools which makes it a breeze to initialize the frontend and the whole application to a certain state in the middle of the business logic.
 
@@ -241,13 +241,13 @@ The dropdown box for selecting the metric and the slider for selecting the year 
                                                  (re-frame/dispatch [::ws-state/select-year (js/parseInt new-value)])))}]]))
 ```
 
-So, basically I just take the current value of the slider and store it in the re-frame database: `(re-frame/dispatch [::ws-state/select-year (js/parseInt new-value)])` .
+So, basically, I just take the current value of the slider and store it in the re-frame database: `(re-frame/dispatch [::ws-state/select-year (js/parseInt new-value)])` .
 
 ### Frontend - Creating the Map
 
-For data visualization I used [Vega Lite](https://vega.github.io/vega-lite/), and as a Clojure wrapper for Vega I used Metasoarous' [Oz](https://github.com/metasoarous/oz) library. The [world-110m.json](https://github.com/vega/vega/blob/master/packages/vega-loader/test/data/world-110m.json) world map is from Vega.
+For data visualization, I used [Vega Lite](https://vega.github.io/vega-lite/), and as a Clojure wrapper for Vega I used Metasoarous' [Oz](https://github.com/metasoarous/oz) library. The [world-110m.json](https://github.com/vega/vega/blob/master/packages/vega-loader/test/data/world-110m.json) world map is from Vega.
 
-I think I spent most of the time developing this application with tuning the world map. But it was really fun to experiment how to visualize data and how to interact with the map. The result of this experiment can be seen in file [data.cljs](https://github.com/karimarttila/clojure/blob/master/statistics/worldstat/src/cljs/worldstat/frontend/data.cljs), I highlight here the most important part of the map configuration:
+I think I spent most of the time developing this application by tuning the world map. But it was really fun to experiment how to visualize data and with how to interact with the map. The result of this experiment can be seen in file [data.cljs](https://github.com/karimarttila/clojure/blob/master/statistics/worldstat/src/cljs/worldstat/frontend/data.cljs), I highlight here the most important part of the map configuration:
 
 ```clojure
 
@@ -294,7 +294,7 @@ So, the Vega interface provides quite extensive ways to inject data to the Vega 
 
 Let's spend some time with this configuration since it is the actual beef of this app. 
 
-First I inject to the map configuration the data (points, year, metric-name, min and max of the points): `(defn world-schema [points year metric-name min max]`. Then I transform the data points using a join (lookup) between the topojson map data and my data points using the `id` of the topojson data and `country-id` of my data points as joining the data. In this join I inject the corresponding country_name and country_code to the new data set so that I can use the `country_name` to provide the country name when the user hovers the mouse in certain country. I use the `country_code` for providing a hook when the user mouse clicks a certain country: `:expr "'#/country/' + datum.country_code" :as "url"}]}` and `:href {:field "url" :type "nominal"}` . That's basically what you have to do - and the Vega library does the rest. Then I just show the map component in the application home page, [main.cljs](https://github.com/karimarttila/clojure/blob/master/statistics/worldstat/src/cljs/worldstat/frontend/main.cljs) (injecting the re-frame subscribed data): 
+First I inject to the map configuration the data (points, year, metric-name, min and max of the points): `(defn world-schema [points year metric-name min max]`. Then I transform the data points using a join (lookup) between the topojson map data and my data points using `id` of the topojson data and `country-id` of my data points as joining the data. In this join, I inject the corresponding country_name and country_code to the new data set so that I can use the `country_name` to provide the country name when the user hovers the mouse over a certain country. I use the `country_code` for providing a hook when the user mouse clicks a certain country: `:expr "'#/country/' + datum.country_code" :as "url"}]}` and `:href {:field "url" :type "nominal"}` . That's basically what you have to do - and the Vega library does the rest. Then I just show the map component in the application home page, [main.cljs](https://github.com/karimarttila/clojure/blob/master/statistics/worldstat/src/cljs/worldstat/frontend/main.cljs) (injecting the re-frame subscribed data): 
 
 ```clojure
           {selected-metric-code :code selected-metric-name :name} @(re-frame/subscribe [::ws-state/current-metric])
@@ -374,7 +374,7 @@ The fullstack app is now ready. Let's next wrap the app into a deployment unit.
 
 ### Docker Container and Heroku Deployment
 
-I considered to deploy the app to AWS but since I'm pretty stingy I didn't want to spend my personal money for that. Then I realized that I can use [Heroku Free Tier](https://www.heroku.com/free) to deploy the app to the cloud (at least for the time the Heroku free dyno hours run out, or the World Bank wants to start sponsoring the app :-) ).
+I considered deploying the app to AWS but since I'm pretty stingy I didn't want to spend my personal money on that. Then I realized that I can use [Heroku Free Tier](https://www.heroku.com/free) to deploy the app to the cloud (at least for the time the Heroku free dyno hours run out, or the World Bank wants to start sponsoring the app :-) ).
 
 First I needed to create a docker container. Instructions for creating and running the Docker container (basically just testing that it works, Heroku creates the image using the heroku cli, more about it later):
 
@@ -382,7 +382,7 @@ First I needed to create a docker container. Instructions for creating and runni
 - `docker build -f Dockerfile . -t worldstat:latest`
 - `docker run -e PORT=9999 -it -p9999:9999 worldstat:latest`
 
-The [Dockerfile](https://github.com/karimarttila/clojure/blob/master/statistics/worldstat/Dockerfile) is pretty minimimalistic. I just create a non-root user to run the app (Heroku requires this), I copy the app and the data to the image, and provide the entrypoint to the application: [run-app.sh](https://github.com/karimarttila/clojure/blob/master/statistics/worldstat/docker/run-app.sh). Notice the pretty harsh memory limits in the app (Heroku gives just max 512MB memory in the free tier).
+The [Dockerfile](https://github.com/karimarttila/clojure/blob/master/statistics/worldstat/Dockerfile) is pretty minimalistic. I just create a non-root user to run the app (Heroku requires this), I copy the app and the data to the image, and provide the entrypoint to the application: [run-app.sh](https://github.com/karimarttila/clojure/blob/master/statistics/worldstat/docker/run-app.sh). Notice the pretty harsh memory limits in the app (Heroku gives just max 512MB memory in the free tier).
 
 NOTE: The application is running in the Heroku free tier and Heroku removes the application if it is not used for a certain period of time - in this case just wait patiently a few seconds and you should see the app unless the dyno hours are completely spent.
 
