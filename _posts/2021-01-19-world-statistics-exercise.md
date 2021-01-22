@@ -2,18 +2,18 @@
 layout: post
 title: World Statistics Exercise
 category: [clojure]
-tags: [clojure, clojurescript, repl, graphics, vega, bulma, kixi,fullstack, re-frame, reagent, data, web, programming]
+tags: [clojure, clojurescript, repl, graphics, vega, bulma, kixi,full-stack, re-frame, reagent, data, web, programming]
 date: 2021-01-19
 ---
 
 
 ![World Statistics App](/img/2021-01-19-world-statistics-exercise_img_1.png)
 
-*World Statistics App.*
+*World Statistics App with the choropleth map using the Vega library.*
 
 ### Introduction
 
-After implementing my web-store exercise using six languages (Clojure, Python, Javascript, Java, Go, and Kotlin) and with 5 data stores (CSV, DynamoDB, Azure Tables, PostgreSQL, and Datomic, read more about in my blog posts, e.g. [Five Languages - Five Stories]({% post_url 2018-11-19-five-languages-five-stories %}) ) I was pretty much fed up with that exercise. I wanted to do something totally different. But what? I spent quite a lot of time figuring out what to do. I was dreaming to do something with [Finnish Open data](https://www.avoindata.fi/fi) that could benefit the general public. I was browsing the Finnish Open data but couldn't figure out anything useful that would contain a lot of data points. Then I decided to take a look at the [World Bank Open data](https://data.worldbank.org/). Just out of curiosity I downloaded various metrics between the years 2002-2017, some 150.000 data points altogether. Then I just started to experiment with the data using the Clojure REPL - a great tool for studying and experimenting with data. Little by little a new exercise was formed in my head: Implement a full-stack app using Clojure and ClojureScript to filter and enrich the data and visualize the data sets using a frontend. This blog post depicts the story of this exercise.
+After implementing my web-store exercise using six languages (Clojure, Python, Javascript, Java, Go, and Kotlin) and with 5 data stores (CSV, DynamoDB, Azure Tables, PostgreSQL, and Datomic, read more about in my blog posts, e.g. [Five Languages - Five Stories]({% post_url 2018-11-19-five-languages-five-stories %}) ) I was pretty much fed up with that exercise. I wanted to do something totally different. But what? I spent quite a lot of time figuring out what to do. I was dreaming to do something with [Finnish Open data](https://www.avoindata.fi/fi) that could benefit the general public. I was browsing the Finnish Open data but couldn't figure out anything useful that would contain a lot of data points. Then I decided to take a look at the [World Bank Open data](https://data.worldbank.org/). Just out of curiosity I downloaded various metrics between the years 2002-2017, some 150.000 data points altogether. Then I just started to experiment with the data using the Clojure REPL - a great tool for studying and experimenting with data. Little by little a new exercise was formed in my head: Implement a full stack app using Clojure and ClojureScript to filter and enrich the data and visualize the data sets using a frontend. This blog post depicts the story of this exercise.
 
 The application source can be found in my [Github clojure repo](https://github.com/karimarttila/clojure) in directory [statistics/worldstat](https://github.com/karimarttila/clojure/tree/master/statistics/worldstat). The application is live in [Heroku](https://km-worldstat.herokuapp.com/worldstat/index.html) (as long as the Heroku free tier dyno hours have not run out). NOTE: If there are still dyno hours and no-one has used the app for some time you may need to wait for a while for Heroku to start the app. Since the app is running in the free tier there might be other aspects as well that may impact using the app (max connections etc.)
 
@@ -191,9 +191,9 @@ I used [ClojureScript](https://clojurescript.org/), [Reagent](https://reagent-pr
 
 On the right side of the browser, you see the standard Chrome developer tools window. There you can examine the html structure, see console log, etc, nothing new for any frontend developer. 
 
-At the bottom is the Metosin [reagent-dev-tools](https://github.com/metosin/reagent-dev-tools). You can subscribe all re-frame application data there and browse the data. I also implemented a simple debug panel in which I show some most important application data that I used when implementing the frontend. Btw. I really recommend using the Metosin reagent-dev-tools. E.g. I'm in a customer project in which we are implementing a rather complex Clojure fullstack application and there is really complex business logic - we have various fixtures in the reagent-dev-tools which makes it a breeze to initialize the frontend and the whole application to a certain state in the middle of the business logic.
+At the bottom is the Metosin [reagent-dev-tools](https://github.com/metosin/reagent-dev-tools). You can subscribe all re-frame application data there and browse the data. I also implemented a simple debug panel in which I show some most important application data that I used when implementing the frontend. Btw. I really recommend using the Metosin reagent-dev-tools. E.g. I'm in a customer project in which we are implementing a rather complex Clojure full stack application and there is really complex business logic - we have various fixtures in the reagent-dev-tools which makes it a breeze to initialize the frontend and the whole application to a certain state in the middle of the business logic.
 
-All this tooling works really nicely. I'm an old backend programmer myself, but using these tools it was quite effortless to implement this fullstack application. You don't have to be a Javascript + React guru to implement a frontend like the one in this exercise.
+All this tooling works really nicely. I'm an old backend programmer myself, but using these tools it was quite effortless to implement this full stack application. You don't have to be a Javascript + React guru to implement a frontend like the one in this exercise.
 
 ### CSS - Bulma
 
@@ -245,7 +245,7 @@ So, basically, I just take the current value of the slider and store it in the r
 
 ### Frontend - Creating the Map
 
-For data visualization, I used [Vega Lite](https://vega.github.io/vega-lite/), and as a Clojure wrapper for Vega I used Metasoarous' [Oz](https://github.com/metasoarous/oz) library. The [world-110m.json](https://github.com/vega/vega/blob/master/packages/vega-loader/test/data/world-110m.json) world map is from Vega.
+For data visualization, I used [Vega Lite](https://vega.github.io/vega-lite/), and as a Clojure wrapper for Vega I used Metasoarous' [Oz](https://github.com/metasoarous/oz) library. The [world-110m.json](https://github.com/vega/vega/blob/master/packages/vega-loader/test/data/world-110m.json) world map is from Vega. This is basically a [choropleth map](https://en.wikipedia.org/wiki/Choropleth_map) - a map *in which a set of pre-defined areas is colored or patterned in proportion to a statistical variable* - in our case the countries regarding the chosen metric.
 
 I think I spent most of the time developing this application by tuning the world map. But it was really fun to experiment how to visualize data and with how to interact with the map. The result of this experiment can be seen in file [data.cljs](https://github.com/karimarttila/clojure/blob/master/statistics/worldstat/src/cljs/worldstat/frontend/data.cljs), I highlight here the most important part of the map configuration:
 
@@ -370,7 +370,7 @@ Basically, the only navigation is provided when the user clicks a country - we s
 
 So, here we just get the `country-code` from the uri, find the matching `country-name` for it and store them into the re-frame database for further use.
 
-The fullstack app is now ready. Let's next wrap the app into a deployment unit.
+The full stack app is now ready. Let's next wrap the app into a deployment unit.
 
 ### Docker Container and Heroku Deployment
 
@@ -400,7 +400,7 @@ I then changed the application name to some more descriptive: [km-worldstat](htt
 
 ### Conclusions
 
-This exercise was really interesting. I learned quite a lot how to experiment data using REPL in the backend. I also learned quite a lot how to create nice visualizations using the Vega library. I also learned that using Clojure and Clojurescript you can create quite powerful fullstack applications without the need being a Javascript / React guru.
+This exercise was really interesting. I learned quite a lot how to experiment data using REPL in the backend. I also learned quite a lot how to create nice visualizations using the Vega library. I also learned that using Clojure and Clojurescript you can create quite powerful full stack applications without the need being a Javascript / React guru.
 
 *The writer is working at Metosin using Clojure in cloud projects. If you are interested in starting a Clojure project or getting Clojure training in Finland you can contact me by sending an email to my Metosin email address or contact me via LinkedIn.*
 
