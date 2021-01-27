@@ -400,7 +400,7 @@ I then changed the application name to some more descriptive: [km-worldstat](htt
 
 ### Conclusions
 
-This exercise was really interesting. I learned quite a lot how to experiment data using REPL in the backend. I also learned quite a lot how to create nice visualizations using the Vega library. I also learned that using Clojure and Clojurescript you can create quite powerful full stack applications without the need being a Javascript / React guru.
+This exercise was really interesting. I learned quite a lot how to experiment data using REPL in the backend. I also learned quite a lot how to create nice visualizations using the Vega library. I also learned that using Clojure and Clojurescript you can create quite powerful full stack applications without the need to be a Javascript / React guru.
 
 *The writer is working at Metosin using Clojure in cloud projects. If you are interested in starting a Clojure project or getting Clojure training in Finland you can contact me by sending an email to my Metosin email address or contact me via LinkedIn.*
 
