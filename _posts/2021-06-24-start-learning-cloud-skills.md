@@ -3,7 +3,7 @@ layout: post
 title: Start Learning Cloud Skills!
 category: [cloud, aws, azure, gcp, iac]
 tags: [clojure, cursive, emacs, programming]
-date: 2021-01-27
+date: 2021-06-24
 ---
 
 ![A screenshot of one of my personal cloud projects](/img/2020-04-10-cloud-infrastructure-golden-rules_img_1.png)
