@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Start Learning Cloud Skills!
-category: [cloud, aws, azure, gcp, iac]
-tags: [clojure, cursive, emacs, programming]
+category: [cloud]
+tags: [cloud, aws, azure, gcp, iac]
 date: 2021-06-24
 ---
 
