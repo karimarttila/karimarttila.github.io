@@ -40,11 +40,11 @@ No, you don't. You can learn everything you need to know about public clouds wit
 
 ### How to Start Learning Cloud Skills?
 
-Everyone has his or her own learning methods. Mostly just follow your common sense and start learning the basics whatever methods suites you. There are a lot of material on the Internet. I have liked a lot about the courses in Pluralsight and in Coursera and do the Qwiklabs or other labs related to those courses. I have also attended some traditional courses related to some specifics like Security on AWS.
+Everyone has his or her own learning methods. Mostly just follow your common sense and start learning the basics whatever methods suites you. There are a lot of material on the Internet. I have liked a lot about the courses in [Pluralsight](https://www.pluralsight.com/) and in [Coursera](https://www.coursera.org/) and do the [Qwiklabs](https://www.qwiklabs.com/) or other labs related to those courses. I have also attended some traditional courses related to some specifics like Security on AWS.
 
 If you know nothing of public clouds, just choose one of the "Big Three" - i.e. AWS, Azure, or GCP. It is not that important which one you choose - they are all good public clouds. Once you master the basics in that cloud it is easier to learn the basics regarding the other two clouds as well.
 
-Your next step is to get **a cloud account** - you cannot learn cloud skills just by reading books - you absolutely need a cloud account. All Big Three clouds provide "free tier services" or a certain amount of free credits if you order a personal account (at least they used to do that when I learned the basics - nowadays I mostly use my company's cloud accounts for my personal projects as well and let the capitalists pay my learning bills).
+Your next step is to get **a cloud account** - you cannot learn cloud skills just by reading books - you absolutely need a cloud account. All Big Three clouds provide "free tier services" or a certain amount of free credits if you order a personal account (at least they used to do that when I learned the basics - nowadays I mostly use my company's cloud accounts for my personal projects as well and let the capitalist pay my learning bills).
 
 I worked in my previous corporation as a Cloud Mentor. One of my duties was to teach cloud skills to our developers. I always emphasized that there are three things you need to learn:
 
@@ -52,12 +52,12 @@ I worked in my previous corporation as a Cloud Mentor. One of my duties was to t
 2. How to use the **cloud provider's portal** efficiently.
 3. How to create **infrastructure as code**.
 
-You can learn the basic concepts and services, and how to use the cloud provider's portal following various video courses eg. in Pluralsight or Coursera, and do the labs in dedicated sites (like Qwiklabs) or using your personal cloud account (or do like I do: use your company's cloud account (with permission, of course) and let the capitalist pay your learning bills). But what those courses don't teach that much is how to create infrastructure as code (IaC) using eg. Terraform or Pulumi or cloud provider's native IaC tool like CloudFormation, ARM, or Deployment Manager. It is utterly important to learn how to create infrastructure as code since in real projects that is how the cloud solution is done professionally (and not by clicking resources with a mouse in the cloud portal).
+You can learn the basic concepts and services, and how to use the cloud provider's portal following various video courses eg. in [Pluralsight](https://www.pluralsight.com/) or [Coursera](https://www.coursera.org/), and do the labs in dedicated sites (like [Qwiklabs](https://www.qwiklabs.com/)) or using your personal cloud account (or do like I do: use your company's cloud account (with permission, of course) and let the capitalist pay your learning bills). But what those courses don't teach that much is how to create infrastructure as code (IaC) using eg. Terraform or Pulumi or cloud provider's native IaC tool like CloudFormation, ARM, or Deployment Manager. It is utterly important to learn how to create infrastructure as code since in real projects that is how the cloud solution is done professionally (and not by clicking resources with a mouse in the cloud portal).
 
 So, what are you waiting for? Start learning cloud skills! (And once you think you are an expert, read: [Cloud Infrastructure Golden Rules](https://www.karimarttila.fi/iac/2020/04/10/cloud-infrastructure-golden-rules.html) - my personal manifest how to create cloud infrastructures.)
 
 
-*The writer is working at Metosin using Clojure in cloud projects. If you are interested to start a Clojure project in Finland or you are interested to get Clojure training in Finland you can contact me by sending email to my Metosin email address or contact me via LinkedIn.*
+*The writer is working at Metosin using Clojure in cloud projects. If you are interested to start a cloud or Clojure project in Finland or you are interested to get cloud or Clojure training in Finland you can contact me by sending email to my Metosin email address or contact me via LinkedIn.*
 
 Kari Marttila
 
